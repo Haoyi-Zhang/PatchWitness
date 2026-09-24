@@ -1,0 +1,16 @@
+{
+  "accepted_certificates": 10,
+  "candidate_hash": "89777782bf453e629e56c1e7d55d336c40b1725e4ca67bfe8cbeafb8338c09a9",
+  "candidate_units": 32,
+  "child_processes": 0,
+  "cpu_seconds": 0.003936366,
+  "exit_status": 0,
+  "frontend_derived_cases": 10,
+  "peak_rss_kib": 97584,
+  "phase": "prediction-freeze",
+  "protocol_hash": "83ce06657e0204cb38699d76165d8707e8f0cf5d34b1cd70d37ab10f4c1c4348",
+  "schema": "rbw-freeze-summary-v2",
+  "wall_seconds": 0.004838473,
+  "witness_case_hash": "89e873dbee10353934e42c9af5025a2eb46aa754acb4089b947d7a12929dda4a",
+  "workers": 1
+}

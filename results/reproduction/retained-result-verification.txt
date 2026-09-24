@@ -1,0 +1,46 @@
+{
+  "campaign": {
+    "remaining": 10,
+    "total": 249990
+  },
+  "closure": {
+    "grouping_configurations": 19683,
+    "obligations": 19834,
+    "paired_labelings": 64
+  },
+  "finite": {
+    "assignments": 3712,
+    "cases": 25,
+    "certificates_replayed": 13
+  },
+  "frontend": {
+    "candidate_units": 32,
+    "mismatches": 0,
+    "recognized_cases": 10,
+    "semantic_obligations": 900
+  },
+  "pilot": {
+    "assignments": 64,
+    "cases": 1
+  },
+  "public": {
+    "certificates_replayed": 10,
+    "syntax_p20": 0.7,
+    "units": 32,
+    "unvalidated_p20": 0.75,
+    "validated_p20": 0.7
+  },
+  "references": {
+    "abstract": 33,
+    "calibrated_full_papers": 22,
+    "full-text": 22,
+    "metadata-only": 6
+  },
+  "reproduction": {
+    "closure_obligations": 19834,
+    "frontend_obligations": 900,
+    "tests": 42
+  },
+  "schema": "rbw-retained-result-verification-v1",
+  "status": "pass"
+}

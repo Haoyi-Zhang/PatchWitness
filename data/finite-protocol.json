@@ -1,0 +1,54 @@
+{
+  "scope": "Owned finite IR validation only; no public-patch empirical preregistration",
+  "event_order": "Fixed after the mixed-change pilot and before full finite validation",
+  "families": [
+    "saturating-step",
+    "identical",
+    "modular-commutation",
+    "guarded-index",
+    "reverse-guard",
+    "mixed-change",
+    "dead-branch",
+    "incomplete-guard"
+  ],
+  "widths_for_all_families": [
+    2,
+    3,
+    4
+  ],
+  "additional_cases": [
+    {
+      "family": "mixed-change",
+      "width": 5
+    }
+  ],
+  "case_count": 25,
+  "assignment_count": 3712,
+  "reference": "Direct mathematical fault-set formulas independent of AST traversal",
+  "pass_conditions": [
+    "Zero producer/checker trace or outcome disagreements",
+    "Zero disagreements with direct fault-set formulas",
+    "Accepted certificate exists exactly when finite repair set is nonempty",
+    "All declared unit tests succeed"
+  ],
+  "negative_controls": [
+    "identical",
+    "modular-commutation",
+    "reverse-guard",
+    "dead-branch"
+  ],
+  "deliberately_mixed_control": "mixed-change admits a repair witness and a regression",
+  "resources": {
+    "workers": 1,
+    "child_processes": 0,
+    "per_run_cpu_seconds": 30,
+    "per_run_wall_alarm_seconds": 40,
+    "per_run_address_space_mib": 512,
+    "per_run_obligations": 110000,
+    "campaign_obligation_ceiling": 250000
+  },
+  "clean_reproduction_reserved_runs": 1,
+  "public_test_labels_opened": false,
+  "public_study_hypotheses_tested": false,
+  "comparison_independence": "Separate implementations in one authorship workflow; not independent authors or reviewers"
+}

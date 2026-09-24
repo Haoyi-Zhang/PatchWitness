@@ -1,0 +1,32 @@
+[
+  {
+    "delta_from_syntax": 0.0,
+    "precision_at_20": 0.7,
+    "top20_symmetric_difference_size": 0,
+    "witness_bonus": 0.0
+  },
+  {
+    "delta_from_syntax": 0.0,
+    "precision_at_20": 0.7,
+    "top20_symmetric_difference_size": 0,
+    "witness_bonus": 1.0
+  },
+  {
+    "delta_from_syntax": 0.0,
+    "precision_at_20": 0.7,
+    "top20_symmetric_difference_size": 0,
+    "witness_bonus": 2.0
+  },
+  {
+    "delta_from_syntax": 0.0,
+    "precision_at_20": 0.7,
+    "top20_symmetric_difference_size": 0,
+    "witness_bonus": 4.0
+  },
+  {
+    "delta_from_syntax": 0.0,
+    "precision_at_20": 0.7,
+    "top20_symmetric_difference_size": 0,
+    "witness_bonus": 8.0
+  }
+]

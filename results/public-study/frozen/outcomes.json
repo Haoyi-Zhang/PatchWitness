@@ -1,0 +1,194 @@
+[
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U001"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U002"
+  },
+  {
+    "accepted": 1,
+    "case": "W01",
+    "reason": "accepted",
+    "record": "U003"
+  },
+  {
+    "accepted": 1,
+    "case": "W02",
+    "reason": "accepted",
+    "record": "U004"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U005"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U006"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U007"
+  },
+  {
+    "accepted": 1,
+    "case": "W03",
+    "reason": "accepted",
+    "record": "U008"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U009"
+  },
+  {
+    "accepted": 1,
+    "case": "W04",
+    "reason": "accepted",
+    "record": "U010"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unvalidated-only",
+    "record": "U011"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U012"
+  },
+  {
+    "accepted": 1,
+    "case": "W05",
+    "reason": "accepted",
+    "record": "U013"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U014"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U015"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U016"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U017"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unvalidated-only",
+    "record": "U018"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U019"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U020"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unvalidated-only",
+    "record": "U021"
+  },
+  {
+    "accepted": 1,
+    "case": "W06",
+    "reason": "accepted",
+    "record": "U022"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U023"
+  },
+  {
+    "accepted": 1,
+    "case": "W07",
+    "reason": "accepted",
+    "record": "U024"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U025"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U026"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U027"
+  },
+  {
+    "accepted": 1,
+    "case": "W08",
+    "reason": "accepted",
+    "record": "U028"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U029"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "unsupported",
+    "record": "U030"
+  },
+  {
+    "accepted": 1,
+    "case": "W09",
+    "reason": "accepted",
+    "record": "U031"
+  },
+  {
+    "accepted": 1,
+    "case": "W10",
+    "reason": "accepted",
+    "record": "U032"
+  }
+]

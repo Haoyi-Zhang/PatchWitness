@@ -1,0 +1,294 @@
+{
+  "identity_assignment": "sort ascending by sha256(commit + NUL + filename), then assign U001..U032; no label or source-list class is an input",
+  "records": [
+    {
+      "commit": "835ac7291dd62277e27d1a66e241608b98790bb3",
+      "filename": "tensorflow/python/keras/engine/network.py",
+      "group": "835ac7291dd62277e27d1a66e241608b98790bb3",
+      "id": "U001",
+      "identity_digest": "0017e02b2e00915c2b1e589b2dd5c75269f85d359f0992714880e574dac56701",
+      "message": "Internal change",
+      "patch_excerpt": "Refactor save format validation and emit ValueError for mismatched HDF5 paths"
+    },
+    {
+      "commit": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
+      "filename": "gradient_checker_v2.py",
+      "group": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
+      "id": "U002",
+      "identity_digest": "085af01f4abd034b5bbeeba234ed10cb7461b685769429ea287738e1b5a0fcc9",
+      "message": "Set shapes of placeholders used in tf.compat.v2.test.compute_gradient",
+      "patch_excerpt": "Pass static shapes into placeholder construction and reformat gradient checker code"
+    },
+    {
+      "commit": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "filename": "common_shape_fns.cc",
+      "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "id": "U003",
+      "identity_digest": "0b87588ba05e4d645f9244a368bfc2d1a90bf12231347337c21875d4e651dc93",
+      "message": "Fix segfault in ConcatV2 shape function",
+      "patch_excerpt": "- const int min_rank = concat_dim < 0 ? -concat_dim : concat_dim + 1; + const int64 min_rank = concat_dim < 0 ? -concat_dim : concat_dim + 1;"
+    },
+    {
+      "commit": "f68fdab93fb7f4ddb4eb438c8fe052753c9413e8",
+      "filename": "string_ngrams_op.cc",
+      "group": "f68fdab93fb7f4ddb4eb438c8fe052753c9413e8",
+      "id": "U004",
+      "identity_digest": "1f91828683ff4fef0b70304ccaad1e5a5db92134248b2a365fc6c567e662c492",
+      "message": "Add a check for pad width to be a positive value",
+      "patch_excerpt": "+ OP_REQUIRES(context, pad_width_ >= 0, errors::InvalidArgument(\"Pad width should be >= 0\")); int ngram_width = data_length + 2 * pad_width_;"
+    },
+    {
+      "commit": "716fea7be71d03ba486dde6c1adba245d18e805f",
+      "filename": "losses_impl.py",
+      "group": "716fea7be71d03ba486dde6c1adba245d18e805f",
+      "id": "U005",
+      "identity_digest": "21c7ec14209be20c67aaf078b7ca00b515f3c913a6ccdefec5ac69d2adab55b4",
+      "message": "Update tf.to_float to tf.cast dtype float32 in losses_impl",
+      "patch_excerpt": "Replace deprecated to_float calls with explicit cast calls"
+    },
+    {
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "filename": "op_level_cost_estimator_test.cc",
+      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "id": "U006",
+      "identity_digest": "2621132e4d14fd4f1a54ba72a28608561ee056ee09bed93fb93ff4c54a0b4783",
+      "message": "Internal change; add invalid stride tests",
+      "patch_excerpt": "+ TEST_F(OpLevelCostEstimatorTest, OpDimensionsFromInputsError) { CallOpDimensionsFromInputs(..., sx=0, sy=2); CallOpDimensionsFromInputs(..., sx=2, sy=0); }"
+    },
+    {
+      "commit": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "filename": "concat_op_test.py",
+      "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "id": "U007",
+      "identity_digest": "27efc13e797154fa0853f6494bff7e39b0b9d7630d24cf002cfd646e52754e86",
+      "message": "Fix segfault in ConcatV2 shape function; add invalid axis test",
+      "patch_excerpt": "+ def testConcatInvalidAxisInTfFunction(self): axis=0xb500005b; with self.assertRaises(ValueError)"
+    },
+    {
+      "commit": "e3749a6d5d1e8d11806d4a2e9cc3123d1a90b75e",
+      "filename": "threadpool_dataset_op.cc",
+      "group": "e3749a6d5d1e8d11806d4a2e9cc3123d1a90b75e",
+      "id": "U008",
+      "identity_digest": "2ac1cbd000d855591c40dad45e204d2eadcc2da6c6774decfb90f8a65706e110",
+      "message": "Set a limit on the number of threads used in threadpool dataset",
+      "patch_excerpt": "+ if (num_threads < 0) { return errors::InvalidArgument(\"num_threads must be >= 0\"); } + if (num_threads >= kThreadLimit) { return errors::InvalidArgument(\"num_threads must be <\", kThreadLimit); }"
+    },
+    {
+      "commit": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
+      "filename": "simple_placer.cc",
+      "group": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
+      "id": "U009",
+      "identity_digest": "2bc06a5d4837cd9402ab5d74574117a807f7c6b07c4fcac0db0ac745b5f77074",
+      "message": "Add type info described in issue 5236",
+      "patch_excerpt": "Add node type string to placement printf and INFO log"
+    },
+    {
+      "commit": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "filename": "array_ops.cc",
+      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "id": "U010",
+      "identity_digest": "35322d85f31c842ce860e5c828c5906dfe5feb4e8c6dbaf8be45056c31088f94",
+      "message": "Fix integer overflow in Dequantize shape function by adding axis bound checks",
+      "patch_excerpt": "+ auto input_dims = c->Rank(c->input(0)); + if (axis > input_dims) { return errors::InvalidArgument(\"Axis must be less than input dimension\"); } + if (axis >= kint32max) { return errors::InvalidArgument(\"Axis cannot be >= kint32max\"); }"
+    },
+    {
+      "commit": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "filename": "array_ops_test.py",
+      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "id": "U011",
+      "identity_digest": "367643d322ab1b5de83208ec9b9142ab13bf29ac0082d6601ec76f12e31b478e",
+      "message": "Fix integer overflow in Dequantize shape function; add out-of-bound axis test",
+      "patch_excerpt": "+ def testOutOfBoundAxis(self): ... axis=2**31 - 1 ... assertRaisesRegex(InvalidArgumentError, Axis must be less than input dimension)"
+    },
+    {
+      "commit": "898c7319013fede56e08370f6aa9998aaad9df35",
+      "filename": "compat.py",
+      "group": "898c7319013fede56e08370f6aa9998aaad9df35",
+      "id": "U012",
+      "identity_digest": "4150dc36711f0d778d0245c643fcc7ebce2869de6584920405015ffbe48310a8",
+      "message": "Update forward compatibility horizon to 2021-02-25",
+      "patch_excerpt": "Advance the forward compatibility date by one day"
+    },
+    {
+      "commit": "002408c3696b173863228223d535f9de72a101a9",
+      "filename": "fractional_avg_pool_op.cc",
+      "group": "002408c3696b173863228223d535f9de72a101a9",
+      "id": "U013",
+      "identity_digest": "4a20ee789442f9186894d96467b6a62c72c98ce9123cbcb3f45153f58388483f",
+      "message": "Add negative bound checks to avoid out of bound heap access in FractionalAvgPoolGrad",
+      "patch_excerpt": "+ OP_REQUIRES(context, in_row_start >= 0 && in_row_end >= 0, errors::InvalidArgument(\"Row sequence tensor values must not be negative\")); + OP_REQUIRES(context, in_col_start >= 0 && in_col_end >= 0, errors::InvalidArgument(\"Column sequence tensor values must not be negative\"));"
+    },
+    {
+      "commit": "8f457cef03c03dbd646824739f152d103c4239e8",
+      "filename": "saved_model_aot_compile.py",
+      "group": "8f457cef03c03dbd646824739f152d103c4239e8",
+      "id": "U014",
+      "identity_digest": "5a852a6566df633a20519b635ab05ea1f11c3e82bee7b877b060a76a96264037",
+      "message": "Add None check to restorer",
+      "patch_excerpt": "Guard restorer.restore with a restorer is not None test"
+    },
+    {
+      "commit": "cebfa65df5451af59f88115d509b4a7830d34d26",
+      "filename": "tensorflow/lite/build_def.bzl",
+      "group": "cebfa65df5451af59f88115d509b4a7830d34d26",
+      "id": "U015",
+      "identity_digest": "6118e6c1b084a5da0f63749a93a200ccc9d22845de6b80bfcb6cd3965d81afc6",
+      "message": "Enable the MLIR quantizer for all zip tests",
+      "patch_excerpt": "Add mlir-quant conversion mode and remove a test skip"
+    },
+    {
+      "commit": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
+      "filename": "gather_functor.h",
+      "group": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
+      "id": "U016",
+      "identity_digest": "6a747825fd486ac388bb26317d850a7d3a0c194abbfa4737973f9fcf68a4cde9",
+      "message": "Fix HandleCopies so empty TensorMaps do not invoke undefined behavior",
+      "patch_excerpt": "Use TensorMap data pointers instead of indexing element zero"
+    },
+    {
+      "commit": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
+      "filename": "session_test.py",
+      "group": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
+      "id": "U017",
+      "identity_digest": "6ac9253fc537fd4b9c5e6c4280377d143d2a3765de8e1f1ae7d654960aa264eb",
+      "message": "Internal change",
+      "patch_excerpt": "Remove eager-op decorator and simplify AddV2 log filtering in a session test"
+    },
+    {
+      "commit": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "filename": "array_ops_test.py",
+      "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "id": "U018",
+      "identity_digest": "6ae2a2737d1b0f67ff4bf0971209016929d07117c98e4cbbd03610a0aa6a8c79",
+      "message": "Fix integer overflow leading to divide by zero; add overflow test",
+      "patch_excerpt": "+ def testUnravelIndexIntegerOverflow(self): dims=[value,value]; assertRaisesRegex(InvalidArgumentError, product is causing integer overflow)"
+    },
+    {
+      "commit": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
+      "filename": "debug_data_test.py",
+      "group": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
+      "id": "U019",
+      "identity_digest": "7d7fe34ac701d73b30886d883ae27ac7b236aa496fde3129c7a27f5a8ceaeff0",
+      "message": "Use tempfile.mkdtemp instead of deprecated tempfile.mktemp to create directories",
+      "patch_excerpt": "Replace tempfile.mktemp plus os.mkdir with tempfile.mkdtemp in debug-data tests"
+    },
+    {
+      "commit": "c654965d9336981338e39e5eb1bb9632293b571b",
+      "filename": "tensorflow/compiler/mlir/lite/metrics/BUILD",
+      "group": "c654965d9336981338e39e5eb1bb9632293b571b",
+      "id": "U020",
+      "identity_digest": "84b2e9cd2f7e455a2b7ab12ee1e01d927ff3486f5c0541676745b7efe1d6334c",
+      "message": "Report errors collected from MLIR converter",
+      "patch_excerpt": "+ //tensorflow/compiler/mlir/lite/metrics:error_collector added to BUILD dependencies"
+    },
+    {
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "filename": "op_level_cost_estimator.h",
+      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "id": "U021",
+      "identity_digest": "960320c0d9dcb2a0a05f6142eae8293812b56f2e85ee99daba86fe602f73168e",
+      "message": "Internal change; change convolution-dimension helper to return StatusOr",
+      "patch_excerpt": "- static ConvolutionDimensions OpDimensionsFromInputs(...); + static StatusOr<ConvolutionDimensions> OpDimensionsFromInputs(...);"
+    },
+    {
+      "commit": "37c01fb5e25c3d80213060460196406c43d31995",
+      "filename": "array_ops.cc",
+      "group": "37c01fb5e25c3d80213060460196406c43d31995",
+      "id": "U022",
+      "identity_digest": "983e4820bc1e06d70af221cf2a9d731aefeabeed12b47648766f4e7c9ca93885",
+      "message": "Fix out of bound error in ReverseSequence shape function",
+      "patch_excerpt": "+ if (batch_dim < 0) { return errors::InvalidArgument(\"batch_dim must be >=0\", batch_dim); } DimensionHandle batch_dim_dim = c->Dim(input, batch_dim);"
+    },
+    {
+      "commit": "002408c3696b173863228223d535f9de72a101a9",
+      "filename": "fractional_avg_pool_op_test.py",
+      "group": "002408c3696b173863228223d535f9de72a101a9",
+      "id": "U023",
+      "identity_digest": "a3deec22e9a3ea0fe5fbf954f127ed923e6bb38b8ac1ded2584c9baeb64506ee",
+      "message": "Add negative bound tests for pooling sequence",
+      "patch_excerpt": "+ def testNegativeSeqValuesForGradOp(self): row_pooling_sequence=[-10,1,2,3]; col_pooling_sequence=[1,2,-3,4]"
+    },
+    {
+      "commit": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
+      "filename": "dequantize_op.cc",
+      "group": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
+      "id": "U024",
+      "identity_digest": "b767be0135882ee55469fff2e5d7f50bedfbeb203a99376e70295df639f77420",
+      "message": "Fix out of bound access in DequantizeOp by adding check for axis less than input dimension",
+      "patch_excerpt": "+ OP_REQUIRES(ctx, axis_ < input.dims(), errors::InvalidArgument(\"Axis must be less than input dimension\")); int num_slices = 1; if (axis_ > -1) { num_slices = input.dim_size(axis_); }"
+    },
+    {
+      "commit": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
+      "filename": "tensorflow/c/eager/c_api_remote_test.cc",
+      "group": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
+      "id": "U025",
+      "identity_digest": "c9282f5cee7d52fe5d4d2f986ebc952abaf52ac59af5faf21e80dc690d6663f8",
+      "message": "Do not call Unprotect on remote inputs",
+      "patch_excerpt": "Add remote execute function tests and branch between function and MatMul operation construction"
+    },
+    {
+      "commit": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
+      "filename": "mirrored_strategy.py",
+      "group": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
+      "id": "U026",
+      "identity_digest": "d1f3a3cf31ff0e949429918bd3fcfadce83f37172f74abd98b29866548003801",
+      "message": "pylint whitespace changes",
+      "patch_excerpt": "Indent dictionary comprehensions to satisfy pylint"
+    },
+    {
+      "commit": "72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
+      "filename": "tpu_client.cc",
+      "group": "72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
+      "id": "U027",
+      "identity_digest": "d476a17c8a86a95e3a7dede4650bb04c110f32adee9595adda0cb1d996b02ee1",
+      "message": "Add missing namespace to fix OS build",
+      "patch_excerpt": "Qualify down_cast as tensorflow::down_cast"
+    },
+    {
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "filename": "op_level_cost_estimator.cc",
+      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "id": "U028",
+      "identity_digest": "dd885f9ec4f792dae02c808b727d58ea29afdb62e90989e82967c064927fbafa",
+      "message": "Internal change; add stride validation before convolution dimension arithmetic",
+      "patch_excerpt": "int64_t sx = strides[x_index]; int64_t sy = strides[y_index]; + if (sx == 0 || sy == 0) { return errors::InvalidArgument(\"Stride must be > 0\"); } int64_t ox = GetOutputSize(ix, kx, sx, padding);"
+    },
+    {
+      "commit": "880d16bc8fcf8160037abc05c2585baed6a35cd5",
+      "filename": "guarantee_all_funcs_one_use.cc",
+      "group": "880d16bc8fcf8160037abc05c2585baed6a35cd5",
+      "id": "U029",
+      "identity_digest": "e0aa714ae31273a1970e903056e8d1fc79f4f7a0347ba792a4691496264c2eda",
+      "message": "Change max clones to a simple heuristic based on original number of functions",
+      "patch_excerpt": "Replace 4 * number_of_functions with const int kMaxClones = 10000"
+    },
+    {
+      "commit": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
+      "filename": "executable_run_options.h",
+      "group": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
+      "id": "U030",
+      "identity_digest": "e53a5736fdab24903c1ad016a19ff8b37432f6d32e2297430641afd0aad2a15b",
+      "message": "Add a launch id field in run options and HLO module config",
+      "patch_excerpt": "Add launch_id getter, setter and field"
+    },
+    {
+      "commit": "f57315566d7094f322b784947093406c2aea0d7d",
+      "filename": "map_stage_op.cc",
+      "group": "f57315566d7094f322b784947093406c2aea0d7d",
+      "id": "U031",
+      "identity_digest": "e5a9babdfd2ade838029a215c347da27241f54adf92e818fe25f8d4c057f97ce",
+      "message": "Add a check for key being scalar for MapStage and OrderedMapStage",
+      "patch_excerpt": "+ OP_REQUIRES(ctx, key_tensor->NumElements() == 1, errors::InvalidArgument(\"key must be an int64 scalar\")); Tensor key(*key_tensor);"
+    },
+    {
+      "commit": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "filename": "unravel_index_op.cc",
+      "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "id": "U032",
+      "identity_digest": "f1e68420007792552107ecaa58f5c17c53e843ab7b803164682c0b8e5d568d15",
+      "message": "Fix integer overflow leading to divide by zero in UnravelIndex",
+      "patch_excerpt": "+ OP_REQUIRES(ctx, dims(i) > 0, errors::InvalidArgument(\"Input dims cannot be negative\")); + OP_REQUIRES(ctx, prod <= limit / dims(i), errors::InvalidArgument(\"Input dims product is causing integer overflow\")); prod = prod * dims(i);"
+    }
+  ],
+  "schema": "rbw-public-candidates-v5"
+}

@@ -1,0 +1,455 @@
+[
+  {
+    "assignment": {
+      "concat_dim": -2147483648
+    },
+    "case": "W01",
+    "new_result": 2147483648,
+    "old_result": "overflow",
+    "record": "U003",
+    "source_tokens": [
+      "const int min_rank",
+      "const int64 min_rank"
+    ]
+  },
+  {
+    "assignment": {
+      "pad_width": -5
+    },
+    "case": "W02",
+    "condition": false,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": -5
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "ge",
+        "value": false
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": -5
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "ge",
+        "value": false
+      },
+      {
+        "node": "not",
+        "value": true
+      }
+    ],
+    "record": "U004",
+    "source_tokens": [
+      "pad_width_ >= 0"
+    ]
+  },
+  {
+    "assignment": {
+      "num_threads": -1
+    },
+    "case": "W03",
+    "condition": true,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": -1
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "lt",
+        "value": true
+      },
+      {
+        "node": "or",
+        "value": true
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": -1
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "lt",
+        "value": true
+      },
+      {
+        "node": "or",
+        "value": true
+      }
+    ],
+    "record": "U008",
+    "source_tokens": [
+      "num_threads < 0",
+      "num_threads >= kThreadLimit"
+    ]
+  },
+  {
+    "assignment": {
+      "axis": 1,
+      "input_dims": 0
+    },
+    "case": "W04",
+    "condition": true,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": 1
+      },
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "gt",
+        "value": true
+      },
+      {
+        "node": "or",
+        "value": true
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": 1
+      },
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "gt",
+        "value": true
+      },
+      {
+        "node": "or",
+        "value": true
+      }
+    ],
+    "record": "U010",
+    "source_tokens": [
+      "axis > input_dims",
+      "axis >= kint32max"
+    ]
+  },
+  {
+    "assignment": {
+      "in_col_end": 0,
+      "in_col_start": -1,
+      "in_row_end": 0,
+      "in_row_start": -1
+    },
+    "case": "W05",
+    "condition": false,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": -1
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "ge",
+        "value": false
+      },
+      {
+        "node": "and",
+        "value": false
+      },
+      {
+        "node": "and",
+        "value": false
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": -1
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "ge",
+        "value": false
+      },
+      {
+        "node": "and",
+        "value": false
+      },
+      {
+        "node": "and",
+        "value": false
+      },
+      {
+        "node": "not",
+        "value": true
+      }
+    ],
+    "record": "U013",
+    "source_tokens": [
+      "in_row_start >= 0 && in_row_end >= 0",
+      "in_col_start >= 0 && in_col_end >= 0"
+    ]
+  },
+  {
+    "assignment": {
+      "batch_dim": -1
+    },
+    "case": "W06",
+    "condition": true,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": -1
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "lt",
+        "value": true
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": -1
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "lt",
+        "value": true
+      }
+    ],
+    "record": "U022",
+    "source_tokens": [
+      "batch_dim < 0"
+    ]
+  },
+  {
+    "assignment": {
+      "axis": 0,
+      "dims": 0
+    },
+    "case": "W07",
+    "condition": false,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "lt",
+        "value": false
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "lt",
+        "value": false
+      },
+      {
+        "node": "not",
+        "value": true
+      }
+    ],
+    "record": "U024",
+    "source_tokens": [
+      "axis_ < input.dims()"
+    ]
+  },
+  {
+    "assignment": {
+      "sx": 0,
+      "sy": 0
+    },
+    "case": "W08",
+    "condition": true,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "eq",
+        "value": true
+      },
+      {
+        "node": "or",
+        "value": true
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "eq",
+        "value": true
+      },
+      {
+        "node": "or",
+        "value": true
+      }
+    ],
+    "record": "U028",
+    "source_tokens": [
+      "sx == 0 || sy == 0"
+    ]
+  },
+  {
+    "assignment": {
+      "num_elements": 0
+    },
+    "case": "W09",
+    "condition": false,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "const",
+        "value": 1
+      },
+      {
+        "node": "eq",
+        "value": false
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "const",
+        "value": 1
+      },
+      {
+        "node": "eq",
+        "value": false
+      },
+      {
+        "node": "not",
+        "value": true
+      }
+    ],
+    "record": "U031",
+    "source_tokens": [
+      "key_tensor->NumElements() == 1"
+    ]
+  },
+  {
+    "assignment": {
+      "dim": 0,
+      "limit": 2147483647,
+      "prod": 1
+    },
+    "case": "W10",
+    "condition": false,
+    "condition_trace": [
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "gt",
+        "value": false
+      },
+      {
+        "node": "and",
+        "value": false
+      }
+    ],
+    "hazard": true,
+    "hazard_trace": [
+      {
+        "node": "var",
+        "value": 0
+      },
+      {
+        "node": "const",
+        "value": 0
+      },
+      {
+        "node": "gt",
+        "value": false
+      },
+      {
+        "node": "and",
+        "value": false
+      },
+      {
+        "node": "not",
+        "value": true
+      }
+    ],
+    "record": "U032",
+    "source_tokens": [
+      "dims(i) > 0",
+      "prod <= limit / dims(i)"
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "closure": {
+    "exit_status": 0,
+    "mismatches": 0,
+    "obligations": 19834
+  },
+  "frontend": {
+    "candidate_units": 32,
+    "exit_status": 0,
+    "mismatches": 0,
+    "recognized_cases": 10,
+    "semantic_obligations": 900
+  },
+  "full_finite_sweep": "retained-and-consistency-checked-not-rerun",
+  "pilot": {
+    "assignments": 64,
+    "exit_status": 0,
+    "obligations": 1552,
+    "regression": 8,
+    "repair": 8
+  },
+  "public": {
+    "candidate_units": 32,
+    "child_processes": 2,
+    "exit_status": 0,
+    "failed_readiness_gates": [
+      "candidate_selection_independent_of_labels",
+      "complete_repository_time_window",
+      "labels_sealed_before_method_development",
+      "strongest_published_same_budget_baseline",
+      "temporal_holdout"
+    ],
+    "main_study_readiness": "failed",
+    "obligations": 4256
+  },
+  "schema": "rbw-clean-reproduction-v2",
+  "status": "pass",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "run": 42
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "accepted_positive_commit_groups": 10,
+  "accepted_positive_units": 10,
+  "accepted_source_witnesses": 10,
+  "bonus_ablations": [
+    {
+      "delta_from_syntax": 0.0,
+      "precision_at_20": 0.7,
+      "top20_symmetric_difference_size": 0,
+      "witness_bonus": 0.0
+    },
+    {
+      "delta_from_syntax": 0.0,
+      "precision_at_20": 0.7,
+      "top20_symmetric_difference_size": 0,
+      "witness_bonus": 1.0
+    },
+    {
+      "delta_from_syntax": 0.0,
+      "precision_at_20": 0.7,
+      "top20_symmetric_difference_size": 0,
+      "witness_bonus": 2.0
+    },
+    {
+      "delta_from_syntax": 0.0,
+      "precision_at_20": 0.7,
+      "top20_symmetric_difference_size": 0,
+      "witness_bonus": 4.0
+    },
+    {
+      "delta_from_syntax": 0.0,
+      "precision_at_20": 0.7,
+      "top20_symmetric_difference_size": 0,
+      "witness_bonus": 8.0
+    }
+  ],
+  "bootstrap_replicates": 4000,
+  "candidate_units": 32,
+  "child_processes": 0,
+  "cluster_bootstrap_95": {
+    "unit_coverage": [
+      0.5,
+      0.8333333333333334
+    ],
+    "unvalidated_minus_syntax": [
+      0.0,
+      0.10000000000000009
+    ],
+    "validated_minus_syntax": [
+      0.0,
+      0.0
+    ]
+  },
+  "commit_groups": 26,
+  "cpu_seconds": 0.223477337,
+  "evaluation_process_read_labels": true,
+  "exit_status": 0,
+  "failed_readiness_gates": [
+    "candidate_selection_independent_of_labels",
+    "complete_repository_time_window",
+    "labels_sealed_before_method_development",
+    "strongest_published_same_budget_baseline",
+    "temporal_holdout"
+  ],
+  "formal_h1_decision": "not-testable-with-label-selected-nontemporal-cohort",
+  "formal_h2_decision": "not-testable-as-population-coverage",
+  "freeze_and_evaluation_are_separate_processes": true,
+  "group_metrics": {
+    "syntax": {
+      "average_precision": 1.0,
+      "precision_at_20": 0.5
+    },
+    "unvalidated": {
+      "average_precision": 1.0,
+      "precision_at_20": 0.5
+    },
+    "validated": {
+      "average_precision": 1.0,
+      "precision_at_20": 0.5
+    }
+  },
+  "group_witness_coverage": 1.0,
+  "group_witness_coverage_fraction": "10/10",
+  "group_witness_coverage_wilson_95_descriptive": [
+    0.7224672001371107,
+    0.9999999999999999
+  ],
+  "labels_hash": "e55023f20c76428c6a261d0a2c7f02637fd539493171cd8566d4f8251d2ab581",
+  "labels_loaded_only_in_separate_evaluation_process": true,
+  "main_study_readiness": "failed",
+  "metrics": {
+    "syntax": {
+      "average_precision": 0.9520917062477164,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.7,
+      "precision_at_5": 1.0
+    },
+    "unvalidated": {
+      "average_precision": 0.9705615942028986,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.75,
+      "precision_at_5": 1.0
+    },
+    "validated": {
+      "average_precision": 0.9520917062477164,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.7,
+      "precision_at_5": 1.0
+    }
+  },
+  "microcohort_h1_analogue": "threshold-not-met",
+  "microcohort_h2_analogue": "threshold-met",
+  "obligations_this_analysis": 4256,
+  "orchestrator_child_processes": 2,
+  "peak_rss_kib": 97716,
+  "positive_commit_groups": 10,
+  "positive_units": 16,
+  "prediction_records_contain_labels": false,
+  "predictions_hash": "e2c8e34e607cb29cffe6dc1840fdac4fac903305cac8c2715c54d2ca8dfa3c44",
+  "primary_k": 20,
+  "reference_verification_count": 61,
+  "schema": "rbw-public-summary-v5",
+  "scope": "32-unit label-selected TensorFlow file-change microcohort; descriptive audit only",
+  "selection_independent_of_labels": false,
+  "temporal_holdout": false,
+  "typed_outcomes": {
+    "accepted": 10,
+    "unsupported": 19,
+    "unvalidated-only": 3
+  },
+  "unit_witness_coverage": 0.625,
+  "unit_witness_coverage_fraction": "10/16",
+  "unit_witness_coverage_wilson_95_descriptive": [
+    0.38641040545502714,
+    0.8151876744113636
+  ],
+  "unvalidated_minus_syntax_at_20": 0.05,
+  "unvalidated_top20_symmetric_difference": [
+    "U014",
+    "U021"
+  ],
+  "validated_minus_syntax_at_20": 0.0,
+  "validated_top20_symmetric_difference": [],
+  "wall_seconds": 0.227184792,
+  "workers": 1
+}

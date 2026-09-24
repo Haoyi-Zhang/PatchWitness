@@ -1,0 +1,6 @@
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
+PYTHONDONTWRITEBYTECODE=1 python3 run_frontend_validation.py --output results/reproduced-frontend
+PYTHONDONTWRITEBYTECODE=1 python3 run_closure_checks.py --output results/reproduced-closure
+PYTHONDONTWRITEBYTECODE=1 python3 run_public_study.py --output results/reproduced-public
+PYTHONDONTWRITEBYTECODE=1 python3 run.py --pilot --output results/reproduced-pilot
+PYTHONDONTWRITEBYTECODE=1 python3 verify_results.py

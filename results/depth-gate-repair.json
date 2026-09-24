@@ -1,0 +1,9 @@
+{
+  "test": "test_json_gate",
+  "tests_run": 1,
+  "failures": 0,
+  "errors": 0,
+  "semantic_obligations": 0,
+  "cpu_seconds": 0.003327799999999881,
+  "scope": "targeted parser-gate repair; no numerical experiment"
+}

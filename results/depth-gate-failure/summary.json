@@ -1,0 +1,32 @@
+{
+  "accepted_certificates": 13,
+  "assignments": 3712,
+  "both-fault": 56,
+  "both-safe": 2990,
+  "case_count": 25,
+  "child_processes": 0,
+  "cpu_seconds": 0.2412270620000001,
+  "exit_status": 1,
+  "max_assignments_per_case": 1024,
+  "max_width": 5,
+  "mismatches": 1,
+  "obligation_limit": 110000,
+  "obligations": 90517,
+  "peak_rss_kib": 95008,
+  "precision_at_20_difference": null,
+  "real_patch_cases_evaluated": 0,
+  "regression": 242,
+  "repair": 424,
+  "scope": "owned finite unsigned IR; not public security patches",
+  "unit_tests": {
+    "arithmetic_assignments": 576,
+    "errors": 0,
+    "failures": 1,
+    "ranking_labelings": 64,
+    "tampered_certificates": 20,
+    "tests_run": 10
+  },
+  "wall_seconds": 0.24451971300004516,
+  "witness_coverage_on_real_patches": null,
+  "workers": 1
+}

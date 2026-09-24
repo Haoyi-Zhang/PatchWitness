@@ -1,0 +1,2 @@
+case,family,width,assignments,repair,regression,both-safe,both-fault,search_assignments,certificate_accepted,obligations
+P01,mixed-change,3,64,8,8,48,0,57,1,1552

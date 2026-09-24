@@ -1,0 +1,46 @@
+{
+  "analysis_scope": "descriptive label-selected TensorFlow microcohort; not a prospective population test",
+  "baseline": {
+    "kind": "transparent-lexical-syntactic-control",
+    "name": "deterministic lexical/syntactic control",
+    "published_same_budget_comparison": false
+  },
+  "bonus_ablations": [
+    0.0,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ],
+  "bootstrap_replicates": 4000,
+  "bootstrap_seed": 20210505,
+  "expected_candidate_count": 32,
+  "group_collapse": "one row per commit group; label=max unit label; score=max unit score; accepted=max unit accepted",
+  "h1_delta_threshold": 0.1,
+  "h2_coverage_threshold": 0.6,
+  "prediction_tie_break": [
+    "descending score",
+    "descending syntax score",
+    "ascending unit id"
+  ],
+  "primary_k": 20,
+  "readiness_gate_ids": [
+    "all_candidates_counted_with_typed_outcomes",
+    "automatic_source_frontend",
+    "candidate_selection_independent_of_labels",
+    "complete_repository_time_window",
+    "independent_replay_checker",
+    "labels_sealed_before_method_development",
+    "reference_count_at_least_55",
+    "strongest_published_same_budget_baseline",
+    "temporal_holdout"
+  ],
+  "schema": "rbw-public-protocol-v4",
+  "semantic_hint_bonus": 4.0,
+  "top_k": [
+    5,
+    10,
+    20
+  ],
+  "witness_bonus": 4.0
+}

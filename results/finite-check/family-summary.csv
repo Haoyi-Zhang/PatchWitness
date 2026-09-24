@@ -1,0 +1,9 @@
+family,cases,assignments,repair,regression,both-safe,both-fault,certificates
+saturating-step,3,336,28,0,308,0,3
+identical,3,336,0,0,308,28,0
+modular-commutation,3,336,0,0,336,0,0
+guarded-index,3,336,182,0,154,0,3
+reverse-guard,3,336,0,182,154,0,0
+mixed-change,4,1360,60,60,1240,0,4
+dead-branch,3,336,0,0,336,0,0
+incomplete-guard,3,336,154,0,154,28,3

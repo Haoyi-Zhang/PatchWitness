@@ -1,0 +1,24 @@
+test_arithmetic_and_comparisons (test_core.ContractTests.test_arithmetic_and_comparisons) ... ok
+test_assignment_is_bound_to_domain (test_core.ContractTests.test_assignment_is_bound_to_domain) ... ok
+test_budget_abstention (test_core.ContractTests.test_budget_abstention) ... ok
+test_certificate_mutations (test_core.ContractTests.test_certificate_mutations) ... ok
+test_fault_short_circuit_and_lazy_branch (test_core.ContractTests.test_fault_short_circuit_and_lazy_branch) ... ok
+test_improvement_does_not_exclude_regression (test_core.ContractTests.test_improvement_does_not_exclude_regression) ... ok
+test_json_gate (test_core.ContractTests.test_json_gate) ... FAIL
+test_ranking_bounds_are_sharp (test_core.ContractTests.test_ranking_bounds_are_sharp) ... ok
+test_ranking_rejects_partial_or_unlabeled_inputs (test_core.ContractTests.test_ranking_rejects_partial_or_unlabeled_inputs) ... ok
+test_schema_limits (test_core.ContractTests.test_schema_limits) ... ok
+
+======================================================================
+FAIL: test_json_gate (test_core.ContractTests.test_json_gate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/test_core.py", line 114, in test_json_gate
+    with self.assertRaises(checker.Invalid): checker.read_json(p)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: Invalid not raised
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.017s
+
+FAILED (failures=1)

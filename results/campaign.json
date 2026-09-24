@@ -1,0 +1,180 @@
+{
+  "accounting_note": "Tests, retained-result verification, source audits, document builds, and deterministic public-study re-execution after unchanged frozen candidates/protocol/labels are validation tasks rather than additional scientific samples. The two independent source-frontend semantic validation runs are counted explicitly.",
+  "closure_check_campaign": {
+    "analysis_revision": "exact-closure-v1",
+    "canonical_raw_result": "results/closure-checks/summary.json",
+    "counted_obligations": 39668,
+    "mismatches": 0,
+    "runs": [
+      {
+        "evidence_note": "Accounted construction run; superseded output was not retained.",
+        "kind": "final audit construction run",
+        "raw_result": null,
+        "retained_as_canonical": false,
+        "semantic_obligations": 19834
+      },
+      {
+        "cpu_seconds": 0.087157927,
+        "kind": "final clean-extraction reproduction",
+        "peak_rss_kib": 93228,
+        "raw_result": "results/reproduction/closure-run.txt",
+        "retained_as_canonical": true,
+        "semantic_obligations": 19834
+      }
+    ]
+  },
+  "finite_validation_campaign": {
+    "accounting_limit": "Process counters in canonical summaries are host observations. The obligation ledger counts retained finite runner events; tests and document builds are not treated as independent scientific samples.",
+    "campaign_obligation_ceiling": 250000,
+    "cumulative_counted_obligations": 187242,
+    "cumulative_recorded_process_cpu_seconds": 0.3797965609999998,
+    "events": [
+      {
+        "cpu_seconds": 0.00690037599999993,
+        "kind": "pilot",
+        "peak_rss_kib": 94380,
+        "raw_result": "results/pilot/summary.json",
+        "semantic_obligations": 1552
+      },
+      {
+        "cpu_seconds": 0.2412270620000001,
+        "kind": "full run with retained JSON-gate failure",
+        "peak_rss_kib": 95008,
+        "raw_result": "results/depth-gate-failure/summary.json",
+        "semantic_obligations": 90517
+      },
+      {
+        "cpu_seconds": 0.003327799999999881,
+        "kind": "targeted parser repair",
+        "peak_rss_kib": null,
+        "raw_result": "results/depth-gate-repair.json",
+        "semantic_obligations": 0
+      },
+      {
+        "cpu_seconds": 0.1283413229999999,
+        "kind": "clean full run",
+        "peak_rss_kib": 94880,
+        "raw_result": "results/finite-check/summary.json",
+        "semantic_obligations": 90517
+      },
+      {
+        "cpu_seconds": 0.0,
+        "evidence_note": "Accounted historical replay; superseded output was not retained.",
+        "kind": "clean pilot replay",
+        "peak_rss_kib": 94508,
+        "raw_result": null,
+        "semantic_obligations": 1552
+      },
+      {
+        "cpu_seconds": null,
+        "evidence_note": "Accounted historical clean replay; superseded output was not retained.",
+        "kind": "label-isolated-v4 clean-extraction pilot",
+        "peak_rss_kib": null,
+        "raw_result": null,
+        "semantic_obligations": 1552
+      },
+      {
+        "cpu_seconds": 0.0,
+        "kind": "final-clean-extraction pilot",
+        "peak_rss_kib": 94508,
+        "raw_result": "results/reproduction/pilot-run.txt",
+        "semantic_obligations": 1552
+      }
+    ],
+    "peak_observed_scientific_rss_kib": 95008
+  },
+  "overall_obligation_ceiling": 250000,
+  "public_microcohort_campaign": {
+    "analysis_revision": "label-isolated-v6-automatic-restricted-frontend-two-processes",
+    "bootstrap_replicates_per_run": 4000,
+    "candidate_units": 32,
+    "canonical_raw_result": "results/public-study/evaluation/summary.json",
+    "commit_groups": 26,
+    "counted_obligations": 21280,
+    "coverage": {
+      "commit_fraction": "10/10",
+      "file_fraction": "10/16"
+    },
+    "events": [
+      {
+        "evidence_note": "Accounted historical run; only the canonical packet and final clean-reproduction log are retained.",
+        "kind": "development rebuild before neutral identity repair",
+        "raw_result": null,
+        "retained_as_canonical": false,
+        "semantic_obligations": 4256
+      },
+      {
+        "evidence_note": "Accounted historical run; only the canonical packet and final clean-reproduction log are retained.",
+        "kind": "canonical v3 before neutral identity repair",
+        "raw_result": null,
+        "retained_as_canonical": false,
+        "semantic_obligations": 4256
+      },
+      {
+        "evidence_note": "Accounted historical run; only the canonical packet and final clean-reproduction log are retained.",
+        "kind": "canonical v4 neutral identity run",
+        "raw_result": null,
+        "retained_as_canonical": true,
+        "semantic_obligations": 4256
+      },
+      {
+        "evidence_note": "Accounted historical run; only the canonical packet and final clean-reproduction log are retained.",
+        "kind": "clean-extraction v4 reproduction",
+        "raw_result": null,
+        "retained_as_canonical": false,
+        "semantic_obligations": 4256
+      },
+      {
+        "kind": "final clean-extraction two-process reproduction",
+        "raw_result": "results/reproduction/public-run.txt",
+        "retained_as_canonical": true,
+        "semantic_obligations": 4256
+      }
+    ],
+    "failed_readiness_gates": [
+      "candidate_selection_independent_of_labels",
+      "complete_repository_time_window",
+      "labels_sealed_before_method_development",
+      "strongest_published_same_budget_baseline",
+      "temporal_holdout"
+    ],
+    "formal_main_study_readiness": "failed",
+    "public_source_execution": false,
+    "rankings": {
+      "syntax_p20": 0.7,
+      "unvalidated_p20": 0.75,
+      "validated_p20": 0.7
+    },
+    "typed_outcomes": {
+      "accepted": 10,
+      "unsupported": 19,
+      "unvalidated-only": 3
+    }
+  },
+  "remaining_to_overall_ceiling": 10,
+  "source_frontend_validation_campaign": {
+    "analysis_revision": "automatic-restricted-frontend-v1",
+    "candidate_units": 32,
+    "counted_obligations": 1800,
+    "mismatches": 0,
+    "predicate_cases": 9,
+    "recognized_cases": 10,
+    "runs": [
+      {
+        "kind": "canonical source-frontend validation",
+        "raw_result": "results/source-frontend/summary.json",
+        "retained_as_canonical": true,
+        "semantic_obligations": 900
+      },
+      {
+        "kind": "final clean-extraction source-frontend reproduction",
+        "raw_result": "results/reproduction/frontend-run.txt",
+        "retained_as_canonical": false,
+        "semantic_obligations": 900
+      }
+    ],
+    "semantic_obligations_per_run": 900,
+    "unique_assignments_per_predicate": 100
+  },
+  "total_counted_obligations_through_clean_reproduction": 249990
+}

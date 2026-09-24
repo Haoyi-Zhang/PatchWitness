@@ -1,0 +1,47 @@
+test_all_closure_checks_pass (test_closure_checks.ClosureCheckTests.test_all_closure_checks_pass) ... ok
+test_group_and_unit_coverage_have_both_gap_directions (test_closure_checks.ClosureCheckTests.test_group_and_unit_coverage_have_both_gap_directions) ... ok
+test_incomplete_frame_allows_zero_or_one_full_window_precision (test_closure_checks.ClosureCheckTests.test_incomplete_frame_allows_zero_or_one_full_window_precision) ... ok
+test_paired_identity_is_exhaustive (test_closure_checks.ClosureCheckTests.test_paired_identity_is_exhaustive) ... ok
+test_arithmetic_and_comparisons (test_core.ContractTests.test_arithmetic_and_comparisons) ... ok
+test_assignment_is_bound_to_domain (test_core.ContractTests.test_assignment_is_bound_to_domain) ... ok
+test_budget_abstention (test_core.ContractTests.test_budget_abstention) ... ok
+test_certificate_mutations (test_core.ContractTests.test_certificate_mutations) ... ok
+test_fault_short_circuit_and_lazy_branch (test_core.ContractTests.test_fault_short_circuit_and_lazy_branch) ... ok
+test_improvement_does_not_exclude_regression (test_core.ContractTests.test_improvement_does_not_exclude_regression) ... ok
+test_json_gate (test_core.ContractTests.test_json_gate) ... ok
+test_ranking_bounds_are_sharp (test_core.ContractTests.test_ranking_bounds_are_sharp) ... ok
+test_ranking_rejects_partial_or_unlabeled_inputs (test_core.ContractTests.test_ranking_rejects_partial_or_unlabeled_inputs) ... ok
+test_schema_limits (test_core.ContractTests.test_schema_limits) ... ok
+test_all_input_schemas_validate (test_public_study.PublicStudyTests.test_all_input_schemas_validate) ... ok
+test_all_owned_source_witnesses_replay (test_public_study.PublicStudyTests.test_all_owned_source_witnesses_replay) ... ok
+test_bonus_ablation_includes_frozen_value (test_public_study.PublicStudyTests.test_bonus_ablation_includes_frozen_value) ... ok
+test_candidate_file_is_label_free (test_public_study.PublicStudyTests.test_candidate_file_is_label_free) ... ok
+test_candidate_ids_are_neutral_and_hash_ordered (test_public_study.PublicStudyTests.test_candidate_ids_are_neutral_and_hash_ordered) ... ok
+test_candidate_label_or_class_metadata_is_rejected (test_public_study.PublicStudyTests.test_candidate_label_or_class_metadata_is_rejected) ... ok
+test_candidate_type_and_length_limits (test_public_study.PublicStudyTests.test_candidate_type_and_length_limits) ... ok
+test_certificate_mutations_are_rejected (test_public_study.PublicStudyTests.test_certificate_mutations_are_rejected) ... ok
+test_evaluation_is_deterministic (test_public_study.PublicStudyTests.test_evaluation_is_deterministic) ... ok
+test_exact_integer_division_at_64_bit_boundaries (test_public_study.PublicStudyTests.test_exact_integer_division_at_64_bit_boundaries) ... ok
+test_expression_static_types_are_enforced (test_public_study.PublicStudyTests.test_expression_static_types_are_enforced) ... ok
+test_freeze_cli_runs_without_any_label_file (test_public_study.PublicStudyTests.test_freeze_cli_runs_without_any_label_file) ... ok
+test_frontend_mutation_breaks_derivation_binding (test_public_study.PublicStudyTests.test_frontend_mutation_breaks_derivation_binding) ... ok
+test_frontend_rederives_retained_cases (test_public_study.PublicStudyTests.test_frontend_rederives_retained_cases) ... ok
+test_frontend_validation_is_hash_bound_and_fail_closed (test_public_study.PublicStudyTests.test_frontend_validation_is_hash_bound_and_fail_closed) ... ok
+test_independent_frontend_parser_agrees_on_retained_tokens (test_public_study.PublicStudyTests.test_independent_frontend_parser_agrees_on_retained_tokens) ... ok
+test_json_gate_rejects_duplicate_depth_size_and_nonfinite (test_public_study.PublicStudyTests.test_json_gate_rejects_duplicate_depth_size_and_nonfinite) ... ok
+test_label_file_is_exact_and_separate (test_public_study.PublicStudyTests.test_label_file_is_exact_and_separate) ... ok
+test_label_group_mismatch_and_duplicate_are_rejected (test_public_study.PublicStudyTests.test_label_group_mismatch_and_duplicate_are_rejected) ... ok
+test_microcohort_metrics_and_machine_derived_gate (test_public_study.PublicStudyTests.test_microcohort_metrics_and_machine_derived_gate) ... ok
+test_prediction_bindings_cover_candidates_cases_and_protocol (test_public_study.PublicStudyTests.test_prediction_bindings_cover_candidates_cases_and_protocol) ... ok
+test_prediction_freeze_contains_no_labels (test_public_study.PublicStudyTests.test_prediction_freeze_contains_no_labels) ... ok
+test_producer_and_checker_agree_on_retained_cases (test_public_study.PublicStudyTests.test_producer_and_checker_agree_on_retained_cases) ... ok
+test_readiness_cannot_be_forged_by_evidence_status (test_public_study.PublicStudyTests.test_readiness_cannot_be_forged_by_evidence_status) ... ok
+test_reference_gate_is_fail_closed (test_public_study.PublicStudyTests.test_reference_gate_is_fail_closed) ... ok
+test_source_manifest_binds_candidates_and_derived_cases (test_public_study.PublicStudyTests.test_source_manifest_binds_candidates_and_derived_cases) ... ok
+test_source_manifest_has_no_label_columns (test_public_study.PublicStudyTests.test_source_manifest_has_no_label_columns) ... ok
+test_witness_case_schema_rejects_duplicate_and_bad_root (test_public_study.PublicStudyTests.test_witness_case_schema_rejects_duplicate_and_bad_root) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 2.386s
+
+OK
