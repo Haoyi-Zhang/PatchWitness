@@ -1,77 +1,31 @@
 {
-  "baseline": {
-    "name": "deterministic lexical/syntactic control",
-    "strongest_published_same_budget_baseline": false
+  "baseline_reproduction": {
+    "implemented_control": "deterministic lexical/syntactic control",
+    "published_system": null,
+    "same_budget_evidence": null
   },
   "candidate_frame": {
-    "candidate_selection_independent_of_labels": false,
-    "complete_repository_time_window": false,
-    "mode": "retrospective-label-indexed-microcohort",
-    "temporal_holdout": false
+    "class_lists_used": true,
+    "enumeration_manifest": null,
+    "repository": "tensorflow/tensorflow",
+    "selection_method": "retrospective-label-indexed-microcohort",
+    "window_end": null,
+    "window_start": null
   },
-  "evidence": [
-    {
-      "artifact_paths": [
-        "src/source_frontend.py",
-        "src/source_frontend_reference.py",
-        "src/source_frontend_oracle.c",
-        "data/public-study/witness-cases.json",
-        "results/source-frontend/summary.json"
-      ],
-      "gate": "automatic_source_frontend",
-      "rationale": "The retained packet is derived automatically from a declared guard-expression grammar; 900 assignments per run agree across the primary Pratt parser, an independent shunting-yard parser, the recursive producer, the iterative replay checker, and a C11 oracle. This pass is restricted to the declared grammar and does not certify general C/C++ translation.",
-      "status": "pass"
-    },
-    {
-      "artifact_paths": [
-        "data/public-study/labels.json",
-        "data/public-study/source-manifest.csv"
-      ],
-      "gate": "candidate_selection_independent_of_labels",
-      "rationale": "The cohort was assembled from published positive and selected-negative class lists before neutral identifiers were assigned.",
-      "status": "fail"
-    },
-    {
-      "artifact_paths": [
-        "data/public-study/candidates.json"
-      ],
-      "gate": "complete_repository_time_window",
-      "rationale": "The package contains 32 selected file changes rather than all eligible changes from a repository-by-time population frame.",
-      "status": "fail"
-    },
-    {
-      "artifact_paths": [
-        "data/public-study/labels.json"
-      ],
-      "gate": "labels_sealed_before_method_development",
-      "rationale": "Labels were known during cohort construction and before the automatic restricted frontend was finalized.",
-      "status": "fail"
-    },
-    {
-      "artifact_paths": [
-        "data/public-study/protocol.json"
-      ],
-      "gate": "strongest_published_same_budget_baseline",
-      "rationale": "The implemented comparator is a transparent lexical/syntactic control, not a reproduced strongest published same-budget system.",
-      "status": "fail"
-    },
-    {
-      "artifact_paths": [
-        "data/public-study/labels.json",
-        "data/public-study/candidates.json"
-      ],
-      "gate": "temporal_holdout",
-      "rationale": "No pre-cutoff development interval and later sealed candidate interval are represented.",
-      "status": "fail"
-    }
-  ],
-  "frontend": {
-    "automatic_source_frontend": true,
-    "mode": "automatic-restricted-source-frontend",
-    "source_translation_validated": true
+  "label_sealing": {
+    "method_freeze_timestamp": null,
+    "seal_record": null
   },
-  "labels": {
-    "sealed_before_method_development": false
+  "schema": "rbw-study-design-v2",
+  "source_correspondence": {
+    "checked_lowering_evidence": null,
+    "input_mode": "minimal-real-unified-diff-context",
+    "raw_diff_archive": null,
+    "source_tree_manifest": null
   },
-  "schema": "rbw-study-design-v1"
+  "temporal_split": {
+    "cutoff": null,
+    "development_manifest": null,
+    "holdout_manifest": null
+  }
 }

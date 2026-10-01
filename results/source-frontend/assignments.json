@@ -1,0 +1,8007 @@
+{
+  "rows": [
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "seeded-random",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "seeded-random",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "seeded-random",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "pad_width": 0
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "pad_width": -1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "pad_width": 2
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "pad_width": 1
+      },
+      "case": "W02",
+      "class": "deterministic-repeat",
+      "sample": 99
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "boundary-65535",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "boundary-65536",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "boundary-65537",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "seeded-random",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "num_threads": 65537
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "num_threads": 1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "num_threads": 0
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "num_threads": 65535
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "num_threads": 65536
+      },
+      "case": "W03",
+      "class": "deterministic-repeat",
+      "sample": 99
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "seeded-random",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 2
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 0
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "input_dims": 1
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "input_dims": 3
+      },
+      "case": "W04",
+      "class": "deterministic-repeat",
+      "sample": 99
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 0,
+        "in_row_end": 0,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 0,
+        "in_row_end": 0,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 1,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 0,
+        "in_row_end": 1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 1,
+        "in_row_end": 1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 1,
+        "in_row_end": 2,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 1,
+        "in_row_end": 1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 0,
+        "in_row_end": -1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 1,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 1,
+        "in_row_end": 0,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 1,
+        "in_row_end": -1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 1,
+        "in_row_end": 1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 2,
+        "in_row_end": -1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": -1,
+        "in_row_end": 1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 1,
+        "in_row_end": 0,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 0,
+        "in_row_end": 1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": -1,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 2,
+        "in_row_end": -1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 0,
+        "in_row_end": -1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 2,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": -1,
+        "in_row_end": 2,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": -1,
+        "in_row_end": 1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 0,
+        "in_row_end": 1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 1,
+        "in_row_end": 0,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 1,
+        "in_row_end": -1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 0,
+        "in_row_end": 1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": -1,
+        "in_row_end": 0,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 2,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 2,
+        "in_row_end": 1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 1,
+        "in_row_end": 2,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 0,
+        "in_row_end": 0,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": -1,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 2,
+        "in_row_end": -1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 2,
+        "in_row_end": -1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 2,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 0,
+        "in_row_end": 0,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": -1,
+        "in_row_end": 0,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 2,
+        "in_row_end": -1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 1,
+        "in_row_end": 2,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 2,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 1,
+        "in_row_end": -1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": -1,
+        "in_row_end": 1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 2,
+        "in_row_end": 1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 1,
+        "in_row_end": 0,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": -1,
+        "in_row_end": 2,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 1,
+        "in_row_end": 2,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": -1,
+        "in_row_end": 1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 2,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 0,
+        "in_row_end": 0,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 2,
+        "in_row_end": -1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 1,
+        "in_row_end": -1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 1,
+        "in_row_end": -1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": -1,
+        "in_row_end": 0,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 2,
+        "in_row_end": -1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": -1,
+        "in_row_end": 0,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 1,
+        "in_row_end": 1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 2,
+        "in_row_end": 1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 2,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 1,
+        "in_row_end": 0,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 1,
+        "in_row_end": 1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 2,
+        "in_row_end": 1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": -1,
+        "in_row_end": 0,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": -1,
+        "in_row_end": 0,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 0,
+        "in_row_end": -1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 0,
+        "in_row_end": 1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": 1,
+        "in_row_end": 1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": 2
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 1,
+        "in_row_end": 1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 1,
+        "in_row_end": 1,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 0,
+        "in_row_end": 2,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": -1,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "in_col_end": 2,
+        "in_col_start": -1,
+        "in_row_end": 1,
+        "in_row_start": 0
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 1,
+        "in_row_end": 2,
+        "in_row_start": 1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "in_col_end": 0,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": -1,
+        "in_row_end": 0,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": 1,
+        "in_row_end": 2,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "in_col_end": 1,
+        "in_col_start": 2,
+        "in_row_end": 0,
+        "in_row_start": -1
+      },
+      "case": "W05",
+      "class": "seeded-random",
+      "sample": 99
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "seeded-random",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "seeded-random",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "batch_dim": 0
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "batch_dim": 1
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "batch_dim": 2
+      },
+      "case": "W06",
+      "class": "deterministic-repeat",
+      "sample": 99
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "seeded-random",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "axis": 2147483647,
+        "dims": 3
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "axis": 2,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 1
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "axis": 3,
+        "dims": 0
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "axis": -1,
+        "dims": 2
+      },
+      "case": "W07",
+      "class": "deterministic-repeat",
+      "sample": 99
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "seeded-random",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": -1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 0
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "sx": 1,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "sx": 2,
+        "sy": 1
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "sx": -1,
+        "sy": 2
+      },
+      "case": "W08",
+      "class": "deterministic-repeat",
+      "sample": 99
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "seeded-random",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "num_elements": 1
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "num_elements": 2
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "case": "W09",
+      "class": "deterministic-repeat",
+      "sample": 99
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "saved-assignment",
+      "sample": 0
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "opposite-truth-branch",
+      "sample": 1
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "zero-denominator-short-circuit",
+      "sample": 2
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "actual-division-true",
+      "sample": 3
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2147483647,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "actual-division-false",
+      "sample": 4
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 5
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 65536,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 6
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 1,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 7
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 65536,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 8
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2147483647,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 9
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 1,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 10
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 11
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 12
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 13
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 65536,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 14
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 65536,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 15
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 1,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 16
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 1,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 17
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 18
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 1,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 19
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 20
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 1,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 21
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2147483647,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 22
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 65536,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 23
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 1,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 24
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 1,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 25
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 1,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 26
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 65536,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 27
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2147483647,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 28
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 29
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 65536,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 30
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 31
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 1,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 32
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 1,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 33
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 1,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 34
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 1,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 35
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2147483647,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 36
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2147483647,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 37
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 38
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2147483647,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 39
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 40
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 41
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 65536,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 42
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2147483647,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 43
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2147483647,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 44
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 65536,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 45
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2147483647,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 46
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2147483647,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 47
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 65536,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 48
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 65536,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 49
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2147483647,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 50
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2147483647,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 51
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 65536,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 52
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 53
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 65536,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 54
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 1,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 55
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 65536,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 56
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 57
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 1,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 58
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2147483647,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 59
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 1,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 60
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 61
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 1,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 62
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 65536,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 63
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 64
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 1,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 65
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 66
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 67
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 65536,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 68
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 69
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 70
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 1,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 71
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 72
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 65536,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 73
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2147483647,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 74
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 65536,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 75
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 76
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 1,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 77
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 65536,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 78
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 79
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 65536,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "seeded-random",
+      "sample": 80
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 81
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 82
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 83
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 84
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2147483647,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 85
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 86
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 65536,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 87
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 1,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 88
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 65536,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 89
+    },
+    {
+      "assignment": {
+        "dim": 1,
+        "limit": 2147483647,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 90
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 1,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 91
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2,
+        "prod": 2147483647
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 92
+    },
+    {
+      "assignment": {
+        "dim": 0,
+        "limit": 2,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 93
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 2,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 94
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 65536,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 95
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 65536,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 96
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 1,
+        "prod": 0
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 97
+    },
+    {
+      "assignment": {
+        "dim": 2,
+        "limit": 1,
+        "prod": 2
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 98
+    },
+    {
+      "assignment": {
+        "dim": 2147483647,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "case": "W10",
+      "class": "deterministic-repeat",
+      "sample": 99
+    }
+  ],
+  "samples_per_guard": 100,
+  "schema": "rbw-frontend-assignment-plan-v1",
+  "seed": 20211119
+}

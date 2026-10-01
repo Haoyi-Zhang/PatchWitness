@@ -2,193 +2,225 @@
   {
     "accepted": 0,
     "case": null,
-    "reason": "unsupported",
-    "record": "U001"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U002"
-  },
-  {
-    "accepted": 1,
-    "case": "W01",
-    "reason": "accepted",
-    "record": "U003"
+    "reason": "no-supported-added-source-pattern",
+    "record": "U001",
+    "typed_outcome": "unsupported-syntax"
   },
   {
     "accepted": 1,
     "case": "W02",
-    "reason": "accepted",
-    "record": "U004"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U005"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U006"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U007"
+    "reason": "accepted-guard-trigger",
+    "record": "U002",
+    "typed_outcome": "accepted"
   },
   {
     "accepted": 1,
     "case": "W03",
-    "reason": "accepted",
-    "record": "U008"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U009"
-  },
-  {
-    "accepted": 1,
-    "case": "W04",
-    "reason": "accepted",
-    "record": "U010"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unvalidated-only",
-    "record": "U011"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U012"
-  },
-  {
-    "accepted": 1,
-    "case": "W05",
-    "reason": "accepted",
-    "record": "U013"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U014"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U015"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U016"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U017"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unvalidated-only",
-    "record": "U018"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U019"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U020"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unvalidated-only",
-    "record": "U021"
-  },
-  {
-    "accepted": 1,
-    "case": "W06",
-    "reason": "accepted",
-    "record": "U022"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U023"
-  },
-  {
-    "accepted": 1,
-    "case": "W07",
-    "reason": "accepted",
-    "record": "U024"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U025"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U026"
-  },
-  {
-    "accepted": 0,
-    "case": null,
-    "reason": "unsupported",
-    "record": "U027"
+    "reason": "accepted-guard-trigger",
+    "record": "U003",
+    "typed_outcome": "accepted"
   },
   {
     "accepted": 1,
     "case": "W08",
-    "reason": "accepted",
-    "record": "U028"
+    "reason": "accepted-guard-trigger",
+    "record": "U004",
+    "typed_outcome": "accepted"
+  },
+  {
+    "accepted": 1,
+    "case": "W05",
+    "reason": "accepted-guard-trigger",
+    "record": "U005",
+    "typed_outcome": "accepted"
   },
   {
     "accepted": 0,
     "case": null,
-    "reason": "unsupported",
-    "record": "U029"
+    "reason": "no-supported-added-source-pattern",
+    "record": "U006",
+    "typed_outcome": "unsupported-syntax"
   },
   {
     "accepted": 0,
     "case": null,
-    "reason": "unsupported",
-    "record": "U030"
+    "reason": "no-supported-added-source-pattern",
+    "record": "U007",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U008",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U009",
+    "typed_outcome": "unsupported-syntax"
   },
   {
     "accepted": 1,
     "case": "W09",
-    "reason": "accepted",
-    "record": "U031"
+    "reason": "accepted-guard-trigger",
+    "record": "U010",
+    "typed_outcome": "accepted"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U011",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U012",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U013",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U014",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U015",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U016",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U017",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U018",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 1,
+    "case": "W04",
+    "reason": "accepted-guard-trigger",
+    "record": "U019",
+    "typed_outcome": "accepted"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U020",
+    "typed_outcome": "unsupported-syntax"
   },
   {
     "accepted": 1,
     "case": "W10",
-    "reason": "accepted",
-    "record": "U032"
+    "reason": "accepted-guard-trigger",
+    "record": "U021",
+    "typed_outcome": "accepted"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U022",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U023",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 1,
+    "case": "W01",
+    "reason": "accepted-source-difference",
+    "record": "U024",
+    "typed_outcome": "accepted"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U025",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 1,
+    "case": "W07",
+    "reason": "accepted-guard-trigger",
+    "record": "U026",
+    "typed_outcome": "accepted"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U027",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 1,
+    "case": "W06",
+    "reason": "accepted-guard-trigger",
+    "record": "U028",
+    "typed_outcome": "accepted"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U029",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U030",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U031",
+    "typed_outcome": "unsupported-syntax"
+  },
+  {
+    "accepted": 0,
+    "case": null,
+    "reason": "no-supported-added-source-pattern",
+    "record": "U032",
+    "typed_outcome": "unsupported-syntax"
   }
 ]

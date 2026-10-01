@@ -1,10 +1,10 @@
-"""Label-separated public microcohort analysis and restricted witness replay.
+"""Label-separated descriptive microcohort and restricted source-evidence replay.
 
-The freeze phase consumes only candidate, protocol, and restricted witness-case
-files.  A separate process opens retrospective labels and computes descriptive
-metrics.  The design is deliberately fail-closed: a prospective H1/H2 decision
-is emitted only when every readiness fact is supported by machine-checkable
-package evidence.  The retained microcohort does not meet that condition.
+The finite old-fault/new-defined certificate lives in ``src/producer.py`` and
+``src/checker.py``.  This module implements a different contract for public
+patch excerpts: a bound guard is triggered under one typed assignment, or a
+specific widening changes a bounded arithmetic result.  It never upgrades that
+source evidence into a finite behavioral certificate.
 """
 from __future__ import annotations
 
@@ -21,26 +21,23 @@ from typing import Any
 INT64_MIN = -(2**63)
 INT64_MAX = 2**63 - 1
 INT32_MIN = -(2**31)
+INT32_MAX = 2**31 - 1
 MAX_PUBLIC_JSON_BYTES = 1_048_576
 MAX_PUBLIC_JSON_DEPTH = 64
 MAX_EXPR_NODES = 96
 MAX_EXPR_DEPTH = 16
 MAX_CANDIDATES = 600
-MAX_TEXT = 16_384
+MAX_TEXT = 32_768
 MAX_SOURCE_TOKENS = 8
-ALLOWED_OPS = {
-    "const", "var", "not", "and", "or", "eq", "ne", "lt", "le",
-    "gt", "ge", "add", "sub", "mul", "div",
-}
-BOOL_OPS = {"not", "and", "or"}
+ALLOWED_OPS = {"const", "var", "not", "and", "or", "eq", "ne", "lt", "le", "gt", "ge", "div"}
 COMPARE_OPS = {"eq", "ne", "lt", "le", "gt", "ge"}
-ARITH_OPS = {"add", "sub", "mul", "div"}
 GATE_IDS = (
     "all_candidates_counted_with_typed_outcomes",
-    "automatic_source_frontend",
+    "restricted_source_evidence_cross_checked",
+    "raw_diff_or_checked_source_tree_correspondence",
     "candidate_selection_independent_of_labels",
     "complete_repository_time_window",
-    "independent_replay_checker",
+    "independent_source_record_checker",
     "labels_sealed_before_method_development",
     "reference_count_at_least_55",
     "strongest_published_same_budget_baseline",
@@ -49,7 +46,7 @@ GATE_IDS = (
 
 
 class Invalid(ValueError):
-    """Raised when a retained input violates the frozen contract."""
+    pass
 
 
 def _require(condition: bool, reason: str) -> None:
@@ -58,9 +55,7 @@ def _require(condition: bool, reason: str) -> None:
 
 
 def canonical_hash(value: Any) -> str:
-    return hashlib.sha256(
-        json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    ).hexdigest()
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")).hexdigest()
 
 
 def _scan_json_depth(raw: bytes) -> None:
@@ -68,28 +63,27 @@ def _scan_json_depth(raw: bytes) -> None:
     in_string = False
     escaped = False
     for byte in raw:
+        ch = chr(byte)
         if in_string:
             if escaped:
                 escaped = False
-            elif byte == 92:
+            elif ch == "\\":
                 escaped = True
-            elif byte == 34:
+            elif ch == '"':
                 in_string = False
-        elif byte == 34:
+        elif ch == '"':
             in_string = True
-        elif byte in (91, 123):
+        elif ch in "[{":
             depth += 1
             _require(depth <= MAX_PUBLIC_JSON_DEPTH, "json-depth-limit")
-        elif byte in (93, 125):
+        elif ch in "]}":
             depth -= 1
-            _require(depth >= 0, "invalid-json-nesting")
-    _require(depth == 0 and not in_string, "invalid-json-nesting")
+            _require(depth >= 0, "json-balance")
+    _require(depth == 0 and not in_string, "json-balance")
 
 
 def load_json_value(path: Path) -> Any:
-    """Read bounded JSON, rejecting duplicate keys and non-finite values."""
-    with path.open("rb") as handle:
-        raw = handle.read(MAX_PUBLIC_JSON_BYTES + 1)
+    raw = path.read_bytes()
     _require(len(raw) <= MAX_PUBLIC_JSON_BYTES, "json-byte-limit")
     _scan_json_depth(raw)
     try:
@@ -104,37 +98,34 @@ def load_json_value(path: Path) -> Any:
             out[key] = value
         return out
 
-    def parse_int(text_value: str) -> int:
-        _require(len(text_value.lstrip("-")) <= 19, "integer-encoding-limit")
-        return int(text_value)
+    def parse_int(value: str) -> int:
+        _require(len(value.lstrip("-")) <= 19, "integer-encoding-limit")
+        return int(value)
 
-    def parse_float(text_value: str) -> float:
-        _require(len(text_value) <= 32, "float-encoding-limit")
-        value = float(text_value)
-        _require(math.isfinite(value), "nonfinite-number")
-        return value
+    def parse_float(value: str) -> float:
+        _require(len(value) <= 32, "float-encoding-limit")
+        parsed = float(value)
+        _require(math.isfinite(parsed), "nonfinite-number")
+        return parsed
 
     def reject_constant(_: str) -> Any:
         raise Invalid("nonfinite-number")
 
     try:
-        data = json.loads(
-            text,
-            object_pairs_hook=pairs,
-            parse_int=parse_int,
-            parse_float=parse_float,
-            parse_constant=reject_constant,
-        )
+        return json.loads(text, object_pairs_hook=pairs, parse_int=parse_int, parse_float=parse_float, parse_constant=reject_constant)
     except (json.JSONDecodeError, RecursionError, UnicodeError) as exc:
         raise Invalid("invalid-json") from exc
-    return data
 
 
 def load_json(path: Path) -> dict[str, Any]:
-    """Read a bounded JSON object."""
-    data = load_json_value(path)
-    _require(isinstance(data, dict), "json-root")
-    return data
+    value = load_json_value(path)
+    _require(isinstance(value, dict), "json-root")
+    return value
+
+
+def _require_text(value: Any, reason: str, *, minimum: int = 1, maximum: int = MAX_TEXT) -> str:
+    _require(type(value) is str and minimum <= len(value) <= maximum and "\x00" not in value, reason)
+    return value
 
 
 def _require_int(value: Any) -> int:
@@ -142,557 +133,402 @@ def _require_int(value: Any) -> int:
     return value
 
 
-def _require_text(value: Any, reason: str, *, minimum: int = 1, maximum: int = MAX_TEXT) -> str:
-    _require(isinstance(value, str) and minimum <= len(value) <= maximum, reason)
-    _require("\x00" not in value, reason)
-    return value
+def typed_equal(left: Any, right: Any) -> bool:
+    """Recursive equality that never equates bool/int or int/float."""
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, dict):
+        return set(left) == set(right) and all(typed_equal(left[key], right[key]) for key in left)
+    if isinstance(left, list):
+        return len(left) == len(right) and all(typed_equal(a, b) for a, b in zip(left, right, strict=True))
+    return left == right
 
 
-def validate_expr(
-    expr: Any,
-    variables: set[str],
-    depth: int = 0,
-    counter: list[int] | None = None,
-) -> str:
-    """Validate an expression and return its static sort (``int`` or ``bool``)."""
+def typed_int(value: int) -> dict[str, Any]:
+    return {"tag": "int", "payload": _require_int(value)}
+
+
+def typed_bool(value: bool) -> dict[str, Any]:
+    _require(type(value) is bool, "typed-bool")
+    return {"tag": "bool", "payload": value}
+
+
+def typed_fault(reason: str) -> dict[str, Any]:
+    return {"tag": "fault", "payload": _require_text(reason, "fault-reason", maximum=128)}
+
+
+def validate_typed_value(value: Any) -> None:
+    _require(type(value) is dict and set(value) == {"tag", "payload"}, "typed-value-schema")
+    tag = value["tag"]
+    if tag == "int":
+        _require_int(value["payload"])
+    elif tag == "bool":
+        _require(type(value["payload"]) is bool, "typed-bool")
+    elif tag == "fault":
+        _require_text(value["payload"], "typed-fault", maximum=128)
+    else:
+        raise Invalid("typed-value-tag")
+
+
+def validate_expr(expr: Any, variables: set[str], depth: int = 0, counter: list[int] | None = None) -> str:
     if counter is None:
         counter = [0]
     counter[0] += 1
     _require(counter[0] <= MAX_EXPR_NODES and depth <= MAX_EXPR_DEPTH, "expression-limit")
-    _require(
-        isinstance(expr, list)
-        and bool(expr)
-        and isinstance(expr[0], str)
-        and expr[0] in ALLOWED_OPS,
-        "expression-shape",
-    )
+    _require(type(expr) is list and bool(expr) and type(expr[0]) is str and expr[0] in ALLOWED_OPS, "expression-shape")
     op = expr[0]
     arity = 1 if op in {"const", "var", "not"} else 2
     _require(len(expr) == arity + 1, "expression-arity")
     if op == "const":
-        _require_int(expr[1])
-        return "int"
+        _require_int(expr[1]); return "int"
     if op == "var":
-        _require(isinstance(expr[1], str) and expr[1] in variables, "unknown-variable")
-        return "int"
+        _require(type(expr[1]) is str and expr[1] in variables, "unknown-variable"); return "int"
     child_sorts = [validate_expr(child, variables, depth + 1, counter) for child in expr[1:]]
     if op == "not":
-        _require(child_sorts == ["bool"], "boolean-operand-type")
-        return "bool"
+        _require(child_sorts == ["bool"], "boolean-operand-type"); return "bool"
     if op in {"and", "or"}:
-        _require(child_sorts == ["bool", "bool"], "boolean-operand-type")
-        return "bool"
+        _require(child_sorts == ["bool", "bool"], "boolean-operand-type"); return "bool"
     _require(child_sorts == ["int", "int"], "integer-operand-type")
     return "bool" if op in COMPARE_OPS else "int"
 
 
-def _producer_trunc_div(a: int, b: int) -> int:
-    """Exact truncation toward zero, without a floating-point conversion."""
+def _trunc_div(a: int, b: int) -> int:
     _require(b != 0, "division-by-zero")
     magnitude = abs(a) // abs(b)
-    result = -magnitude if (a < 0) != (b < 0) else magnitude
-    return _require_int(result)
+    return _require_int(-magnitude if (a < 0) != (b < 0) else magnitude)
 
 
-def producer_eval(
-    expr: list[Any],
-    env: dict[str, int],
-    trace: list[dict[str, Any]] | None = None,
-) -> int | bool:
-    """Recursive evaluator used only by the certificate producer."""
+def _position(parent: str, child: int) -> str:
+    return str(child) if parent == "" else f"{parent}.{child}"
+
+
+def producer_eval(expr: list[Any], env: dict[str, int], trace: list[list[Any]] | None = None, position: str = "") -> dict[str, Any]:
+    """Recursive producer; trace entries are ``(position, tag, payload)`` triples."""
     if trace is None:
         trace = []
     op = expr[0]
     if op == "const":
-        value: int | bool = _require_int(expr[1])
+        value = typed_int(expr[1])
     elif op == "var":
-        value = _require_int(env[expr[1]])
+        _require(expr[1] in env, "missing-variable")
+        value = typed_int(env[expr[1]])
     elif op == "not":
-        child = producer_eval(expr[1], env, trace)
-        _require(type(child) is bool, "boolean-operand-type")
-        value = not child
-    elif op == "and":
-        left = producer_eval(expr[1], env, trace)
-        _require(type(left) is bool, "boolean-operand-type")
-        if not left:
-            value = False
+        child = producer_eval(expr[1], env, trace, _position(position, 0))
+        _require(child["tag"] == "bool", "boolean-operand-type")
+        value = typed_bool(not child["payload"])
+    elif op in {"and", "or"}:
+        left = producer_eval(expr[1], env, trace, _position(position, 0))
+        _require(left["tag"] == "bool", "boolean-operand-type")
+        if op == "and" and not left["payload"]:
+            value = typed_bool(False)
+        elif op == "or" and left["payload"]:
+            value = typed_bool(True)
         else:
-            right = producer_eval(expr[2], env, trace)
-            _require(type(right) is bool, "boolean-operand-type")
-            value = right
-    elif op == "or":
-        left = producer_eval(expr[1], env, trace)
-        _require(type(left) is bool, "boolean-operand-type")
-        if left:
-            value = True
-        else:
-            right = producer_eval(expr[2], env, trace)
-            _require(type(right) is bool, "boolean-operand-type")
-            value = right
+            right = producer_eval(expr[2], env, trace, _position(position, 1))
+            _require(right["tag"] == "bool", "boolean-operand-type")
+            value = typed_bool(bool(right["payload"]))
     else:
-        a = producer_eval(expr[1], env, trace)
-        b = producer_eval(expr[2], env, trace)
-        _require(type(a) is int and type(b) is int, "integer-operand-type")
-        if op == "eq":
-            value = a == b
-        elif op == "ne":
-            value = a != b
-        elif op == "lt":
-            value = a < b
-        elif op == "le":
-            value = a <= b
-        elif op == "gt":
-            value = a > b
-        elif op == "ge":
-            value = a >= b
-        elif op == "add":
-            value = _require_int(a + b)
-        elif op == "sub":
-            value = _require_int(a - b)
-        elif op == "mul":
-            value = _require_int(a * b)
-        elif op == "div":
-            value = _producer_trunc_div(a, b)
-        else:  # pragma: no cover - guarded by validate_expr
-            raise Invalid("operator")
-    trace.append({"node": op, "value": value})
+        left = producer_eval(expr[1], env, trace, _position(position, 0))
+        right = producer_eval(expr[2], env, trace, _position(position, 1))
+        _require(left["tag"] == right["tag"] == "int", "integer-operand-type")
+        a, b = left["payload"], right["payload"]
+        if op == "eq": value = typed_bool(a == b)
+        elif op == "ne": value = typed_bool(a != b)
+        elif op == "lt": value = typed_bool(a < b)
+        elif op == "le": value = typed_bool(a <= b)
+        elif op == "gt": value = typed_bool(a > b)
+        elif op == "ge": value = typed_bool(a >= b)
+        elif op == "div": value = typed_int(_trunc_div(a, b))
+        else: raise Invalid("operator")
+    trace.append([position, value["tag"], value["payload"]])
     return value
 
 
-def replay(expr: list[Any], env: dict[str, int]) -> tuple[int | bool, list[dict[str, Any]]]:
-    """Iterative replay machine used by the checker, independent of producer control flow."""
-    instructions: list[tuple[str, Any]] = [("eval", expr)]
-    vals: list[int | bool] = []
-    trace: list[dict[str, Any]] = []
+def replay(expr: list[Any], env: dict[str, int]) -> tuple[dict[str, Any], list[list[Any]]]:
+    """Iterative checker evaluator with independent control flow."""
+    instructions: list[tuple[str, Any, str]] = [("eval", expr, "")]
+    vals: list[dict[str, Any]] = []
+    trace: list[list[Any]] = []
     while instructions:
-        kind, payload = instructions.pop()
+        kind, payload, position = instructions.pop()
         if kind == "eval":
-            node = payload
-            op = node[0]
+            node = payload; op = node[0]
             if op == "const":
-                value = _require_int(node[1])
-                vals.append(value)
-                trace.append({"node": op, "value": value})
+                value = typed_int(node[1]); vals.append(value); trace.append([position, value["tag"], value["payload"]])
             elif op == "var":
-                value = _require_int(env[node[1]])
-                vals.append(value)
-                trace.append({"node": op, "value": value})
+                _require(node[1] in env, "missing-variable")
+                value = typed_int(env[node[1]]); vals.append(value); trace.append([position, value["tag"], value["payload"]])
             elif op == "not":
-                instructions.extend([("apply1", op), ("eval", node[1])])
+                instructions.extend([("apply1", op, position), ("eval", node[1], _position(position, 0))])
             elif op in {"and", "or"}:
-                instructions.extend([("lazy", (op, node[2])), ("eval", node[1])])
+                instructions.extend([("lazy", (op, node[2]), position), ("eval", node[1], _position(position, 0))])
             else:
-                instructions.extend([("apply2", op), ("eval", node[2]), ("eval", node[1])])
+                instructions.extend([("apply2", op, position), ("eval", node[2], _position(position, 1)), ("eval", node[1], _position(position, 0))])
         elif kind == "lazy":
             op, right = payload
-            left = vals.pop()
-            _require(type(left) is bool, "boolean-operand-type")
-            if (op == "and" and not left) or (op == "or" and left):
-                vals.append(left)
-                trace.append({"node": op, "value": left})
+            left = vals.pop(); _require(left["tag"] == "bool", "boolean-operand-type")
+            if (op == "and" and not left["payload"]) or (op == "or" and left["payload"]):
+                value = typed_bool(bool(left["payload"])); vals.append(value); trace.append([position, value["tag"], value["payload"]])
             else:
-                instructions.extend([("lazy_finish", op), ("eval", right)])
+                instructions.extend([("lazy_finish", op, position), ("eval", right, _position(position, 1))])
         elif kind == "lazy_finish":
-            value = vals.pop()
-            _require(type(value) is bool, "boolean-operand-type")
-            vals.append(value)
-            trace.append({"node": payload, "value": value})
+            right = vals.pop(); _require(right["tag"] == "bool", "boolean-operand-type")
+            value = typed_bool(bool(right["payload"])); vals.append(value); trace.append([position, value["tag"], value["payload"]])
         elif kind == "apply1":
-            child = vals.pop()
-            _require(type(child) is bool, "boolean-operand-type")
-            value = not child
-            vals.append(value)
-            trace.append({"node": payload, "value": value})
+            child = vals.pop(); _require(child["tag"] == "bool", "boolean-operand-type")
+            value = typed_bool(not child["payload"]); vals.append(value); trace.append([position, value["tag"], value["payload"]])
         elif kind == "apply2":
-            b = vals.pop()
-            a = vals.pop()
+            right = vals.pop(); left = vals.pop(); _require(left["tag"] == right["tag"] == "int", "integer-operand-type")
+            a, b = left["payload"], right["payload"]
             op = payload
-            _require(type(a) is int and type(b) is int, "integer-operand-type")
-            if op == "eq":
-                value = a == b
-            elif op == "ne":
-                value = a != b
-            elif op == "lt":
-                value = a < b
-            elif op == "le":
-                value = a <= b
-            elif op == "gt":
-                value = a > b
-            elif op == "ge":
-                value = a >= b
-            elif op == "add":
-                value = _require_int(a + b)
-            elif op == "sub":
-                value = _require_int(a - b)
-            elif op == "mul":
-                value = _require_int(a * b)
-            elif op == "div":
-                _require(b != 0, "division-by-zero")
-                quotient = abs(a) // abs(b)
-                if (a < 0) != (b < 0):
-                    quotient = -quotient
-                value = _require_int(quotient)
-            else:  # pragma: no cover
-                raise Invalid("operator")
-            vals.append(value)
-            trace.append({"node": op, "value": value})
-        else:  # pragma: no cover
+            if op == "eq": value = typed_bool(a == b)
+            elif op == "ne": value = typed_bool(a != b)
+            elif op == "lt": value = typed_bool(a < b)
+            elif op == "le": value = typed_bool(a <= b)
+            elif op == "gt": value = typed_bool(a > b)
+            elif op == "ge": value = typed_bool(a >= b)
+            elif op == "div": value = typed_int(_trunc_div(a, b))
+            else: raise Invalid("operator")
+            vals.append(value); trace.append([position, value["tag"], value["payload"]])
+        else:
             raise Invalid("instruction")
     _require(len(vals) == 1, "stack")
     return vals[0], trace
 
 
-def _norm_source(text: str) -> str:
-    return re.sub(r"\s+", " ", text).strip()
+def _validate_trace(trace: Any) -> None:
+    _require(type(trace) is list and 1 <= len(trace) <= MAX_EXPR_NODES, "trace-schema")
+    for item in trace:
+        _require(type(item) is list and len(item) == 3 and type(item[0]) is str and type(item[1]) is str, "trace-entry")
+        validate_typed_value({"tag": item[1], "payload": item[2]})
 
 
 def validate_candidates(candidates: dict[str, Any]) -> list[dict[str, Any]]:
-    _require(
-        set(candidates) == {"schema", "identity_assignment", "records"},
-        "candidate-top-schema",
-    )
-    _require(candidates.get("schema") == "rbw-public-candidates-v5", "candidate-schema-version")
-    _require_text(candidates.get("identity_assignment"), "identity-assignment", maximum=512)
+    _require(set(candidates) == {"schema", "identity_assignment", "records"}, "candidate-top-schema")
+    _require(candidates.get("schema") == "rbw-public-candidates-v6", "candidate-schema-version")
+    _require_text(candidates["identity_assignment"], "identity-assignment", maximum=512)
     records = candidates.get("records")
-    _require(isinstance(records, list) and 21 <= len(records) <= MAX_CANDIDATES, "candidate-count")
-    ids: set[str] = set()
-    expected_order: list[tuple[str, str]] = []
-    required = {
-        "id", "identity_digest", "group", "commit", "filename", "message", "patch_excerpt",
-    }
+    _require(type(records) is list and 21 <= len(records) <= MAX_CANDIDATES, "candidate-count")
+    required = {"id", "identity_digest", "group", "commit", "commit_timestamp", "commit_message", "file_path", "diff_context", "source_asset"}
+    ids: set[str] = set(); ordered: list[tuple[str, str]] = []
     for record in records:
-        _require(isinstance(record, dict), "candidate-row")
-        _require("label" not in record, "candidate-label-leakage")
-        _require(set(record) == required, "candidate-schema")
+        _require(type(record) is dict and set(record) == required and "label" not in record, "candidate-schema")
         rid = _require_text(record["id"], "candidate-id", maximum=12)
         _require(rid not in ids, "duplicate-candidate")
         commit = _require_text(record["commit"], "candidate-commit", maximum=40)
-        _require(bool(re.fullmatch(r"[0-9a-f]{40}", commit)), "candidate-commit")
-        group = _require_text(record["group"], "candidate-group", maximum=40)
-        _require(group == commit, "group-binding")
-        filename = _require_text(record["filename"], "candidate-filename", maximum=512)
-        _require(not filename.startswith("/") and ".." not in Path(filename).parts, "candidate-filename")
-        _require_text(record["message"], "candidate-message", maximum=4096)
-        _require_text(record["patch_excerpt"], "candidate-excerpt", maximum=MAX_TEXT)
-        digest = hashlib.sha256((commit + "\0" + filename).encode("utf-8")).hexdigest()
+        _require(bool(re.fullmatch(r"[0-9a-f]{40}", commit)) and record["group"] == commit, "candidate-commit")
+        _require(bool(re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z", record["commit_timestamp"])), "candidate-timestamp")
+        _require_text(record["commit_message"], "candidate-message", maximum=8192)
+        path = _require_text(record["file_path"], "candidate-path", maximum=512)
+        _require(path.startswith("tensorflow/") and not path.startswith("/") and ".." not in Path(path).parts, "candidate-path")
+        _require_text(record["diff_context"], "candidate-diff", maximum=MAX_TEXT)
+        source = record["source_asset"]
+        _require(type(source) is dict and set(source) == {"repository", "commit_url", "source_kind", "diff_selection", "file_annotation", "annotation_used_for_scoring", "context_requirements"}, "source-asset-schema")
+        _require(source["repository"] == "tensorflow/tensorflow" and source["commit_url"].endswith(commit), "source-asset-binding")
+        _require(source["source_kind"] == "github-commit-file-patch", "source-kind")
+        _require_text(source["diff_selection"], "diff-selection", maximum=1024)
+        _require_text(source["file_annotation"], "file-annotation", maximum=1024)
+        _require(source["annotation_used_for_scoring"] is False, "annotation-score-leakage")
+        _require(type(source["context_requirements"]) is list and len(source["context_requirements"]) <= 8 and all(type(x) is str for x in source["context_requirements"]), "context-requirements")
+        digest = hashlib.sha256((commit + "\0" + path).encode("utf-8")).hexdigest()
         _require(record["identity_digest"] == digest, "candidate-identity-digest")
-        ids.add(rid)
-        expected_order.append((digest, rid))
-    _require(expected_order == sorted(expected_order), "candidate-neutral-order")
-    _require(
-        [record["id"] for record in records] == [f"U{i:03d}" for i in range(1, len(records) + 1)],
-        "candidate-neutral-id",
-    )
+        ids.add(rid); ordered.append((digest, rid))
+    _require(ordered == sorted(ordered), "candidate-neutral-order")
+    _require([r["id"] for r in records] == [f"U{i:03d}" for i in range(1, len(records) + 1)], "candidate-neutral-id")
     return records
 
 
-def validate_labels(label_doc: dict[str, Any], candidate_groups: dict[str, str]) -> dict[str, int]:
-    _require(
-        set(label_doc) == {"schema", "label_semantics", "labels", "positive_source", "negative_index_source", "provenance"},
-        "label-top-schema",
-    )
-    _require(label_doc.get("schema") == "rbw-public-labels-v5", "label-schema")
-    _require_text(label_doc.get("label_semantics"), "label-semantics", maximum=1024)
-    provenance = label_doc.get("provenance")
-    _require(
-        isinstance(provenance, dict)
-        and set(provenance) == {"selection_used_class_lists", "sealed_before_method_development", "temporal_holdout"}
-        and all(type(provenance[key]) is bool for key in provenance),
-        "label-provenance",
-    )
+def validate_labels(document: dict[str, Any], candidate_groups: dict[str, str]) -> dict[str, int]:
+    _require(set(document) == {"schema", "label_semantics", "labels", "positive_source", "negative_index_source", "provenance"}, "label-top-schema")
+    _require(document.get("schema") == "rbw-public-labels-v6", "label-schema")
+    _require_text(document["label_semantics"], "label-semantics", maximum=1024)
     for key in ("positive_source", "negative_index_source"):
-        source = label_doc.get(key)
-        _require(
-            isinstance(source, dict)
-            and set(source) == {"repository", "path", "blob_sha"}
-            and bool(re.fullmatch(r"[0-9a-f]{40}", source.get("blob_sha", ""))),
-            "label-source",
-        )
-        _require_text(source["repository"], "label-source", maximum=128)
-        _require_text(source["path"], "label-source", maximum=256)
-    rows = label_doc.get("labels")
-    _require(isinstance(rows, list), "label-schema")
+        source = document[key]
+        _require(type(source) is dict and set(source) == {"repository", "path", "blob_sha"} and bool(re.fullmatch(r"[0-9a-f]{40}", source["blob_sha"])), "label-source")
+    provenance = document["provenance"]
+    _require(type(provenance) is dict and set(provenance) == {"selection_method", "class_lists_used_for_selection", "label_seal_record", "method_freeze_timestamp", "temporal_cutoff"}, "label-provenance")
+    _require(provenance["class_lists_used_for_selection"] is True and provenance["label_seal_record"] is None and provenance["method_freeze_timestamp"] is None and provenance["temporal_cutoff"] is None, "label-provenance-values")
     labels: dict[str, int] = {}
-    for row in rows:
-        _require(isinstance(row, dict) and set(row) == {"id", "group", "label"}, "label-row")
-        _require(row["id"] not in labels and type(row["label"]) is int and row["label"] in {0, 1}, "label-value")
-        _require(row["id"] in candidate_groups and row["group"] == candidate_groups[row["id"]], "label-group-binding")
+    for row in document["labels"]:
+        _require(type(row) is dict and set(row) == {"id", "group", "label"}, "label-row")
+        _require(row["id"] in candidate_groups and row["id"] not in labels and row["group"] == candidate_groups[row["id"]], "label-group-binding")
+        _require(type(row["label"]) is int and row["label"] in {0, 1}, "label-value")
         labels[row["id"]] = row["label"]
     _require(set(labels) == set(candidate_groups), "label-coverage")
     return labels
 
 
-def validate_witness_cases(witness_cases: dict[str, Any], candidate_ids: set[str]) -> list[dict[str, Any]]:
-    _require(
-        set(witness_cases) == {"schema", "construction", "cases"},
-        "case-top-schema",
-    )
-    _require(witness_cases.get("schema") == "rbw-public-witness-cases-v6", "case-schema-version")
-    construction = witness_cases.get("construction")
-    _require(
-        isinstance(construction, dict)
-        and set(construction)
-        == {
-            "mode",
-            "automatic_source_frontend",
-            "source_translation_validated",
-            "grammar",
-            "validator",
-        }
-        and construction.get("mode") == "automatic-restricted-source-frontend"
-        and construction.get("automatic_source_frontend") is True
-        and construction.get("source_translation_validated") is True
-        and construction.get("grammar") == "guard-expressions-v1"
-        and construction.get("validator") == "independent-shunting-yard-and-c11-oracle",
-        "case-construction",
-    )
-    cases = witness_cases.get("cases")
-    _require(isinstance(cases, list) and 1 <= len(cases) <= len(candidate_ids), "case-schema")
-    case_ids: set[str] = set()
-    record_ids: set[str] = set()
+def validate_source_evidence(document: dict[str, Any], candidate_ids: set[str]) -> list[dict[str, Any]]:
+    _require(set(document) == {"schema", "construction", "cases", "diagnostics"}, "evidence-top-schema")
+    _require(document.get("schema") == "rbw-public-source-evidence-v1", "evidence-schema")
+    construction = document["construction"]
+    _require(type(construction) is dict and set(construction) == {"mode", "input_mode", "raw_diff_or_source_tree_correspondence", "grammar", "evidence_contract", "parser_cross_check", "evaluator_cross_check"}, "evidence-construction")
+    _require(construction["mode"] == "automatic-restricted-real-diff-frontend" and construction["input_mode"] == "minimal-real-unified-diff-context" and construction["raw_diff_or_source_tree_correspondence"] is False, "evidence-construction-values")
+    _require(construction["evidence_contract"] == "guard-trigger-or-source-difference-not-old-fault-new-defined", "evidence-contract")
+    diagnostics = document["diagnostics"]
+    _require(type(diagnostics) is list and len(diagnostics) == len(candidate_ids), "diagnostic-count")
+    diag_by_id: dict[str, dict[str, str]] = {}
+    for row in diagnostics:
+        _require(type(row) is dict and set(row) == {"record", "status", "stage", "reason"}, "diagnostic-row")
+        _require(row["record"] in candidate_ids and row["record"] not in diag_by_id, "diagnostic-record")
+        _require(row["status"] in {"supported", "abstain"} and row["stage"] in {"extract", "parse", "evaluate"}, "diagnostic-state")
+        diag_by_id[row["record"]] = row
+    cases = document["cases"]
+    _require(type(cases) is list and 1 <= len(cases) <= len(candidate_ids), "case-count")
+    seen_case: set[str] = set(); seen_record: set[str] = set()
     for case in cases:
-        _require(isinstance(case, dict), "case-row")
-        common = {"id", "kind", "record", "assignment", "source_tokens", "frontend_rule"}
-        kind = case.get("kind")
-        expected = common | ({"condition", "hazard", "trigger_value"} if kind == "predicate" else set())
-        _require(kind in {"predicate", "widening"} and set(case) == expected, "case-fields")
-        cid = _require_text(case["id"], "case-id", maximum=16)
-        _require(bool(re.fullmatch(r"W\d{2,3}", cid)) and cid not in case_ids, "case-id")
-        rid = _require_text(case["record"], "case-record", maximum=12)
-        _require(rid in candidate_ids and rid not in record_ids, "case-record")
+        common = {"id", "kind", "record", "assignment", "source_tokens", "context_tokens", "context_preconditions", "frontend_rule"}
+        expected = common | ({"guard", "trigger_value"} if case.get("kind") == "guard-trigger" else set())
+        _require(type(case) is dict and set(case) == expected and case.get("kind") in {"guard-trigger", "source-difference"}, "case-fields")
+        _require(bool(re.fullmatch(r"W\d{2,3}", case["id"])) and case["id"] not in seen_case, "case-id")
+        rid = case["record"]
+        _require(rid in candidate_ids and rid not in seen_record and diag_by_id[rid]["status"] == "supported", "case-record")
         assignment = case["assignment"]
-        _require(isinstance(assignment, dict) and 1 <= len(assignment) <= 16, "case-assignment")
+        _require(type(assignment) is dict and 1 <= len(assignment) <= 16, "case-assignment")
         for name, value in assignment.items():
-            _require(isinstance(name, str) and bool(re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,63}", name)), "case-variable")
-            _require_int(value)
-        tokens = case["source_tokens"]
-        _require(
-            isinstance(tokens, list)
-            and 1 <= len(tokens) <= MAX_SOURCE_TOKENS
-            and len(set(tokens)) == len(tokens),
-            "source-tokens",
-        )
-        for token in tokens:
-            _require_text(token, "source-token", maximum=256)
-        rule = case.get("frontend_rule")
-        if kind == "predicate":
-            _require(rule in {"require", "reject-if"}, "frontend-rule")
-            _require(type(case["trigger_value"]) is bool, "trigger-value")
-            _require(case["trigger_value"] is (rule == "reject-if"), "trigger-rule-binding")
-            variables = set(assignment)
-            _require(validate_expr(case["condition"], variables) == "bool", "condition-root-type")
-            _require(validate_expr(case["hazard"], variables) == "bool", "hazard-root-type")
+            _require(bool(re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,63}", name)), "case-variable"); _require_int(value)
+        for key in ("source_tokens", "context_tokens"):
+            _require(type(case[key]) is list and len(case[key]) <= MAX_SOURCE_TOKENS and all(type(x) is str and x for x in case[key]), "source-tokens")
+        _require(type(case["context_preconditions"]) is list and len(case["context_preconditions"]) == len(case["context_tokens"]), "context-preconditions")
+        for expr in case["context_preconditions"]:
+            _require(validate_expr(expr, set(assignment)) == "bool", "context-root-type")
+        if case["kind"] == "guard-trigger":
+            _require(case["frontend_rule"] in {"require", "reject-if"} and type(case["trigger_value"]) is bool, "guard-rule")
+            _require(case["trigger_value"] is (case["frontend_rule"] == "reject-if"), "guard-trigger-binding")
+            _require(validate_expr(case["guard"], set(assignment)) == "bool", "guard-root-type")
         else:
-            _require(rule == "signed-negation-widening", "frontend-rule")
-            _require(set(assignment) == {"concat_dim"}, "widening-assignment")
-        case_ids.add(cid)
-        record_ids.add(rid)
+            _require(case["frontend_rule"] == "signed-negation-widening" and assignment == {"concat_dim": INT32_MIN}, "widening-case")
+        seen_case.add(case["id"]); seen_record.add(rid)
+    _require(sum(row["status"] == "supported" for row in diagnostics) == len(cases), "diagnostic-case-binding")
     return cases
 
 
+# compatibility name for old callers
+def validate_witness_cases(document: dict[str, Any], candidate_ids: set[str]) -> list[dict[str, Any]]:
+    return validate_source_evidence(document, candidate_ids)
+
+
 def validate_protocol(protocol: dict[str, Any], candidate_count: int) -> dict[str, Any]:
-    expected = {
-        "schema", "analysis_scope", "expected_candidate_count", "top_k", "primary_k",
-        "semantic_hint_bonus", "witness_bonus", "bonus_ablations", "bootstrap_replicates",
-        "bootstrap_seed", "prediction_tie_break", "group_collapse", "h1_delta_threshold",
-        "h2_coverage_threshold", "baseline", "readiness_gate_ids",
-    }
-    _require(set(protocol) == expected, "protocol-fields")
-    _require(protocol.get("schema") == "rbw-public-protocol-v4", "protocol-schema")
-    _require_text(protocol["analysis_scope"], "analysis-scope", maximum=512)
-    _require(type(protocol["expected_candidate_count"]) is int and protocol["expected_candidate_count"] == candidate_count, "protocol-candidate-count")
+    expected = {"schema", "analysis_scope", "expected_candidate_count", "top_k", "primary_k", "semantic_hint_bonus", "source_evidence_bonus", "bonus_ablations", "bootstrap_replicates", "bootstrap_seed", "prediction_tie_break", "group_collapse", "h1_delta_threshold", "h2_availability_threshold", "h2_denominator", "baseline", "readiness_gate_ids"}
+    _require(set(protocol) == expected and protocol.get("schema") == "rbw-public-protocol-v5", "protocol-schema")
+    _require(protocol["expected_candidate_count"] == candidate_count and type(protocol["expected_candidate_count"]) is int, "protocol-candidate-count")
     top_k = protocol["top_k"]
-    _require(
-        isinstance(top_k, list)
-        and bool(top_k)
-        and all(type(k) is int and 1 <= k <= candidate_count for k in top_k)
-        and top_k == sorted(set(top_k)),
-        "protocol-top-k",
-    )
-    _require(type(protocol["primary_k"]) is int and protocol["primary_k"] in top_k, "protocol-primary-k")
-    for key in ("semantic_hint_bonus", "witness_bonus", "h1_delta_threshold", "h2_coverage_threshold"):
-        value = protocol[key]
-        _require(type(value) in (int, float) and math.isfinite(float(value)) and float(value) >= 0, "protocol-number")
-    _require(0 <= float(protocol["h1_delta_threshold"]) <= 1 and 0 <= float(protocol["h2_coverage_threshold"]) <= 1, "protocol-threshold")
-    ablations = protocol["bonus_ablations"]
-    _require(
-        isinstance(ablations, list)
-        and 1 <= len(ablations) <= 20
-        and all(type(value) in (int, float) and math.isfinite(float(value)) and float(value) >= 0 for value in ablations)
-        and [float(value) for value in ablations] == sorted(set(float(value) for value in ablations)),
-        "protocol-ablations",
-    )
-    _require(type(protocol["bootstrap_replicates"]) is int and 100 <= protocol["bootstrap_replicates"] <= 10_000, "protocol-bootstrap")
-    _require(type(protocol["bootstrap_seed"]) is int and 0 <= protocol["bootstrap_seed"] <= INT64_MAX, "protocol-seed")
-    _require(
-        protocol["prediction_tie_break"] == ["descending score", "descending syntax score", "ascending unit id"],
-        "protocol-tie-break",
-    )
-    _require_text(protocol["group_collapse"], "protocol-group-collapse", maximum=512)
+    _require(type(top_k) is list and top_k == sorted(set(top_k)) and all(type(k) is int and 1 <= k <= candidate_count for k in top_k), "protocol-top-k")
+    _require(protocol["primary_k"] in top_k and type(protocol["primary_k"]) is int, "protocol-primary-k")
+    for key in ("semantic_hint_bonus", "source_evidence_bonus", "h1_delta_threshold", "h2_availability_threshold"):
+        _require(type(protocol[key]) in {int, float} and math.isfinite(float(protocol[key])) and float(protocol[key]) >= 0, "protocol-number")
+    _require(protocol["h2_denominator"] == "all-eligible-file-candidates", "h2-denominator")
+    _require(type(protocol["bonus_ablations"]) is list and [float(x) for x in protocol["bonus_ablations"]] == sorted(set(float(x) for x in protocol["bonus_ablations"])), "protocol-ablations")
+    _require(type(protocol["bootstrap_replicates"]) is int and 100 <= protocol["bootstrap_replicates"] <= 10000, "bootstrap-replicates")
+    _require(type(protocol["bootstrap_seed"]) is int, "bootstrap-seed")
+    _require(protocol["readiness_gate_ids"] == list(GATE_IDS), "readiness-gate-ids")
     baseline = protocol["baseline"]
-    _require(
-        isinstance(baseline, dict)
-        and set(baseline) == {"name", "kind", "published_same_budget_comparison"}
-        and baseline.get("kind") == "transparent-lexical-syntactic-control"
-        and type(baseline.get("published_same_budget_comparison")) is bool,
-        "protocol-baseline",
-    )
-    _require_text(baseline["name"], "protocol-baseline", maximum=256)
-    _require(protocol["readiness_gate_ids"] == list(GATE_IDS), "protocol-gates")
+    _require(type(baseline) is dict and set(baseline) == {"name", "kind", "published_reproduction_evidence"} and baseline["published_reproduction_evidence"] is None, "baseline-schema")
     return protocol
 
 
 def validate_study_design(design: dict[str, Any]) -> dict[str, Any]:
-    _require(
-        set(design) == {"schema", "candidate_frame", "labels", "frontend", "baseline", "evidence"},
-        "design-fields",
-    )
-    _require(design.get("schema") == "rbw-study-design-v1", "design-schema")
-    expected_sections = {
-        "candidate_frame": {"mode", "candidate_selection_independent_of_labels", "complete_repository_time_window", "temporal_holdout"},
-        "labels": {"sealed_before_method_development"},
-        "frontend": {"mode", "automatic_source_frontend", "source_translation_validated"},
-        "baseline": {"name", "strongest_published_same_budget_baseline"},
-    }
-    for section, fields in expected_sections.items():
-        value = design.get(section)
-        _require(isinstance(value, dict) and set(value) == fields, "design-section")
-    for section, key in (
-        ("candidate_frame", "candidate_selection_independent_of_labels"),
-        ("candidate_frame", "complete_repository_time_window"),
-        ("candidate_frame", "temporal_holdout"),
-        ("labels", "sealed_before_method_development"),
-        ("frontend", "automatic_source_frontend"),
-        ("frontend", "source_translation_validated"),
-        ("baseline", "strongest_published_same_budget_baseline"),
-    ):
-        _require(type(design[section][key]) is bool, "design-boolean")
-    _require_text(design["candidate_frame"]["mode"], "design-mode", maximum=128)
-    _require_text(design["frontend"]["mode"], "design-mode", maximum=128)
-    _require_text(design["baseline"]["name"], "design-baseline", maximum=256)
-    evidence = design["evidence"]
-    _require(isinstance(evidence, list) and len(evidence) >= 6, "design-evidence")
-    seen: set[str] = set()
-    for row in evidence:
-        _require(
-            isinstance(row, dict)
-            and set(row) == {"gate", "status", "artifact_paths", "rationale"}
-            and row.get("gate") in GATE_IDS
-            and row.get("status") in {"pass", "fail"}
-            and row["gate"] not in seen,
-            "design-evidence-row",
-        )
-        _require(
-            isinstance(row["artifact_paths"], list)
-            and bool(row["artifact_paths"])
-            and all(isinstance(path, str) and 1 <= len(path) <= 256 for path in row["artifact_paths"]),
-            "design-evidence-paths",
-        )
-        _require_text(row["rationale"], "design-rationale", maximum=1024)
-        seen.add(row["gate"])
+    _require(set(design) == {"schema", "candidate_frame", "label_sealing", "source_correspondence", "baseline_reproduction", "temporal_split"} and design.get("schema") == "rbw-study-design-v2", "design-schema")
+    cf = design["candidate_frame"]
+    _require(type(cf) is dict and set(cf) == {"selection_method", "class_lists_used", "repository", "window_start", "window_end", "enumeration_manifest"}, "candidate-frame-schema")
+    _require(cf["selection_method"] == "retrospective-label-indexed-microcohort" and cf["class_lists_used"] is True and cf["repository"] == "tensorflow/tensorflow" and cf["window_start"] is None and cf["window_end"] is None and cf["enumeration_manifest"] is None, "candidate-frame-values")
+    ls = design["label_sealing"]
+    _require(type(ls) is dict and set(ls) == {"seal_record", "method_freeze_timestamp"} and ls["seal_record"] is None and ls["method_freeze_timestamp"] is None, "label-sealing-schema")
+    sc = design["source_correspondence"]
+    _require(type(sc) is dict and set(sc) == {"input_mode", "raw_diff_archive", "source_tree_manifest", "checked_lowering_evidence"} and sc["input_mode"] == "minimal-real-unified-diff-context" and sc["raw_diff_archive"] is None and sc["source_tree_manifest"] is None and sc["checked_lowering_evidence"] is None, "source-correspondence-schema")
+    br = design["baseline_reproduction"]
+    _require(type(br) is dict and set(br) == {"implemented_control", "published_system", "same_budget_evidence"} and br["implemented_control"] == "deterministic lexical/syntactic control" and br["published_system"] is None and br["same_budget_evidence"] is None, "baseline-reproduction-schema")
+    ts = design["temporal_split"]
+    _require(type(ts) is dict and set(ts) == {"cutoff", "development_manifest", "holdout_manifest"} and ts["cutoff"] is None and ts["development_manifest"] is None and ts["holdout_manifest"] is None, "temporal-split-schema")
     return design
 
 
-def make_certificate(case: dict[str, Any], record: dict[str, Any]) -> dict[str, Any]:
-    assignment = dict(case["assignment"])
-    if case["kind"] == "widening":
-        x = _require_int(assignment["concat_dim"])
-        old = "overflow" if x == INT32_MIN else -x
-        new = -x
+def _record_binding(record: dict[str, Any]) -> str:
+    return canonical_hash({key: record[key] for key in ("id", "commit", "file_path", "commit_message", "diff_context")})
+
+
+def make_source_record(case: dict[str, Any], record: dict[str, Any]) -> dict[str, Any]:
+    if case["kind"] == "source-difference":
+        concat_dim = case["assignment"]["concat_dim"]
+        before = typed_fault("signed-int32-negation-overflow") if concat_dim == INT32_MIN else typed_int(-concat_dim if concat_dim < 0 else concat_dim + 1)
+        after = typed_int(-concat_dim if concat_dim < 0 else concat_dim + 1)
         return {
-            "case": case["id"],
-            "record": record["id"],
-            "assignment": assignment,
-            "old_result": old,
-            "new_result": new,
-            "source_tokens": list(case["source_tokens"]),
+            "schema": "rbw-source-record-v1", "kind": "source-difference", "case": case["id"], "record": case["record"],
+            "record_binding": _record_binding(record), "assignment": dict(case["assignment"]),
+            "source_tokens": list(case["source_tokens"]), "context_tokens": list(case["context_tokens"]),
+            "before": before, "after": after,
+            "before_trace": [["", before["tag"], before["payload"]]],
+            "after_trace": [["", after["tag"], after["payload"]]],
         }
-    variables = set(assignment)
-    _require(validate_expr(case["condition"], variables) == "bool", "condition-root-type")
-    _require(validate_expr(case["hazard"], variables) == "bool", "hazard-root-type")
-    condition_trace: list[dict[str, Any]] = []
-    hazard_trace: list[dict[str, Any]] = []
-    condition = producer_eval(case["condition"], assignment, condition_trace)
-    hazard = producer_eval(case["hazard"], assignment, hazard_trace)
+    context_results: list[dict[str, Any]] = []
+    context_traces: list[list[list[Any]]] = []
+    for expr in case["context_preconditions"]:
+        trace: list[list[Any]] = []
+        context_results.append(producer_eval(expr, case["assignment"], trace))
+        context_traces.append(trace)
+    guard_trace: list[list[Any]] = []
+    guard_result = producer_eval(case["guard"], case["assignment"], guard_trace)
+    triggered = typed_bool(guard_result["payload"] is case["trigger_value"])
     return {
-        "case": case["id"],
-        "record": record["id"],
-        "assignment": assignment,
-        "condition": condition,
-        "hazard": hazard,
-        "condition_trace": condition_trace,
-        "hazard_trace": hazard_trace,
-        "source_tokens": list(case["source_tokens"]),
+        "schema": "rbw-source-record-v1", "kind": "guard-trigger", "case": case["id"], "record": case["record"],
+        "record_binding": _record_binding(record), "assignment": dict(case["assignment"]),
+        "source_tokens": list(case["source_tokens"]), "context_tokens": list(case["context_tokens"]),
+        "context_results": context_results, "context_traces": context_traces,
+        "guard_result": guard_result, "guard_trace": guard_trace, "triggered": triggered,
     }
 
 
-def check_certificate(case: dict[str, Any], record: dict[str, Any], cert: dict[str, Any]) -> tuple[bool, str]:
-    required = {"case", "record", "assignment", "source_tokens"}
-    if (
-        not isinstance(cert, dict)
-        or not required.issubset(cert)
-        or cert.get("case") != case["id"]
-        or cert.get("record") != record["id"]
-    ):
-        return False, "identity"
-    if cert.get("assignment") != case["assignment"] or cert.get("source_tokens") != case["source_tokens"]:
-        return False, "binding"
-    source = _norm_source(record["patch_excerpt"])
-    if any(_norm_source(token) not in source for token in case["source_tokens"]):
-        return False, "source-token"
+def check_source_record(case: dict[str, Any], record: dict[str, Any], evidence: dict[str, Any]) -> tuple[bool, str]:
+    if type(evidence) is not dict or evidence.get("schema") != "rbw-source-record-v1" or evidence.get("kind") != case["kind"]:
+        return False, "source-record-schema"
+    common = {"schema", "kind", "case", "record", "record_binding", "assignment", "source_tokens", "context_tokens"}
+    expected = common | ({"before", "after", "before_trace", "after_trace"} if case["kind"] == "source-difference" else {"context_results", "context_traces", "guard_result", "guard_trace", "triggered"})
+    if set(evidence) != expected:
+        return False, "source-record-fields"
+    if evidence["case"] != case["id"] or evidence["record"] != case["record"] or evidence["record_binding"] != _record_binding(record):
+        return False, "source-record-binding"
+    if not typed_equal(evidence["assignment"], case["assignment"]):
+        return False, "source-record-assignment"
+    if not typed_equal(evidence["source_tokens"], case["source_tokens"]) or not typed_equal(evidence["context_tokens"], case["context_tokens"]):
+        return False, "source-record-token"
     try:
-        if case["kind"] == "widening":
-            x = _require_int(cert["assignment"]["concat_dim"])
-            if (
-                set(cert) != required | {"old_result", "new_result"}
-                or x != INT32_MIN
-                or cert.get("old_result") != "overflow"
-                or cert.get("new_result") != 2**31
-            ):
-                return False, "widening-replay"
-            return True, "accepted"
-        if set(cert) != required | {"condition", "hazard", "condition_trace", "hazard_trace"}:
-            return False, "certificate-fields"
-        variables = set(cert["assignment"])
-        _require(validate_expr(case["condition"], variables) == "bool", "condition-root-type")
-        _require(validate_expr(case["hazard"], variables) == "bool", "hazard-root-type")
-        condition, condition_trace = replay(case["condition"], cert["assignment"])
-        hazard, hazard_trace = replay(case["hazard"], cert["assignment"])
-    except (Invalid, KeyError, TypeError, IndexError, OverflowError):
-        return False, "replay"
-    if condition is not case["trigger_value"] or hazard is not True:
-        return False, "relation"
-    if (
-        type(cert.get("condition")) is not bool
-        or type(cert.get("hazard")) is not bool
-        or cert.get("condition") != condition
-        or cert.get("hazard") != hazard
-        or cert.get("condition_trace") != condition_trace
-        or cert.get("hazard_trace") != hazard_trace
-    ):
-        return False, "trace"
-    return True, "accepted"
+        if case["kind"] == "source-difference":
+            expected_record = make_source_record(case, record)
+            for key in ("before", "after", "before_trace", "after_trace"):
+                if not typed_equal(evidence[key], expected_record[key]):
+                    return False, f"source-record-{key}"
+            return True, "accepted-source-difference"
+        expected_results: list[dict[str, Any]] = []
+        expected_traces: list[list[list[Any]]] = []
+        for expr in case["context_preconditions"]:
+            value, trace = replay(expr, case["assignment"])
+            expected_results.append(value); expected_traces.append(trace)
+        guard_value, guard_trace = replay(case["guard"], case["assignment"])
+        triggered = typed_bool(guard_value["payload"] is case["trigger_value"])
+        for value in expected_results + [guard_value, triggered]: validate_typed_value(value)
+        for trace in expected_traces + [guard_trace]: _validate_trace(trace)
+        if not typed_equal(evidence["context_results"], expected_results): return False, "source-record-context-results"
+        if not typed_equal(evidence["context_traces"], expected_traces): return False, "source-record-context-traces"
+        if not typed_equal(evidence["guard_result"], guard_value): return False, "source-record-guard-result"
+        if not typed_equal(evidence["guard_trace"], guard_trace): return False, "source-record-guard-trace"
+        if not typed_equal(evidence["triggered"], triggered): return False, "source-record-triggered"
+        if not all(value == typed_bool(True) for value in expected_results): return False, "source-record-context-false"
+        if triggered != typed_bool(True): return False, "source-record-not-triggered"
+        return True, "accepted-guard-trigger"
+    except (Invalid, KeyError, TypeError):
+        return False, "source-record-replay"
 
 
 SECURITY_PHRASES = {
-    "out of bound": 5.0,
-    "out-of-bound": 5.0,
-    "overflow": 4.0,
-    "segfault": 5.0,
-    "divide by zero": 5.0,
-    "heap access": 5.0,
-    "must not be negative": 3.0,
-    "invalidargument": 2.0,
-    "op_requires": 2.0,
-    "bound check": 3.0,
-    "fix ": 2.0,
-    "error": 0.7,
-    "check": 0.7,
+    "out of bound": 5.0, "out-of-bound": 5.0, "overflow": 4.0, "segfault": 5.0,
+    "divide by zero": 5.0, "heap access": 5.0, "must not be negative": 3.0,
+    "invalidargument": 2.0, "op_requires": 2.0, "bound check": 3.0,
+    "fix ": 2.0, "error": 0.7, "check": 0.7,
 }
 
 
 def syntax_score(record: dict[str, Any]) -> float:
-    text = (record["message"] + " " + record["patch_excerpt"]).lower()
+    text = (record["commit_message"] + " " + record["diff_context"]).lower()
     score = sum(weight * text.count(term) for term, weight in SECURITY_PHRASES.items())
     score += 0.12 * len(re.findall(r"(?:==|!=|<=|>=|<|>)", text))
     score += 0.05 * math.log1p(len(text))
@@ -700,547 +536,293 @@ def syntax_score(record: dict[str, Any]) -> float:
 
 
 def semantic_hint(record: dict[str, Any]) -> dict[str, int]:
-    """Label-free static hints; they are not replay-validated relations."""
-    text = record["patch_excerpt"].lower()
+    text = record["diff_context"].lower()
+    message = record["commit_message"].lower()
     features = {
-        "added_guard": int(bool(re.search(r"\+\s*(?:if\s*\(|op_requires\s*\(|tf_lite_ensure)", text))),
+        "added_guard": int(bool(re.search(r"^\+.*(?:if\s*\(|op_requires\s*\(|tf_lite_ensure)", text, re.M))),
         "range_relation": int(bool(re.search(r"(?:<=|>=|<|>)", text) and re.search(r"(?:dim|size|axis|bound|limit|index|elements|threads|width|stride)", text))),
         "error_return": int("invalidargument" in text or "op_requires" in text),
-        "type_widening": int(bool(re.search(r"-\s*const\s+int\b.*\+\s*const\s+int64", text))),
-        "overflow_division_guard": int(" / " in text and "overflow" in (record["message"] + text).lower()),
+        "type_widening": int(bool(re.search(r"-\s*const\s+int\b", text) and re.search(r"\+\s*const\s+int64", text))),
+        "overflow_division_guard": int("/" in text and "overflow" in (message + text)),
     }
     features["hint"] = int(any(features.values()))
     return features
 
 
 def _rank(rows: list[dict[str, Any]], score_name: str) -> list[str]:
-    return [
-        row["id"]
-        for row in sorted(rows, key=lambda row: (-row[score_name], -row["syntax_score"], row["id"]))
-    ]
+    return [row["id"] for row in sorted(rows, key=lambda row: (-row[score_name], -row["syntax_score"], row["id"]))]
 
 
-def freeze_predictions(
-    candidates: dict[str, Any], witness_cases: dict[str, Any], protocol: dict[str, Any]
-) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
-    records = validate_candidates(candidates)
-    validate_protocol(protocol, len(records))
-    by_id = {record["id"]: record for record in records}
-    cases = validate_witness_cases(witness_cases, set(by_id))
-    semantic_bonus = float(protocol["semantic_hint_bonus"])
-    witness_bonus = float(protocol["witness_bonus"])
-
-    accepted: set[str] = set()
-    certificates: list[dict[str, Any]] = []
-    case_outcomes: list[dict[str, Any]] = []
+def freeze_predictions(candidates: dict[str, Any], source_evidence: dict[str, Any], protocol: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
+    records = validate_candidates(candidates); validate_protocol(protocol, len(records))
+    by_id = {r["id"]: r for r in records}
+    cases = validate_source_evidence(source_evidence, set(by_id))
+    case_by_record = {c["record"]: c for c in cases}
+    diagnostic_by_record = {d["record"]: d for d in source_evidence["diagnostics"]}
+    accepted: set[str] = set(); source_records: list[dict[str, Any]] = []
+    case_outcomes: dict[str, dict[str, Any]] = {}
     for case in cases:
-        rid = case["record"]
-        cert = make_certificate(case, by_id[rid])
-        ok, reason = check_certificate(case, by_id[rid], cert)
-        certificates.append(cert)
-        case_outcomes.append({"record": rid, "case": case["id"], "accepted": int(ok), "reason": reason})
-        if ok:
-            accepted.add(rid)
+        evidence = make_source_record(case, by_id[case["record"]])
+        ok, reason = check_source_record(case, by_id[case["record"]], evidence)
+        source_records.append(evidence)
+        case_outcomes[case["record"]] = {"record": case["record"], "case": case["id"], "accepted": int(ok), "typed_outcome": "accepted" if ok else "replay-rejected", "reason": reason}
+        if ok: accepted.add(case["record"])
 
-    rows: list[dict[str, Any]] = []
-    by_outcome = {row["record"]: row for row in case_outcomes}
-    outcomes: list[dict[str, Any]] = []
+    rows: list[dict[str, Any]] = []; outcomes: list[dict[str, Any]] = []
+    semantic_bonus = float(protocol["semantic_hint_bonus"]); evidence_bonus = float(protocol["source_evidence_bonus"])
     for record in records:
-        hint = semantic_hint(record)
-        base = syntax_score(record)
-        unvalidated = round(base + semantic_bonus * hint["hint"], 9)
-        validated = round(base + witness_bonus * int(record["id"] in accepted), 9)
-        row = {
-            "id": record["id"],
-            "group": record["group"],
-            "syntax_score": base,
-            "semantic_hint": hint["hint"],
-            "semantic_features": hint,
-            "unvalidated_score": unvalidated,
-            "witness_accepted": int(record["id"] in accepted),
-            "validated_score": validated,
-        }
-        rows.append(row)
-        if record["id"] in by_outcome:
-            outcomes.append(by_outcome[record["id"]])
-        elif hint["hint"]:
-            outcomes.append({"record": record["id"], "case": None, "accepted": 0, "reason": "unvalidated-only"})
+        hint = semantic_hint(record); base = syntax_score(record)
+        accepted_flag = int(record["id"] in accepted)
+        rows.append({
+            "id": record["id"], "group": record["group"], "syntax_score": base,
+            "semantic_hint": hint["hint"], "semantic_features": hint,
+            "unvalidated_score": round(base + semantic_bonus * hint["hint"], 9),
+            "source_evidence_accepted": accepted_flag,
+            "validated_score": round(base + evidence_bonus * accepted_flag, 9),
+        })
+        if record["id"] in case_outcomes:
+            outcomes.append(case_outcomes[record["id"]])
         else:
-            outcomes.append({"record": record["id"], "case": None, "accepted": 0, "reason": "unsupported"})
+            diagnostic = diagnostic_by_record[record["id"]]
+            typed_outcome = "unsupported-syntax" if diagnostic["reason"] == "no-supported-added-source-pattern" else f"abstain-{diagnostic['stage']}"
+            outcomes.append({"record": record["id"], "case": None, "accepted": 0, "typed_outcome": typed_outcome, "reason": diagnostic["reason"]})
 
     predictions = {
-        "schema": "rbw-public-predictions-v4",
-        "phase": "label-free-freeze",
-        "candidate_hash": canonical_hash(candidates),
-        "witness_case_hash": canonical_hash(witness_cases),
-        "protocol_hash": canonical_hash(protocol),
-        "label_fields_present": False,
-        "candidate_count": len(records),
-        "records": rows,
-        "rankings": {
-            "syntax": _rank(rows, "syntax_score"),
-            "unvalidated": _rank(rows, "unvalidated_score"),
-            "validated": _rank(rows, "validated_score"),
-        },
+        "schema": "rbw-public-predictions-v5", "phase": "label-free-freeze",
+        "candidate_hash": canonical_hash(candidates), "source_evidence_hash": canonical_hash(source_evidence), "protocol_hash": canonical_hash(protocol),
+        "label_fields_present": False, "candidate_count": len(records), "records": rows,
+        "rankings": {"syntax": _rank(rows, "syntax_score"), "unvalidated": _rank(rows, "unvalidated_score"), "validated": _rank(rows, "validated_score")},
     }
-    _require(all("label" not in row for row in rows), "prediction-label-leakage")
-    return predictions, outcomes, certificates
+    return predictions, outcomes, source_records
 
 
-def validate_predictions(
-    predictions: dict[str, Any],
-    candidates: dict[str, Any],
-    witness_cases: dict[str, Any],
-    protocol: dict[str, Any],
-) -> list[dict[str, Any]]:
-    expected = {
-        "schema", "phase", "candidate_hash", "witness_case_hash", "protocol_hash",
-        "label_fields_present", "candidate_count", "records", "rankings",
-    }
-    _require(isinstance(predictions, dict) and set(predictions) == expected, "prediction-schema")
-    _require(predictions.get("schema") == "rbw-public-predictions-v4" and predictions.get("phase") == "label-free-freeze", "prediction-schema")
-    _require(predictions.get("candidate_hash") == canonical_hash(candidates), "prediction-candidate-binding")
-    _require(predictions.get("witness_case_hash") == canonical_hash(witness_cases), "prediction-case-binding")
-    _require(predictions.get("protocol_hash") == canonical_hash(protocol), "prediction-protocol-binding")
-    _require(predictions.get("label_fields_present") is False, "prediction-label-leakage")
-    rows = predictions.get("records")
-    _require(isinstance(rows, list) and len(rows) == predictions.get("candidate_count"), "prediction-count")
-    expected_row = {
-        "id", "group", "syntax_score", "semantic_hint", "semantic_features",
-        "unvalidated_score", "witness_accepted", "validated_score",
-    }
-    ids: set[str] = set()
+def validate_predictions(predictions: dict[str, Any], candidates: dict[str, Any], source_evidence: dict[str, Any], protocol: dict[str, Any]) -> list[dict[str, Any]]:
+    expected = {"schema", "phase", "candidate_hash", "source_evidence_hash", "protocol_hash", "label_fields_present", "candidate_count", "records", "rankings"}
+    _require(set(predictions) == expected and predictions["schema"] == "rbw-public-predictions-v5" and predictions["phase"] == "label-free-freeze", "prediction-schema")
+    _require(predictions["candidate_hash"] == canonical_hash(candidates), "prediction-candidate-binding")
+    _require(predictions["source_evidence_hash"] == canonical_hash(source_evidence), "prediction-evidence-binding")
+    _require(predictions["protocol_hash"] == canonical_hash(protocol), "prediction-protocol-binding")
+    _require(predictions["label_fields_present"] is False, "prediction-label-leakage")
+    rows = predictions["records"]
+    row_fields = {"id", "group", "syntax_score", "semantic_hint", "semantic_features", "unvalidated_score", "source_evidence_accepted", "validated_score"}
+    _require(type(rows) is list and len(rows) == predictions["candidate_count"], "prediction-count")
+    seen: set[str] = set()
     for row in rows:
-        _require(isinstance(row, dict) and set(row) == expected_row and "label" not in row, "prediction-row")
-        _require(row["id"] not in ids, "prediction-duplicate")
-        _require(type(row["semantic_hint"]) is int and row["semantic_hint"] in {0, 1}, "prediction-hint")
-        _require(type(row["witness_accepted"]) is int and row["witness_accepted"] in {0, 1}, "prediction-accepted")
-        for key in ("syntax_score", "unvalidated_score", "validated_score"):
-            _require(type(row[key]) in (int, float) and math.isfinite(float(row[key])), "prediction-score")
+        _require(type(row) is dict and set(row) == row_fields and row["id"] not in seen and "label" not in row, "prediction-row")
+        _require(type(row["semantic_hint"]) is int and row["semantic_hint"] in {0, 1} and type(row["source_evidence_accepted"]) is int and row["source_evidence_accepted"] in {0, 1}, "prediction-flag")
+        _require(all(type(row[key]) in {int, float} and math.isfinite(float(row[key])) for key in ("syntax_score", "unvalidated_score", "validated_score")), "prediction-score")
         features = row["semantic_features"]
-        _require(
-            isinstance(features, dict)
-            and set(features) == {"added_guard", "range_relation", "error_return", "type_widening", "overflow_division_guard", "hint"}
-            and all(type(value) is int and value in {0, 1} for value in features.values())
-            and features["hint"] == row["semantic_hint"],
-            "prediction-features",
-        )
-        ids.add(row["id"])
-    rankings = predictions.get("rankings")
-    _require(isinstance(rankings, dict) and set(rankings) == {"syntax", "unvalidated", "validated"}, "prediction-rankings")
+        _require(type(features) is dict and set(features) == {"added_guard", "range_relation", "error_return", "type_widening", "overflow_division_guard", "hint"} and all(type(v) is int and v in {0, 1} for v in features.values()) and features["hint"] == row["semantic_hint"], "prediction-features")
+        seen.add(row["id"])
+    _require(type(predictions["rankings"]) is dict and set(predictions["rankings"]) == {"syntax", "unvalidated", "validated"}, "prediction-rankings")
     for name, score in (("syntax", "syntax_score"), ("unvalidated", "unvalidated_score"), ("validated", "validated_score")):
-        _require(rankings[name] == _rank(rows, score), "prediction-ranking-binding")
+        _require(predictions["rankings"][name] == _rank(rows, score), "prediction-ranking-binding")
     return rows
 
 
 def validate_outcomes(outcomes: Any, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    _require(isinstance(outcomes, list) and len(outcomes) == len(rows), "outcome-count")
-    row_by_id = {row["id"]: row for row in rows}
-    seen: set[str] = set()
-    allowed_reasons = {"accepted", "unvalidated-only", "unsupported", "identity", "binding", "source-token", "widening-replay", "certificate-fields", "replay", "relation", "trace"}
+    _require(type(outcomes) is list and len(outcomes) == len(rows), "outcome-count")
+    by_id = {row["id"]: row for row in rows}; seen: set[str] = set()
     for outcome in outcomes:
-        _require(
-            isinstance(outcome, dict)
-            and set(outcome) == {"record", "case", "accepted", "reason"}
-            and outcome["record"] in row_by_id
-            and outcome["record"] not in seen
-            and type(outcome["accepted"]) is int
-            and outcome["accepted"] in {0, 1}
-            and outcome["reason"] in allowed_reasons,
-            "outcome-row",
-        )
-        _require(outcome["accepted"] == row_by_id[outcome["record"]]["witness_accepted"], "outcome-prediction-binding")
+        _require(type(outcome) is dict and set(outcome) == {"record", "case", "accepted", "typed_outcome", "reason"}, "outcome-row")
+        rid = outcome["record"]
+        _require(rid in by_id and rid not in seen and type(outcome["accepted"]) is int and outcome["accepted"] in {0, 1}, "outcome-record")
+        _require(outcome["accepted"] == by_id[rid]["source_evidence_accepted"], "outcome-prediction-binding")
         if outcome["accepted"]:
-            _require(isinstance(outcome["case"], str) and outcome["reason"] == "accepted", "outcome-accepted")
+            _require(type(outcome["case"]) is str and outcome["typed_outcome"] == "accepted" and outcome["reason"] in {"accepted-guard-trigger", "accepted-source-difference"}, "outcome-accepted")
         else:
-            _require(outcome["case"] is None or isinstance(outcome["case"], str), "outcome-case")
-        seen.add(outcome["record"])
+            _require(outcome["case"] is None or type(outcome["case"]) is str, "outcome-case")
+            _require(outcome["typed_outcome"] in {"unsupported-syntax", "abstain-extract", "abstain-parse", "abstain-evaluate", "replay-rejected"}, "outcome-type")
+        seen.add(rid)
     return outcomes
+
+
+def validate_source_records(source_records: Any, cases: list[dict[str, Any]], candidates: list[dict[str, Any]], outcomes: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    _require(type(source_records) is list, "source-record-list")
+    case_by_id = {case["id"]: case for case in cases}; candidate_by_id = {r["id"]: r for r in candidates}
+    accepted_outcomes = [o for o in outcomes if o["accepted"]]
+    _require(len(source_records) == len(accepted_outcomes), "source-record-count")
+    seen_cases: set[str] = set(); seen_records: set[str] = set()
+    for evidence in source_records:
+        _require(type(evidence) is dict and evidence.get("case") in case_by_id, "source-record-case")
+        case = case_by_id[evidence["case"]]; rid = case["record"]
+        _require(evidence["case"] not in seen_cases and rid not in seen_records, "source-record-duplicate")
+        ok, reason = check_source_record(case, candidate_by_id[rid], evidence)
+        _require(ok and reason in {"accepted-guard-trigger", "accepted-source-difference"}, "source-record-check")
+        matching = [o for o in accepted_outcomes if o["case"] == case["id"] and o["record"] == rid]
+        _require(len(matching) == 1, "source-record-outcome-uniqueness")
+        seen_cases.add(case["id"]); seen_records.add(rid)
+    return source_records
 
 
 def _precision(order: list[str], labels: dict[str, int], k: int) -> Fraction:
     _require(len(order) >= k, "top-k")
-    return Fraction(sum(labels[rid] for rid in order[:k]), k)
+    return Fraction(sum(labels[x] for x in order[:k]), k)
 
 
 def _average_precision(order: list[str], labels: dict[str, int]) -> float:
     positives = sum(labels.values())
-    if positives == 0:
-        return 0.0
-    seen = 0
-    total = 0.0
+    if positives == 0: return 0.0
+    seen = 0; total = 0.0
     for rank, rid in enumerate(order, 1):
         if labels[rid]:
-            seen += 1
-            total += seen / rank
+            seen += 1; total += seen / rank
     return total / positives
 
 
 def _wilson(successes: int, total: int, z: float = 1.959963984540054) -> list[float]:
-    if total <= 0:
-        return [0.0, 0.0]
-    p = successes / total
-    denominator = 1.0 + z * z / total
-    center = (p + z * z / (2 * total)) / denominator
-    margin = z * math.sqrt((p * (1 - p) + z * z / (4 * total)) / total) / denominator
-    return [max(0.0, center - margin), min(1.0, center + margin)]
+    if total <= 0: return [0.0, 0.0]
+    p = successes / total; denominator = 1.0 + z*z/total
+    center = (p + z*z/(2*total))/denominator
+    margin = z*math.sqrt((p*(1-p)+z*z/(4*total))/total)/denominator
+    return [max(0.0, center-margin), min(1.0, center+margin)]
 
 
 def _quantile(values: list[float], q: float) -> float:
-    _require(bool(values), "empty-bootstrap")
-    ordered = sorted(values)
-    position = (len(ordered) - 1) * q
-    low = math.floor(position)
-    high = math.ceil(position)
-    if low == high:
-        return ordered[low]
-    return ordered[low] * (high - position) + ordered[high] * (position - low)
+    ordered = sorted(values); position = (len(ordered)-1)*q; low = math.floor(position); high = math.ceil(position)
+    return ordered[low] if low == high else ordered[low]*(high-position)+ordered[high]*(position-low)
 
 
-def _collapse_groups(
-    prediction_rows: list[dict[str, Any]], labels: dict[str, int]
-) -> tuple[list[dict[str, Any]], dict[str, int]]:
+def _collapse_groups(rows: list[dict[str, Any]], labels: dict[str, int]) -> tuple[list[dict[str, Any]], dict[str, int]]:
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for row in prediction_rows:
-        grouped[row["group"]].append(row)
-    rows: list[dict[str, Any]] = []
-    group_labels: dict[str, int] = {}
-    for group in sorted(grouped):
-        members = grouped[group]
-        rows.append(
-            {
-                "id": group,
-                "group": group,
-                "syntax_score": max(row["syntax_score"] for row in members),
-                "unvalidated_score": max(row["unvalidated_score"] for row in members),
-                "validated_score": max(row["validated_score"] for row in members),
-                "witness_accepted": max(row["witness_accepted"] for row in members),
-                "semantic_hint": max(row["semantic_hint"] for row in members),
-            }
-        )
-        group_labels[group] = max(labels[row["id"]] for row in members)
-    return rows, group_labels
+    for row in rows: grouped[row["group"]].append(row)
+    result: list[dict[str, Any]] = []; group_labels: dict[str, int] = {}
+    for group, units in sorted(grouped.items()):
+        result.append({
+            "id": group, "group": group,
+            "syntax_score": max(r["syntax_score"] for r in units),
+            "unvalidated_score": max(r["unvalidated_score"] for r in units),
+            "validated_score": max(r["validated_score"] for r in units),
+            "source_evidence_accepted": max(r["source_evidence_accepted"] for r in units),
+        })
+        group_labels[group] = max(labels[r["id"]] for r in units)
+    return result, group_labels
 
 
-def _cluster_bootstrap(
-    rows: list[dict[str, Any]], labels: dict[str, int], k: int, replicates: int, seed: int
-) -> dict[str, list[float]]:
-    by_group: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for row in rows:
-        by_group[row["group"]].append(row)
-    groups = sorted(by_group)
-    rng = random.Random(seed)
-    deltas: list[float] = []
-    semantic_deltas: list[float] = []
-    coverages: list[float] = []
+def _cluster_bootstrap(rows: list[dict[str, Any]], labels: dict[str, int], k: int, replicates: int, seed: int) -> dict[str, Any]:
+    groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in rows: groups[row["group"]].append(row)
+    names = sorted(groups); rng = random.Random(seed); deltas: list[float] = []
     for _ in range(replicates):
-        sampled: list[dict[str, Any]] = []
-        sample_labels: dict[str, int] = {}
-        for draw in range(len(groups)):
-            group = groups[rng.randrange(len(groups))]
-            for row in by_group[group]:
-                clone = dict(row)
-                clone_id = f"{row['id']}@{draw}"
-                clone["id"] = clone_id
-                clone["group"] = f"{group}@{draw}"
-                sampled.append(clone)
-                sample_labels[clone_id] = labels[row["id"]]
-        if len(sampled) < k:
-            continue
-        baseline = _rank(sampled, "syntax_score")
-        semantic = _rank(sampled, "unvalidated_score")
-        validated = _rank(sampled, "validated_score")
-        baseline_precision = float(_precision(baseline, sample_labels, k))
-        deltas.append(float(_precision(validated, sample_labels, k)) - baseline_precision)
-        semantic_deltas.append(float(_precision(semantic, sample_labels, k)) - baseline_precision)
-        positive = sum(sample_labels.values())
-        accepted_positive = sum(sample_labels[row["id"]] * row["witness_accepted"] for row in sampled)
-        coverages.append(accepted_positive / positive if positive else 0.0)
-    _require(len(deltas) == replicates, "bootstrap-short-sample")
-    return {
-        "validated_minus_syntax": [_quantile(deltas, 0.025), _quantile(deltas, 0.975)],
-        "unvalidated_minus_syntax": [_quantile(semantic_deltas, 0.025), _quantile(semantic_deltas, 0.975)],
-        "unit_coverage": [_quantile(coverages, 0.025), _quantile(coverages, 0.975)],
-    }
+        sample = [rng.choice(names) for _ in names]
+        sampled_rows: list[dict[str, Any]] = []; sampled_labels: dict[str, int] = {}
+        for draw_index, group in enumerate(sample):
+            for unit in groups[group]:
+                clone = dict(unit); clone["id"] = f"{draw_index}:{unit['id']}"; clone["group"] = str(draw_index)
+                sampled_rows.append(clone); sampled_labels[clone["id"]] = labels[unit["id"]]
+        kk = min(k, len(sampled_rows))
+        base = _precision(_rank(sampled_rows, "syntax_score"), sampled_labels, kk)
+        val = _precision(_rank(sampled_rows, "validated_score"), sampled_labels, kk)
+        deltas.append(float(val-base))
+    return {"replicates": replicates, "seed": seed, "validated_minus_syntax_percentile_95": [_quantile(deltas, .025), _quantile(deltas, .975)]}
 
 
-def derive_readiness(
-    candidates: dict[str, Any],
-    label_doc: dict[str, Any],
-    witness_cases: dict[str, Any],
-    protocol: dict[str, Any],
-    design: dict[str, Any],
-    prediction_rows: list[dict[str, Any]],
-    outcomes: list[dict[str, Any]],
-    reference_verification_count: int,
-    frontend_validation: dict[str, Any],
-) -> dict[str, Any]:
-    """Derive every gate fail-closed from package facts; no boolean gate list is trusted."""
+def _evidence_file_exists(root: Path, descriptor: Any) -> bool:
+    if type(descriptor) is not dict or set(descriptor) != {"path", "sha256"}: return False
+    path = root / descriptor["path"]
+    return path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == descriptor["sha256"]
+
+
+def derive_readiness(candidates: dict[str, Any], labels_doc: dict[str, Any], source_evidence: dict[str, Any], protocol: dict[str, Any], design: dict[str, Any], rows: list[dict[str, Any]], outcomes: list[dict[str, Any]], source_records: list[dict[str, Any]], reference_count: int, frontend_validation: dict[str, Any], artifact_root: Path | None = None) -> dict[str, Any]:
     validate_study_design(design)
-    provenance = label_doc["provenance"]
-    construction = witness_cases["construction"]
-    baseline = protocol["baseline"]
-    candidate_frame = design["candidate_frame"]
-
-    facts: dict[str, tuple[bool, list[str], str]] = {
-        "all_candidates_counted_with_typed_outcomes": (
-            len(outcomes) == len(prediction_rows)
-            and {row["record"] for row in outcomes} == {row["id"] for row in prediction_rows},
-            ["predictions-frozen.json", "outcomes.json"],
-            "Every frozen candidate has exactly one typed outcome.",
-        ),
-        "automatic_source_frontend": (
-            construction["automatic_source_frontend"] is True
-            and construction["source_translation_validated"] is True
-            and design["frontend"]["automatic_source_frontend"] is True
-            and design["frontend"]["source_translation_validated"] is True
-            and isinstance(frontend_validation, dict)
-            and frontend_validation.get("schema") == "rbw-source-frontend-validation-v1"
-            and frontend_validation.get("automatic_source_frontend") is True
-            and frontend_validation.get("source_translation_validated") is True
-            and frontend_validation.get("status") == "pass"
-            and frontend_validation.get("mismatches") == 0
-            and frontend_validation.get("semantic_obligations") == 900
-            and frontend_validation.get("candidate_hash") == canonical_hash(candidates)
-            and frontend_validation.get("witness_case_hash") == canonical_hash(witness_cases),
-            [
-                "data/public-study/witness-cases.json",
-                "data/public-study/study-design.json",
-                "results/source-frontend/summary.json",
-            ],
-            "The restricted guard-expression frontend is automatic and its retained translation packet passed independent parser and C11 replay checks.",
-        ),
-        "candidate_selection_independent_of_labels": (
-            provenance["selection_used_class_lists"] is False
-            and candidate_frame["candidate_selection_independent_of_labels"] is True,
-            ["data/public-study/labels.json", "data/public-study/study-design.json"],
-            "The retained cohort was assembled from published positive and negative class lists.",
-        ),
-        "complete_repository_time_window": (
-            candidate_frame["complete_repository_time_window"] is True,
-            ["data/public-study/study-design.json"],
-            "No complete repository-by-time population frame is present.",
-        ),
-        "independent_replay_checker": (
-            bool(outcomes)
-            and any(row["accepted"] == 1 for row in outcomes)
-            and all(row["reason"] == "accepted" for row in outcomes if row["accepted"] == 1),
-            ["src/public_study.py", "certificates.json", "outcomes.json"],
-            "Accepted cases were recomputed by the iterative replay machine and trace-bound.",
-        ),
-        "labels_sealed_before_method_development": (
-            provenance["sealed_before_method_development"] is True
-            and design["labels"]["sealed_before_method_development"] is True,
-            ["data/public-study/labels.json", "data/public-study/study-design.json"],
-            "Labels were known during mapping and cohort construction.",
-        ),
-        "reference_count_at_least_55": (
-            type(reference_verification_count) is int and reference_verification_count >= 55,
-            ["reference-verification.csv", "literature-screening.csv"],
-            "At least 55 bibliography records have an artifact-side verification row.",
-        ),
-        "strongest_published_same_budget_baseline": (
-            baseline["published_same_budget_comparison"] is True
-            and design["baseline"]["strongest_published_same_budget_baseline"] is True,
-            ["data/public-study/protocol.json", "data/public-study/study-design.json"],
-            "The implemented comparator is a transparent control, not the strongest published same-budget baseline.",
-        ),
-        "temporal_holdout": (
-            provenance["temporal_holdout"] is True
-            and candidate_frame["temporal_holdout"] is True,
-            ["data/public-study/labels.json", "data/public-study/study-design.json"],
-            "The retained cohort is not a predeclared post-cutoff holdout.",
-        ),
+    artifact_root = artifact_root or Path(".")
+    machine = {
+        "all_candidates_counted_with_typed_outcomes": len(rows) == len(outcomes) == len(candidates["records"]) and {r["id"] for r in rows} == {o["record"] for o in outcomes},
+        "restricted_source_evidence_cross_checked": frontend_validation.get("schema") == "rbw-source-frontend-validation-v2" and frontend_validation.get("status") == "pass" and frontend_validation.get("mismatches") == 0 and frontend_validation.get("candidate_hash") == canonical_hash(candidates) and frontend_validation.get("source_evidence_hash") == canonical_hash(source_evidence),
+        "independent_source_record_checker": len(source_records) == sum(r["source_evidence_accepted"] for r in rows) and all(o["reason"] in {"accepted-guard-trigger", "accepted-source-difference"} for o in outcomes if o["accepted"]),
+        "reference_count_at_least_55": type(reference_count) is int and reference_count >= 55,
     }
-    _require(set(facts) == set(GATE_IDS), "readiness-gate-set")
-    gates = [
-        {
-            "id": gate,
-            "status": "pass" if facts[gate][0] else "fail",
-            "basis": "machine-derived-fail-closed",
-            "evidence": facts[gate][1],
-            "detail": facts[gate][2],
-        }
-        for gate in GATE_IDS
-    ]
-    failed = [row["id"] for row in gates if row["status"] == "fail"]
-    return {
-        "schema": "rbw-readiness-v2",
-        "main_study_readiness": "passed" if not failed else "failed",
-        "failed_readiness_gates": failed,
-        "gates": gates,
+    cf = design["candidate_frame"]; sealing = design["label_sealing"]; correspondence = design["source_correspondence"]; baseline = design["baseline_reproduction"]; temporal = design["temporal_split"]
+    design_facts = {
+        "raw_diff_or_checked_source_tree_correspondence": _evidence_file_exists(artifact_root, correspondence["raw_diff_archive"]) or (_evidence_file_exists(artifact_root, correspondence["source_tree_manifest"]) and _evidence_file_exists(artifact_root, correspondence["checked_lowering_evidence"])),
+        "candidate_selection_independent_of_labels": cf["class_lists_used"] is False and cf["selection_method"] == "label-independent",
+        "complete_repository_time_window": cf["window_start"] is not None and cf["window_end"] is not None and _evidence_file_exists(artifact_root, cf["enumeration_manifest"]),
+        "labels_sealed_before_method_development": _evidence_file_exists(artifact_root, sealing["seal_record"]) and sealing["method_freeze_timestamp"] is not None,
+        "strongest_published_same_budget_baseline": baseline["published_system"] is not None and _evidence_file_exists(artifact_root, baseline["same_budget_evidence"]),
+        "temporal_holdout": temporal["cutoff"] is not None and _evidence_file_exists(artifact_root, temporal["development_manifest"]) and _evidence_file_exists(artifact_root, temporal["holdout_manifest"]),
     }
-
-
-def evaluate_predictions(
-    candidates: dict[str, Any],
-    label_doc: dict[str, Any],
-    witness_cases: dict[str, Any],
-    protocol: dict[str, Any],
-    study_design: dict[str, Any],
-    predictions: dict[str, Any],
-    outcomes: list[dict[str, Any]],
-    reference_verification_count: int,
-    frontend_validation: dict[str, Any],
-) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
-    candidate_records = validate_candidates(candidates)
-    validate_protocol(protocol, len(candidate_records))
-    validate_witness_cases(witness_cases, {row["id"] for row in candidate_records})
-    validate_study_design(study_design)
-    labels = validate_labels(label_doc, {row["id"]: row["group"] for row in candidate_records})
-    rows = validate_predictions(predictions, candidates, witness_cases, protocol)
-    _require({row["id"] for row in rows} == set(labels), "prediction-coverage")
-    outcomes = validate_outcomes(outcomes, rows)
-
-    rankings = {
-        "syntax": _rank(rows, "syntax_score"),
-        "unvalidated": _rank(rows, "unvalidated_score"),
-        "validated": _rank(rows, "validated_score"),
+    details = {
+        "all_candidates_counted_with_typed_outcomes": "Every retained file unit has exactly one typed outcome and remains in the ranking denominator.",
+        "restricted_source_evidence_cross_checked": "The restricted expression packet is cross-checked; this does not establish raw-diff or source-tree correspondence.",
+        "raw_diff_or_checked_source_tree_correspondence": "Only minimal real file hunks are retained; no full raw-diff archive or checked source-tree lowering exists.",
+        "candidate_selection_independent_of_labels": "Published class lists were used to construct the retrospective microcohort.",
+        "complete_repository_time_window": "No complete repository-by-time enumeration manifest is present.",
+        "independent_source_record_checker": "Every accepted source record is uniquely bound and independently replayed.",
+        "labels_sealed_before_method_development": "No verifiable label-seal record predating method freeze is present.",
+        "reference_count_at_least_55": "At least 55 cited scholarly records have verification-ledger entries.",
+        "strongest_published_same_budget_baseline": "No reproduced published same-budget baseline evidence is present.",
+        "temporal_holdout": "No verifiable development/holdout manifests or cutoff are present.",
     }
-    top_ks = protocol["top_k"]
+    evidence_paths = {
+        "all_candidates_counted_with_typed_outcomes": ["predictions-frozen.json", "outcomes.json"],
+        "restricted_source_evidence_cross_checked": ["results/source-frontend/summary.json"],
+        "raw_diff_or_checked_source_tree_correspondence": ["data/public-study/study-design.json"],
+        "candidate_selection_independent_of_labels": ["data/public-study/study-design.json", "data/public-study/labels.json"],
+        "complete_repository_time_window": ["data/public-study/study-design.json"],
+        "independent_source_record_checker": ["source-records.json", "outcomes.json"],
+        "labels_sealed_before_method_development": ["data/public-study/study-design.json"],
+        "reference_count_at_least_55": ["reference-verification.csv"],
+        "strongest_published_same_budget_baseline": ["data/public-study/study-design.json"],
+        "temporal_holdout": ["data/public-study/study-design.json"],
+    }
+    gates = []
+    for gate in GATE_IDS:
+        if gate in machine:
+            status = machine[gate]; basis = "machine-recomputed"
+        else:
+            status = design_facts[gate]; basis = "trusted-design-assertion-with-file-evidence-required"
+        gates.append({"id": gate, "status": "pass" if status else "fail", "basis": basis, "evidence": evidence_paths[gate], "detail": details[gate]})
+    failed = [g["id"] for g in gates if g["status"] == "fail"]
+    return {"schema": "rbw-readiness-v3", "main_study_readiness": "passed" if not failed else "failed", "failed_readiness_gates": failed, "gates": gates}
+
+
+def evaluate_predictions(candidates: dict[str, Any], label_doc: dict[str, Any], source_evidence: dict[str, Any], protocol: dict[str, Any], study_design: dict[str, Any], predictions: dict[str, Any], outcomes: list[dict[str, Any]], reference_count: int, frontend_validation: dict[str, Any], source_records: list[dict[str, Any]] | None = None, artifact_root: Path | None = None) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
+    candidate_records = validate_candidates(candidates); validate_protocol(protocol, len(candidate_records)); cases = validate_source_evidence(source_evidence, {r["id"] for r in candidate_records}); validate_study_design(study_design)
+    labels = validate_labels(label_doc, {r["id"]: r["group"] for r in candidate_records})
+    rows = validate_predictions(predictions, candidates, source_evidence, protocol); outcomes = validate_outcomes(outcomes, rows)
+    source_records = source_records or []
+    if source_records: validate_source_records(source_records, cases, candidate_records, outcomes)
+    _require({r["id"] for r in rows} == set(labels), "prediction-coverage")
+    rankings = {"syntax": _rank(rows, "syntax_score"), "unvalidated": _rank(rows, "unvalidated_score"), "validated": _rank(rows, "validated_score")}
     metrics: dict[str, Any] = {}
     for method, order in rankings.items():
-        metrics[method] = {f"precision_at_{k}": float(_precision(order, labels, k)) for k in top_ks}
+        metrics[method] = {f"precision_at_{k}": float(_precision(order, labels, k)) for k in protocol["top_k"]}
         metrics[method]["average_precision"] = _average_precision(order, labels)
-
-    primary_k = protocol["primary_k"]
-    baseline_top = rankings["syntax"][:primary_k]
-    semantic_top = rankings["unvalidated"][:primary_k]
-    validated_top = rankings["validated"][:primary_k]
-    baseline_precision = _precision(baseline_top, labels, primary_k)
-    delta = _precision(validated_top, labels, primary_k) - baseline_precision
-    semantic_delta = _precision(semantic_top, labels, primary_k) - baseline_precision
-
-    positive_units = sum(labels.values())
-    _require(positive_units > 0, "no-positive-labels")
-    accepted_positive_units = sum(labels[row["id"]] * row["witness_accepted"] for row in rows)
-    unit_coverage = Fraction(accepted_positive_units, positive_units)
-
-    group_rows, group_labels = _collapse_groups(rows, labels)
-    group_rankings = {
-        "syntax": _rank(group_rows, "syntax_score"),
-        "unvalidated": _rank(group_rows, "unvalidated_score"),
-        "validated": _rank(group_rows, "validated_score"),
+    k = protocol["primary_k"]; base = _precision(rankings["syntax"], labels, k); val = _precision(rankings["validated"], labels, k); hint = _precision(rankings["unvalidated"], labels, k)
+    delta = val-base; hint_delta = hint-base
+    positive_files = sum(labels.values()); accepted_files = sum(r["source_evidence_accepted"] for r in rows); accepted_positive_files = sum(labels[r["id"]]*r["source_evidence_accepted"] for r in rows)
+    group_rows, group_labels = _collapse_groups(rows, labels); positive_groups = sum(group_labels.values()); accepted_groups = sum(r["source_evidence_accepted"] for r in group_rows); accepted_positive_groups = sum(group_labels[r["id"]]*r["source_evidence_accepted"] for r in group_rows)
+    coverage = {
+        "positive_file_conditional": {"successes": accepted_positive_files, "total": positive_files, "fraction": f"{accepted_positive_files}/{positive_files}", "value": accepted_positive_files/positive_files, "wilson_95": _wilson(accepted_positive_files, positive_files)},
+        "positive_commit_conditional": {"successes": accepted_positive_groups, "total": positive_groups, "fraction": f"{accepted_positive_groups}/{positive_groups}", "value": accepted_positive_groups/positive_groups, "wilson_95": _wilson(accepted_positive_groups, positive_groups)},
+        "all_candidate_file_availability": {"successes": accepted_files, "total": len(rows), "fraction": f"{accepted_files}/{len(rows)}", "value": accepted_files/len(rows), "wilson_95": _wilson(accepted_files, len(rows))},
+        "all_candidate_commit_availability": {"successes": accepted_groups, "total": len(group_rows), "fraction": f"{accepted_groups}/{len(group_rows)}", "value": accepted_groups/len(group_rows), "wilson_95": _wilson(accepted_groups, len(group_rows))},
     }
-    group_positive = sum(group_labels.values())
-    _require(group_positive > 0, "no-positive-groups")
-    group_accepted = sum(group_labels[row["id"]] * row["witness_accepted"] for row in group_rows)
-    group_coverage = Fraction(group_accepted, group_positive)
-    group_k = min(primary_k, len(group_rows))
-    group_metrics: dict[str, Any] = {}
-    for method, order in group_rankings.items():
-        group_metrics[method] = {
-            f"precision_at_{group_k}": float(_precision(order, group_labels, group_k)),
-            "average_precision": _average_precision(order, group_labels),
-        }
-
-    ablations: list[dict[str, Any]] = []
-    accepted_ids = {row["id"] for row in rows if row["witness_accepted"]}
+    ablations=[]; accepted_ids={r["id"] for r in rows if r["source_evidence_accepted"]}
     for bonus_value in protocol["bonus_ablations"]:
-        bonus = float(bonus_value)
-        temporary = []
+        temp=[]
         for row in rows:
-            clone = dict(row)
-            clone["ablation_score"] = round(row["syntax_score"] + bonus * int(row["id"] in accepted_ids), 9)
-            temporary.append(clone)
-        order = _rank(temporary, "ablation_score")
-        precision = _precision(order, labels, primary_k)
-        ablations.append(
-            {
-                "witness_bonus": bonus,
-                "precision_at_20": float(precision),
-                "delta_from_syntax": float(precision - baseline_precision),
-                "top20_symmetric_difference_size": len(set(order[:primary_k]) ^ set(baseline_top)),
-            }
-        )
-
-    bootstrap = _cluster_bootstrap(
-        rows,
-        labels,
-        primary_k,
-        protocol["bootstrap_replicates"],
-        protocol["bootstrap_seed"],
-    )
-    readiness = derive_readiness(
-        candidates,
-        label_doc,
-        witness_cases,
-        protocol,
-        study_design,
-        rows,
-        outcomes,
-        reference_verification_count,
-        frontend_validation,
-    )
-    failed_gates = readiness["failed_readiness_gates"]
-    reason_counts = Counter(row["reason"] for row in outcomes)
-
-    ranks = {
-        name: {rid: index + 1 for index, rid in enumerate(order)}
-        for name, order in rankings.items()
-    }
-    scored_rows: list[dict[str, Any]] = []
+            clone=dict(row); clone["ablation_score"]=round(row["syntax_score"]+float(bonus_value)*int(row["id"] in accepted_ids),9); temp.append(clone)
+        order=_rank(temp,"ablation_score"); p=_precision(order,labels,k)
+        ablations.append({"source_evidence_bonus":float(bonus_value),"precision_at_20":float(p),"delta_from_syntax":float(p-base),"top20_symmetric_difference_size":len(set(order[:k])^set(rankings["syntax"][:k]))})
+    readiness=derive_readiness(candidates,label_doc,source_evidence,protocol,study_design,rows,outcomes,source_records,reference_count,frontend_validation,artifact_root)
+    failed=readiness["failed_readiness_gates"]
+    ranks={name:{rid:i+1 for i,rid in enumerate(order)} for name,order in rankings.items()}
+    scored=[]
     for row in rows:
-        scored_rows.append(
-            {
-                **row,
-                "label": labels[row["id"]],
-                "syntax_rank": ranks["syntax"][row["id"]],
-                "unvalidated_rank": ranks["unvalidated"][row["id"]],
-                "validated_rank": ranks["validated"][row["id"]],
-            }
-        )
-
-    formal_h1 = (
-        "threshold-met" if not failed_gates and delta >= Fraction(1, 10)
-        else "threshold-not-met" if not failed_gates
-        else "not-testable-with-label-selected-nontemporal-cohort"
-    )
-    formal_h2 = (
-        "threshold-met" if not failed_gates and unit_coverage >= Fraction(3, 5)
-        else "threshold-not-met" if not failed_gates
-        else "not-testable-as-population-coverage"
-    )
-    summary = {
-        "schema": "rbw-public-summary-v5",
-        "scope": "32-unit label-selected TensorFlow file-change microcohort; descriptive audit only",
-        "candidate_units": len(rows),
-        "commit_groups": len(group_rows),
-        "positive_units": positive_units,
-        "accepted_positive_units": accepted_positive_units,
-        "positive_commit_groups": group_positive,
-        "accepted_positive_commit_groups": group_accepted,
-        "labels_loaded_only_in_separate_evaluation_process": True,
-        "prediction_records_contain_labels": False,
-        "selection_independent_of_labels": False,
-        "temporal_holdout": False,
-        "metrics": metrics,
-        "group_metrics": group_metrics,
-        "primary_k": primary_k,
-        "validated_minus_syntax_at_20": float(delta),
-        "unvalidated_minus_syntax_at_20": float(semantic_delta),
-        "validated_top20_symmetric_difference": sorted(set(validated_top) ^ set(baseline_top)),
-        "unvalidated_top20_symmetric_difference": sorted(set(semantic_top) ^ set(baseline_top)),
-        "accepted_source_witnesses": len(accepted_ids),
-        "unit_witness_coverage": float(unit_coverage),
-        "unit_witness_coverage_fraction": f"{accepted_positive_units}/{positive_units}",
-        "unit_witness_coverage_wilson_95_descriptive": _wilson(accepted_positive_units, positive_units),
-        "group_witness_coverage": float(group_coverage),
-        "group_witness_coverage_fraction": f"{group_accepted}/{group_positive}",
-        "group_witness_coverage_wilson_95_descriptive": _wilson(group_accepted, group_positive),
-        "cluster_bootstrap_95": bootstrap,
-        "bootstrap_replicates": protocol["bootstrap_replicates"],
-        "bonus_ablations": ablations,
-        "typed_outcomes": dict(sorted(reason_counts.items())),
-        "microcohort_h1_analogue": "threshold-met" if delta >= Fraction(1, 10) else "threshold-not-met",
-        "microcohort_h2_analogue": "threshold-met" if unit_coverage >= Fraction(3, 5) else "threshold-not-met",
-        "formal_h1_decision": formal_h1,
-        "formal_h2_decision": formal_h2,
-        "main_study_readiness": readiness["main_study_readiness"],
-        "failed_readiness_gates": failed_gates,
-        "reference_verification_count": reference_verification_count,
-        "obligations_this_analysis": protocol["bootstrap_replicates"] + len(rows) * (3 + len(protocol["bonus_ablations"])),
-        "predictions_hash": canonical_hash(predictions),
-        "labels_hash": canonical_hash(label_doc),
+        scored.append({**row,"label":labels[row["id"]],"syntax_rank":ranks["syntax"][row["id"]],"unvalidated_rank":ranks["unvalidated"][row["id"]],"validated_rank":ranks["validated"][row["id"]]})
+    formal_h1 = "threshold-met" if not failed and delta >= Fraction(1,10) else "threshold-not-met" if not failed else "not-testable-with-label-selected-nontemporal-cohort"
+    h2_value = Fraction(accepted_files, len(rows))
+    formal_h2 = "threshold-met" if not failed and h2_value >= Fraction(3,5) else "threshold-not-met" if not failed else "not-testable-as-full-cohort-file-availability"
+    summary={
+        "schema":"rbw-public-summary-v6","scope":"32-unit label-selected TensorFlow file-change microcohort; descriptive source-evidence audit only",
+        "candidate_units":len(rows),"commit_groups":len(group_rows),"positive_units":positive_files,"positive_commit_groups":positive_groups,
+        "accepted_source_records":accepted_files,"typed_outcome_counts":dict(sorted(Counter(o["typed_outcome"] for o in outcomes).items())),
+        "metrics":metrics,"validated_minus_syntax_at_20":float(delta),"unvalidated_minus_syntax_at_20":float(hint_delta),
+        "top20_symmetric_difference_validated_vs_syntax":len(set(rankings["validated"][:k])^set(rankings["syntax"][:k])),
+        "coverage":coverage,"h2_descriptive_denominator":"all-eligible-file-candidates","h2_descriptive_threshold_analogue":float(protocol["h2_availability_threshold"]),
+        "formal_h1_decision":formal_h1,"formal_h2_decision":formal_h2,"main_study_readiness":readiness["main_study_readiness"],"failed_readiness_gates":failed,
+        "bootstrap":_cluster_bootstrap(rows,labels,k,protocol["bootstrap_replicates"],protocol["bootstrap_seed"]),
+        "rankings":rankings,
     }
-    return summary, scored_rows, ablations, readiness
+    return summary, scored, ablations, readiness

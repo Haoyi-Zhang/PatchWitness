@@ -1,0 +1,475 @@
+[
+  {
+    "after": {
+      "payload": 2147483648,
+      "tag": "int"
+    },
+    "after_trace": [
+      [
+        "",
+        "int",
+        2147483648
+      ]
+    ],
+    "assignment": {
+      "concat_dim": -2147483648
+    },
+    "before": {
+      "payload": "signed-int32-negation-overflow",
+      "tag": "fault"
+    },
+    "before_trace": [
+      [
+        "",
+        "fault",
+        "signed-int32-negation-overflow"
+      ]
+    ],
+    "case": "W01",
+    "context_tokens": [],
+    "kind": "source-difference",
+    "record": "U024",
+    "record_binding": "a011ef66579cbb3b4e2b5e8aefd4c35ac2e0dd372172d1bc69896e2c889023ae",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "const int min_rank",
+      "const int64 min_rank"
+    ]
+  },
+  {
+    "assignment": {
+      "pad_width": -5
+    },
+    "case": "W02",
+    "context_results": [],
+    "context_tokens": [],
+    "context_traces": [],
+    "guard_result": {
+      "payload": false,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0",
+        "int",
+        -5
+      ],
+      [
+        "1",
+        "int",
+        0
+      ],
+      [
+        "",
+        "bool",
+        false
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U002",
+    "record_binding": "9bcda5108685e8b40464d9ab48eab0feff4318f4fcc3c8424baa67331c3f5a15",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "pad_width_ >= 0"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  },
+  {
+    "assignment": {
+      "num_threads": -1
+    },
+    "case": "W03",
+    "context_results": [],
+    "context_tokens": [],
+    "context_traces": [],
+    "guard_result": {
+      "payload": true,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0.0",
+        "int",
+        -1
+      ],
+      [
+        "0.1",
+        "int",
+        0
+      ],
+      [
+        "0",
+        "bool",
+        true
+      ],
+      [
+        "",
+        "bool",
+        true
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U003",
+    "record_binding": "7222eadc9f87f83c4d0fc4c53c381940ec6ec8dc50beb64d64f3ed1ee0143669",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "num_threads < 0",
+      "num_threads >= kThreadLimit"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  },
+  {
+    "assignment": {
+      "axis": 1,
+      "input_dims": 0
+    },
+    "case": "W04",
+    "context_results": [],
+    "context_tokens": [],
+    "context_traces": [],
+    "guard_result": {
+      "payload": true,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0.0",
+        "int",
+        1
+      ],
+      [
+        "0.1",
+        "int",
+        0
+      ],
+      [
+        "0",
+        "bool",
+        true
+      ],
+      [
+        "",
+        "bool",
+        true
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U019",
+    "record_binding": "bea3cd11cb78dc67a909d1462a36046b723db058f884adad20fdbcd6ccb00a83",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "axis > input_dims",
+      "axis >= kint32max"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  },
+  {
+    "assignment": {
+      "in_col_end": -1,
+      "in_col_start": -1,
+      "in_row_end": -1,
+      "in_row_start": -1
+    },
+    "case": "W05",
+    "context_results": [],
+    "context_tokens": [],
+    "context_traces": [],
+    "guard_result": {
+      "payload": false,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0.0.0",
+        "int",
+        -1
+      ],
+      [
+        "0.0.1",
+        "int",
+        0
+      ],
+      [
+        "0.0",
+        "bool",
+        false
+      ],
+      [
+        "0",
+        "bool",
+        false
+      ],
+      [
+        "",
+        "bool",
+        false
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U005",
+    "record_binding": "1b397460145d8ed11e8f7fc50d519f73733aa23665f5c3472563b4770e85b8e8",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "in_row_start >= 0 && in_row_end >= 0",
+      "in_col_start >= 0 && in_col_end >= 0"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  },
+  {
+    "assignment": {
+      "batch_dim": -1
+    },
+    "case": "W06",
+    "context_results": [],
+    "context_tokens": [],
+    "context_traces": [],
+    "guard_result": {
+      "payload": true,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0",
+        "int",
+        -1
+      ],
+      [
+        "1",
+        "int",
+        0
+      ],
+      [
+        "",
+        "bool",
+        true
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U028",
+    "record_binding": "fde7ff7d8319b93eca539c9a668be00b095206586684a1399073db62e8f4bb4b",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "batch_dim < 0"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  },
+  {
+    "assignment": {
+      "axis": 0,
+      "dims": 0
+    },
+    "case": "W07",
+    "context_results": [],
+    "context_tokens": [],
+    "context_traces": [],
+    "guard_result": {
+      "payload": false,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0",
+        "int",
+        0
+      ],
+      [
+        "1",
+        "int",
+        0
+      ],
+      [
+        "",
+        "bool",
+        false
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U026",
+    "record_binding": "4b1b1d020e00565cd01a64560674fdd18fcdaea89b500cd619a2077dd4b0ef2e",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "axis_ < input.dims()"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  },
+  {
+    "assignment": {
+      "sx": 0,
+      "sy": 0
+    },
+    "case": "W08",
+    "context_results": [],
+    "context_tokens": [],
+    "context_traces": [],
+    "guard_result": {
+      "payload": true,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0.0",
+        "int",
+        0
+      ],
+      [
+        "0.1",
+        "int",
+        0
+      ],
+      [
+        "0",
+        "bool",
+        true
+      ],
+      [
+        "",
+        "bool",
+        true
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U004",
+    "record_binding": "a4d049112825c21423555f69addaad959fbc16072876ae367c0e986d15374e38",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "sx == 0 || sy == 0"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  },
+  {
+    "assignment": {
+      "num_elements": 0
+    },
+    "case": "W09",
+    "context_results": [],
+    "context_tokens": [],
+    "context_traces": [],
+    "guard_result": {
+      "payload": false,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0",
+        "int",
+        0
+      ],
+      [
+        "1",
+        "int",
+        1
+      ],
+      [
+        "",
+        "bool",
+        false
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U010",
+    "record_binding": "4a89e3a802ac81f0849ed96eb8f6bf82896858a7de1b924662535c1787eb143d",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "key_tensor->NumElements() == 1"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  },
+  {
+    "assignment": {
+      "dim": -1,
+      "limit": 2147483647,
+      "prod": 1
+    },
+    "case": "W10",
+    "context_results": [
+      {
+        "payload": true,
+        "tag": "bool"
+      }
+    ],
+    "context_tokens": [
+      "dims(i) != 0"
+    ],
+    "context_traces": [
+      [
+        [
+          "0",
+          "int",
+          -1
+        ],
+        [
+          "1",
+          "int",
+          0
+        ],
+        [
+          "",
+          "bool",
+          true
+        ]
+      ]
+    ],
+    "guard_result": {
+      "payload": false,
+      "tag": "bool"
+    },
+    "guard_trace": [
+      [
+        "0.0",
+        "int",
+        -1
+      ],
+      [
+        "0.1",
+        "int",
+        0
+      ],
+      [
+        "0",
+        "bool",
+        false
+      ],
+      [
+        "",
+        "bool",
+        false
+      ]
+    ],
+    "kind": "guard-trigger",
+    "record": "U021",
+    "record_binding": "de0ed643f837d5289e2afba58d2fcf48bf487f0ac4661495a7937604a02857ec",
+    "schema": "rbw-source-record-v1",
+    "source_tokens": [
+      "dims(i) > 0",
+      "prod <= limit / dims(i)"
+    ],
+    "triggered": {
+      "payload": true,
+      "tag": "bool"
+    }
+  }
+]

@@ -1,32 +1,32 @@
 [
   {
     "delta_from_syntax": 0.0,
-    "precision_at_20": 0.7,
-    "top20_symmetric_difference_size": 0,
-    "witness_bonus": 0.0
+    "precision_at_20": 0.75,
+    "source_evidence_bonus": 0.0,
+    "top20_symmetric_difference_size": 0
   },
   {
     "delta_from_syntax": 0.0,
-    "precision_at_20": 0.7,
-    "top20_symmetric_difference_size": 0,
-    "witness_bonus": 1.0
+    "precision_at_20": 0.75,
+    "source_evidence_bonus": 1.0,
+    "top20_symmetric_difference_size": 0
   },
   {
     "delta_from_syntax": 0.0,
-    "precision_at_20": 0.7,
-    "top20_symmetric_difference_size": 0,
-    "witness_bonus": 2.0
+    "precision_at_20": 0.75,
+    "source_evidence_bonus": 2.0,
+    "top20_symmetric_difference_size": 0
   },
   {
     "delta_from_syntax": 0.0,
-    "precision_at_20": 0.7,
-    "top20_symmetric_difference_size": 0,
-    "witness_bonus": 4.0
+    "precision_at_20": 0.75,
+    "source_evidence_bonus": 4.0,
+    "top20_symmetric_difference_size": 0
   },
   {
     "delta_from_syntax": 0.0,
-    "precision_at_20": 0.7,
-    "top20_symmetric_difference_size": 0,
-    "witness_bonus": 8.0
+    "precision_at_20": 0.75,
+    "source_evidence_bonus": 8.0,
+    "top20_symmetric_difference_size": 0
   }
 ]

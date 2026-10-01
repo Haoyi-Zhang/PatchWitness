@@ -1,163 +1,41 @@
 {
-  "automatic_source_frontend": true,
-  "c11_compiler": "cc",
-  "c11_oracle": "pass",
-  "candidate_hash": "89777782bf453e629e56c1e7d55d336c40b1725e4ca67bfe8cbeafb8338c09a9",
-  "candidate_units": 32,
-  "case_counts": {
-    "U004": 100,
-    "U008": 100,
-    "U010": 100,
-    "U013": 100,
-    "U022": 100,
-    "U024": 100,
-    "U028": 100,
-    "U031": 100,
-    "U032": 100
+  "assignment_plan": {
+    "opposite_truth_branch_each_guard": true,
+    "remaining_samples": "seeded-random-unique-before-repeat",
+    "saved_assignment_each_guard": true,
+    "w03_boundaries": [
+      65535,
+      65536,
+      65537
+    ],
+    "w10_classes": [
+      "zero-denominator-short-circuit",
+      "actual-division-true",
+      "actual-division-false"
+    ]
   },
-  "diagnostics": [
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U001"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U002"
-    },
-    {
-      "reason": "recognized-widening",
-      "record": "U003"
-    },
-    {
-      "reason": "recognized-require",
-      "record": "U004"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U005"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U006"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U007"
-    },
-    {
-      "reason": "recognized-reject-if",
-      "record": "U008"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U009"
-    },
-    {
-      "reason": "recognized-reject-if",
-      "record": "U010"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U011"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U012"
-    },
-    {
-      "reason": "recognized-require",
-      "record": "U013"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U014"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U015"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U016"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U017"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U018"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U019"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U020"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U021"
-    },
-    {
-      "reason": "recognized-reject-if",
-      "record": "U022"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U023"
-    },
-    {
-      "reason": "recognized-require",
-      "record": "U024"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U025"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U026"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U027"
-    },
-    {
-      "reason": "recognized-reject-if",
-      "record": "U028"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U029"
-    },
-    {
-      "reason": "no-supported-source-pattern",
-      "record": "U030"
-    },
-    {
-      "reason": "recognized-require",
-      "record": "U031"
-    },
-    {
-      "reason": "recognized-require",
-      "record": "U032"
-    }
-  ],
-  "elapsed_seconds": 0.07489795500009677,
-  "grammar": "guard-expressions-v1",
-  "independent_parser": "shunting-yard",
+  "automatic_extraction": true,
+  "c11_oracle_sha256": "adccb4a8173303d22cf28f750b20a0cd73e47fad1de48f31a4221e25b992a94c",
+  "candidate_hash": "bb00bb68cddb4c3fbb711b85de0f9464bd44615f7a1fd329e6c1442d8a483d43",
+  "child_processes": 1,
+  "cpu_seconds": 0.319606874,
+  "guard_assignments": 900,
+  "guard_cases": 9,
+  "independence": {
+    "evaluation": "recursive Python producer, iterative Python replay, and compiled C11 short-circuit bytecode oracle",
+    "extraction": "single declared added-line extractor; errors become typed abstentions",
+    "parsing": "Pratt parser versus separately implemented shunting-yard parser"
+  },
+  "input_mode": "minimal-real-unified-diff-context",
   "mismatches": 0,
-  "predicate_cases": 9,
-  "primary_parser": "Pratt",
-  "recognized_cases": 10,
-  "schema": "rbw-source-frontend-validation-v1",
-  "semantic_obligations": 900,
-  "source_translation_validated": true,
+  "raw_diff_or_source_tree_correspondence": false,
+  "schema": "rbw-source-frontend-validation-v2",
+  "semantic_obligations": 901,
+  "source_evidence_hash": "6e28301c8a61190ba4c7c12bb9d69bca14157d606bc19b73f68b485fd5b42f37",
   "status": "pass",
-  "unique_assignments_per_predicate": 100,
-  "unsupported_units": 22,
-  "widening_cases": 1,
-  "witness_case_hash": "89e873dbee10353934e42c9af5025a2eb46aa754acb4089b947d7a12929dda4a"
+  "supported_records": 10,
+  "typed_abstentions": 22,
+  "wall_seconds": 0.3968526,
+  "widening_checks": 1,
+  "workers": 1
 }

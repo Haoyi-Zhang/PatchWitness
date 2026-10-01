@@ -1,5 +1,5 @@
 {
-  "accounting_note": "Tests, retained-result verification, source audits, document builds, and deterministic public-study re-execution after unchanged frozen candidates/protocol/labels are validation tasks rather than additional scientific samples. The two independent source-frontend semantic validation runs are counted explicitly.",
+  "accounting_note": "Tests, retained-result verification, source audits, document builds, and deterministic re-execution are validation tasks rather than additional scientific samples. Two independent 901-obligation restricted-source validation runs are counted explicitly.",
   "closure_check_campaign": {
     "analysis_revision": "exact-closure-v1",
     "canonical_raw_result": "results/closure-checks/summary.json",
@@ -85,15 +85,17 @@
   },
   "overall_obligation_ceiling": 250000,
   "public_microcohort_campaign": {
-    "analysis_revision": "label-isolated-v6-automatic-restricted-frontend-two-processes",
+    "analysis_revision": "label-isolated-source-evidence-v7-real-hunks",
     "bootstrap_replicates_per_run": 4000,
     "candidate_units": 32,
     "canonical_raw_result": "results/public-study/evaluation/summary.json",
     "commit_groups": 26,
     "counted_obligations": 21280,
     "coverage": {
-      "commit_fraction": "10/10",
-      "file_fraction": "10/16"
+      "all_candidate_commit_availability": "10/26",
+      "all_candidate_file_availability": "10/32",
+      "positive_commit_conditional": "10/10",
+      "positive_file_conditional": "10/16"
     },
     "events": [
       {
@@ -132,6 +134,7 @@
       }
     ],
     "failed_readiness_gates": [
+      "raw_diff_or_checked_source_tree_correspondence",
       "candidate_selection_independent_of_labels",
       "complete_repository_time_window",
       "labels_sealed_before_method_development",
@@ -141,40 +144,38 @@
     "formal_main_study_readiness": "failed",
     "public_source_execution": false,
     "rankings": {
-      "syntax_p20": 0.7,
-      "unvalidated_p20": 0.75,
-      "validated_p20": 0.7
+      "syntax_p20": 0.75,
+      "unvalidated_p20": 0.8,
+      "validated_p20": 0.75
     },
     "typed_outcomes": {
       "accepted": 10,
-      "unsupported": 19,
-      "unvalidated-only": 3
+      "unsupported-syntax": 22
     }
   },
-  "remaining_to_overall_ceiling": 10,
+  "remaining_to_overall_ceiling": 8,
   "source_frontend_validation_campaign": {
-    "analysis_revision": "automatic-restricted-frontend-v1",
+    "analysis_revision": "restricted-real-diff-frontend-v2-short-circuit",
     "candidate_units": 32,
-    "counted_obligations": 1800,
+    "counted_obligations": 1802,
+    "guard_cases": 9,
     "mismatches": 0,
-    "predicate_cases": 9,
     "recognized_cases": 10,
     "runs": [
       {
         "kind": "canonical source-frontend validation",
         "raw_result": "results/source-frontend/summary.json",
         "retained_as_canonical": true,
-        "semantic_obligations": 900
+        "semantic_obligations": 901
       },
       {
         "kind": "final clean-extraction source-frontend reproduction",
         "raw_result": "results/reproduction/frontend-run.txt",
         "retained_as_canonical": false,
-        "semantic_obligations": 900
+        "semantic_obligations": 901
       }
     ],
-    "semantic_obligations_per_run": 900,
-    "unique_assignments_per_predicate": 100
+    "semantic_obligations_per_run": 901
   },
-  "total_counted_obligations_through_clean_reproduction": 249990
+  "total_counted_obligations_through_clean_reproduction": 249992
 }

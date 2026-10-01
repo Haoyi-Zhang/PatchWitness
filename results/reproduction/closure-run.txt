@@ -55,7 +55,7 @@
     ]
   },
   "child_processes": 0,
-  "cpu_seconds": 0.089645546,
+  "cpu_seconds": 0.087667585,
   "exit_status": 0,
   "grouping_sensitivity": {
     "both_gap_directions_observed": true,
@@ -121,9 +121,9 @@
     "sharp_label_count_checks": 7,
     "top_k_symmetric_difference_size": 4
   },
-  "peak_rss_kib": 93228,
+  "peak_rss_kib": 93224,
   "schema": "rbw-closure-checks-v1",
   "scope": "exact finite accounting checks; not an estimate of security-patch prevalence or utility",
-  "wall_seconds": 0.091136848,
+  "wall_seconds": 0.090952881,
   "workers": 1
 }

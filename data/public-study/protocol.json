@@ -1,9 +1,9 @@
 {
   "analysis_scope": "descriptive label-selected TensorFlow microcohort; not a prospective population test",
   "baseline": {
-    "kind": "transparent-lexical-syntactic-control",
+    "kind": "transparent-control",
     "name": "deterministic lexical/syntactic control",
-    "published_same_budget_comparison": false
+    "published_reproduction_evidence": null
   },
   "bonus_ablations": [
     0.0,
@@ -15,32 +15,34 @@
   "bootstrap_replicates": 4000,
   "bootstrap_seed": 20210505,
   "expected_candidate_count": 32,
-  "group_collapse": "one row per commit group; label=max unit label; score=max unit score; accepted=max unit accepted",
+  "group_collapse": "one row per commit group; label=max file label; score=max file score; accepted=max file accepted",
   "h1_delta_threshold": 0.1,
-  "h2_coverage_threshold": 0.6,
+  "h2_availability_threshold": 0.6,
+  "h2_denominator": "all-eligible-file-candidates",
   "prediction_tie_break": [
     "descending score",
     "descending syntax score",
-    "ascending unit id"
+    "ascending neutral unit id"
   ],
   "primary_k": 20,
   "readiness_gate_ids": [
     "all_candidates_counted_with_typed_outcomes",
-    "automatic_source_frontend",
+    "restricted_source_evidence_cross_checked",
+    "raw_diff_or_checked_source_tree_correspondence",
     "candidate_selection_independent_of_labels",
     "complete_repository_time_window",
-    "independent_replay_checker",
+    "independent_source_record_checker",
     "labels_sealed_before_method_development",
     "reference_count_at_least_55",
     "strongest_published_same_budget_baseline",
     "temporal_holdout"
   ],
-  "schema": "rbw-public-protocol-v4",
+  "schema": "rbw-public-protocol-v5",
   "semantic_hint_bonus": 4.0,
+  "source_evidence_bonus": 4.0,
   "top_k": [
     5,
     10,
     20
-  ],
-  "witness_bonus": 4.0
+  ]
 }

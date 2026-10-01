@@ -1,61 +1,63 @@
 {
-  "accepted_positive_commit_groups": 10,
-  "accepted_positive_units": 10,
-  "accepted_source_witnesses": 10,
-  "bonus_ablations": [
-    {
-      "delta_from_syntax": 0.0,
-      "precision_at_20": 0.7,
-      "top20_symmetric_difference_size": 0,
-      "witness_bonus": 0.0
-    },
-    {
-      "delta_from_syntax": 0.0,
-      "precision_at_20": 0.7,
-      "top20_symmetric_difference_size": 0,
-      "witness_bonus": 1.0
-    },
-    {
-      "delta_from_syntax": 0.0,
-      "precision_at_20": 0.7,
-      "top20_symmetric_difference_size": 0,
-      "witness_bonus": 2.0
-    },
-    {
-      "delta_from_syntax": 0.0,
-      "precision_at_20": 0.7,
-      "top20_symmetric_difference_size": 0,
-      "witness_bonus": 4.0
-    },
-    {
-      "delta_from_syntax": 0.0,
-      "precision_at_20": 0.7,
-      "top20_symmetric_difference_size": 0,
-      "witness_bonus": 8.0
-    }
-  ],
-  "bootstrap_replicates": 4000,
-  "candidate_units": 32,
-  "child_processes": 0,
-  "cluster_bootstrap_95": {
-    "unit_coverage": [
-      0.5,
-      0.8333333333333334
-    ],
-    "unvalidated_minus_syntax": [
+  "accepted_source_records": 10,
+  "bootstrap": {
+    "replicates": 4000,
+    "seed": 20210505,
+    "validated_minus_syntax_percentile_95": [
       0.0,
-      0.10000000000000009
-    ],
-    "validated_minus_syntax": [
-      0.0,
-      0.0
+      0.0012500000000045476
     ]
   },
+  "candidate_units": 32,
+  "child_processes": 0,
   "commit_groups": 26,
-  "cpu_seconds": 0.223477337,
+  "coverage": {
+    "all_candidate_commit_availability": {
+      "fraction": "10/26",
+      "successes": 10,
+      "total": 26,
+      "value": 0.38461538461538464,
+      "wilson_95": [
+        0.22428594435712798,
+        0.5746514991488447
+      ]
+    },
+    "all_candidate_file_availability": {
+      "fraction": "10/32",
+      "successes": 10,
+      "total": 32,
+      "value": 0.3125,
+      "wilson_95": [
+        0.17952541633609734,
+        0.4856667830095541
+      ]
+    },
+    "positive_commit_conditional": {
+      "fraction": "10/10",
+      "successes": 10,
+      "total": 10,
+      "value": 1.0,
+      "wilson_95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "positive_file_conditional": {
+      "fraction": "10/16",
+      "successes": 10,
+      "total": 16,
+      "value": 0.625,
+      "wilson_95": [
+        0.38641040545502714,
+        0.8151876744113636
+      ]
+    }
+  },
+  "cpu_seconds": 0.144149807,
   "evaluation_process_read_labels": true,
   "exit_status": 0,
   "failed_readiness_gates": [
+    "raw_diff_or_checked_source_tree_correspondence",
     "candidate_selection_independent_of_labels",
     "complete_repository_time_window",
     "labels_sealed_before_method_development",
@@ -63,84 +65,148 @@
     "temporal_holdout"
   ],
   "formal_h1_decision": "not-testable-with-label-selected-nontemporal-cohort",
-  "formal_h2_decision": "not-testable-as-population-coverage",
+  "formal_h2_decision": "not-testable-as-full-cohort-file-availability",
   "freeze_and_evaluation_are_separate_processes": true,
-  "group_metrics": {
-    "syntax": {
-      "average_precision": 1.0,
-      "precision_at_20": 0.5
-    },
-    "unvalidated": {
-      "average_precision": 1.0,
-      "precision_at_20": 0.5
-    },
-    "validated": {
-      "average_precision": 1.0,
-      "precision_at_20": 0.5
-    }
-  },
-  "group_witness_coverage": 1.0,
-  "group_witness_coverage_fraction": "10/10",
-  "group_witness_coverage_wilson_95_descriptive": [
-    0.7224672001371107,
-    0.9999999999999999
-  ],
-  "labels_hash": "e55023f20c76428c6a261d0a2c7f02637fd539493171cd8566d4f8251d2ab581",
-  "labels_loaded_only_in_separate_evaluation_process": true,
+  "h2_descriptive_denominator": "all-eligible-file-candidates",
+  "h2_descriptive_threshold_analogue": 0.6,
   "main_study_readiness": "failed",
   "metrics": {
     "syntax": {
-      "average_precision": 0.9520917062477164,
-      "precision_at_10": 1.0,
-      "precision_at_20": 0.7,
-      "precision_at_5": 1.0
-    },
-    "unvalidated": {
-      "average_precision": 0.9705615942028986,
+      "average_precision": 0.9729053442028985,
       "precision_at_10": 1.0,
       "precision_at_20": 0.75,
       "precision_at_5": 1.0
     },
-    "validated": {
-      "average_precision": 0.9520917062477164,
+    "unvalidated": {
+      "average_precision": 1.0,
       "precision_at_10": 1.0,
-      "precision_at_20": 0.7,
+      "precision_at_20": 0.8,
+      "precision_at_5": 1.0
+    },
+    "validated": {
+      "average_precision": 0.9770720108695652,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.75,
       "precision_at_5": 1.0
     }
   },
-  "microcohort_h1_analogue": "threshold-not-met",
-  "microcohort_h2_analogue": "threshold-met",
-  "obligations_this_analysis": 4256,
   "orchestrator_child_processes": 2,
-  "peak_rss_kib": 97716,
+  "peak_rss_kib": 93624,
   "positive_commit_groups": 10,
   "positive_units": 16,
-  "prediction_records_contain_labels": false,
-  "predictions_hash": "e2c8e34e607cb29cffe6dc1840fdac4fac903305cac8c2715c54d2ca8dfa3c44",
-  "primary_k": 20,
-  "reference_verification_count": 61,
-  "schema": "rbw-public-summary-v5",
-  "scope": "32-unit label-selected TensorFlow file-change microcohort; descriptive audit only",
-  "selection_independent_of_labels": false,
-  "temporal_holdout": false,
-  "typed_outcomes": {
-    "accepted": 10,
-    "unsupported": 19,
-    "unvalidated-only": 3
+  "rankings": {
+    "syntax": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U030",
+      "U028",
+      "U026",
+      "U010",
+      "U007",
+      "U024",
+      "U003",
+      "U002",
+      "U031",
+      "U004",
+      "U015",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U012",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ],
+    "unvalidated": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U030",
+      "U028",
+      "U026",
+      "U010",
+      "U024",
+      "U003",
+      "U002",
+      "U007",
+      "U004",
+      "U015",
+      "U012",
+      "U031",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ],
+    "validated": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U028",
+      "U026",
+      "U030",
+      "U010",
+      "U024",
+      "U003",
+      "U002",
+      "U007",
+      "U004",
+      "U031",
+      "U015",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U012",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ]
   },
-  "unit_witness_coverage": 0.625,
-  "unit_witness_coverage_fraction": "10/16",
-  "unit_witness_coverage_wilson_95_descriptive": [
-    0.38641040545502714,
-    0.8151876744113636
-  ],
+  "schema": "rbw-public-summary-v6",
+  "scope": "32-unit label-selected TensorFlow file-change microcohort; descriptive source-evidence audit only",
+  "top20_symmetric_difference_validated_vs_syntax": 0,
+  "typed_outcome_counts": {
+    "accepted": 10,
+    "unsupported-syntax": 22
+  },
   "unvalidated_minus_syntax_at_20": 0.05,
-  "unvalidated_top20_symmetric_difference": [
-    "U014",
-    "U021"
-  ],
   "validated_minus_syntax_at_20": 0.0,
-  "validated_top20_symmetric_difference": [],
-  "wall_seconds": 0.227184792,
+  "wall_seconds": 0.144228743,
   "workers": 1
 }

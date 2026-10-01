@@ -1,0 +1,588 @@
+{
+  "cases": [
+    {
+      "assignment": {
+        "concat_dim": -2147483648
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "signed-negation-widening",
+      "id": "W01",
+      "kind": "source-difference",
+      "record": "U024",
+      "source_tokens": [
+        "const int min_rank",
+        "const int64 min_rank"
+      ]
+    },
+    {
+      "assignment": {
+        "pad_width": -5
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "require",
+      "guard": [
+        "ge",
+        [
+          "var",
+          "pad_width"
+        ],
+        [
+          "const",
+          0
+        ]
+      ],
+      "id": "W02",
+      "kind": "guard-trigger",
+      "record": "U002",
+      "source_tokens": [
+        "pad_width_ >= 0"
+      ],
+      "trigger_value": false
+    },
+    {
+      "assignment": {
+        "num_threads": -1
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "reject-if",
+      "guard": [
+        "or",
+        [
+          "lt",
+          [
+            "var",
+            "num_threads"
+          ],
+          [
+            "const",
+            0
+          ]
+        ],
+        [
+          "ge",
+          [
+            "var",
+            "num_threads"
+          ],
+          [
+            "const",
+            65536
+          ]
+        ]
+      ],
+      "id": "W03",
+      "kind": "guard-trigger",
+      "record": "U003",
+      "source_tokens": [
+        "num_threads < 0",
+        "num_threads >= kThreadLimit"
+      ],
+      "trigger_value": true
+    },
+    {
+      "assignment": {
+        "axis": 1,
+        "input_dims": 0
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "reject-if",
+      "guard": [
+        "or",
+        [
+          "gt",
+          [
+            "var",
+            "axis"
+          ],
+          [
+            "var",
+            "input_dims"
+          ]
+        ],
+        [
+          "ge",
+          [
+            "var",
+            "axis"
+          ],
+          [
+            "const",
+            2147483647
+          ]
+        ]
+      ],
+      "id": "W04",
+      "kind": "guard-trigger",
+      "record": "U019",
+      "source_tokens": [
+        "axis > input_dims",
+        "axis >= kint32max"
+      ],
+      "trigger_value": true
+    },
+    {
+      "assignment": {
+        "in_col_end": -1,
+        "in_col_start": -1,
+        "in_row_end": -1,
+        "in_row_start": -1
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "require",
+      "guard": [
+        "and",
+        [
+          "and",
+          [
+            "ge",
+            [
+              "var",
+              "in_row_start"
+            ],
+            [
+              "const",
+              0
+            ]
+          ],
+          [
+            "ge",
+            [
+              "var",
+              "in_row_end"
+            ],
+            [
+              "const",
+              0
+            ]
+          ]
+        ],
+        [
+          "and",
+          [
+            "ge",
+            [
+              "var",
+              "in_col_start"
+            ],
+            [
+              "const",
+              0
+            ]
+          ],
+          [
+            "ge",
+            [
+              "var",
+              "in_col_end"
+            ],
+            [
+              "const",
+              0
+            ]
+          ]
+        ]
+      ],
+      "id": "W05",
+      "kind": "guard-trigger",
+      "record": "U005",
+      "source_tokens": [
+        "in_row_start >= 0 && in_row_end >= 0",
+        "in_col_start >= 0 && in_col_end >= 0"
+      ],
+      "trigger_value": false
+    },
+    {
+      "assignment": {
+        "batch_dim": -1
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "reject-if",
+      "guard": [
+        "lt",
+        [
+          "var",
+          "batch_dim"
+        ],
+        [
+          "const",
+          0
+        ]
+      ],
+      "id": "W06",
+      "kind": "guard-trigger",
+      "record": "U028",
+      "source_tokens": [
+        "batch_dim < 0"
+      ],
+      "trigger_value": true
+    },
+    {
+      "assignment": {
+        "axis": 0,
+        "dims": 0
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "require",
+      "guard": [
+        "lt",
+        [
+          "var",
+          "axis"
+        ],
+        [
+          "var",
+          "dims"
+        ]
+      ],
+      "id": "W07",
+      "kind": "guard-trigger",
+      "record": "U026",
+      "source_tokens": [
+        "axis_ < input.dims()"
+      ],
+      "trigger_value": false
+    },
+    {
+      "assignment": {
+        "sx": 0,
+        "sy": 0
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "reject-if",
+      "guard": [
+        "or",
+        [
+          "eq",
+          [
+            "var",
+            "sx"
+          ],
+          [
+            "const",
+            0
+          ]
+        ],
+        [
+          "eq",
+          [
+            "var",
+            "sy"
+          ],
+          [
+            "const",
+            0
+          ]
+        ]
+      ],
+      "id": "W08",
+      "kind": "guard-trigger",
+      "record": "U004",
+      "source_tokens": [
+        "sx == 0 || sy == 0"
+      ],
+      "trigger_value": true
+    },
+    {
+      "assignment": {
+        "num_elements": 0
+      },
+      "context_preconditions": [],
+      "context_tokens": [],
+      "frontend_rule": "require",
+      "guard": [
+        "eq",
+        [
+          "var",
+          "num_elements"
+        ],
+        [
+          "const",
+          1
+        ]
+      ],
+      "id": "W09",
+      "kind": "guard-trigger",
+      "record": "U010",
+      "source_tokens": [
+        "key_tensor->NumElements() == 1"
+      ],
+      "trigger_value": false
+    },
+    {
+      "assignment": {
+        "dim": -1,
+        "limit": 2147483647,
+        "prod": 1
+      },
+      "context_preconditions": [
+        [
+          "ne",
+          [
+            "var",
+            "dim"
+          ],
+          [
+            "const",
+            0
+          ]
+        ]
+      ],
+      "context_tokens": [
+        "dims(i) != 0"
+      ],
+      "frontend_rule": "require",
+      "guard": [
+        "and",
+        [
+          "gt",
+          [
+            "var",
+            "dim"
+          ],
+          [
+            "const",
+            0
+          ]
+        ],
+        [
+          "le",
+          [
+            "var",
+            "prod"
+          ],
+          [
+            "div",
+            [
+              "var",
+              "limit"
+            ],
+            [
+              "var",
+              "dim"
+            ]
+          ]
+        ]
+      ],
+      "id": "W10",
+      "kind": "guard-trigger",
+      "record": "U021",
+      "source_tokens": [
+        "dims(i) > 0",
+        "prod <= limit / dims(i)"
+      ],
+      "trigger_value": false
+    }
+  ],
+  "construction": {
+    "evaluator_cross_check": "recursive-python-iterative-python-c11-short-circuit-oracle",
+    "evidence_contract": "guard-trigger-or-source-difference-not-old-fault-new-defined",
+    "grammar": "guard-expressions-v2",
+    "input_mode": "minimal-real-unified-diff-context",
+    "mode": "automatic-restricted-real-diff-frontend",
+    "parser_cross_check": "independent-shunting-yard",
+    "raw_diff_or_source_tree_correspondence": false
+  },
+  "diagnostics": [
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U001",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "recognized-require",
+      "record": "U002",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "recognized-reject-if",
+      "record": "U003",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "recognized-reject-if",
+      "record": "U004",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "recognized-require",
+      "record": "U005",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U006",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U007",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U008",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U009",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "recognized-require",
+      "record": "U010",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U011",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U012",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U013",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U014",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U015",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U016",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U017",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U018",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "recognized-reject-if",
+      "record": "U019",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U020",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "recognized-require",
+      "record": "U021",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U022",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U023",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "recognized-widening",
+      "record": "U024",
+      "stage": "extract",
+      "status": "supported"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U025",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "recognized-require",
+      "record": "U026",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U027",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "recognized-reject-if",
+      "record": "U028",
+      "stage": "evaluate",
+      "status": "supported"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U029",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U030",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U031",
+      "stage": "extract",
+      "status": "abstain"
+    },
+    {
+      "reason": "no-supported-added-source-pattern",
+      "record": "U032",
+      "stage": "extract",
+      "status": "abstain"
+    }
+  ],
+  "schema": "rbw-public-source-evidence-v1"
+}

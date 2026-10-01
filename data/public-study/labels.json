@@ -7,29 +7,29 @@
       "label": 0
     },
     {
-      "group": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
+      "group": "f68fdab93fb7f4ddb4eb438c8fe052753c9413e8",
       "id": "U002",
-      "label": 0
+      "label": 1
     },
     {
-      "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "group": "e3749a6d5d1e8d11806d4a2e9cc3123d1a90b75e",
       "id": "U003",
       "label": 1
     },
     {
-      "group": "f68fdab93fb7f4ddb4eb438c8fe052753c9413e8",
+      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
       "id": "U004",
       "label": 1
     },
     {
-      "group": "716fea7be71d03ba486dde6c1adba245d18e805f",
+      "group": "002408c3696b173863228223d535f9de72a101a9",
       "id": "U005",
-      "label": 0
+      "label": 1
     },
     {
-      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "group": "cebfa65df5451af59f88115d509b4a7830d34d26",
       "id": "U006",
-      "label": 1
+      "label": 0
     },
     {
       "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
@@ -37,129 +37,129 @@
       "label": 1
     },
     {
-      "group": "e3749a6d5d1e8d11806d4a2e9cc3123d1a90b75e",
+      "group": "002408c3696b173863228223d535f9de72a101a9",
       "id": "U008",
       "label": 1
     },
     {
-      "group": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
+      "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
       "id": "U009",
-      "label": 0
+      "label": 1
     },
     {
-      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "group": "f57315566d7094f322b784947093406c2aea0d7d",
       "id": "U010",
       "label": 1
     },
     {
-      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "group": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
       "id": "U011",
+      "label": 0
+    },
+    {
+      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "id": "U012",
       "label": 1
     },
     {
       "group": "898c7319013fede56e08370f6aa9998aaad9df35",
-      "id": "U012",
-      "label": 0
-    },
-    {
-      "group": "002408c3696b173863228223d535f9de72a101a9",
       "id": "U013",
-      "label": 1
-    },
-    {
-      "group": "8f457cef03c03dbd646824739f152d103c4239e8",
-      "id": "U014",
-      "label": 0
-    },
-    {
-      "group": "cebfa65df5451af59f88115d509b4a7830d34d26",
-      "id": "U015",
-      "label": 0
-    },
-    {
-      "group": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
-      "id": "U016",
-      "label": 0
-    },
-    {
-      "group": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
-      "id": "U017",
-      "label": 0
-    },
-    {
-      "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
-      "id": "U018",
-      "label": 1
-    },
-    {
-      "group": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
-      "id": "U019",
       "label": 0
     },
     {
       "group": "c654965d9336981338e39e5eb1bb9632293b571b",
-      "id": "U020",
+      "id": "U014",
       "label": 0
     },
     {
       "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
-      "id": "U021",
+      "id": "U015",
       "label": 1
     },
     {
-      "group": "37c01fb5e25c3d80213060460196406c43d31995",
-      "id": "U022",
-      "label": 1
-    },
-    {
-      "group": "002408c3696b173863228223d535f9de72a101a9",
-      "id": "U023",
-      "label": 1
-    },
-    {
-      "group": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
-      "id": "U024",
-      "label": 1
-    },
-    {
-      "group": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
-      "id": "U025",
+      "group": "716fea7be71d03ba486dde6c1adba245d18e805f",
+      "id": "U016",
       "label": 0
     },
     {
-      "group": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
-      "id": "U026",
+      "group": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
+      "id": "U017",
       "label": 0
     },
     {
       "group": "72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
-      "id": "U027",
+      "id": "U018",
       "label": 0
     },
     {
-      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
-      "id": "U028",
+      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "id": "U019",
+      "label": 1
+    },
+    {
+      "group": "8f457cef03c03dbd646824739f152d103c4239e8",
+      "id": "U020",
+      "label": 0
+    },
+    {
+      "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "id": "U021",
       "label": 1
     },
     {
       "group": "880d16bc8fcf8160037abc05c2585baed6a35cd5",
+      "id": "U022",
+      "label": 0
+    },
+    {
+      "group": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
+      "id": "U023",
+      "label": 0
+    },
+    {
+      "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "id": "U024",
+      "label": 1
+    },
+    {
+      "group": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
+      "id": "U025",
+      "label": 0
+    },
+    {
+      "group": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
+      "id": "U026",
+      "label": 1
+    },
+    {
+      "group": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
+      "id": "U027",
+      "label": 0
+    },
+    {
+      "group": "37c01fb5e25c3d80213060460196406c43d31995",
+      "id": "U028",
+      "label": 1
+    },
+    {
+      "group": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
       "id": "U029",
       "label": 0
     },
     {
-      "group": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
+      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
       "id": "U030",
+      "label": 1
+    },
+    {
+      "group": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
+      "id": "U031",
       "label": 0
     },
     {
-      "group": "f57315566d7094f322b784947093406c2aea0d7d",
-      "id": "U031",
-      "label": 1
-    },
-    {
-      "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "group": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
       "id": "U032",
-      "label": 1
+      "label": 0
     }
   ],
   "negative_index_source": {
@@ -173,9 +173,11 @@
     "repository": "ntgiang71096/vfdetector"
   },
   "provenance": {
-    "sealed_before_method_development": false,
-    "selection_used_class_lists": true,
-    "temporal_holdout": false
+    "class_lists_used_for_selection": true,
+    "label_seal_record": null,
+    "method_freeze_timestamp": null,
+    "selection_method": "published-positive-list-plus-selected-negative-list",
+    "temporal_cutoff": null
   },
-  "schema": "rbw-public-labels-v5"
+  "schema": "rbw-public-labels-v6"
 }

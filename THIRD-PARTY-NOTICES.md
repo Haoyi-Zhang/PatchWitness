@@ -1,6 +1,6 @@
 # Third-party notices and retained public metadata
 
-This repository contains small, static excerpts and identifiers from public
+This repository contains small, static exact minimal unified-diff excerpts and identifiers from public
 TensorFlow commits solely to reproduce the restricted source-frontend and
 microcohort audit. The TensorFlow project is licensed under the Apache License
 2.0; a copy is retained at `licenses/APACHE-2.0.txt`. TensorFlow source remains
@@ -11,8 +11,8 @@ The positive/negative cohort membership and publication order were derived from
 public VFDetector/VulCurator research-release records identified in
 `data/public-study/PROVENANCE.md` and `external_resources.csv`. No repository-
 level license for every upstream research record was established by this
-project. The package therefore retains only the minimal commit/file identities,
-short public excerpts, and retrospective labels needed for review. Those facts
+project. The package therefore retains only the minimal commit/file identities, original messages, full paths,
+short public patch excerpts, and retrospective labels needed for review. Those facts
 and excerpts are not relicensed by this project's MIT license. Human authors
 must recheck upstream terms before public redistribution or external
 submission.

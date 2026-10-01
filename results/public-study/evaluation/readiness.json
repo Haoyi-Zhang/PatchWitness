@@ -1,5 +1,6 @@
 {
   "failed_readiness_gates": [
+    "raw_diff_or_checked_source_tree_correspondence",
     "candidate_selection_independent_of_labels",
     "complete_repository_time_window",
     "labels_sealed_before_method_development",
@@ -8,8 +9,8 @@
   ],
   "gates": [
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "Every frozen candidate has exactly one typed outcome.",
+      "basis": "machine-recomputed",
+      "detail": "Every retained file unit has exactly one typed outcome and remains in the ranking denominator.",
       "evidence": [
         "predictions-frozen.json",
         "outcomes.json"
@@ -18,29 +19,36 @@
       "status": "pass"
     },
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "The restricted guard-expression frontend is automatic and its retained translation packet passed independent parser and C11 replay checks.",
+      "basis": "machine-recomputed",
+      "detail": "The restricted expression packet is cross-checked; this does not establish raw-diff or source-tree correspondence.",
       "evidence": [
-        "data/public-study/witness-cases.json",
-        "data/public-study/study-design.json",
         "results/source-frontend/summary.json"
       ],
-      "id": "automatic_source_frontend",
+      "id": "restricted_source_evidence_cross_checked",
       "status": "pass"
     },
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "The retained cohort was assembled from published positive and negative class lists.",
+      "basis": "trusted-design-assertion-with-file-evidence-required",
+      "detail": "Only minimal real file hunks are retained; no full raw-diff archive or checked source-tree lowering exists.",
       "evidence": [
-        "data/public-study/labels.json",
         "data/public-study/study-design.json"
+      ],
+      "id": "raw_diff_or_checked_source_tree_correspondence",
+      "status": "fail"
+    },
+    {
+      "basis": "trusted-design-assertion-with-file-evidence-required",
+      "detail": "Published class lists were used to construct the retrospective microcohort.",
+      "evidence": [
+        "data/public-study/study-design.json",
+        "data/public-study/labels.json"
       ],
       "id": "candidate_selection_independent_of_labels",
       "status": "fail"
     },
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "No complete repository-by-time population frame is present.",
+      "basis": "trusted-design-assertion-with-file-evidence-required",
+      "detail": "No complete repository-by-time enumeration manifest is present.",
       "evidence": [
         "data/public-study/study-design.json"
       ],
@@ -48,51 +56,46 @@
       "status": "fail"
     },
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "Accepted cases were recomputed by the iterative replay machine and trace-bound.",
+      "basis": "machine-recomputed",
+      "detail": "Every accepted source record is uniquely bound and independently replayed.",
       "evidence": [
-        "src/public_study.py",
-        "certificates.json",
+        "source-records.json",
         "outcomes.json"
       ],
-      "id": "independent_replay_checker",
+      "id": "independent_source_record_checker",
       "status": "pass"
     },
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "Labels were known during mapping and cohort construction.",
+      "basis": "trusted-design-assertion-with-file-evidence-required",
+      "detail": "No verifiable label-seal record predating method freeze is present.",
       "evidence": [
-        "data/public-study/labels.json",
         "data/public-study/study-design.json"
       ],
       "id": "labels_sealed_before_method_development",
       "status": "fail"
     },
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "At least 55 bibliography records have an artifact-side verification row.",
+      "basis": "machine-recomputed",
+      "detail": "At least 55 cited scholarly records have verification-ledger entries.",
       "evidence": [
-        "reference-verification.csv",
-        "literature-screening.csv"
+        "reference-verification.csv"
       ],
       "id": "reference_count_at_least_55",
       "status": "pass"
     },
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "The implemented comparator is a transparent control, not the strongest published same-budget baseline.",
+      "basis": "trusted-design-assertion-with-file-evidence-required",
+      "detail": "No reproduced published same-budget baseline evidence is present.",
       "evidence": [
-        "data/public-study/protocol.json",
         "data/public-study/study-design.json"
       ],
       "id": "strongest_published_same_budget_baseline",
       "status": "fail"
     },
     {
-      "basis": "machine-derived-fail-closed",
-      "detail": "The retained cohort is not a predeclared post-cutoff holdout.",
+      "basis": "trusted-design-assertion-with-file-evidence-required",
+      "detail": "No verifiable development/holdout manifests or cutoff are present.",
       "evidence": [
-        "data/public-study/labels.json",
         "data/public-study/study-design.json"
       ],
       "id": "temporal_holdout",
@@ -100,5 +103,5 @@
     }
   ],
   "main_study_readiness": "failed",
-  "schema": "rbw-readiness-v2"
+  "schema": "rbw-readiness-v3"
 }

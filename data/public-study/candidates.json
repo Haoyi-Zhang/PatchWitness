@@ -1,294 +1,616 @@
 {
-  "identity_assignment": "sort ascending by sha256(commit + NUL + filename), then assign U001..U032; no label or source-list class is an input",
+  "identity_assignment": "sort ascending by sha256(commit + NUL + full file_path), then assign U001..U032; labels, source-list class, annotations, and extraction outcomes are not inputs",
   "records": [
     {
       "commit": "835ac7291dd62277e27d1a66e241608b98790bb3",
-      "filename": "tensorflow/python/keras/engine/network.py",
+      "commit_message": "Internal change\n\nPiperOrigin-RevId: 296339357\nChange-Id: Ife4d6cc532586e15b94c049786977c4a7acf597d",
+      "commit_timestamp": "2020-02-21T02:08:56Z",
+      "diff_context": "@@ -1063,7 +1063,28 @@ def save_weights(self, filepath, overwrite=True, save_format=None):\n-    save_format = validate_save_format(filepath, save_format)\n+    filepath_is_h5 = _is_hdf5_filepath(filepath)\n+    if save_format is None:\n+      if filepath_is_h5:\n+        save_format = 'h5'\n+      else:\n+        save_format = 'tf'\n+    else:\n+      user_format = save_format.lower().strip()\n+      if user_format in ('tensorflow', 'tf'):\n+        save_format = 'tf'\n+      elif user_format in ('hdf5', 'h5', 'keras'):\n+        save_format = 'h5'\n+      else:\n+        raise ValueError(\n+            'Unknown format \"%s\". Was expecting one of {\"tf\", \"h5\"}.' % (\n+                save_format,))",
+      "file_path": "tensorflow/python/keras/engine/network.py",
       "group": "835ac7291dd62277e27d1a66e241608b98790bb3",
       "id": "U001",
       "identity_digest": "0017e02b2e00915c2b1e589b2dd5c75269f85d359f0992714880e574dac56701",
-      "message": "Internal change",
-      "patch_excerpt": "Refactor save format validation and emit ValueError for mismatched HDF5 paths"
-    },
-    {
-      "commit": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
-      "filename": "gradient_checker_v2.py",
-      "group": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
-      "id": "U002",
-      "identity_digest": "085af01f4abd034b5bbeeba234ed10cb7461b685769429ea287738e1b5a0fcc9",
-      "message": "Set shapes of placeholders used in tf.compat.v2.test.compute_gradient",
-      "patch_excerpt": "Pass static shapes into placeholder construction and reformat gradient checker code"
-    },
-    {
-      "commit": "08d7b00c0a5a20926363849f611729f53f3ec022",
-      "filename": "common_shape_fns.cc",
-      "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
-      "id": "U003",
-      "identity_digest": "0b87588ba05e4d645f9244a368bfc2d1a90bf12231347337c21875d4e651dc93",
-      "message": "Fix segfault in ConcatV2 shape function",
-      "patch_excerpt": "- const int min_rank = concat_dim < 0 ? -concat_dim : concat_dim + 1; + const int64 min_rank = concat_dim < 0 ? -concat_dim : concat_dim + 1;"
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/835ac7291dd62277e27d1a66e241608b98790bb3",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "moves save-format validation into save_weights; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     },
     {
       "commit": "f68fdab93fb7f4ddb4eb438c8fe052753c9413e8",
-      "filename": "string_ngrams_op.cc",
+      "commit_message": "Add a check for pad width to be a positive value.\n\nPiperOrigin-RevId: 413275853\nChange-Id: I261a8db9dabf5ce48a806a9e58129080c9fac619",
+      "commit_timestamp": "2021-12-01T00:57:47Z",
+      "diff_context": "@@ -152,6 +152,16 @@ class StringNGramsOp : public tensorflow::OpKernel {\n+        OP_REQUIRES(\n+            context, pad_width_ >= 0,\n+            errors::InvalidArgument(\"Pad width should be >= 0 when \"\n+                                    \"preserve_short_sequences is True and \"\n+                                    \"ngram_widths are not provided, got \",\n+                                    pad_width_));\n         int ngram_width = data_length + 2 * pad_width_;",
+      "file_path": "tensorflow/core/kernels/string_ngrams_op.cc",
       "group": "f68fdab93fb7f4ddb4eb438c8fe052753c9413e8",
-      "id": "U004",
-      "identity_digest": "1f91828683ff4fef0b70304ccaad1e5a5db92134248b2a365fc6c567e662c492",
-      "message": "Add a check for pad width to be a positive value",
-      "patch_excerpt": "+ OP_REQUIRES(context, pad_width_ >= 0, errors::InvalidArgument(\"Pad width should be >= 0\")); int ngram_width = data_length + 2 * pad_width_;"
-    },
-    {
-      "commit": "716fea7be71d03ba486dde6c1adba245d18e805f",
-      "filename": "losses_impl.py",
-      "group": "716fea7be71d03ba486dde6c1adba245d18e805f",
-      "id": "U005",
-      "identity_digest": "21c7ec14209be20c67aaf078b7ca00b515f3c913a6ccdefec5ac69d2adab55b4",
-      "message": "Update tf.to_float to tf.cast dtype float32 in losses_impl",
-      "patch_excerpt": "Replace deprecated to_float calls with explicit cast calls"
-    },
-    {
-      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
-      "filename": "op_level_cost_estimator_test.cc",
-      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
-      "id": "U006",
-      "identity_digest": "2621132e4d14fd4f1a54ba72a28608561ee056ee09bed93fb93ff4c54a0b4783",
-      "message": "Internal change; add invalid stride tests",
-      "patch_excerpt": "+ TEST_F(OpLevelCostEstimatorTest, OpDimensionsFromInputsError) { CallOpDimensionsFromInputs(..., sx=0, sy=2); CallOpDimensionsFromInputs(..., sx=2, sy=0); }"
-    },
-    {
-      "commit": "08d7b00c0a5a20926363849f611729f53f3ec022",
-      "filename": "concat_op_test.py",
-      "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
-      "id": "U007",
-      "identity_digest": "27efc13e797154fa0853f6494bff7e39b0b9d7630d24cf002cfd646e52754e86",
-      "message": "Fix segfault in ConcatV2 shape function; add invalid axis test",
-      "patch_excerpt": "+ def testConcatInvalidAxisInTfFunction(self): axis=0xb500005b; with self.assertRaises(ValueError)"
+      "id": "U002",
+      "identity_digest": "06d0eed0c30d7a691a03d337f385b6ae0c9bf9ddea06821756c03d083db10674",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/f68fdab93fb7f4ddb4eb438c8fe052753c9413e8",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds an admission guard before computing ngram_width; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     },
     {
       "commit": "e3749a6d5d1e8d11806d4a2e9cc3123d1a90b75e",
-      "filename": "threadpool_dataset_op.cc",
+      "commit_message": "[tf.data] Set limit on number of threads used in threadpool_dataset.\n\nPiperOrigin-RevId: 410922677\nChange-Id: Ib25814a99043ab10805b5d2d7088ae0e0b7b04fd",
+      "commit_timestamp": "2021-11-19T00:14:53Z",
+      "diff_context": "@@ -39,6 +39,22 @@ namespace experimental {\n+constexpr int kThreadLimit = 65536;\n+\n+Status ValidateNumThreads(int32_t num_threads) {\n+  if (num_threads < 0) {\n+    return errors::InvalidArgument(\"`num_threads` must be >= 0\");\n+  }\n+  if (num_threads >= kThreadLimit) {\n+    return errors::InvalidArgument(\"`num_threads` must be < \", kThreadLimit);\n+  }\n+  return Status::OK();\n+}",
+      "file_path": "tensorflow/core/kernels/data/experimental/threadpool_dataset_op.cc",
       "group": "e3749a6d5d1e8d11806d4a2e9cc3123d1a90b75e",
-      "id": "U008",
-      "identity_digest": "2ac1cbd000d855591c40dad45e204d2eadcc2da6c6774decfb90f8a65706e110",
-      "message": "Set a limit on the number of threads used in threadpool dataset",
-      "patch_excerpt": "+ if (num_threads < 0) { return errors::InvalidArgument(\"num_threads must be >= 0\"); } + if (num_threads >= kThreadLimit) { return errors::InvalidArgument(\"num_threads must be <\", kThreadLimit); }"
+      "id": "U003",
+      "identity_digest": "0bdb3d19faba2ac077a9e5653f6b103f3cff81b6901c085178824ad0069ae1fb",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/e3749a6d5d1e8d11806d4a2e9cc3123d1a90b75e",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds lower and upper thread-count rejection guards; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     },
     {
-      "commit": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
-      "filename": "simple_placer.cc",
-      "group": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
-      "id": "U009",
-      "identity_digest": "2bc06a5d4837cd9402ab5d74574117a807f7c6b07c4fcac0db0ac745b5f77074",
-      "message": "Add type info described in issue 5236",
-      "patch_excerpt": "Add node type string to placement printf and INFO log"
-    },
-    {
-      "commit": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
-      "filename": "array_ops.cc",
-      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
-      "id": "U010",
-      "identity_digest": "35322d85f31c842ce860e5c828c5906dfe5feb4e8c6dbaf8be45056c31088f94",
-      "message": "Fix integer overflow in Dequantize shape function by adding axis bound checks",
-      "patch_excerpt": "+ auto input_dims = c->Rank(c->input(0)); + if (axis > input_dims) { return errors::InvalidArgument(\"Axis must be less than input dimension\"); } + if (axis >= kint32max) { return errors::InvalidArgument(\"Axis cannot be >= kint32max\"); }"
-    },
-    {
-      "commit": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
-      "filename": "array_ops_test.py",
-      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
-      "id": "U011",
-      "identity_digest": "367643d322ab1b5de83208ec9b9142ab13bf29ac0082d6601ec76f12e31b478e",
-      "message": "Fix integer overflow in Dequantize shape function; add out-of-bound axis test",
-      "patch_excerpt": "+ def testOutOfBoundAxis(self): ... axis=2**31 - 1 ... assertRaisesRegex(InvalidArgumentError, Axis must be less than input dimension)"
-    },
-    {
-      "commit": "898c7319013fede56e08370f6aa9998aaad9df35",
-      "filename": "compat.py",
-      "group": "898c7319013fede56e08370f6aa9998aaad9df35",
-      "id": "U012",
-      "identity_digest": "4150dc36711f0d778d0245c643fcc7ebce2869de6584920405015ffbe48310a8",
-      "message": "Update forward compatibility horizon to 2021-02-25",
-      "patch_excerpt": "Advance the forward compatibility date by one day"
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "commit_message": "Internal change\n\nPiperOrigin-RevId: 411896058\nChange-Id: Ia031058247e3cf382957a6662d3f9e1cbb481ca2",
+      "commit_timestamp": "2021-11-23T22:37:54Z",
+      "diff_context": "@@ -2190,6 +2190,11 @@ OpLevelCostEstimator::OpDimensionsFromInputs(\n   int64_t sx = strides[x_index];\n   int64_t sy = strides[y_index];\n+  if (sx == 0 || sy == 0) {\n+    return errors::InvalidArgument(\n+        \"Stride must be > 0 for Height and Width, but got (\", sy, \", \", sx,\n+        \")\");\n+  }\n   const auto padding = GetPadding(op_info);",
+      "file_path": "tensorflow/core/grappler/costs/op_level_cost_estimator.cc",
+      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "id": "U004",
+      "identity_digest": "404c7bc05b6c760c0d7f75a6a9baa879b5d1080ca628cdf4726850e99a822066",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/3218043d6d3a019756607643cf65574fbfef5d7a",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds the file-specific zero-stride guard; the upstream message remains \u201cInternal change\u201d; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     },
     {
       "commit": "002408c3696b173863228223d535f9de72a101a9",
-      "filename": "fractional_avg_pool_op.cc",
+      "commit_message": "Add negative bound check for row and column pooling_sequence in FractionalAvgPoolGrad op to avoid out of bound heap access\n\nPiperOrigin-RevId: 413837346\nChange-Id: I2b86034101df31bee161abcb781755e236c7bccd",
+      "commit_timestamp": "2021-12-03T05:02:49Z",
+      "diff_context": "@@ -311,15 +311,26 @@ class FractionalAvgPoolGradOp : public OpKernel {\n         const int64_t in_row_start = row_seq_tensor_flat(r);\n         int64_t in_row_end = overlapping_ ? row_seq_tensor_flat(r + 1)\n                                           : row_seq_tensor_flat(r + 1) - 1;\n         in_row_end = std::min(in_row_end, in_max_row_index);\n+        OP_REQUIRES(context, in_row_start >= 0 && in_row_end >= 0,\n+                    errors::InvalidArgument(\n+                        \"Row sequence tensor values must not be negative, got \",\n+                        row_seq_tensor_flat));\n@@ -320,6 +331,11 @@ class FractionalAvgPoolGradOp : public OpKernel {\n+          OP_REQUIRES(\n+              context, in_col_start >= 0 && in_col_end >= 0,\n+              errors::InvalidArgument(\n+                  \"Column sequence tensor values must not be negative, got \",\n+                  col_seq_tensor_flat));",
+      "file_path": "tensorflow/core/kernels/fractional_avg_pool_op.cc",
       "group": "002408c3696b173863228223d535f9de72a101a9",
-      "id": "U013",
-      "identity_digest": "4a20ee789442f9186894d96467b6a62c72c98ce9123cbcb3f45153f58388483f",
-      "message": "Add negative bound checks to avoid out of bound heap access in FractionalAvgPoolGrad",
-      "patch_excerpt": "+ OP_REQUIRES(context, in_row_start >= 0 && in_row_end >= 0, errors::InvalidArgument(\"Row sequence tensor values must not be negative\")); + OP_REQUIRES(context, in_col_start >= 0 && in_col_end >= 0, errors::InvalidArgument(\"Column sequence tensor values must not be negative\"));"
-    },
-    {
-      "commit": "8f457cef03c03dbd646824739f152d103c4239e8",
-      "filename": "saved_model_aot_compile.py",
-      "group": "8f457cef03c03dbd646824739f152d103c4239e8",
-      "id": "U014",
-      "identity_digest": "5a852a6566df633a20519b635ab05ea1f11c3e82bee7b877b060a76a96264037",
-      "message": "Add None check to restorer",
-      "patch_excerpt": "Guard restorer.restore with a restorer is not None test"
+      "id": "U005",
+      "identity_digest": "5b5fc2a37d9b999b8ea7ae84e1a63aef91987edd84c1295a470cd42e30236ff1",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/002408c3696b173863228223d535f9de72a101a9",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds row and column sequence admission guards; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     },
     {
       "commit": "cebfa65df5451af59f88115d509b4a7830d34d26",
-      "filename": "tensorflow/lite/build_def.bzl",
+      "commit_message": "Enable the mlir quantizer for all the zip tests\n\nThis also enabled the tests for all the tests including the floating-point\nconversions with the _experimental_new_quantizer is on.\n\nPiperOrigin-RevId: 348900650\nChange-Id: Iea3cd528d4cf105fb218fb856b4c7fda27db2bdb",
+      "commit_timestamp": "2020-12-24T08:41:10Z",
+      "diff_context": "@@ -435,7 +435,7 @@ def generated_test_conversion_modes():\n-    return [\"toco-flex\", \"forward-compat\", \"\"]\n+    return [\"toco-flex\", \"forward-compat\", \"\", \"mlir-quant\"]",
+      "file_path": "tensorflow/lite/build_def.bzl",
       "group": "cebfa65df5451af59f88115d509b4a7830d34d26",
-      "id": "U015",
+      "id": "U006",
       "identity_digest": "6118e6c1b084a5da0f63749a93a200ccc9d22845de6b80bfcb6cd3965d81afc6",
-      "message": "Enable the MLIR quantizer for all zip tests",
-      "patch_excerpt": "Add mlir-quant conversion mode and remove a test skip"
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/cebfa65df5451af59f88115d509b4a7830d34d26",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "enables an additional conversion mode in test generation; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     },
     {
-      "commit": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
-      "filename": "gather_functor.h",
-      "group": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
-      "id": "U016",
-      "identity_digest": "6a747825fd486ac388bb26317d850a7d3a0c194abbfa4737973f9fcf68a4cde9",
-      "message": "Fix HandleCopies so empty TensorMaps do not invoke undefined behavior",
-      "patch_excerpt": "Use TensorMap data pointers instead of indexing element zero"
-    },
-    {
-      "commit": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
-      "filename": "session_test.py",
-      "group": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
-      "id": "U017",
-      "identity_digest": "6ac9253fc537fd4b9c5e6c4280377d143d2a3765de8e1f1ae7d654960aa264eb",
-      "message": "Internal change",
-      "patch_excerpt": "Remove eager-op decorator and simplify AddV2 log filtering in a session test"
-    },
-    {
-      "commit": "58b34c6c8250983948b5a781b426f6aa01fd47af",
-      "filename": "array_ops_test.py",
-      "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
-      "id": "U018",
-      "identity_digest": "6ae2a2737d1b0f67ff4bf0971209016929d07117c98e4cbbd03610a0aa6a8c79",
-      "message": "Fix integer overflow leading to divide by zero; add overflow test",
-      "patch_excerpt": "+ def testUnravelIndexIntegerOverflow(self): dims=[value,value]; assertRaisesRegex(InvalidArgumentError, product is causing integer overflow)"
-    },
-    {
-      "commit": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
-      "filename": "debug_data_test.py",
-      "group": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
-      "id": "U019",
-      "identity_digest": "7d7fe34ac701d73b30886d883ae27ac7b236aa496fde3129c7a27f5a8ceaeff0",
-      "message": "Use tempfile.mkdtemp instead of deprecated tempfile.mktemp to create directories",
-      "patch_excerpt": "Replace tempfile.mktemp plus os.mkdir with tempfile.mkdtemp in debug-data tests"
-    },
-    {
-      "commit": "c654965d9336981338e39e5eb1bb9632293b571b",
-      "filename": "tensorflow/compiler/mlir/lite/metrics/BUILD",
-      "group": "c654965d9336981338e39e5eb1bb9632293b571b",
-      "id": "U020",
-      "identity_digest": "84b2e9cd2f7e455a2b7ab12ee1e01d927ff3486f5c0541676745b7efe1d6334c",
-      "message": "Report errors collected from MLIR converter",
-      "patch_excerpt": "+ //tensorflow/compiler/mlir/lite/metrics:error_collector added to BUILD dependencies"
-    },
-    {
-      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
-      "filename": "op_level_cost_estimator.h",
-      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
-      "id": "U021",
-      "identity_digest": "960320c0d9dcb2a0a05f6142eae8293812b56f2e85ee99daba86fe602f73168e",
-      "message": "Internal change; change convolution-dimension helper to return StatusOr",
-      "patch_excerpt": "- static ConvolutionDimensions OpDimensionsFromInputs(...); + static StatusOr<ConvolutionDimensions> OpDimensionsFromInputs(...);"
-    },
-    {
-      "commit": "37c01fb5e25c3d80213060460196406c43d31995",
-      "filename": "array_ops.cc",
-      "group": "37c01fb5e25c3d80213060460196406c43d31995",
-      "id": "U022",
-      "identity_digest": "983e4820bc1e06d70af221cf2a9d731aefeabeed12b47648766f4e7c9ca93885",
-      "message": "Fix out of bound error in ReverseSequence shape function",
-      "patch_excerpt": "+ if (batch_dim < 0) { return errors::InvalidArgument(\"batch_dim must be >=0\", batch_dim); } DimensionHandle batch_dim_dim = c->Dim(input, batch_dim);"
+      "commit": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "commit_message": "Fix Segfault in Concat V2 shape function.\n\nPiperOrigin-RevId: 412120654\nChange-Id: I3ff915faea694f9ad8b00024e9af2de9909011be",
+      "commit_timestamp": "2021-11-24T21:14:19Z",
+      "diff_context": "@@ -570,6 +571,17 @@ def testConcatInvalidAxis(self):\n+  def testConcatInvalidAxisInTfFunction(self):\n+\n+    @def_function.function\n+    def concat_wrapper():\n+      y = gen_array_ops.concat_v2(\n+          values=[[1, 2, 3], [4, 5, 6]], axis=0xb500005b)\n+      return y\n+\n+    with self.assertRaises(ValueError):\n+      concat_wrapper()",
+      "file_path": "tensorflow/python/kernel_tests/array_ops/concat_op_test.py",
+      "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "id": "U007",
+      "identity_digest": "673742e0b9290da01572cbe4777310fa0b3e594a51aeea4dc36224da90a048e8",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/08d7b00c0a5a20926363849f611729f53f3ec022",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds a regression test for a large invalid axis; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     },
     {
       "commit": "002408c3696b173863228223d535f9de72a101a9",
-      "filename": "fractional_avg_pool_op_test.py",
+      "commit_message": "Add negative bound check for row and column pooling_sequence in FractionalAvgPoolGrad op to avoid out of bound heap access\n\nPiperOrigin-RevId: 413837346\nChange-Id: I2b86034101df31bee161abcb781755e236c7bccd",
+      "commit_timestamp": "2021-12-03T05:02:49Z",
+      "diff_context": "@@ -306,6 +307,32 @@ def testDifferentInputTensorShape(self):\n+  def testNegativeSeqValuesForGradOp(self):\n+    with self.assertRaisesRegex(\n+        errors.InvalidArgumentError,\n+        r\"Row sequence tensor values must not be negative.*\"):\n+      y = nn_ops.gen_nn_ops.fractional_avg_pool_grad(\n+          orig_input_tensor_shape=[2, 2, 2, 2],\n+          out_backprop=[[[[1, 2], [3, 4], [5, 6]], [[7, 8], [9, 10], [11,\n+                                                                      12]]]],\n+          row_pooling_sequence=[-10, 1, 2, 3],\n+          col_pooling_sequence=[1, 2, 3, 4],\n+          overlapping=True)\n+\n+      self.evaluate(y)\n+      with self.assertRaisesRegex(\n+          errors.InvalidArgumentError,\n+          r\"Column sequence tensor values must not be negative.*\"):\n+        z = nn_ops.gen_nn_ops.fractional_avg_pool_grad(\n+            orig_input_tensor_shape=[2, 2, 2, 2],\n+            out_backprop=[[[[1, 2], [3, 4], [5, 6]], [[7, 8], [9, 10], [11,\n+                                                                        12]]]],\n+            row_pooling_sequence=[10, 1, 2, 3],\n+            col_pooling_sequence=[1, 2, -3, 4],\n+            overlapping=True)\n+\n+        self.evaluate(z)\n",
+      "file_path": "tensorflow/python/kernel_tests/nn_ops/fractional_avg_pool_op_test.py",
       "group": "002408c3696b173863228223d535f9de72a101a9",
-      "id": "U023",
-      "identity_digest": "a3deec22e9a3ea0fe5fbf954f127ed923e6bb38b8ac1ded2584c9baeb64506ee",
-      "message": "Add negative bound tests for pooling sequence",
-      "patch_excerpt": "+ def testNegativeSeqValuesForGradOp(self): row_pooling_sequence=[-10,1,2,3]; col_pooling_sequence=[1,2,-3,4]"
-    },
-    {
-      "commit": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
-      "filename": "dequantize_op.cc",
-      "group": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
-      "id": "U024",
-      "identity_digest": "b767be0135882ee55469fff2e5d7f50bedfbeb203a99376e70295df639f77420",
-      "message": "Fix out of bound access in DequantizeOp by adding check for axis less than input dimension",
-      "patch_excerpt": "+ OP_REQUIRES(ctx, axis_ < input.dims(), errors::InvalidArgument(\"Axis must be less than input dimension\")); int num_slices = 1; if (axis_ > -1) { num_slices = input.dim_size(axis_); }"
-    },
-    {
-      "commit": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
-      "filename": "tensorflow/c/eager/c_api_remote_test.cc",
-      "group": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
-      "id": "U025",
-      "identity_digest": "c9282f5cee7d52fe5d4d2f986ebc952abaf52ac59af5faf21e80dc690d6663f8",
-      "message": "Do not call Unprotect on remote inputs",
-      "patch_excerpt": "Add remote execute function tests and branch between function and MatMul operation construction"
-    },
-    {
-      "commit": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
-      "filename": "mirrored_strategy.py",
-      "group": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
-      "id": "U026",
-      "identity_digest": "d1f3a3cf31ff0e949429918bd3fcfadce83f37172f74abd98b29866548003801",
-      "message": "pylint whitespace changes",
-      "patch_excerpt": "Indent dictionary comprehensions to satisfy pylint"
-    },
-    {
-      "commit": "72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
-      "filename": "tpu_client.cc",
-      "group": "72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
-      "id": "U027",
-      "identity_digest": "d476a17c8a86a95e3a7dede4650bb04c110f32adee9595adda0cb1d996b02ee1",
-      "message": "Add missing namespace to fix OS build",
-      "patch_excerpt": "Qualify down_cast as tensorflow::down_cast"
-    },
-    {
-      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
-      "filename": "op_level_cost_estimator.cc",
-      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
-      "id": "U028",
-      "identity_digest": "dd885f9ec4f792dae02c808b727d58ea29afdb62e90989e82967c064927fbafa",
-      "message": "Internal change; add stride validation before convolution dimension arithmetic",
-      "patch_excerpt": "int64_t sx = strides[x_index]; int64_t sy = strides[y_index]; + if (sx == 0 || sy == 0) { return errors::InvalidArgument(\"Stride must be > 0\"); } int64_t ox = GetOutputSize(ix, kx, sx, padding);"
-    },
-    {
-      "commit": "880d16bc8fcf8160037abc05c2585baed6a35cd5",
-      "filename": "guarantee_all_funcs_one_use.cc",
-      "group": "880d16bc8fcf8160037abc05c2585baed6a35cd5",
-      "id": "U029",
-      "identity_digest": "e0aa714ae31273a1970e903056e8d1fc79f4f7a0347ba792a4691496264c2eda",
-      "message": "Change max clones to a simple heuristic based on original number of functions",
-      "patch_excerpt": "Replace 4 * number_of_functions with const int kMaxClones = 10000"
-    },
-    {
-      "commit": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
-      "filename": "executable_run_options.h",
-      "group": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
-      "id": "U030",
-      "identity_digest": "e53a5736fdab24903c1ad016a19ff8b37432f6d32e2297430641afd0aad2a15b",
-      "message": "Add a launch id field in run options and HLO module config",
-      "patch_excerpt": "Add launch_id getter, setter and field"
-    },
-    {
-      "commit": "f57315566d7094f322b784947093406c2aea0d7d",
-      "filename": "map_stage_op.cc",
-      "group": "f57315566d7094f322b784947093406c2aea0d7d",
-      "id": "U031",
-      "identity_digest": "e5a9babdfd2ade838029a215c347da27241f54adf92e818fe25f8d4c057f97ce",
-      "message": "Add a check for key being scalar for MapStage and OrderedMapStage",
-      "patch_excerpt": "+ OP_REQUIRES(ctx, key_tensor->NumElements() == 1, errors::InvalidArgument(\"key must be an int64 scalar\")); Tensor key(*key_tensor);"
+      "id": "U008",
+      "identity_digest": "73109bcfea65cdc6fe16cc148533ad0910cda7b6a3392dcc2d6fa9805aa4f77e",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/002408c3696b173863228223d535f9de72a101a9",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds a negative-sequence regression test; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     },
     {
       "commit": "58b34c6c8250983948b5a781b426f6aa01fd47af",
-      "filename": "unravel_index_op.cc",
+      "commit_message": "Fix integer overflow leading to divide by zero error in Unravel index kernel when dimensions product exceeds max int value.\n\nPiperOrigin-RevId: 413250052\nChange-Id: I9450b6e8acecd2e881a64b882e2b7c70e8e9289a",
+      "commit_timestamp": "2021-11-30T22:55:43Z",
+      "diff_context": "@@ -1580,6 +1580,20 @@ def testUnravelIndexZeroDim(self):\n+  def testUnravelIndexIntegerOverflow(self):\n+    with self.cached_session():\n+      for dtype in [dtypes.int32, dtypes.int64]:\n+        with self.assertRaisesRegex(\n+            errors.InvalidArgumentError,\n+            r\"Input dims product is causing integer overflow\"):\n+          indices = constant_op.constant(-0x100000, dtype=dtype)\n+          if dtype == dtypes.int32:\n+            value = 0x10000000\n+          else:\n+            value = 0x7FFFFFFFFFFFFFFF\n+          dims = constant_op.constant([value, value], dtype=dtype)\n+          self.evaluate(array_ops.unravel_index(indices=indices, dims=dims))\n",
+      "file_path": "tensorflow/python/kernel_tests/array_ops/array_ops_test.py",
       "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "id": "U009",
+      "identity_digest": "75a4c2d39efbf42b09b0550396fd5dc4a6de0c5817efcfbf6f5b669ac8e8b061",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/58b34c6c8250983948b5a781b426f6aa01fd47af",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds an overflow regression test; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "f57315566d7094f322b784947093406c2aea0d7d",
+      "commit_message": "Add a check for Key being scalar tensor for MapStage and OrderedMapStage ops.\n\nAccording to documentation[1][2], key must be int64 value, but this wasn't enforced and the ops would fail with check failure for non-scalar key value.\n\n[1]https://www.tensorflow.org/api_docs/cc/class/tensorflow/ops/ordered-map-stage\n[2]https://www.tensorflow.org/api_docs/cc/class/tensorflow/ops/map-stage\n\nPiperOrigin-RevId: 413822112\nChange-Id: I9d118faf990e6361900aa32272eff486ad9f0e2e",
+      "commit_timestamp": "2021-12-03T03:02:16Z",
+      "diff_context": "@@ -536,6 +536,11 @@ class MapStageOp : public OpKernel {\n     OP_REQUIRES(ctx, key_tensor->NumElements() > 0,\n                 errors::InvalidArgument(\"key must not be empty\"));\n \n+    OP_REQUIRES(ctx, key_tensor->NumElements() == 1,\n+                errors::InvalidArgument(\n+                    \"key must be an int64 scalar, got tensor with shape: \",\n+                    key_tensor->shape()));",
+      "file_path": "tensorflow/core/kernels/map_stage_op.cc",
+      "group": "f57315566d7094f322b784947093406c2aea0d7d",
+      "id": "U010",
+      "identity_digest": "7be94bacbcd6fa6e2b86caa52203b564dce484efd5d8eb77d2320c403d01fb31",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/f57315566d7094f322b784947093406c2aea0d7d",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds an admission guard requiring a scalar key; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
+      "commit_message": "Use `tempfile.mkdtemp` instead of `tempfile.mktemp` to create directories.\n\nThe `tempfile.mktemp` function is deprecated due to security issues.\n\nThe switch is easy to do: just a name change\n\nPiperOrigin-RevId: 420370858\nChange-Id: I44a0849d161132eacd4f3881fdb615e09c0f02a2",
+      "commit_timestamp": "2022-01-07T22:54:21Z",
+      "diff_context": "@@ -147,8 +147,7 @@ class DebugDumpDirTest(test_util.TensorFlowTestCase):\n-    self._dump_root = tempfile.mktemp()\n-    os.mkdir(self._dump_root)\n+    self._dump_root = tempfile.mkdtemp()",
+      "file_path": "tensorflow/python/debug/lib/debug_data_test.py",
+      "group": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
+      "id": "U011",
+      "identity_digest": "7cc8f16671629b0d97da356fd4a86c85df81179cb02391e8221ed13a4ee71b6e",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "uses an atomic temporary-directory creator in a test; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "commit_message": "Internal change\n\nPiperOrigin-RevId: 411896058\nChange-Id: Ia031058247e3cf382957a6662d3f9e1cbb481ca2",
+      "commit_timestamp": "2021-11-23T22:37:54Z",
+      "diff_context": "@@ -290,7 +290,7 @@ class OpLevelCostEstimator {\n-  static ConvolutionDimensions OpDimensionsFromInputs(\n+  static StatusOr<ConvolutionDimensions> OpDimensionsFromInputs(\n       const TensorShapeProto& original_image_shape, const OpInfo& op_info,\n       bool* found_unknown_shapes);",
+      "file_path": "tensorflow/core/grappler/costs/op_level_cost_estimator.h",
+      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "id": "U012",
+      "identity_digest": "7ce0dac704c6f0a0c0965d3ac423b9cff00246c092c1855c6c412c8e24a59f94",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/3218043d6d3a019756607643cf65574fbfef5d7a",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "changes the helper return type so input-validation errors can propagate; the upstream message remains \u201cInternal change\u201d; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "898c7319013fede56e08370f6aa9998aaad9df35",
+      "commit_message": "compat: Update forward compatibility horizon to 2021-02-25\n\nPiperOrigin-RevId: 359466367\nChange-Id: Ia3f896f0a1fbd4d029b21a93f193b6e726cd1cfa",
+      "commit_timestamp": "2021-02-25T09:09:04Z",
+      "diff_context": "@@ -33,7 +33,7 @@\n-_FORWARD_COMPATIBILITY_HORIZON = datetime.date(2021, 2, 24)\n+_FORWARD_COMPATIBILITY_HORIZON = datetime.date(2021, 2, 25)",
+      "file_path": "tensorflow/python/compat/compat.py",
+      "group": "898c7319013fede56e08370f6aa9998aaad9df35",
+      "id": "U013",
+      "identity_digest": "81a0393c5a5d7cf9fe2726e3a6346549f59f8a694bd5842cffb0976cb667e8ef",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/898c7319013fede56e08370f6aa9998aaad9df35",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "advances the generated compatibility horizon; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "c654965d9336981338e39e5eb1bb9632293b571b",
+      "commit_message": "Report errors collected from MLIR converter\n\nPiperOrigin-RevId: 377454790\nChange-Id: I3f335cfc8c0fd707b38245c1666bee9231276411",
+      "commit_timestamp": "2021-06-04T07:18:32Z",
+      "diff_context": "@@ -4,6 +4,7 @@ package(\n     default_visibility = [\n         \"//tensorflow/compiler/mlir/lite:__subpackages__\",\n+        \"//tensorflow/lite/python:__subpackages__\",\n     ],\n@@ -20,6 +21,7 @@ cc_library(\n+        \"//tensorflow/compiler/mlir/lite/metrics:error_collector\",",
+      "file_path": "tensorflow/compiler/mlir/lite/metrics/BUILD",
+      "group": "c654965d9336981338e39e5eb1bb9632293b571b",
+      "id": "U014",
+      "identity_digest": "84b2e9cd2f7e455a2b7ab12ee1e01d927ff3486f5c0541676745b7efe1d6334c",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/c654965d9336981338e39e5eb1bb9632293b571b",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds visibility and an error-collector dependency; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "commit_message": "Internal change\n\nPiperOrigin-RevId: 411896058\nChange-Id: Ia031058247e3cf382957a6662d3f9e1cbb481ca2",
+      "commit_timestamp": "2021-11-23T22:37:54Z",
+      "diff_context": "@@ -1383,6 +1417,26 @@ TEST_F(OpLevelCostEstimatorTest, OpDimensionsFromInputs) {\n+TEST_F(OpLevelCostEstimatorTest, OpDimensionsFromInputsError) {\n+  std::vector<string> paddings = {\"VALID\", \"SAME\"};\n+  std::vector<string> formats = {\"NHWC\", \"NCHW\"};\n+  for (const auto& p : paddings) {\n+    for (const auto& f : formats) {\n+      // n, h, w, c, kx, ky, sx, sy, data_format, padding.\n+      ASSERT_THAT(\n+          CallOpDimensionsFromInputs(10, 14, 14, 3840, 3, 3, 0, 2, f, p),\n+          testing::StatusIs(\n+              error::INVALID_ARGUMENT,\n+              \"Stride must be > 0 for Height and Width, but got (2, 0)\"));\n+      ASSERT_THAT(\n+          CallOpDimensionsFromInputs(10, 14, 14, 3840, 3, 3, 2, 0, f, p),\n+          testing::StatusIs(\n+              error::INVALID_ARGUMENT,\n+              \"Stride must be > 0 for Height and Width, but got (0, 2)\"));\n+    }\n+  }\n+}\n",
+      "file_path": "tensorflow/core/grappler/costs/op_level_cost_estimator_test.cc",
+      "group": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "id": "U015",
+      "identity_digest": "89f9a4a5111f744fb8d60c66f4ca08fa4781e96ec8e60eaee479fbbbb50d7323",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/3218043d6d3a019756607643cf65574fbfef5d7a",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds file-specific zero-stride tests; the upstream commit message remains \u201cInternal change\u201d; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "716fea7be71d03ba486dde6c1adba245d18e805f",
+      "commit_message": "Update all tf.to_float to tf.cast(..,dtype=tf.float32) in losses_impl\n\nPiperOrigin-RevId: 226041616",
+      "commit_timestamp": "2018-12-18T20:44:18Z",
+      "diff_context": "@@ -207,8 +207,8 @@ def compute_weighted_loss(\n-      losses = math_ops.to_float(losses)\n-      weights = math_ops.to_float(weights)\n+      losses = math_ops.cast(losses, dtype=dtypes.float32)\n+      weights = math_ops.cast(weights, dtype=dtypes.float32)",
+      "file_path": "tensorflow/python/ops/losses/losses_impl.py",
+      "group": "716fea7be71d03ba486dde6c1adba245d18e805f",
+      "id": "U016",
+      "identity_digest": "958eaa418bdc2c9568f5760a45194eb3a9e56da0c9ec901c4848b01ddd5bb763",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/716fea7be71d03ba486dde6c1adba245d18e805f",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "replaces deprecated conversion helpers with explicit casts; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
+      "commit_message": "Fix HandleCopies so it no longer invokes UB when the `params` or `out` TensorMaps are empty with no backing data.\n\nPiperOrigin-RevId: 313686113\nChange-Id: I4b38d7e7e8cebb40d8b7f2390f841f0b541a01e5",
+      "commit_timestamp": "2020-05-29T00:01:07Z",
+      "diff_context": "@@ -44,8 +44,8 @@ SliceIndex HandleCopies(OpKernelContext* ctx,\n-  T* out_base = &out(0, 0, 0);\n-  const T* params_base = &params(0, 0, 0);\n+  T* out_base = out.data();\n+  const T* params_base = params.data();",
+      "file_path": "tensorflow/core/kernels/gather_functor.h",
+      "group": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
+      "id": "U017",
+      "identity_digest": "96f8430011a5849bb9c8badf8cf7f3c7e9a87176bf53f9d5abd6f31097491adb",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "uses TensorMap data pointers instead of indexing element zero; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
+      "commit_message": "[tpu_driver] Add missing namespace to fix OS build\n\nPiperOrigin-RevId: 376286743\nChange-Id: I7aaa700d2a86dc608c2775a62916f08d3e595715",
+      "commit_timestamp": "2021-05-28T01:06:31Z",
+      "diff_context": "@@ -95,7 +95,7 @@ PyTpuClient::PyTpuClient(std::string platform_name,\n-    down_cast<TpuDevice*>(device.get())->set_tpu_client(this);\n+    tensorflow::down_cast<TpuDevice*>(device.get())->set_tpu_client(this);",
+      "file_path": "tensorflow/compiler/xla/python/tpu_driver/client/tpu_client.cc",
+      "group": "72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
+      "id": "U018",
+      "identity_digest": "983c9c452a75668dd22637a867904d8274a5c0133a0bf02964f4e18ebf4a7410",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds the missing namespace qualifier; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "commit_message": "Fix Integer overflow error in Dequantize op shape function, by adding a bound check on axis.\n\nPiperOrigin-RevId: 412121389\nChange-Id: I3088dbad9e90f9998d406b618c16694388a9dfb4",
+      "commit_timestamp": "2021-11-24T21:25:41Z",
+      "diff_context": "@@ -3028,6 +3029,12 @@ REGISTER_OP(\"Dequantize\")\n+      auto input_dims = c->Rank(c->input(0));\n+      if (axis > input_dims) {\n+        return errors::InvalidArgument(\n+            \"Axis must be less than input dimension(\", input_dims, \"), got \",\n+            axis);\n+      }\n@@ -3035,6 +3042,13 @@ REGISTER_OP(\"Dequantize\")\n+        if (axis >= kint32max) {\n+          return errors::InvalidArgument(\n+              \"Axis cannot be >= kint32max value, got \", axis);\n+        }",
+      "file_path": "tensorflow/core/ops/array_ops.cc",
+      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "id": "U019",
+      "identity_digest": "983cc2c61fa1a5773f7101edaee29b0abf19386cc9479919f694afd919d9f89d",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds two rejection guards to the Dequantize shape function; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "8f457cef03c03dbd646824739f152d103c4239e8",
+      "commit_message": "Add None check to restorer",
+      "commit_timestamp": "2020-08-16T07:43:08Z",
+      "diff_context": "@@ -321,7 +321,8 @@ def aot_compile_cpu_meta_graph_def(checkpoint_path,\n     restorer = saver_lib.import_meta_graph(meta_graph_def, clear_devices=True)\n-    restorer.restore(sess, checkpoint_path)\n+    if restorer is not None:\n+      restorer.restore(sess, checkpoint_path)",
+      "file_path": "tensorflow/python/tools/saved_model_aot_compile.py",
+      "group": "8f457cef03c03dbd646824739f152d103c4239e8",
+      "id": "U020",
+      "identity_digest": "9c01441fca8dc9ffacf26e7bedf4eaeda8044c4f8b68a0b887d7ce7299c81b93",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/8f457cef03c03dbd646824739f152d103c4239e8",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "guards an optional Python restorer; outside the C/C++ guard grammar; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "commit_message": "Fix integer overflow leading to divide by zero error in Unravel index kernel when dimensions product exceeds max int value.\n\nPiperOrigin-RevId: 413250052\nChange-Id: I9450b6e8acecd2e881a64b882e2b7c70e8e9289a",
+      "commit_timestamp": "2021-11-30T22:55:43Z",
+      "diff_context": "@@ -54,12 +59,31 @@ class UnravelIndexOp : public OpKernel {\n     auto dims = dims_tensor.vec<Tidx>();\n     // Make sure dims does not contain a zero\n+    double prod = 1;\n+    uint64_t limit;\n+    if (dtidx_ == DataType::DT_INT64) {\n+      limit = kint64max;\n+    } else {\n+      limit = kint32max;\n+    }\n+\n     for (int i = 0; i < dims.size(); i++) {\n       OP_REQUIRES(\n           ctx, dims(i) != 0,\n           errors::InvalidArgument(\"Input dims cannot contain a dim of zero, \"\n                                   \"but dims contains zero at index \",\n                                   i));\n+      OP_REQUIRES(ctx, dims(i) > 0,\n+                  errors::InvalidArgument(\n+                      \"Input dims cannot be negative. Got dim = \", dims(i),\n+                      \" at index \", i));\n+      // Check interger overflow\n+      OP_REQUIRES(\n+          ctx, prod <= limit / dims(i),\n+          errors::InvalidArgument(\"Input dims product is causing integer \"\n+                                  \"overflow: (\",\n+                                  dims, \")\"));\n+      prod = (prod * dims(i));\n     }\n",
+      "file_path": "tensorflow/core/kernels/unravel_index_op.cc",
+      "group": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "id": "U021",
+      "identity_digest": "9e16a41bab57ecd07ff2912a883e9a68645953cf93c43678ffd44371d1b2d5ba",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/58b34c6c8250983948b5a781b426f6aa01fd47af",
+        "context_requirements": [
+          "dims(i) != 0"
+        ],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "retains the pre-existing nonzero check and adds positivity plus guarded overflow checks; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "880d16bc8fcf8160037abc05c2585baed6a35cd5",
+      "commit_message": "Change max clones to simple heuristic based on original number of functions\n\nLess arbitrary than fixed number but degenerate behavior is now defined in\nterms of the number of functions in the original module.\n\nPiperOrigin-RevId: 381109197\nChange-Id: I68f66b303044648c8410e0a16d3926dc0a5570ea",
+      "commit_timestamp": "2021-06-23T21:03:34Z",
+      "diff_context": "@@ -67,15 +67,11 @@ class GuaranteeAllFuncsOneUse\n-    int number_of_functions = [&]() -> int {\n-      auto fn_range = module.getOps<FuncOp>();\n-      return std::distance(fn_range.begin(), fn_range.end());\n-    }();\n-    const int kMaxClones = 4 * number_of_functions;\n-\n+    const int kMaxClones = 10000;",
+      "file_path": "tensorflow/compiler/mlir/tensorflow/transforms/guarantee_all_funcs_one_use.cc",
+      "group": "880d16bc8fcf8160037abc05c2585baed6a35cd5",
+      "id": "U022",
+      "identity_digest": "a632b11c6c14dc2eeab47baef66e53d00b688c0fd6fdffd57011c0836efdf31b",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/880d16bc8fcf8160037abc05c2585baed6a35cd5",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "changes the clone cap heuristic; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
+      "commit_message": "Internal change\n\nPiperOrigin-RevId: 397208029\nChange-Id: I16d248be52ccdef0e88995842780c6dc93a20ba8",
+      "commit_timestamp": "2021-09-17T00:49:18Z",
+      "diff_context": "@@ -76,7 +76,6 @@\n-@test_util.with_eager_op_as_function\n class SessionTest(test_util.TensorFlowTestCase):\n@@ -1963,9 +1962,7 @@ def __str__(self):\n-    add_executions = [\n-        l for l in str(log).splitlines() if 'Executing op AddV2' in l\n-    ]\n+    add_executions = [l for l in str(log).splitlines() if 'AddV2' in l]",
+      "file_path": "tensorflow/python/client/session_test.py",
+      "group": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
+      "id": "U023",
+      "identity_digest": "a83b15d60fd4dcdc028b0d6933d1fe1f55d0e7bdb6d9a120c731ab4057387a97",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/4475cc8744b1c6b2f61052a5da0810ecc34ee642",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "changes only a session test decorator and log predicate; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "commit_message": "Fix Segfault in Concat V2 shape function.\n\nPiperOrigin-RevId: 412120654\nChange-Id: I3ff915faea694f9ad8b00024e9af2de9909011be",
+      "commit_timestamp": "2021-11-24T21:14:19Z",
+      "diff_context": "@@ -2005,7 +2005,7 @@ Status ConcatShapeHelper(InferenceContext* c, int start_value_index,\n-  const int min_rank = concat_dim < 0 ? -concat_dim : concat_dim + 1;\n+  const int64 min_rank = concat_dim < 0 ? -concat_dim : concat_dim + 1;",
+      "file_path": "tensorflow/core/framework/common_shape_fns.cc",
+      "group": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "id": "U024",
+      "identity_digest": "b870579fab1ffa1932972b1189969a0e1368951c3848bd7bccf55e57ceedbed6",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/08d7b00c0a5a20926363849f611729f53f3ec022",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "widens min_rank before negating a potentially large concat_dim; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
+      "commit_message": "pylint: whitespace changes",
+      "commit_timestamp": "2018-07-17T07:53:19Z",
+      "diff_context": "@@ -87,7 +87,7 @@ def __init__(self,\n     self._device_index = values.PerDevice(\n-            {d: i for i, d in enumerate(devices)})\n+        {d: i for i, d in enumerate(devices)})",
+      "file_path": "tensorflow/contrib/distribute/python/mirrored_strategy.py",
+      "group": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
+      "id": "U025",
+      "identity_digest": "bbd97726f0e3754017e39edfcd9e2057c64c4f810903784f14c24da919e3488f",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/e5379bb6c053c1d1af913cd1c8c14663191e58b3",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "whitespace-only formatting change; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
+      "commit_message": "Fix out of bound access in DequantizeOp by adding check for axis < input dimension\n\nPiperOrigin-RevId: 411214268\nChange-Id: I3249d2a69ddc82f182c589a3a5bbfb71543f4b29",
+      "commit_timestamp": "2021-11-20T07:22:12Z",
+      "diff_context": "@@ -94,6 +94,11 @@ class DequantizeOp : public OpKernel {\n+    OP_REQUIRES(\n+        ctx, axis_ < input.dims(),\n+        errors::InvalidArgument(\"Axis must be less than input dimension(\",\n+                                input.dims(), \"), got \", axis_));\n+\n     int num_slices = 1;",
+      "file_path": "tensorflow/core/kernels/dequantize_op.cc",
+      "group": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
+      "id": "U026",
+      "identity_digest": "c3377131fe8f8a993f9b110418ef64e7663630960a921c680366723714f939b1",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/23968a8bf65b009120c43b5ebcceaf52dbc9e943",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds an admission guard before indexing the selected axis; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
+      "commit_message": "Do not call Unprotect on remote inputs\n\nUnprotect should only be called on local handles. In order to test the\ntriggering of forwarding for remote inputs to a function we add an\noptimization whereby EagerExecute releases the inputs of the eager\noperation. This enforces that a TFE_Op cannot be reused since the inputs\nwould have been removed. This was technically already true since if the\ninputs were ever forwarded we should not be re-using the TFE_Op.\n\nPiperOrigin-RevId: 306564949\nChange-Id: I94bd3a243658277891867802b792a4492ec0a039",
+      "commit_timestamp": "2020-04-15T02:56:35Z",
+      "diff_context": "@@ -129,7 +129,7 @@\n-void TestRemoteExecuteSilentCopies(bool async, bool remote) {\n+void TestRemoteExecuteSilentCopies(bool async, bool remote, bool func) {\n@@ -227,7 +285,7 @@ TEST(CAPI, RemoteExecuteSilentCopies) {\n-  TestRemoteExecuteSilentCopies(false, true);\n+  TestRemoteExecuteSilentCopies(false, true, false);",
+      "file_path": "tensorflow/c/eager/c_api_remote_test.cc",
+      "group": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
+      "id": "U027",
+      "identity_digest": "c9282f5cee7d52fe5d4d2f986ebc952abaf52ac59af5faf21e80dc690d6663f8",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "extends remote-execution tests with a function path; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "37c01fb5e25c3d80213060460196406c43d31995",
+      "commit_message": "Fix out of bound error in ReverseSequence Op shape function\n\nPiperOrigin-RevId: 411896080\nChange-Id: I7e59a38e2f960886edf2b6c54ed5a84e86a9b193",
+      "commit_timestamp": "2021-11-23T22:42:02Z",
+      "diff_context": "@@ -1653,11 +1653,21 @@ REGISTER_OP(\"ReverseSequence\")\n       if (seq_dim >= input_rank) {\n         return errors::InvalidArgument(\n             \"seq_dim must be < input rank: \", seq_dim, \" vs. \", input_rank);\n       }\n+\n+      if (batch_dim < 0) {\n+        return errors::InvalidArgument(\"batch_dim must be >=0, got \",\n+                                       batch_dim);\n+      }\n \n       DimensionHandle batch_dim_dim = c->Dim(input, batch_dim);",
+      "file_path": "tensorflow/core/ops/array_ops.cc",
+      "group": "37c01fb5e25c3d80213060460196406c43d31995",
+      "id": "U028",
+      "identity_digest": "d59890b62ab824c0871265cad8d0a7abf6df3a3c4083f1b7a8f86a9a6e40affc",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/37c01fb5e25c3d80213060460196406c43d31995",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds a negative batch-dimension rejection guard; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
+      "commit_message": "Add a launch id field in run options and hlo module config.\n\nPiperOrigin-RevId: 307922589\nChange-Id: Ie1ea0b389e5228f827d570086799227983035f81",
+      "commit_timestamp": "2020-04-22T23:09:18Z",
+      "diff_context": "@@ -127,6 +127,13 @@ class ExecutableRunOptions {\n+  ExecutableRunOptions& set_launch_id(int32 launch_id) {\n+    launch_id_ = launch_id;\n+    return *this;\n+  }\n+\n+  int32 launch_id() const { return launch_id_; }\n@@ -153,6 +160,7 @@ class ExecutableRunOptions {\n+  int32 launch_id_ = 0;",
+      "file_path": "tensorflow/compiler/xla/executable_run_options.h",
+      "group": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
+      "id": "U029",
+      "identity_digest": "e205654411926f3fcbc55260b1447d804622ad297a36a848c6be1cedb8ffa709",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds a launch identifier to run options; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "commit_message": "Fix Integer overflow error in Dequantize op shape function, by adding a bound check on axis.\n\nPiperOrigin-RevId: 412121389\nChange-Id: I3088dbad9e90f9998d406b618c16694388a9dfb4",
+      "commit_timestamp": "2021-11-24T21:25:41Z",
+      "diff_context": "@@ -1704,6 +1704,21 @@ class QuantizeAndDequantizeTest(test_util.TensorFlowTestCase):\n+  def testOutOfBoundAxis(self):\n+    input_tensor = constant_op.constant([1., 1.])\n+    input_min = [0]\n+    input_max = [1]\n+    q_input, _, _ = array_ops.quantize(input_tensor, 0, 1, dtypes.qint32)\n+    error = (errors.InvalidArgumentError, ValueError)\n+    with self.assertRaisesRegex(error,\n+                                r\".*Axis must be less than input dimension.*\"):\n+      self.evaluate(\n+          gen_array_ops.dequantize(\n+              input=q_input,\n+              min_range=input_min,\n+              max_range=input_max,\n+              axis=2**31 - 1))\n",
+      "file_path": "tensorflow/python/kernel_tests/array_ops/array_ops_test.py",
+      "group": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "id": "U030",
+      "identity_digest": "ee5cc5c83cb2fa709fd41b4ad926474dc26e552337a8a8125bd12c975e2290c5",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds a Dequantize out-of-range-axis regression test; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
+      "commit_message": "add type info described in issue #5236 (#5278)\n\n* add type info when assign\n\n* add INFO\n\n* add spaces\n\n* wrap to 80 lines",
+      "commit_timestamp": "2016-11-02T17:25:46Z",
+      "diff_context": "@@ -815,9 +815,11 @@ void SimplePlacer::AssignAndLog(const string& assigned_device,\n-    printf(\"%s: %s\\n\", node->name().c_str(),\n+    printf(\"%s: (%s): %s\\n\", node->name().c_str(),\n+           node->type_string().c_str(),\n            node->assigned_device_name().c_str());\n-    LOG(INFO) << node->name() << \": \" << node->assigned_device_name();\n+    LOG(INFO) << node->name() << \": \" << \"(\" << node->type_string() << \")\"\n+              << node->assigned_device_name();",
+      "file_path": "tensorflow/core/common_runtime/simple_placer.cc",
+      "group": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
+      "id": "U031",
+      "identity_digest": "f1d751e67eafb3ee153cb01605662efc15afea80713e988d272fa5ec5d53bb89",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/2b703011163454ae15ba07ec89dd6bd2d8633a00",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "adds node type information to placement logging; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
+    },
+    {
+      "commit": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
+      "commit_message": "...Setting shapes of placeholders used in tf.compat.v2.test.compute_gradient...\n\nPiperOrigin-RevId: 293212323\nChange-Id: I07e7620965bff0872f83d4619941509d97bc499f",
+      "commit_timestamp": "2020-02-04T21:16:18Z",
+      "diff_context": "@@ -94,7 +93,7 @@ def _to_numpy(a):\n-def _prepare(f, xs_dtypes):\n+def _prepare(f, xs_dtypes, xs_shapes):\n@@ -104,7 +103,10 @@ def _prepare(f, xs_dtypes):\n-  xs = [array_ops.placeholder(x_dtype) for x_dtype in xs_dtypes]\n+  xs = [\n+      array_ops.placeholder(x_dtype, shape=x_shape)\n+      for x_dtype, x_shape in zip(xs_dtypes, xs_shapes)\n+  ]",
+      "file_path": "tensorflow/python/ops/gradient_checker_v2.py",
+      "group": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
       "id": "U032",
-      "identity_digest": "f1e68420007792552107ecaa58f5c17c53e843ab7b803164682c0b8e5d568d15",
-      "message": "Fix integer overflow leading to divide by zero in UnravelIndex",
-      "patch_excerpt": "+ OP_REQUIRES(ctx, dims(i) > 0, errors::InvalidArgument(\"Input dims cannot be negative\")); + OP_REQUIRES(ctx, prod <= limit / dims(i), errors::InvalidArgument(\"Input dims product is causing integer overflow\")); prod = prod * dims(i);"
+      "identity_digest": "f5d72f3692928125bbcb56da12112f4e004c9e3d87963a7a0e778fa4a7172306",
+      "source_asset": {
+        "annotation_used_for_scoring": false,
+        "commit_url": "https://github.com/tensorflow/tensorflow/commit/5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
+        "context_requirements": [],
+        "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
+        "file_annotation": "propagates static shapes into graph-mode placeholders; human annotation, excluded from scoring and extraction",
+        "repository": "tensorflow/tensorflow",
+        "source_kind": "github-commit-file-patch"
+      }
     }
   ],
-  "schema": "rbw-public-candidates-v5"
+  "schema": "rbw-public-candidates-v6"
 }

@@ -8,10 +8,11 @@
     "candidate_units": 32,
     "exit_status": 0,
     "mismatches": 0,
-    "recognized_cases": 10,
-    "semantic_obligations": 900
+    "semantic_obligations": 901,
+    "supported_records": 10,
+    "typed_abstentions": 22
   },
-  "full_finite_sweep": "retained-and-consistency-checked-not-rerun",
+  "full_finite_sweep": "retained-and-cross-file-verified-not-rerun",
   "pilot": {
     "assignments": 64,
     "exit_status": 0,
@@ -20,10 +21,12 @@
     "repair": 8
   },
   "public": {
+    "accepted_source_records": 10,
     "candidate_units": 32,
-    "child_processes": 2,
+    "checked_p20": 0.75,
     "exit_status": 0,
     "failed_readiness_gates": [
+      "raw_diff_or_checked_source_tree_correspondence",
       "candidate_selection_independent_of_labels",
       "complete_repository_time_window",
       "labels_sealed_before_method_development",
@@ -31,13 +34,15 @@
       "temporal_holdout"
     ],
     "main_study_readiness": "failed",
-    "obligations": 4256
+    "syntax_p20": 0.75,
+    "unvalidated_p20": 0.8
   },
-  "schema": "rbw-clean-reproduction-v2",
+  "schema": "rbw-clean-reproduction-v3",
+  "scientific_file_comparisons": 17,
   "status": "pass",
   "tests": {
     "errors": 0,
     "failures": 0,
-    "run": 42
+    "run": 46
   }
 }

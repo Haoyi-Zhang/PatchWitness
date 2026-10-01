@@ -1,74 +1,96 @@
-# Restricted source-frontend contract and validation
+# Restricted public source-evidence contract and validation
 
-This note specifies the automatic source-to-relation boundary used only for the
-retained 32-unit public microcohort.  It is a deliberately restricted diff
-recognizer, not a C/C++ parser, compiler frontend, or whole-program verifier.
+This note specifies the public-source path used for the retained 32-file
+microcohort.  It is separate from the finite-IR old-fault/new-defined certificate
+in `proofs/contract.md`.
 
-## 1. Accepted source forms
+## 1. Input and extraction
 
-The frontend scans added lines in each retained patch excerpt and recognizes:
+Each candidate contains an immutable commit, original commit message, timestamp,
+full file path, and minimal real unified-diff context copied from that file's
+upstream patch.  Human file annotations are stored separately and are excluded
+from extraction and scoring.
 
-1. rejection guards of the form `if (bad_predicate)`;
-2. admission guards of the form `OP_REQUIRES(ctx, good_predicate, ...)`; and
-3. one declared type-widening pattern changing `const int min_rank` to
-   `const int64 min_rank` in an expression containing `concat_dim`.
+The extractor considers added source lines and supports:
 
-For guards, the grammar contains decimal or hexadecimal integer constants,
-scalar identifiers, parentheses, unary `!` and unary minus on constants,
-`&&`, `||`, the six comparisons, and integer division.  Seven explicit accessor
-rewrites map the retained source spellings (for example,
-`key_tensor->NumElements()` and `input.dims()`) to scalar variables.  No other
-rewrite is permitted.  Unsupported syntax yields a typed abstention and remains
-in the ranking denominator.
+1. a braced rejection guard `if (bad_predicate) { return errors::...; }`;
+2. an admission guard `OP_REQUIRES(ctx, good_predicate, ...)`; and
+3. one exact `int` to `int64` widening pattern for W01.
 
-For `OP_REQUIRES`, all extracted predicates are conjoined and the frontend
-searches a fixed, deterministic bounded domain for an assignment making the
-conjunction false.  For added `if` guards, predicates are disjoined and the
-frontend searches for an assignment making the disjunction true.  The result is
-a finite Boolean relation and one deterministic trigger assignment.  The
-widening rule creates a separate bounded relation at `concat_dim = INT32_MIN`:
-the old abstract 32-bit result is `overflow`, while the widened abstract result
-is `2^31`.  This is an explicit model of the retained diff pattern, not a claim
-about all C++ conversion or undefined-behavior cases.
+An added `if` used only to initialize helper state is not treated as a rejection
+guard.  Malformed or unsupported source becomes a typed abstention with an
+`extract`, `parse`, or `evaluate` stage.  Declared frontend failures are caught;
+unexpected system exceptions propagate rather than being mislabeled as
+unsupported syntax.
 
-## 2. Determinism and binding
+Extraction has one implementation, so the project does not claim independent
+extractor agreement.  Its output is deterministically re-derived from the
+candidate packet and bound by hashes and mutation tests.
 
-Candidate records are processed in their frozen neutral-ID order.  Within one
-predicate, variables are ordered lexicographically and fixed finite domains are
-enumerated lexicographically.  The first triggering assignment is retained.
-The derived case document is compared byte-for-byte as a parsed JSON value with
-the retained case document before prediction freezing.  Candidate, case, and
-protocol hashes are embedded in the frozen prediction packet.  A later change
-to a patch excerpt, source token, assignment, relation, or hash therefore causes
-a fail-closed mismatch rather than silent reuse of the old result.
+## 2. Guard and source-difference records
 
-## 3. Independent validation
+A guard record binds:
 
-The primary implementation uses a Pratt parser.  A second module independently
-implements normalization, lexing, shunting-yard conversion, AST construction,
-and short-circuit evaluation; it does not import the primary parser.  For each
-of the nine recognized guard predicates, the validation runner constructs 100
-unique deterministic assignments and compares:
+- candidate and case identity;
+- exact source and context tokens;
+- one strictly typed integer assignment;
+- replayed context results and traces;
+- replayed guard result and trace; and
+- a typed Boolean stating that the declared trigger value was reached.
 
-- the primary frontend evaluator;
+It does **not** contain an old program outcome and does not assert old fault/new
+defined behavior.  W01 is a different `source-difference` record: for
+`concat_dim = INT32_MIN`, the old `int` negation is represented as the declared
+signed-int32-overflow fault and the widened `int64` expression yields
+2147483648.  That source relation still does not inherit the finite-IR theorem.
+
+Nested equality is exact and typed: Boolean false is not integer zero, an integer
+is not an equal-valued float, and unvisited assignment fields remain integers.
+Trace entries are triples `(position, tag, payload)`; the operator at a position
+is recovered from the bound AST, rather than copied into an untrusted trace.
+
+## 3. W10 precondition and short circuit
+
+The upstream UnravelIndex hunk already contained `dims(i) != 0` before the new
+positivity and overflow conditions.  W10 therefore binds that unchanged
+nonzero context requirement.  Its accepted assignment uses `dim=-1`,
+`prod=1`, and `limit=INT32_MAX`: the context is true and the new conjunctive
+admission guard is false at the positivity check, without evaluating division.
+
+`dim=0` is deliberately **not** an accepted record.  It is retained only as a
+static validation case for the C11 oracle: the left side of `&&` is false, so
+`limit / dim` must not execute.  Additional mandatory W10 samples execute a
+successful division and an overflow-rejecting division.
+
+## 4. Parsing and evaluation cross-checks
+
+The primary parser is Pratt-based.  A separate module implements normalization,
+lexing, shunting-yard conversion, AST construction, and evaluation without
+importing the primary parser.
+
+For each of nine guard cases, the runner saves 100 assignments.  Before random
+sampling it preserves the source record's assignment, an opposite truth branch,
+W03's 65535/65536/65537 boundary points, and W10's protected-zero,
+actual-division-true, and actual-division-false cases.  A seeded sampler then
+adds unique points before any deterministic repeat, avoiding a Cartesian prefix
+that could consume the budget before critical branches appear.
+
+Each assignment is compared across:
+
+- the primary expression evaluator;
 - the independent parser/evaluator;
-- the public-study producer evaluator;
-- the separately written iterative replay evaluator; and
-- a compiled C11 postfix-expression oracle.
+- the recursive typed producer;
+- the iterative typed replay evaluator; and
+- a compiled C11 postfix-bytecode oracle.
 
-The retained validation therefore contains 900 predicate assignments.  It
-observes zero parser, evaluator, trace, or C11-oracle mismatches.  The widening
-rule is checked as a separate exact boundary relation and mutation-tested; it is
-not counted among the 900 guard-expression assignments because C signed
-conversion behavior would not be a portable oracle for the abstract relation.
+The C oracle implements actual `&&`/`||` short circuit by skipping the encoded
+right-hand segment.  The retained run covers 900 guard assignments plus one W01
+widening check and observes zero mismatches.
 
-## 4. What the validation does not establish
+## 5. Limits
 
-Passing validation establishes deterministic extraction and finite semantic
-agreement for the declared grammar on the retained excerpts.  It does not
-establish macro expansion, name or type resolution, alias analysis, pointer or
-heap semantics, build-flag fidelity, control/data-flow slicing, compiler
-conformance, absence of undefined behavior, or equivalence to a complete
-TensorFlow build.  It also does not assign a security label.  Consequently the
-frontend gate can pass while the prospective utility study still fails its
-candidate-frame, label-sealing, baseline, and temporal-holdout gates.
+The validation covers only the retained excerpts and declared grammar.  It does
+not establish raw-diff completeness, checked source-tree correspondence, macro
+expansion, name/type resolution, aliases, pointer/heap semantics, build flags,
+whole-program state, general undefined behavior, or a security label.  Those
+missing facts remain explicit failed readiness gates.
