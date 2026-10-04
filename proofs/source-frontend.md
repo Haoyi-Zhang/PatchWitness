@@ -1,96 +1,29 @@
-# Restricted public source-evidence contract and validation
+# Restricted source-evidence contract
 
-This note specifies the public-source path used for the retained 32-file
-microcohort.  It is separate from the finite-IR old-fault/new-defined certificate
-in `proofs/contract.md`.
+This contract is not the finite-IR old-fault/new-defined relation in `contract.md`.
 
-## 1. Input and extraction
+## Input and extraction
 
-Each candidate contains an immutable commit, original commit message, timestamp,
-full file path, and minimal real unified-diff context copied from that file's
-upstream patch.  Human file annotations are stored separately and are excluded
-from extraction and scoring.
+Each retained record has a commit identity, original message, timestamp, full path, and minimal real unified-diff context. Human file annotations are separate and excluded from scores and extraction. The single extractor operates on selected added lines, with a closed case-identity/profile registry and explicit normalization of source expressions to local integer variables. Its supported grammar covers rejection guards, admission guards and one exact destination-type change. It is not a complete diff parser or C/C++ frontend. Source-selection and context requirements are part of the trusted evidence specification.
 
-The extractor considers added source lines and supports:
+Expected extraction, parse and evaluation limitations become typed per-record abstentions. An unclosed guard is retained with its stage and reason. Unexpected programming/system errors propagate; they are not converted to unsupported syntax. All 32 candidates remain in rankings.
 
-1. a braced rejection guard `if (bad_predicate) { return errors::...; }`;
-2. an admission guard `OP_REQUIRES(ctx, good_predicate, ...)`; and
-3. one exact `int` to `int64` widening pattern for W01.
+## Guard relation
 
-An added `if` used only to initialize helper state is not treated as a rejection
-guard.  Malformed or unsupported source becomes a typed abstention with an
-`extract`, `parse`, or `evaluate` stage.  Declared frontend failures are caught;
-unexpected system exceptions propagate rather than being mislabeled as
-unsupported syntax.
+For bound record r, extracted guard g, context expressions p_1,...,p_m, integer assignment a and specified trigger t in {false,true}, acceptance requires: the exact candidate/case/record identities and tokens match; a is well typed for every declared variable including unvisited ones; each p_i evaluates to true; g evaluates to t; and the independently recomputed typed outcomes and traces match the record. A trigger does not establish either an old fault or safety of the new program. Local context is not a proof of reachability from an API entry point.
 
-Extraction has one implementation, so the project does not claim independent
-extractor agreement.  Its output is deterministically re-derived from the
-candidate packet and bound by hashes and mutation tests.
+W09 binds the unchanged `key_tensor->NumElements() > 0` precondition. Its accepted assignment is `num_elements=2`, not zero. W10 binds the unchanged `dims(i) != 0` precondition. Its accepted assignment is `dim=-1, prod=1, limit=2147483647`; the new positivity guard rejects the negative local value and short-circuits the right side. The zero assignment in the expression test schedule is outside this common source precondition and is not an accepted public record.
 
-## 2. Guard and source-difference records
+Assignments are exact host integers in a variable map. Outcomes and trace payloads use explicit integer/Boolean tags. Recursively typed equality checks containers and each nested payload; it does not use Python's permissive cross-numeric equality. Guard traces belong to this source interpreter, not to the finite certificate schema.
 
-A guard record binds:
+## W01 range relation
 
-- candidate and case identity;
-- exact source and context tokens;
-- one strictly typed integer assignment;
-- replayed context results and traces;
-- replayed guard result and trace; and
-- a typed Boolean stating that the declared trigger value was reached.
+The retained source changes the destination declaration from `int` to `int64`. Under explicitly assumed signed widths 32 and 64, take mathematical `concat_dim=-2^31` and v=abs(concat_dim)=2^31. Then v is outside [-2^31,2^31-1] and inside [-2^63,2^63-1]. The source record contains `mathematical_value`, `fits_old_destination`, `fits_new_destination` and `assumed_signed_widths`. It contains no old/new runtime outcomes and no claimed old overflow fault.
 
-It does **not** contain an old program outcome and does not assert old fault/new
-defined behavior.  W01 is a different `source-difference` record: for
-`concat_dim = INT32_MIN`, the old `int` negation is represented as the declared
-signed-int32-overflow fault and the widened `int64` expression yields
-2147483648.  That source relation still does not inherit the finite-IR theorem.
+The checker computes the range relation with its own integer expressions rather than calling the producer. A changed destination declaration does not by itself establish the operand's type, arithmetic conversions, runtime behavior or whole-program correctness. The range record is not covered by the finite soundness theorem.
 
-Nested equality is exact and typed: Boolean false is not integer zero, an integer
-is not an equal-valued float, and unvisited assignment fields remain integers.
-Trace entries are triples `(position, tag, payload)`; the operator at a position
-is recovered from the bound AST, rather than copied into an untrusted trace.
+## Independence and validation
 
-## 3. W10 precondition and short circuit
+Extraction has one implementation. Pratt and shunting-yard parsing are separately implemented. Recursive Python evaluation and iterative replay are separately implemented, and a C11 program evaluates an encoded expression with short-circuit control segments. Encoding/normalization and the compiler remain trusted; an independently compiled evaluator does not make source extraction independently validated.
 
-The upstream UnravelIndex hunk already contained `dims(i) != 0` before the new
-positivity and overflow conditions.  W10 therefore binds that unchanged
-nonzero context requirement.  Its accepted assignment uses `dim=-1`,
-`prod=1`, and `limit=INT32_MAX`: the context is true and the new conjunctive
-admission guard is false at the positivity check, without evaluating division.
-
-`dim=0` is deliberately **not** an accepted record.  It is retained only as a
-static validation case for the C11 oracle: the left side of `&&` is false, so
-`limit / dim` must not execute.  Additional mandatory W10 samples execute a
-successful division and an overflow-rejecting division.
-
-## 4. Parsing and evaluation cross-checks
-
-The primary parser is Pratt-based.  A separate module implements normalization,
-lexing, shunting-yard conversion, AST construction, and evaluation without
-importing the primary parser.
-
-For each of nine guard cases, the runner saves 100 assignments.  Before random
-sampling it preserves the source record's assignment, an opposite truth branch,
-W03's 65535/65536/65537 boundary points, and W10's protected-zero,
-actual-division-true, and actual-division-false cases.  A seeded sampler then
-adds unique points before any deterministic repeat, avoiding a Cartesian prefix
-that could consume the budget before critical branches appear.
-
-Each assignment is compared across:
-
-- the primary expression evaluator;
-- the independent parser/evaluator;
-- the recursive typed producer;
-- the iterative typed replay evaluator; and
-- a compiled C11 postfix-bytecode oracle.
-
-The C oracle implements actual `&&`/`||` short circuit by skipping the encoded
-right-hand segment.  The retained run covers 900 guard assignments plus one W01
-widening check and observes zero mismatches.
-
-## 5. Limits
-
-The validation covers only the retained excerpts and declared grammar.  It does
-not establish raw-diff completeness, checked source-tree correspondence, macro
-expansion, name/type resolution, aliases, pointer/heap semantics, build flags,
-whole-program state, general undefined behavior, or a security label.  Those
-missing facts remain explicit failed readiness gates.
+The fixed schedule evaluates nine guards 100 times each, with saved assignments, opposite truth branches, 65535/65536/65537 boundaries and protected/actual division cases before seeded unique samples and repeats. There are 900 checks but only 262 distinct case–assignment pairs; 847 checks satisfy all represented common contexts. W01 adds one range check. The exact rows and comparison traces are retained. Repeat counts are not evidence of additional semantic diversity. Unit tests separately exercise direct division by zero, signed division, MIN/-1 rejection, both short-circuit operators and strict schema substitutions using benign owned expressions.

@@ -92,7 +92,7 @@ class PublicStudyTests(unittest.TestCase):
  def test_w02_false_to_zero_is_rejected(self):
   case=self.case_by_id['W02']; record=self.by[case['record']]; evidence=make_source_record(case,record); self.assertTrue(check_source_record(case,record,evidence)[0]); bad=copy.deepcopy(evidence); self.assertIs(bad['guard_result']['payload'],False); bad['guard_result']['payload']=0; self.assertFalse(check_source_record(case,record,bad)[0])
  def test_w01_integer_to_equal_float_is_rejected(self):
-  case=self.case_by_id['W01']; record=self.by[case['record']]; evidence=make_source_record(case,record); bad=copy.deepcopy(evidence); bad['after']['payload']=float(bad['after']['payload']); self.assertFalse(check_source_record(case,record,bad)[0])
+  case=self.case_by_id['W01']; record=self.by[case['record']]; evidence=make_source_record(case,record); bad=copy.deepcopy(evidence); bad['mathematical_value']['payload']=float(bad['mathematical_value']['payload']); self.assertFalse(check_source_record(case,record,bad)[0])
  def test_w10_unvisited_assignment_int_to_true_is_rejected(self):
   case=self.case_by_id['W10']; record=self.by[case['record']]; evidence=make_source_record(case,record); self.assertEqual(evidence['assignment']['prod'],1); bad=copy.deepcopy(evidence); bad['assignment']['prod']=True; self.assertFalse(check_source_record(case,record,bad)[0])
  def test_source_records_are_unique_and_bound(self):
@@ -112,7 +112,7 @@ class PublicStudyTests(unittest.TestCase):
   summary,rows,ablations,readiness=self.evaluated(); self.assertEqual(len(rows),32); self.assertEqual(len(ablations),5); self.assertEqual(summary['metrics']['syntax']['precision_at_20'],0.75); self.assertEqual(summary['metrics']['unvalidated']['precision_at_20'],0.8); self.assertEqual(summary['metrics']['validated']['precision_at_20'],0.75); self.assertEqual(summary['validated_minus_syntax_at_20'],0.0)
   self.assertEqual(summary['coverage']['positive_file_conditional']['fraction'],'10/16'); self.assertEqual(summary['coverage']['positive_commit_conditional']['fraction'],'10/10'); self.assertEqual(summary['coverage']['all_candidate_file_availability']['fraction'],'10/32'); self.assertEqual(summary['coverage']['all_candidate_commit_availability']['fraction'],'10/26'); self.assertEqual(summary['formal_h2_decision'],'not-testable-as-full-cohort-file-availability'); self.assertEqual(len(readiness['failed_readiness_gates']),6)
  def test_gate_distinguishes_machine_facts_from_design_assertions(self):
-  _,_,_,readiness=self.evaluated(); basis={g['id']:g['basis'] for g in readiness['gates']}; self.assertEqual(basis['restricted_source_evidence_cross_checked'],'machine-recomputed'); self.assertEqual(basis['temporal_holdout'],'trusted-design-assertion-with-file-evidence-required')
+  _,_,_,readiness=self.evaluated(); basis={g['id']:g['basis'] for g in readiness['gates']}; self.assertEqual(basis['restricted_source_evidence_cross_checked'],'retained-check-report-bound-to-inputs'); self.assertEqual(basis['temporal_holdout'],'documented-retrospective-design; no-history-authenticator')
  def test_gate_cannot_be_forged_by_bool_or_accepted_text(self):
   bad=copy.deepcopy(self.design); bad['candidate_frame']['temporal_holdout']=True
   with self.assertRaises(Invalid): validate_study_design(bad)
@@ -121,7 +121,7 @@ class PublicStudyTests(unittest.TestCase):
   p,o,s=self.frozen(); frontend=copy.deepcopy(self.frontend); frontend['status']='accepted'
   summary,_,_,_=evaluate_predictions(self.candidates,self.labels,self.evidence,self.protocol,self.design,p,o,61,frontend,s,ROOT); self.assertIn('restricted_source_evidence_cross_checked',summary['failed_readiness_gates'])
  def test_reference_gate_is_fail_closed(self):
-  summary,_,_,_=self.evaluated(reference_count=54); self.assertIn('reference_count_at_least_55',summary['failed_readiness_gates'])
+  summary,_,_,r=self.evaluated(reference_count=54); self.assertNotIn('reference_count_at_least_55',summary['failed_readiness_gates']); self.assertFalse(r['editorial_checks']['reference_count_at_least_55'])
  def test_freeze_cli_runs_without_label_file(self):
   with tempfile.TemporaryDirectory(dir=ROOT/'results') as d:
    d=Path(d); data=d/'data'; data.mkdir()
@@ -170,6 +170,24 @@ class PublicStudyTests(unittest.TestCase):
    with p.open(encoding='utf-8') as h: doc=json.load(h)
    doc[-1]=copy.deepcopy(doc[0]); p.write_text(json.dumps(doc))
    with self.assertRaises((VerificationError,Invalid)): verify_public_packet(data,result,refs,frontend,ROOT)
+  finally: temp.cleanup()
+
+ def test_verify_rejects_subtolerance_csv_score_change(self):
+  temp,data,result,refs,frontend=self._tamper_packet()
+  try:
+   p=result/'evaluation/scores.csv'
+   with p.open(newline='',encoding='utf-8') as h: rows=list(csv.DictReader(h))
+   fields=list(rows[0]); rows[0]['validated_score']=str(float(rows[0]['validated_score'])+1e-13)
+   with p.open('w',newline='') as h: w=csv.DictWriter(h,fieldnames=fields); w.writeheader(); w.writerows(rows)
+   with self.assertRaises(VerificationError): verify_public_packet(data,result,refs,frontend,ROOT)
+  finally: temp.cleanup()
+ def test_verify_rejects_equal_bool_metric_substitution(self):
+  temp,data,result,refs,frontend=self._tamper_packet()
+  try:
+   p=result/'evaluation/summary.json'; doc=json.loads(p.read_text())
+   self.assertEqual(doc['metrics']['syntax']['precision_at_5'],1.0)
+   doc['metrics']['syntax']['precision_at_5']=True; p.write_text(json.dumps(doc))
+   with self.assertRaises(VerificationError): verify_public_packet(data,result,refs,frontend,ROOT)
   finally: temp.cleanup()
 
 if __name__=='__main__': unittest.main()

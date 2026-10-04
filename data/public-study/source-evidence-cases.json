@@ -292,10 +292,24 @@
     },
     {
       "assignment": {
-        "num_elements": 0
+        "num_elements": 2
       },
-      "context_preconditions": [],
-      "context_tokens": [],
+      "context_preconditions": [
+        [
+          "gt",
+          [
+            "var",
+            "num_elements"
+          ],
+          [
+            "const",
+            0
+          ]
+        ]
+      ],
+      "context_tokens": [
+        "key_tensor->NumElements() > 0"
+      ],
       "frontend_rule": "require",
       "guard": [
         "eq",

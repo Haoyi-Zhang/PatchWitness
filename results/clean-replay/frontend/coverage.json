@@ -1,0 +1,136 @@
+{
+  "cases": [
+    {
+      "case": "W02",
+      "checks": 100,
+      "context_admissible": 100,
+      "false_results": 40,
+      "scenario_classes": {
+        "deterministic-repeat": 95,
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 3
+      },
+      "true_results": 60,
+      "unique_assignments": 5
+    },
+    {
+      "case": "W03",
+      "checks": 100,
+      "context_admissible": 100,
+      "false_results": 50,
+      "scenario_classes": {
+        "boundary-65535": 1,
+        "boundary-65536": 1,
+        "boundary-65537": 1,
+        "deterministic-repeat": 94,
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 1
+      },
+      "true_results": 50,
+      "unique_assignments": 6
+    },
+    {
+      "case": "W04",
+      "checks": 100,
+      "context_admissible": 100,
+      "false_results": 58,
+      "scenario_classes": {
+        "deterministic-repeat": 76,
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 22
+      },
+      "true_results": 42,
+      "unique_assignments": 24
+    },
+    {
+      "case": "W05",
+      "checks": 100,
+      "context_admissible": 100,
+      "false_results": 65,
+      "scenario_classes": {
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 98
+      },
+      "true_results": 35,
+      "unique_assignments": 100
+    },
+    {
+      "case": "W06",
+      "checks": 100,
+      "context_admissible": 100,
+      "false_results": 75,
+      "scenario_classes": {
+        "deterministic-repeat": 96,
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 2
+      },
+      "true_results": 25,
+      "unique_assignments": 4
+    },
+    {
+      "case": "W07",
+      "checks": 100,
+      "context_admissible": 100,
+      "false_results": 58,
+      "scenario_classes": {
+        "deterministic-repeat": 76,
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 22
+      },
+      "true_results": 42,
+      "unique_assignments": 24
+    },
+    {
+      "case": "W08",
+      "checks": 100,
+      "context_admissible": 100,
+      "false_results": 57,
+      "scenario_classes": {
+        "deterministic-repeat": 84,
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 14
+      },
+      "true_results": 43,
+      "unique_assignments": 16
+    },
+    {
+      "case": "W09",
+      "checks": 100,
+      "context_admissible": 67,
+      "false_results": 67,
+      "scenario_classes": {
+        "deterministic-repeat": 97,
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 1
+      },
+      "true_results": 33,
+      "unique_assignments": 3
+    },
+    {
+      "case": "W10",
+      "checks": 100,
+      "context_admissible": 80,
+      "false_results": 63,
+      "scenario_classes": {
+        "actual-division-false": 1,
+        "actual-division-true": 1,
+        "deterministic-repeat": 19,
+        "opposite-truth-branch": 1,
+        "saved-assignment": 1,
+        "seeded-random": 76,
+        "zero-denominator-short-circuit": 1
+      },
+      "true_results": 37,
+      "unique_assignments": 80
+    }
+  ],
+  "schema": "rbw-frontend-coverage-v1"
+}

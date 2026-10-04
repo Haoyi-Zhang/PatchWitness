@@ -1,0 +1,42 @@
+{
+  "assignment_plan": {
+    "opposite_truth_branch_each_guard": true,
+    "remaining_samples": "seeded-random-unique-before-repeat",
+    "saved_assignment_each_guard": true,
+    "w03_boundaries": [
+      65535,
+      65536,
+      65537
+    ],
+    "w10_classes": [
+      "zero-denominator-short-circuit",
+      "actual-division-true",
+      "actual-division-false"
+    ]
+  },
+  "automatic_extraction": true,
+  "c11_oracle_sha256": "cbbdcaa15f50bfff7a4d44890abeeff628f571c2aba71c737cc7805a59ac3c0b",
+  "candidate_hash": "7cfff5ab9b4cbecbb7b010bd0b92f1e30ef8db8464b595246d2e2fdadf9eb7f2",
+  "child_processes": 1,
+  "cpu_seconds": 0.324755372,
+  "guard_assignments": 900,
+  "guard_cases": 9,
+  "independence": {
+    "evaluation": "recursive Python producer, iterative Python replay, and compiled C11 short-circuit bytecode oracle",
+    "extraction": "single declared added-line extractor; errors become typed abstentions",
+    "parsing": "Pratt parser versus separately implemented shunting-yard parser"
+  },
+  "input_mode": "minimal-real-unified-diff-context",
+  "mismatches": 0,
+  "raw_diff_or_source_tree_correspondence": false,
+  "schema": "rbw-source-frontend-validation-v2",
+  "semantic_obligations": 901,
+  "source_evidence_hash": "8d47d3c55537e109c70c279b9b35a1f54b7a4555c705d88418ec08c263cc572b",
+  "status": "pass",
+  "supported_records": 10,
+  "typed_abstentions": 22,
+  "unique_guard_assignments": 262,
+  "wall_seconds": 0.397639073,
+  "widening_checks": 1,
+  "workers": 1
+}

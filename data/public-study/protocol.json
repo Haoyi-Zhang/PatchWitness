@@ -33,7 +33,6 @@
     "complete_repository_time_window",
     "independent_source_record_checker",
     "labels_sealed_before_method_development",
-    "reference_count_at_least_55",
     "strongest_published_same_budget_baseline",
     "temporal_holdout"
   ],

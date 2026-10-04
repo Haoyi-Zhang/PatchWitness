@@ -1,0 +1,2310 @@
+{
+  "checks": {
+    "fixed_total_bound_checks": 14146,
+    "label_correction_bound_checks": 6192,
+    "missing_frame_insertion_bound_checks": 320,
+    "partial_label_bound_checks": 6150
+  },
+  "max_owned_frame_size": 4,
+  "new_public_candidates": 0,
+  "population_inference": false,
+  "public_sensitivity": [
+    {
+      "k": 1,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 2,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 3,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 4,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 5,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 6,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 7,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 8,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 9,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 10,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U007",
+        "U024"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 10,
+          "numerator": -1,
+          "value": -0.1
+        },
+        {
+          "denominator": 10,
+          "numerator": 1,
+          "value": 0.1
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 10,
+          "numerator": -1,
+          "value": -0.1
+        },
+        {
+          "denominator": 10,
+          "numerator": 1,
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "k": 11,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U003",
+        "U007"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 11,
+          "numerator": -1,
+          "value": -0.09090909090909091
+        },
+        {
+          "denominator": 11,
+          "numerator": 1,
+          "value": 0.09090909090909091
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 11,
+          "numerator": -1,
+          "value": -0.09090909090909091
+        },
+        {
+          "denominator": 11,
+          "numerator": 1,
+          "value": 0.09090909090909091
+        }
+      ]
+    },
+    {
+      "k": 12,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U002",
+        "U007"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 12,
+          "numerator": -1,
+          "value": -0.08333333333333333
+        },
+        {
+          "denominator": 12,
+          "numerator": 1,
+          "value": 0.08333333333333333
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 12,
+          "numerator": -1,
+          "value": -0.08333333333333333
+        },
+        {
+          "denominator": 12,
+          "numerator": 1,
+          "value": 0.08333333333333333
+        }
+      ]
+    },
+    {
+      "k": 13,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 14,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U004",
+        "U031"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 14,
+          "numerator": 1,
+          "value": 0.07142857142857142
+        }
+      ],
+      "paired_delta": {
+        "denominator": 14,
+        "numerator": 1,
+        "value": 0.07142857142857142
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 14,
+          "numerator": -1,
+          "value": -0.07142857142857142
+        },
+        {
+          "denominator": 14,
+          "numerator": 1,
+          "value": 0.07142857142857142
+        }
+      ]
+    },
+    {
+      "k": 15,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U015",
+        "U031"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 15,
+          "numerator": 1,
+          "value": 0.06666666666666667
+        }
+      ],
+      "paired_delta": {
+        "denominator": 15,
+        "numerator": 1,
+        "value": 0.06666666666666667
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 15,
+          "numerator": -1,
+          "value": -0.06666666666666667
+        },
+        {
+          "denominator": 15,
+          "numerator": 1,
+          "value": 0.06666666666666667
+        }
+      ]
+    },
+    {
+      "k": 16,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U012",
+        "U031"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 16,
+          "numerator": 1,
+          "value": 0.0625
+        }
+      ],
+      "paired_delta": {
+        "denominator": 16,
+        "numerator": 1,
+        "value": 0.0625
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 16,
+          "numerator": -1,
+          "value": -0.0625
+        },
+        {
+          "denominator": 16,
+          "numerator": 1,
+          "value": 0.0625
+        }
+      ]
+    },
+    {
+      "k": 17,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U012",
+        "U020"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 17,
+          "numerator": 1,
+          "value": 0.058823529411764705
+        }
+      ],
+      "paired_delta": {
+        "denominator": 17,
+        "numerator": 1,
+        "value": 0.058823529411764705
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 17,
+          "numerator": -1,
+          "value": -0.058823529411764705
+        },
+        {
+          "denominator": 17,
+          "numerator": 1,
+          "value": 0.058823529411764705
+        }
+      ]
+    },
+    {
+      "k": 18,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U012",
+        "U018"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 18,
+          "numerator": 1,
+          "value": 0.05555555555555555
+        }
+      ],
+      "paired_delta": {
+        "denominator": 18,
+        "numerator": 1,
+        "value": 0.05555555555555555
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 18,
+          "numerator": -1,
+          "value": -0.05555555555555555
+        },
+        {
+          "denominator": 18,
+          "numerator": 1,
+          "value": 0.05555555555555555
+        }
+      ]
+    },
+    {
+      "k": 19,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U012",
+        "U017"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 19,
+          "numerator": 1,
+          "value": 0.05263157894736842
+        }
+      ],
+      "paired_delta": {
+        "denominator": 19,
+        "numerator": 1,
+        "value": 0.05263157894736842
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 19,
+          "numerator": -1,
+          "value": -0.05263157894736842
+        },
+        {
+          "denominator": 19,
+          "numerator": 1,
+          "value": 0.05263157894736842
+        }
+      ]
+    },
+    {
+      "k": 20,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U012",
+        "U014"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 20,
+          "numerator": 1,
+          "value": 0.05
+        }
+      ],
+      "paired_delta": {
+        "denominator": 20,
+        "numerator": 1,
+        "value": 0.05
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 20,
+          "numerator": -1,
+          "value": -0.05
+        },
+        {
+          "denominator": 20,
+          "numerator": 1,
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "k": 21,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U001",
+        "U012"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 21,
+          "numerator": 1,
+          "value": 0.047619047619047616
+        }
+      ],
+      "paired_delta": {
+        "denominator": 21,
+        "numerator": 1,
+        "value": 0.047619047619047616
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 21,
+          "numerator": -1,
+          "value": -0.047619047619047616
+        },
+        {
+          "denominator": 21,
+          "numerator": 1,
+          "value": 0.047619047619047616
+        }
+      ]
+    },
+    {
+      "k": 22,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U012",
+        "U022"
+      ],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 22,
+          "numerator": 1,
+          "value": 0.045454545454545456
+        }
+      ],
+      "paired_delta": {
+        "denominator": 22,
+        "numerator": 1,
+        "value": 0.045454545454545456
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 22,
+          "numerator": -1,
+          "value": -0.045454545454545456
+        },
+        {
+          "denominator": 22,
+          "numerator": 1,
+          "value": 0.045454545454545456
+        }
+      ]
+    },
+    {
+      "k": 23,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 24,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 25,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 26,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 27,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 28,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 29,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 30,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 31,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 32,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "unvalidated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 1,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 2,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 3,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 4,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 5,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 6,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U028",
+        "U030"
+      ],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 6,
+          "numerator": -1,
+          "value": -0.16666666666666666
+        },
+        {
+          "denominator": 6,
+          "numerator": 1,
+          "value": 0.16666666666666666
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 6,
+          "numerator": -1,
+          "value": -0.16666666666666666
+        },
+        {
+          "denominator": 6,
+          "numerator": 1,
+          "value": 0.16666666666666666
+        }
+      ]
+    },
+    {
+      "k": 7,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U026",
+        "U030"
+      ],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 7,
+          "numerator": -1,
+          "value": -0.14285714285714285
+        },
+        {
+          "denominator": 7,
+          "numerator": 1,
+          "value": 0.14285714285714285
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 7,
+          "numerator": -1,
+          "value": -0.14285714285714285
+        },
+        {
+          "denominator": 7,
+          "numerator": 1,
+          "value": 0.14285714285714285
+        }
+      ]
+    },
+    {
+      "k": 8,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 9,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 10,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U007",
+        "U024"
+      ],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 10,
+          "numerator": -1,
+          "value": -0.1
+        },
+        {
+          "denominator": 10,
+          "numerator": 1,
+          "value": 0.1
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 10,
+          "numerator": -1,
+          "value": -0.1
+        },
+        {
+          "denominator": 10,
+          "numerator": 1,
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "k": 11,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U003",
+        "U007"
+      ],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 11,
+          "numerator": -1,
+          "value": -0.09090909090909091
+        },
+        {
+          "denominator": 11,
+          "numerator": 1,
+          "value": 0.09090909090909091
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 11,
+          "numerator": -1,
+          "value": -0.09090909090909091
+        },
+        {
+          "denominator": 11,
+          "numerator": 1,
+          "value": 0.09090909090909091
+        }
+      ]
+    },
+    {
+      "k": 12,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U002",
+        "U007"
+      ],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 12,
+          "numerator": -1,
+          "value": -0.08333333333333333
+        },
+        {
+          "denominator": 12,
+          "numerator": 1,
+          "value": 0.08333333333333333
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 12,
+          "numerator": -1,
+          "value": -0.08333333333333333
+        },
+        {
+          "denominator": 12,
+          "numerator": 1,
+          "value": 0.08333333333333333
+        }
+      ]
+    },
+    {
+      "k": 13,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 14,
+      "labels_needed_for_unconstrained_paired_identification": [
+        "U004",
+        "U031"
+      ],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 14,
+          "numerator": 1,
+          "value": 0.07142857142857142
+        }
+      ],
+      "paired_delta": {
+        "denominator": 14,
+        "numerator": 1,
+        "value": 0.07142857142857142
+      },
+      "symmetric_difference": 2,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 14,
+          "numerator": -1,
+          "value": -0.07142857142857142
+        },
+        {
+          "denominator": 14,
+          "numerator": 1,
+          "value": 0.07142857142857142
+        }
+      ]
+    },
+    {
+      "k": 15,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 16,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 17,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 18,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 19,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 20,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 21,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 22,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 23,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 24,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 25,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 26,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 27,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 28,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 29,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 30,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 31,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "k": 32,
+      "labels_needed_for_unconstrained_paired_identification": [],
+      "method": "validated",
+      "one_label_correction_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ],
+      "paired_delta": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "symmetric_difference": 0,
+      "unknown_difference_bounds": [
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        },
+        {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      ]
+    }
+  ],
+  "schema": "rbw-finite-frame-audit-v1",
+  "scope": "deterministic exact checks on benign n<=4 label vectors and fixed inherited rankings",
+  "status": "pass"
+}

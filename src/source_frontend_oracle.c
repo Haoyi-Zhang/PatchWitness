@@ -70,6 +70,7 @@ int main(void) {
         char *end = NULL;
         intmax_t parsed = strtoimax(token + 2, &end, 10);
         if (errno != 0 || end == token + 2 || *end != '\0' ||
+            parsed < INT64_MIN || parsed > INT64_MAX ||
             !push(stack, &sp, (Value){VALUE_INT, (int64_t)parsed})) {
           failed = 1;
         }

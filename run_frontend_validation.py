@@ -194,6 +194,11 @@ def main() -> int:
         raise ValueError("oracle-line-count")
     for index, (actual_text, expected) in enumerate(zip(oracle_output, expected_oracle, strict=True)):
         actual = _parse_oracle(actual_text)
+        python_rows[index]["c11_result"] = actual
+        case = guard_cases[index // SAMPLES_PER_GUARD]
+        python_rows[index]["context_admissible"] = all(
+            frontend_evaluate(expr, python_rows[index]["assignment"]) is True
+            for expr in case["context_preconditions"])
         if not typed_equal(actual, expected):
             row = python_rows[index]
             mismatches.append({"case": row["case"], "sample": row["sample"], "class": row["class"], "stage": "c11-evaluation", "expected": expected, "actual": actual_text})
@@ -205,13 +210,39 @@ def main() -> int:
     if oracle_output[zero_index] != "B:0":
         mismatches.append({"case": "W10", "stage": "short-circuit-zero-denominator", "actual": oracle_output[zero_index], "assignment": w10_zero["assignment"]})
 
-    # W01 is not a guard: validate the concrete retained widening boundary once.
-    if len(widening_cases) != 1 or widening_cases[0]["id"] != "W01" or widening_cases[0]["assignment"] != {"concat_dim": -(2**31)}:
-        mismatches.append({"case": "W01", "stage": "widening-boundary"})
+    # W01 is an explicitly assumed destination-range relation, not old C++
+    # execution. Check the mathematical result and independently replay it.
+    from public_study import make_source_record, check_source_record
+    widening_observations = []
+    records = {r["id"]:r for r in candidates["records"]}
+    for case in widening_cases:
+        evidence = make_source_record(case, records[case["record"]])
+        ok, reason = check_source_record(case, records[case["record"]], evidence)
+        if (not ok or evidence["mathematical_value"] != {"tag":"int","payload":2**31}
+                or evidence["fits_old_destination"] != {"tag":"bool","payload":False}
+                or evidence["fits_new_destination"] != {"tag":"bool","payload":True}):
+            mismatches.append({"case":case["id"],"stage":"destination-range-relation"})
+        widening_observations.append({"evidence":evidence,"accepted":ok,"reason":reason})
+    if len(widening_observations) != 1:
+        raise ValueError("widening-case-count")
 
     out.mkdir(parents=True, exist_ok=False)
     dump(out / "assignments.json", {"schema": "rbw-frontend-assignment-plan-v1", "seed": SEED, "samples_per_guard": SAMPLES_PER_GUARD, "rows": assignments_packet})
     dump(out / "mismatches.json", mismatches)
+    dump(out / "observations.json", {"schema":"rbw-frontend-observations-v1",
+        "guards":python_rows, "range_relations":widening_observations})
+    from collections import Counter
+    coverage = []
+    for case in guard_cases:
+        group = [r for r in python_rows if r["case"] == case["id"]]
+        unique = {tuple(sorted(r["assignment"].items())) for r in group}
+        coverage.append({"case":case["id"], "checks":len(group),
+                        "unique_assignments":len(unique),
+                        "true_results":sum(r["primary"] is True for r in group),
+                        "false_results":sum(r["primary"] is False for r in group),
+                        "context_admissible":sum(r["context_admissible"] for r in group),
+                        "scenario_classes":dict(Counter(r["class"] for r in group))})
+    dump(out / "coverage.json", {"schema":"rbw-frontend-coverage-v1","cases":coverage})
     summary = {
         "schema": "rbw-source-frontend-validation-v2",
         "status": "pass" if not mismatches else "fail",
@@ -227,6 +258,7 @@ def main() -> int:
         "widening_checks": 1,
         "semantic_obligations": len(assignments_packet) + 1,
         "mismatches": len(mismatches),
+        "unique_guard_assignments": sum(r["unique_assignments"] for r in coverage),
         "assignment_plan": {
             "saved_assignment_each_guard": True,
             "opposite_truth_branch_each_guard": True,

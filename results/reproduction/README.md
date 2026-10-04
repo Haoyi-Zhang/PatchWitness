@@ -1,0 +1,1 @@
+These are inherited run logs supporting historical accounting, not the current test suite or journal validation. Current measured clean-replay results are in ../clean-replay/. The original counter record is not a claim of independently reconstructed historical execution.

@@ -3,7 +3,7 @@
 The finite old-fault/new-defined certificate lives in ``src/producer.py`` and
 ``src/checker.py``.  This module implements a different contract for public
 patch excerpts: a bound guard is triggered under one typed assignment, or a
-specific widening changes a bounded arithmetic result.  It never upgrades that
+specific declaration widening separates two explicitly assumed destination ranges.  It never upgrades that
 source evidence into a finite behavioral certificate.
 """
 from __future__ import annotations
@@ -39,7 +39,6 @@ GATE_IDS = (
     "complete_repository_time_window",
     "independent_source_record_checker",
     "labels_sealed_before_method_development",
-    "reference_count_at_least_55",
     "strongest_published_same_budget_baseline",
     "temporal_holdout",
 )
@@ -450,15 +449,19 @@ def _record_binding(record: dict[str, Any]) -> str:
 def make_source_record(case: dict[str, Any], record: dict[str, Any]) -> dict[str, Any]:
     if case["kind"] == "source-difference":
         concat_dim = case["assignment"]["concat_dim"]
-        before = typed_fault("signed-int32-negation-overflow") if concat_dim == INT32_MIN else typed_int(-concat_dim if concat_dim < 0 else concat_dim + 1)
-        after = typed_int(-concat_dim if concat_dim < 0 else concat_dim + 1)
+        value = -concat_dim if concat_dim < 0 else concat_dim + 1
+        # This is mathematical representability, NOT evaluation of the old C++
+        # expression. The excerpt supplies destination declarations, not the
+        # operand type or the language's conversion semantics.
         return {
-            "schema": "rbw-source-record-v1", "kind": "source-difference", "case": case["id"], "record": case["record"],
+            "schema": "rbw-source-record-v2", "kind": "source-difference", "case": case["id"], "record": case["record"],
             "record_binding": _record_binding(record), "assignment": dict(case["assignment"]),
             "source_tokens": list(case["source_tokens"]), "context_tokens": list(case["context_tokens"]),
-            "before": before, "after": after,
-            "before_trace": [["", before["tag"], before["payload"]]],
-            "after_trace": [["", after["tag"], after["payload"]]],
+            "relation": "destination-range-separation",
+            "assumed_signed_widths": [32, 64],
+            "mathematical_value": typed_int(value),
+            "fits_old_destination": typed_bool(INT32_MIN <= value <= INT32_MAX),
+            "fits_new_destination": typed_bool(INT64_MIN <= value <= INT64_MAX),
         }
     context_results: list[dict[str, Any]] = []
     context_traces: list[list[list[Any]]] = []
@@ -470,7 +473,7 @@ def make_source_record(case: dict[str, Any], record: dict[str, Any]) -> dict[str
     guard_result = producer_eval(case["guard"], case["assignment"], guard_trace)
     triggered = typed_bool(guard_result["payload"] is case["trigger_value"])
     return {
-        "schema": "rbw-source-record-v1", "kind": "guard-trigger", "case": case["id"], "record": case["record"],
+        "schema": "rbw-source-record-v2", "kind": "guard-trigger", "case": case["id"], "record": case["record"],
         "record_binding": _record_binding(record), "assignment": dict(case["assignment"]),
         "source_tokens": list(case["source_tokens"]), "context_tokens": list(case["context_tokens"]),
         "context_results": context_results, "context_traces": context_traces,
@@ -479,10 +482,10 @@ def make_source_record(case: dict[str, Any], record: dict[str, Any]) -> dict[str
 
 
 def check_source_record(case: dict[str, Any], record: dict[str, Any], evidence: dict[str, Any]) -> tuple[bool, str]:
-    if type(evidence) is not dict or evidence.get("schema") != "rbw-source-record-v1" or evidence.get("kind") != case["kind"]:
+    if type(evidence) is not dict or evidence.get("schema") != "rbw-source-record-v2" or evidence.get("kind") != case["kind"]:
         return False, "source-record-schema"
     common = {"schema", "kind", "case", "record", "record_binding", "assignment", "source_tokens", "context_tokens"}
-    expected = common | ({"before", "after", "before_trace", "after_trace"} if case["kind"] == "source-difference" else {"context_results", "context_traces", "guard_result", "guard_trace", "triggered"})
+    expected = common | ({"relation", "assumed_signed_widths", "mathematical_value", "fits_old_destination", "fits_new_destination"} if case["kind"] == "source-difference" else {"context_results", "context_traces", "guard_result", "guard_trace", "triggered"})
     if set(evidence) != expected:
         return False, "source-record-fields"
     if evidence["case"] != case["id"] or evidence["record"] != case["record"] or evidence["record_binding"] != _record_binding(record):
@@ -493,9 +496,20 @@ def check_source_record(case: dict[str, Any], record: dict[str, Any], evidence: 
         return False, "source-record-token"
     try:
         if case["kind"] == "source-difference":
-            expected_record = make_source_record(case, record)
-            for key in ("before", "after", "before_trace", "after_trace"):
-                if not typed_equal(evidence[key], expected_record[key]):
+            # Independent arithmetic check; never call the record producer.
+            operand = case["assignment"].get("concat_dim")
+            if type(operand) is not int or operand != -(1 << 31):
+                return False, "source-difference-domain"
+            magnitude = abs(operand)
+            expected_fields = {
+                "relation": "destination-range-separation",
+                "assumed_signed_widths": [32, 64],
+                "mathematical_value": {"tag": "int", "payload": magnitude},
+                "fits_old_destination": {"tag": "bool", "payload": magnitude < (1 << 31)},
+                "fits_new_destination": {"tag": "bool", "payload": magnitude < (1 << 63)},
+            }
+            for key, value in expected_fields.items():
+                if not typed_equal(evidence[key], value):
                     return False, f"source-record-{key}"
             return True, "accepted-source-difference"
         expected_results: list[dict[str, Any]] = []
@@ -717,30 +731,29 @@ def _cluster_bootstrap(rows: list[dict[str, Any]], labels: dict[str, int], k: in
     return {"replicates": replicates, "seed": seed, "validated_minus_syntax_percentile_95": [_quantile(deltas, .025), _quantile(deltas, .975)]}
 
 
-def _evidence_file_exists(root: Path, descriptor: Any) -> bool:
-    if type(descriptor) is not dict or set(descriptor) != {"path", "sha256"}: return False
-    path = root / descriptor["path"]
-    return path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == descriptor["sha256"]
-
-
 def derive_readiness(candidates: dict[str, Any], labels_doc: dict[str, Any], source_evidence: dict[str, Any], protocol: dict[str, Any], design: dict[str, Any], rows: list[dict[str, Any]], outcomes: list[dict[str, Any]], source_records: list[dict[str, Any]], reference_count: int, frontend_validation: dict[str, Any], artifact_root: Path | None = None) -> dict[str, Any]:
     validate_study_design(design)
+    candidate_rows = validate_candidates(candidates)
+    validate_labels(labels_doc, {r["id"]: r["group"] for r in candidate_rows})
+    cases = validate_source_evidence(source_evidence, {r["id"] for r in candidate_rows})
+    validate_outcomes(outcomes, rows)
+    validate_source_records(source_records, cases, candidate_rows, outcomes)
     artifact_root = artifact_root or Path(".")
     machine = {
         "all_candidates_counted_with_typed_outcomes": len(rows) == len(outcomes) == len(candidates["records"]) and {r["id"] for r in rows} == {o["record"] for o in outcomes},
         "restricted_source_evidence_cross_checked": frontend_validation.get("schema") == "rbw-source-frontend-validation-v2" and frontend_validation.get("status") == "pass" and frontend_validation.get("mismatches") == 0 and frontend_validation.get("candidate_hash") == canonical_hash(candidates) and frontend_validation.get("source_evidence_hash") == canonical_hash(source_evidence),
         "independent_source_record_checker": len(source_records) == sum(r["source_evidence_accepted"] for r in rows) and all(o["reason"] in {"accepted-guard-trigger", "accepted-source-difference"} for o in outcomes if o["accepted"]),
-        "reference_count_at_least_55": type(reference_count) is int and reference_count >= 55,
     }
-    cf = design["candidate_frame"]; sealing = design["label_sealing"]; correspondence = design["source_correspondence"]; baseline = design["baseline_reproduction"]; temporal = design["temporal_split"]
-    design_facts = {
-        "raw_diff_or_checked_source_tree_correspondence": _evidence_file_exists(artifact_root, correspondence["raw_diff_archive"]) or (_evidence_file_exists(artifact_root, correspondence["source_tree_manifest"]) and _evidence_file_exists(artifact_root, correspondence["checked_lowering_evidence"])),
-        "candidate_selection_independent_of_labels": cf["class_lists_used"] is False and cf["selection_method"] == "label-independent",
-        "complete_repository_time_window": cf["window_start"] is not None and cf["window_end"] is not None and _evidence_file_exists(artifact_root, cf["enumeration_manifest"]),
-        "labels_sealed_before_method_development": _evidence_file_exists(artifact_root, sealing["seal_record"]) and sealing["method_freeze_timestamp"] is not None,
-        "strongest_published_same_budget_baseline": baseline["published_system"] is not None and _evidence_file_exists(artifact_root, baseline["same_budget_evidence"]),
-        "temporal_holdout": temporal["cutoff"] is not None and _evidence_file_exists(artifact_root, temporal["development_manifest"]) and _evidence_file_exists(artifact_root, temporal["holdout_manifest"]),
-    }
+    # validate_study_design accepts this packet's documented retrospective
+    # design only. File existence/digests are not proof of history or consent.
+    # No general prospective-study authenticator is implemented here.
+    design_facts = {key: False for key in (
+        "raw_diff_or_checked_source_tree_correspondence",
+        "candidate_selection_independent_of_labels",
+        "complete_repository_time_window",
+        "labels_sealed_before_method_development",
+        "strongest_published_same_budget_baseline", "temporal_holdout",
+    )}
     details = {
         "all_candidates_counted_with_typed_outcomes": "Every retained file unit has exactly one typed outcome and remains in the ranking denominator.",
         "restricted_source_evidence_cross_checked": "The restricted expression packet is cross-checked; this does not establish raw-diff or source-tree correspondence.",
@@ -749,7 +762,6 @@ def derive_readiness(candidates: dict[str, Any], labels_doc: dict[str, Any], sou
         "complete_repository_time_window": "No complete repository-by-time enumeration manifest is present.",
         "independent_source_record_checker": "Every accepted source record is uniquely bound and independently replayed.",
         "labels_sealed_before_method_development": "No verifiable label-seal record predating method freeze is present.",
-        "reference_count_at_least_55": "At least 55 cited scholarly records have verification-ledger entries.",
         "strongest_published_same_budget_baseline": "No reproduced published same-budget baseline evidence is present.",
         "temporal_holdout": "No verifiable development/holdout manifests or cutoff are present.",
     }
@@ -761,19 +773,18 @@ def derive_readiness(candidates: dict[str, Any], labels_doc: dict[str, Any], sou
         "complete_repository_time_window": ["data/public-study/study-design.json"],
         "independent_source_record_checker": ["source-records.json", "outcomes.json"],
         "labels_sealed_before_method_development": ["data/public-study/study-design.json"],
-        "reference_count_at_least_55": ["reference-verification.csv"],
         "strongest_published_same_budget_baseline": ["data/public-study/study-design.json"],
         "temporal_holdout": ["data/public-study/study-design.json"],
     }
     gates = []
     for gate in GATE_IDS:
         if gate in machine:
-            status = machine[gate]; basis = "machine-recomputed"
+            status = machine[gate]; basis = "retained-check-report-bound-to-inputs" if gate == "restricted_source_evidence_cross_checked" else "machine-recomputed"
         else:
-            status = design_facts[gate]; basis = "trusted-design-assertion-with-file-evidence-required"
+            status = design_facts[gate]; basis = "documented-retrospective-design; no-history-authenticator"
         gates.append({"id": gate, "status": "pass" if status else "fail", "basis": basis, "evidence": evidence_paths[gate], "detail": details[gate]})
     failed = [g["id"] for g in gates if g["status"] == "fail"]
-    return {"schema": "rbw-readiness-v3", "main_study_readiness": "passed" if not failed else "failed", "failed_readiness_gates": failed, "gates": gates}
+    return {"editorial_checks": {"minimum_references": 55, "verified_ledger_entries": reference_count, "reference_count_at_least_55": type(reference_count) is int and reference_count >= 55}, "schema": "rbw-readiness-v3", "main_study_readiness": "passed" if not failed else "failed", "failed_readiness_gates": failed, "gates": gates}
 
 
 def evaluate_predictions(candidates: dict[str, Any], label_doc: dict[str, Any], source_evidence: dict[str, Any], protocol: dict[str, Any], study_design: dict[str, Any], predictions: dict[str, Any], outcomes: list[dict[str, Any]], reference_count: int, frontend_validation: dict[str, Any], source_records: list[dict[str, Any]] | None = None, artifact_root: Path | None = None) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:

@@ -1,16 +1,16 @@
 {
   "accepted_source_records": 10,
-  "candidate_hash": "bb00bb68cddb4c3fbb711b85de0f9464bd44615f7a1fd329e6c1442d8a483d43",
+  "candidate_hash": "7cfff5ab9b4cbecbb7b010bd0b92f1e30ef8db8464b595246d2e2fdadf9eb7f2",
   "candidate_units": 32,
   "child_processes": 0,
-  "cpu_seconds": 0.005691691,
+  "cpu_seconds": 0.005719946,
   "exit_status": 0,
   "frontend_derived_cases": 10,
-  "peak_rss_kib": 94896,
+  "peak_rss_kib": 93360,
   "phase": "label-free-source-evidence-freeze",
-  "protocol_hash": "a1ca7a53394cbd03eb88e6686334462bdd7fec8efcb2c4aa44233235d88c5b81",
+  "protocol_hash": "d95d4016a58ae6bb69f94952b8df43139d1248278cb87dc1d77425746356e4ef",
   "schema": "rbw-freeze-summary-v3",
-  "source_evidence_hash": "6e28301c8a61190ba4c7c12bb9d69bca14157d606bc19b73f68b485fd5b42f37",
-  "wall_seconds": 0.008472616,
+  "source_evidence_hash": "8d47d3c55537e109c70c279b9b35a1f54b7a4555c705d88418ec08c263cc572b",
+  "wall_seconds": 0.008491918,
   "workers": 1
 }

@@ -1,0 +1,148 @@
+{
+  "children_cpu_seconds": 14.167695,
+  "children_peak_rss_kib": 101544,
+  "command_timeout_seconds": 120,
+  "commands": [
+    {
+      "child_cpu_seconds": 3.3395639999999998,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_status": 0,
+      "name": "unit-tests",
+      "wall_seconds": 2.5267229390001376
+    },
+    {
+      "child_cpu_seconds": 1.038861,
+      "command": [
+        "python3",
+        "run.py",
+        "--output",
+        "$OUTPUT/finite"
+      ],
+      "exit_status": 0,
+      "name": "finite",
+      "wall_seconds": 0.6675574430000779
+    },
+    {
+      "child_cpu_seconds": 0.9914999999999996,
+      "command": [
+        "python3",
+        "run.py",
+        "--pilot",
+        "--output",
+        "$OUTPUT/pilot"
+      ],
+      "exit_status": 0,
+      "name": "pilot",
+      "wall_seconds": 0.6154202480001914
+    },
+    {
+      "child_cpu_seconds": 1.3643249999999998,
+      "command": [
+        "python3",
+        "run_frontend_validation.py",
+        "--output",
+        "$OUTPUT/frontend"
+      ],
+      "exit_status": 0,
+      "name": "frontend",
+      "wall_seconds": 1.019587035999848
+    },
+    {
+      "child_cpu_seconds": 1.001038,
+      "command": [
+        "python3",
+        "run_closure_checks.py",
+        "--output",
+        "$OUTPUT/closure"
+      ],
+      "exit_status": 0,
+      "name": "closure",
+      "wall_seconds": 0.6689580500001284
+    },
+    {
+      "child_cpu_seconds": 3.010205,
+      "command": [
+        "python3",
+        "run_public_study.py",
+        "--output",
+        "$OUTPUT/public"
+      ],
+      "exit_status": 0,
+      "name": "public",
+      "wall_seconds": 1.8905737200002477
+    },
+    {
+      "child_cpu_seconds": 1.3610979999999993,
+      "command": [
+        "python3",
+        "run_contract_audit.py",
+        "--output",
+        "$OUTPUT/frame"
+      ],
+      "exit_status": 0,
+      "name": "frame",
+      "wall_seconds": 0.9681472199999916
+    },
+    {
+      "child_cpu_seconds": 2.061104000000001,
+      "command": [
+        "python3",
+        "verify_results.py"
+      ],
+      "exit_status": 0,
+      "name": "retained-verification",
+      "wall_seconds": 1.671980407999854
+    }
+  ],
+  "comparison": {
+    "files_checked": [
+      "finite/cases.json",
+      "finite/cases.csv",
+      "finite/certificates.json",
+      "pilot/cases.json",
+      "pilot/cases.csv",
+      "pilot/certificates.json",
+      "frontend/assignments.json",
+      "frontend/observations.json",
+      "frontend/coverage.json",
+      "frontend/mismatches.json",
+      "frame/summary.json",
+      "finite/summary.json (non-runtime)",
+      "pilot/summary.json (non-runtime)",
+      "frontend/summary.json (non-runtime)",
+      "closure/summary.json (non-runtime)",
+      "public/frozen/predictions-frozen.json",
+      "public/frozen/outcomes.json",
+      "public/frozen/source-records.json",
+      "public/evaluation/scores.csv",
+      "public/evaluation/ablations.json",
+      "public/evaluation/readiness.json"
+    ],
+    "finite": {
+      "assignments": 3712,
+      "cases": 25,
+      "certificates_replayed": 13
+    },
+    "public": {
+      "source_records_replayed": 10,
+      "syntax_p20": 0.75,
+      "units": 32,
+      "unvalidated_p20": 0.8,
+      "validated_p20": 0.75
+    }
+  },
+  "parent_cpu_seconds": 0.34100576000000005,
+  "parent_peak_rss_kib": 102956,
+  "scope": "local single-worker reproduction, not independent external replication",
+  "status": "pass",
+  "wall_seconds": 10.35579774300004,
+  "workers": 1
+}

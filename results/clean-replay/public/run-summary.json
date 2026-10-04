@@ -1,0 +1,212 @@
+{
+  "accepted_source_records": 10,
+  "bootstrap": {
+    "replicates": 4000,
+    "seed": 20210505,
+    "validated_minus_syntax_percentile_95": [
+      0.0,
+      0.0012500000000045476
+    ]
+  },
+  "candidate_units": 32,
+  "child_processes": 0,
+  "commit_groups": 26,
+  "coverage": {
+    "all_candidate_commit_availability": {
+      "fraction": "10/26",
+      "successes": 10,
+      "total": 26,
+      "value": 0.38461538461538464,
+      "wilson_95": [
+        0.22428594435712798,
+        0.5746514991488447
+      ]
+    },
+    "all_candidate_file_availability": {
+      "fraction": "10/32",
+      "successes": 10,
+      "total": 32,
+      "value": 0.3125,
+      "wilson_95": [
+        0.17952541633609734,
+        0.4856667830095541
+      ]
+    },
+    "positive_commit_conditional": {
+      "fraction": "10/10",
+      "successes": 10,
+      "total": 10,
+      "value": 1.0,
+      "wilson_95": [
+        0.7224672001371107,
+        0.9999999999999999
+      ]
+    },
+    "positive_file_conditional": {
+      "fraction": "10/16",
+      "successes": 10,
+      "total": 16,
+      "value": 0.625,
+      "wilson_95": [
+        0.38641040545502714,
+        0.8151876744113636
+      ]
+    }
+  },
+  "cpu_seconds": 0.137954047,
+  "evaluation_process_read_labels": true,
+  "exit_status": 0,
+  "failed_readiness_gates": [
+    "raw_diff_or_checked_source_tree_correspondence",
+    "candidate_selection_independent_of_labels",
+    "complete_repository_time_window",
+    "labels_sealed_before_method_development",
+    "strongest_published_same_budget_baseline",
+    "temporal_holdout"
+  ],
+  "formal_h1_decision": "not-testable-with-label-selected-nontemporal-cohort",
+  "formal_h2_decision": "not-testable-as-full-cohort-file-availability",
+  "freeze_and_evaluation_are_separate_processes": true,
+  "h2_descriptive_denominator": "all-eligible-file-candidates",
+  "h2_descriptive_threshold_analogue": 0.6,
+  "main_study_readiness": "failed",
+  "metrics": {
+    "syntax": {
+      "average_precision": 0.9729053442028985,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.75,
+      "precision_at_5": 1.0
+    },
+    "unvalidated": {
+      "average_precision": 1.0,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.8,
+      "precision_at_5": 1.0
+    },
+    "validated": {
+      "average_precision": 0.9770720108695652,
+      "precision_at_10": 1.0,
+      "precision_at_20": 0.75,
+      "precision_at_5": 1.0
+    }
+  },
+  "orchestrator_child_processes": 2,
+  "peak_rss_kib": 93616,
+  "positive_commit_groups": 10,
+  "positive_units": 16,
+  "rankings": {
+    "syntax": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U030",
+      "U028",
+      "U026",
+      "U010",
+      "U007",
+      "U024",
+      "U003",
+      "U002",
+      "U031",
+      "U004",
+      "U015",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U012",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ],
+    "unvalidated": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U030",
+      "U028",
+      "U026",
+      "U010",
+      "U024",
+      "U003",
+      "U002",
+      "U007",
+      "U004",
+      "U015",
+      "U012",
+      "U031",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ],
+    "validated": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U028",
+      "U026",
+      "U030",
+      "U010",
+      "U024",
+      "U003",
+      "U002",
+      "U007",
+      "U004",
+      "U031",
+      "U015",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U012",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ]
+  },
+  "schema": "rbw-public-summary-v6",
+  "scope": "32-unit label-selected TensorFlow file-change microcohort; descriptive source-evidence audit only",
+  "top20_symmetric_difference_validated_vs_syntax": 0,
+  "typed_outcome_counts": {
+    "accepted": 10,
+    "unsupported-syntax": 22
+  },
+  "unvalidated_minus_syntax_at_20": 0.05,
+  "validated_minus_syntax_at_20": 0.0,
+  "wall_seconds": 0.140971695,
+  "workers": 1
+}

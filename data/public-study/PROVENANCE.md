@@ -47,10 +47,10 @@ different contract:
 - a `guard-trigger` record proves that independently replayed typed context
   preconditions hold and the extracted guard takes its declared trigger value;
 - a `source-difference` record for W01 replays one explicit int32-versus-int64
-  boundary relation.
+  destination-range relation under explicit signed-width assumptions, not an old runtime fault.
 
 A public guard record has no independently modeled old fault and is not a finite
-certificate.  In particular W10 preserves the upstream pre-existing
+certificate. W09 preserves the unchanged nonempty context and uses `num_elements=2`, not zero. In particular W10 preserves the upstream pre-existing
 `dims(i) != 0` requirement and uses `dim=-1` for its accepted guard record.  The
 `dim=0` assignment appears only in frontend validation to ensure that the C11
 oracle actually short-circuits before division; it is not accepted source
@@ -70,7 +70,7 @@ schedule includes the saved assignment, the opposite truth branch, W03's
 65535/65536/65537 boundaries, and W10's successful division, failing division,
 and protected zero denominator; seeded unique random assignments fill the
 remaining positions.  One separate W01 widening check yields 901 total semantic
-obligations and zero observed mismatches.
+obligations and zero observed mismatches. The 900 checks contain 262 distinct case–assignment pairs; 847 satisfy every represented common context. Repeated checks are not independent samples.
 
 ## Descriptive results and denominators
 

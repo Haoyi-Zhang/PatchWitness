@@ -1,0 +1,16 @@
+{
+  "accepted_source_records": 10,
+  "candidate_hash": "7cfff5ab9b4cbecbb7b010bd0b92f1e30ef8db8464b595246d2e2fdadf9eb7f2",
+  "candidate_units": 32,
+  "child_processes": 0,
+  "cpu_seconds": 0.005378701,
+  "exit_status": 0,
+  "frontend_derived_cases": 10,
+  "peak_rss_kib": 93360,
+  "phase": "label-free-source-evidence-freeze",
+  "protocol_hash": "d95d4016a58ae6bb69f94952b8df43139d1248278cb87dc1d77425746356e4ef",
+  "schema": "rbw-freeze-summary-v3",
+  "source_evidence_hash": "8d47d3c55537e109c70c279b9b35a1f54b7a4555c705d88418ec08c263cc572b",
+  "wall_seconds": 0.008467902,
+  "workers": 1
+}

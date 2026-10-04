@@ -1,0 +1,14 @@
+{
+  "schema": "rbw-finite-frame-audit-v1",
+  "scope": "deterministic exact checks on benign n<=4 label vectors and fixed inherited rankings",
+  "max_owned_frame_size": 4,
+  "checks": {
+    "partial_label_bound_checks": 6150,
+    "fixed_total_bound_checks": 14146,
+    "label_correction_bound_checks": 6192,
+    "missing_frame_insertion_bound_checks": 320
+  },
+  "population_inference": false,
+  "new_public_candidates": 0,
+  "status": "pass"
+}

@@ -184,7 +184,9 @@
       "source_asset": {
         "annotation_used_for_scoring": false,
         "commit_url": "https://github.com/tensorflow/tensorflow/commit/f57315566d7094f322b784947093406c2aea0d7d",
-        "context_requirements": [],
+        "context_requirements": [
+          "key_tensor->NumElements() > 0"
+        ],
         "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
         "file_annotation": "adds an admission guard requiring a scalar key; human annotation, excluded from scoring and extraction",
         "repository": "tensorflow/tensorflow",
@@ -454,7 +456,7 @@
         "commit_url": "https://github.com/tensorflow/tensorflow/commit/08d7b00c0a5a20926363849f611729f53f3ec022",
         "context_requirements": [],
         "diff_selection": "claim-relevant minimal unified-diff context copied from the named upstream file; unrelated hunks omitted; line text preserved except LF normalization",
-        "file_annotation": "widens min_rank before negating a potentially large concat_dim; human annotation, excluded from scoring and extraction",
+        "file_annotation": "widens the destination declaration for min_rank; expression operand type and runtime conversion semantics are not established by the retained hunk; human annotation excluded from scoring and extraction",
         "repository": "tensorflow/tensorflow",
         "source_kind": "github-commit-file-patch"
       }

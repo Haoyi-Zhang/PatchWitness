@@ -1,0 +1,46 @@
+{
+  "campaign": {
+    "inherited_reported_remaining": 8,
+    "inherited_reported_total": 249992,
+    "verification_scope": "internal arithmetic only; cumulative historical execution not independently established"
+  },
+  "closure": {
+    "obligations": 19834
+  },
+  "finite": {
+    "assignments": 3712,
+    "cases": 25,
+    "certificates_replayed": 13
+  },
+  "finite_frame": {
+    "fixed_total_bound_checks": 14146,
+    "label_correction_bound_checks": 6192,
+    "missing_frame_insertion_bound_checks": 320,
+    "partial_label_bound_checks": 6150
+  },
+  "frontend": {
+    "mismatches": 0,
+    "semantic_obligations": 901,
+    "supported_records": 10,
+    "unique_guard_assignments": 262
+  },
+  "pilot": {
+    "assignments": 64,
+    "cases": 1
+  },
+  "public": {
+    "source_records_replayed": 10,
+    "syntax_p20": 0.75,
+    "units": 32,
+    "unvalidated_p20": 0.8,
+    "validated_p20": 0.75
+  },
+  "references": {
+    "abstract": 39,
+    "full-text": 22,
+    "metadata-only": 6,
+    "total": 67
+  },
+  "schema": "rbw-retained-result-verification-v2",
+  "status": "pass"
+}
