@@ -33,7 +33,19 @@ PYTHONDONTWRITEBYTECODE=1 python3 run_contract_audit.py --output results/reprodu
 PYTHONDONTWRITEBYTECODE=1 python3 verify_results.py
 ```
 
-The combined suite has 65 tests. The full finite runner's embedded core-test count is a subset, not an additional independent suite. All scientific executions are single-worker and sequential. The reproduction supervisor applies a 120-second wall timeout to each command; inherited finite/public workers have tighter internal limits. The C program evaluates only benign owned expressions, not TensorFlow binaries.
+The retained complete run recorded 65 passing tests. Seven authored tests have since been added without removing any existing test. The full finite runner's embedded core-test count is a subset, not an additional independent suite. All scientific executions are single-worker and sequential. The original reproduction supervisor applies a 120-second wall timeout to each command; inherited finite/public workers have tighter internal limits. The C program evaluates only benign owned expressions, not TensorFlow binaries.
+
+For a bounded campaign that does not open the public dataset, including on Windows:
+
+```powershell
+$env:PYTHONUTF8 = '1'
+$env:PYTHONDONTWRITEBYTECODE = '1'
+python -B run_owned_campaign.py --output D:/path/to/new-output
+```
+
+This runs 32 selected authored/finite tests, the complete 25-case finite experiment and its verifier, the pilot, all 26,808 exact-bound comparisons, all 19,834 closure checks, and 287 distinct authored scalar-expression probes. A measured Windows/CPython 3.12.14 replay passed in 1.531 seconds of supervisor wall time. Each worker has a 60-second wall timeout; this route does not enforce POSIX CPU/address-space limits or report peak RSS. Temporary test files and raw results stay under the supplied new output directory. It does not rerun the retained public study or claim that the entire expanded suite passed.
+
+Add `--c11` on a host with an existing C11 compiler to cross-check the same authored expressions in the owned C oracle. The prepared `.github/workflows/scientific-checks.yml` in the complete project invokes that route, with no dependency installation or public-dataset execution. That workflow and the C11 extension were not executed in the measured Windows replay.
 
 ## Canonical evidence
 

@@ -82,13 +82,13 @@ def verify_finite(directory:Path|None=None)->dict[str,int]:
       cid=cert.get('case',{}).get('id'); require(cid in by,'finite-cert-case'); ok,reason=finite_check(by[cid],cert,fuel); require(ok,f'finite-replay:{cid}:{reason}')
     totals={k:sum(int(r[k]) for r in rows) for k in ('assignments','repair','regression','both-safe','both-fault')}
     expected={'case_count':25,'assignments':3712,'repair':424,'regression':242,'both-safe':2990,'both-fault':56,'accepted_certificates':13,'mismatches':0,'semantic_mismatches':0,'obligations':90517,'exit_status':0}
-    for k,v in expected.items(): require(summary.get(k)==v,f'finite-summary:{k}')
-    for k,v in totals.items(): require(summary[k]==v,f'finite-total:{k}')
+    for k,v in expected.items(): require(typed_equal(summary.get(k),v),f'finite-summary:{k}')
+    for k,v in totals.items(): require(typed_equal(summary[k],v),f'finite-total:{k}')
     return {'cases':25,'assignments':3712,'certificates_replayed':13}
 
 def verify_pilot()->dict[str,int]:
     summary=read_json(RESULTS/'pilot/summary.json',dict)
-    for k,v in {'case_count':1,'assignments':64,'repair':8,'regression':8,'both-safe':48,'both-fault':0,'accepted_certificates':1,'mismatches':0,'semantic_mismatches':0,'obligations':1552,'exit_status':0}.items(): require(summary.get(k)==v,f'pilot:{k}')
+    for k,v in {'case_count':1,'assignments':64,'repair':8,'regression':8,'both-safe':48,'both-fault':0,'accepted_certificates':1,'mismatches':0,'semantic_mismatches':0,'obligations':1552,'exit_status':0}.items(): require(typed_equal(summary.get(k),v),f'pilot:{k}')
     return {'cases':1,'assignments':64}
 
 def verify_closure()->dict[str,int]:

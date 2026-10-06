@@ -83,6 +83,16 @@ _AST_OP = {
 }
 
 
+def _integer_literal(token: Token) -> int:
+    # The scalar profile supports decimal and hexadecimal, not C octal syntax.
+    if token.kind == "int" and len(token.text) > 1 and token.text.startswith("0"):
+        raise FrontendError("parse", "unsupported-integer-literal")
+    try:
+        return int(token.text, 0)
+    except ValueError as exc:
+        raise FrontendError("parse", "integer-range") from exc
+
+
 def normalize_expression(text: str) -> str:
     value = text.strip()
     for pattern, replacement in _REWRITES:
@@ -150,7 +160,7 @@ class _PrattParser:
             operand = self.take()
             if operand.kind not in {"int", "hex"}:
                 raise FrontendError("parse", "unary-minus-only-for-constant")
-            value = -int(operand.text, 0)
+            value = -_integer_literal(operand)
             if not INT64_MIN <= value <= INT64_MAX:
                 raise FrontendError("parse", "integer-range")
             return ["const", value]
@@ -161,7 +171,7 @@ class _PrattParser:
                 raise FrontendError("parse", "missing-close-parenthesis")
             return expression
         if token.kind in {"int", "hex"}:
-            value = int(token.text, 0)
+            value = _integer_literal(token)
             if not INT64_MIN <= value <= INT64_MAX:
                 raise FrontendError("parse", "integer-range")
             return ["const", value]

@@ -395,6 +395,11 @@ def validate_source_evidence(document: dict[str, Any], candidate_ids: set[str]) 
             _require(case["frontend_rule"] in {"require", "reject-if"} and type(case["trigger_value"]) is bool, "guard-rule")
             _require(case["trigger_value"] is (case["frontend_rule"] == "reject-if"), "guard-trigger-binding")
             _require(validate_expr(case["guard"], set(assignment)) == "bool", "guard-root-type")
+            from source_frontend import variables
+            used = variables(case["guard"])
+            for expr in case["context_preconditions"]:
+                used.update(variables(expr))
+            _require(set(assignment) == used, "assignment-variable-set")
         else:
             _require(case["frontend_rule"] == "signed-negation-widening" and assignment == {"concat_dim": INT32_MIN}, "widening-case")
         seen_case.add(case["id"]); seen_record.add(rid)

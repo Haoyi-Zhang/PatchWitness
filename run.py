@@ -14,7 +14,10 @@ import itertools
 import json
 import os
 from pathlib import Path
-import resource
+try:
+    import resource
+except ImportError:
+    resource = None  # Windows uses the separate owned-campaign supervisor.
 import signal
 import sys
 import time
@@ -89,7 +92,7 @@ def experiment(pilot, out):
                'max_assignments_per_case': max(r['assignments'] for r in rows),
                'cpu_seconds': time.process_time()-start_cpu,
                'wall_seconds': time.monotonic()-start_wall,
-               'peak_rss_kib': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+               'peak_rss_kib': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss if resource is not None else None,
                'workers': 1, 'child_processes': 0,
                'real_patch_cases_evaluated': 0, 'precision_at_20_difference': None,
                'witness_coverage_on_real_patches': None,
@@ -113,6 +116,8 @@ def main():
     out = args.output.resolve()
     if not out.is_relative_to(ROOT) or out == ROOT or out.exists():
         parser.error('output must be a new directory within this artifact root')
+    if resource is None:
+        parser.error('POSIX process limits unavailable; use run_owned_campaign.py for owned checks')
     # Hard process limits; no worker or child is spawned.
     resource.setrlimit(resource.RLIMIT_CPU, (30, 30))
     resource.setrlimit(resource.RLIMIT_AS, (512*1024*1024, 512*1024*1024))

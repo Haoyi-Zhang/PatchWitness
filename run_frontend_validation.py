@@ -119,14 +119,14 @@ def _parse_oracle(value: str) -> dict[str, Any] | None:
     raise ValueError(f"oracle-output:{value}")
 
 
-def _run_c_oracle(lines: list[str]) -> tuple[list[str], str]:
+def _run_c_oracle(lines: list[str], temporary_root: Path | None = None) -> tuple[list[str], str]:
     compiler = shutil.which("cc") or shutil.which("gcc") or shutil.which("clang")
     if compiler is None:
         raise RuntimeError("c11-compiler-unavailable")
     source = ROOT / "src/source_frontend_oracle.c"
     source_hash = hashlib.sha256(source.read_bytes()).hexdigest()
-    with tempfile.TemporaryDirectory(dir=ROOT / "results") as directory:
-        binary = Path(directory) / "oracle"
+    with tempfile.TemporaryDirectory(dir=temporary_root or ROOT / "results") as directory:
+        binary = Path(directory) / ("oracle.exe" if sys.platform == "win32" else "oracle")
         subprocess.run(
             [compiler, "-std=c11", "-O2", "-Wall", "-Wextra", "-Werror", "-pedantic", str(source), "-o", str(binary)],
             check=True, cwd=ROOT, text=True, capture_output=True, timeout=20,
