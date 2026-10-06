@@ -1,0 +1,113 @@
+{
+  "c11_executed": true,
+  "commands": [
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "-B",
+        "/home/runner/work/PatchWitness/PatchWitness/run_owned_campaign.py",
+        "--phase",
+        "tests",
+        "--output",
+        "/home/runner/work/PatchWitness/PatchWitness/scientific-results/tests"
+      ],
+      "exit_status": 0,
+      "phase": "tests",
+      "wall_seconds": 1.519764256000002
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "-B",
+        "/home/runner/work/PatchWitness/PatchWitness/run_owned_campaign.py",
+        "--phase",
+        "finite",
+        "--output",
+        "/home/runner/work/PatchWitness/PatchWitness/scientific-results/finite"
+      ],
+      "exit_status": 0,
+      "phase": "finite",
+      "wall_seconds": 2.271200168
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "-B",
+        "/home/runner/work/PatchWitness/PatchWitness/run_owned_campaign.py",
+        "--phase",
+        "pilot",
+        "--output",
+        "/home/runner/work/PatchWitness/PatchWitness/scientific-results/pilot"
+      ],
+      "exit_status": 0,
+      "phase": "pilot",
+      "wall_seconds": 0.11433489799999563
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "-B",
+        "/home/runner/work/PatchWitness/PatchWitness/run_owned_campaign.py",
+        "--phase",
+        "bounds",
+        "--output",
+        "/home/runner/work/PatchWitness/PatchWitness/scientific-results/bounds"
+      ],
+      "exit_status": 0,
+      "phase": "bounds",
+      "wall_seconds": 0.6657822020000026
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "-B",
+        "/home/runner/work/PatchWitness/PatchWitness/run_owned_campaign.py",
+        "--phase",
+        "closure",
+        "--output",
+        "/home/runner/work/PatchWitness/PatchWitness/scientific-results/closure"
+      ],
+      "exit_status": 0,
+      "phase": "closure",
+      "wall_seconds": 0.21450276400000234
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "-B",
+        "/home/runner/work/PatchWitness/PatchWitness/run_owned_campaign.py",
+        "--phase",
+        "expressions",
+        "--output",
+        "/home/runner/work/PatchWitness/PatchWitness/scientific-results/expressions"
+      ],
+      "exit_status": 0,
+      "phase": "expressions",
+      "wall_seconds": 0.16448692699999867
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "-B",
+        "/home/runner/work/PatchWitness/PatchWitness/run_owned_campaign.py",
+        "--phase",
+        "c11",
+        "--output",
+        "/home/runner/work/PatchWitness/PatchWitness/scientific-results/c11"
+      ],
+      "exit_status": 0,
+      "phase": "c11",
+      "wall_seconds": 0.364912743000005
+    }
+  ],
+  "network_used": false,
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "posix_cpu_and_address_space_limits_enforced": false,
+  "public_dataset_executed": false,
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "scope": "owned finite/formal/authored scalar fixtures only",
+  "status": "pass",
+  "wall_seconds": 5.315838683999999,
+  "worker_wall_timeout_seconds": 60,
+  "workers": 1
+}

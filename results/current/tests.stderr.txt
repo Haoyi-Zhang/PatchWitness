@@ -1,0 +1,37 @@
+test_arithmetic_and_comparisons (test_core.ContractTests.test_arithmetic_and_comparisons) ... ok
+test_assignment_is_bound_to_domain (test_core.ContractTests.test_assignment_is_bound_to_domain) ... ok
+test_budget_abstention (test_core.ContractTests.test_budget_abstention) ... ok
+test_certificate_mutations (test_core.ContractTests.test_certificate_mutations) ... ok
+test_fault_short_circuit_and_lazy_branch (test_core.ContractTests.test_fault_short_circuit_and_lazy_branch) ... ok
+test_improvement_does_not_exclude_regression (test_core.ContractTests.test_improvement_does_not_exclude_regression) ... ok
+test_json_gate (test_core.ContractTests.test_json_gate) ... ok
+test_ranking_bounds_are_sharp (test_core.ContractTests.test_ranking_bounds_are_sharp) ... ok
+test_ranking_rejects_partial_or_unlabeled_inputs (test_core.ContractTests.test_ranking_rejects_partial_or_unlabeled_inputs) ... ok
+test_schema_limits (test_core.ContractTests.test_schema_limits) ... ok
+test_all_closure_checks_pass (test_closure_checks.ClosureCheckTests.test_all_closure_checks_pass) ... ok
+test_group_and_unit_coverage_have_both_gap_directions (test_closure_checks.ClosureCheckTests.test_group_and_unit_coverage_have_both_gap_directions) ... ok
+test_incomplete_frame_allows_zero_or_one_full_window_precision (test_closure_checks.ClosureCheckTests.test_incomplete_frame_allows_zero_or_one_full_window_precision) ... ok
+test_paired_identity_is_exhaustive (test_closure_checks.ClosureCheckTests.test_paired_identity_is_exhaustive) ... ok
+test_exact_assignment_variable_set (test_owned_regressions.OwnedRegressions.test_exact_assignment_variable_set) ... ok
+test_finite_summary_rejects_cross_numeric_types (test_owned_regressions.OwnedRegressions.test_finite_summary_rejects_cross_numeric_types) ... ok
+test_owned_context_must_hold_for_source_record (test_owned_regressions.OwnedRegressions.test_owned_context_must_hold_for_source_record) ... ok
+test_owned_range_record_has_no_runtime_claim (test_owned_regressions.OwnedRegressions.test_owned_range_record_has_no_runtime_claim) ... ok
+test_unexpected_system_error_still_propagates (test_owned_regressions.OwnedRegressions.test_unexpected_system_error_still_propagates) ... ok
+test_unvisited_assignment_is_still_exact_integer (test_owned_regressions.OwnedRegressions.test_unvisited_assignment_is_still_exact_integer) ... ok
+test_zero_prefixed_literal_is_typed_abstention (test_owned_regressions.OwnedRegressions.test_zero_prefixed_literal_is_typed_abstention) ... ok
+test_exact_enumeration_detects_a_wrong_bound_formula (test_audit_contracts.AuditContracts.test_exact_enumeration_detects_a_wrong_bound_formula) ... ok
+test_unknown_intersection_labels_cancel (test_audit_contracts.AuditContracts.test_unknown_intersection_labels_cancel) ... ok
+test_unknown_difference_bounds_are_attainable (test_audit_contracts.AuditContracts.test_unknown_difference_bounds_are_attainable) ... ok
+test_fixed_total_tightens_unknown_label_bounds (test_audit_contracts.AuditContracts.test_fixed_total_tightens_unknown_label_bounds) ... ok
+test_one_label_correction_can_erase_single_swap_gain (test_audit_contracts.AuditContracts.test_one_label_correction_can_erase_single_swap_gain) ... ok
+test_equal_top_sets_force_zero_under_all_corrections (test_audit_contracts.AuditContracts.test_equal_top_sets_force_zero_under_all_corrections) ... ok
+test_bounds_reject_bool_labels_and_float_totals (test_audit_contracts.AuditContracts.test_bounds_reject_bool_labels_and_float_totals) ... ok
+test_bounds_reject_mismatched_frames_and_impossible_totals (test_audit_contracts.AuditContracts.test_bounds_reject_mismatched_frames_and_impossible_totals) ... ok
+test_bounded_missing_frame_narrows_only_under_stated_budget (test_audit_contracts.AuditContracts.test_bounded_missing_frame_narrows_only_under_stated_budget) ... ok
+test_finite_verifier_rejects_duplicate_certificate (test_audit_contracts.AuditContracts.test_finite_verifier_rejects_duplicate_certificate) ... ok
+test_finite_verifier_rejects_balanced_row_counter_tamper (test_audit_contracts.AuditContracts.test_finite_verifier_rejects_balanced_row_counter_tamper) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 1.229s
+
+OK

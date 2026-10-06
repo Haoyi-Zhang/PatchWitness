@@ -1,0 +1,124 @@
+{
+  "candidate_frame_ambiguity": {
+    "claim": "Without a complete candidate frame, the selected packet is compatible with full-window P@k equal to 0 or 1.",
+    "constructed_full_frames": 40,
+    "full_window_precision_extremes": [
+      0.0,
+      1.0
+    ],
+    "k_values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "mismatches": 0,
+    "obligations": 80,
+    "selected_packet_identical_in_each_pair": true,
+    "selected_precision_fractions": [
+      "0/1",
+      "1/2",
+      "1/3",
+      "1/2",
+      "2/5",
+      "1/2",
+      "3/7",
+      "1/2",
+      "4/9",
+      "1/2",
+      "5/11",
+      "1/2",
+      "6/13",
+      "1/2",
+      "7/15",
+      "1/2",
+      "8/17",
+      "1/2",
+      "9/19",
+      "1/2"
+    ]
+  },
+  "exit_status": 0,
+  "grouping_sensitivity": {
+    "both_gap_directions_observed": true,
+    "claim": "Unit and group coverage have no universal ordering when group sizes differ.",
+    "configurations": 19683,
+    "equal_examples": 804,
+    "group_minus_unit_extreme": {
+      "accepted_units": [
+        1,
+        1,
+        1
+      ],
+      "gap": 0.8333333333333334,
+      "gap_fraction": "5/6",
+      "group_coverage_fraction": "1/1",
+      "group_sizes": [
+        6,
+        6,
+        6
+      ],
+      "unit_coverage_fraction": "1/6"
+    },
+    "groups": 3,
+    "max_group_size": 6,
+    "mismatches": 0,
+    "obligations": 19683,
+    "observed_microcohort": {
+      "accepted_positive_commit_groups": 10,
+      "accepted_positive_files": 10,
+      "difference_fraction": "3/8",
+      "group_coverage_fraction": "10/10",
+      "positive_commit_groups": 10,
+      "positive_files": 16,
+      "unit_coverage_fraction": "10/16"
+    },
+    "unit_minus_group_extreme": {
+      "accepted_units": [
+        0,
+        0,
+        6
+      ],
+      "gap": 0.4166666666666667,
+      "gap_fraction": "5/12",
+      "group_coverage_fraction": "1/3",
+      "group_sizes": [
+        1,
+        1,
+        6
+      ],
+      "unit_coverage_fraction": "3/4"
+    }
+  },
+  "mismatches": 0,
+  "obligations": 19834,
+  "paired_top_k_identity": {
+    "claim": "Paired P@k changes are exactly the net labels among entering and leaving top-k items.",
+    "cohort_size": 6,
+    "k": 3,
+    "labelings": 64,
+    "mismatches": 0,
+    "obligations": 71,
+    "overlap_bound_fraction": "2/3",
+    "sharp_label_count_checks": 7,
+    "top_k_symmetric_difference_size": 4
+  },
+  "schema": "rbw-closure-checks-v1",
+  "scope": "exact finite accounting checks; not an estimate of security-patch prevalence or utility"
+}
