@@ -66,6 +66,22 @@ def candidate_frame_ambiguity(max_k: int = 20) -> dict[str, Any]:
     }
 
 
+def _coverage_from_units(sizes, accepted):
+    """Aggregate explicit unit records without using the count formulas."""
+    units = [
+        (group, index < accepted[group])
+        for group, size in enumerate(sizes)
+        for index in range(size)
+    ]
+    accepted_units = [record for record in units if record[1]]
+    groups = {group for group, _ in units}
+    accepted_groups = {group for group, _ in accepted_units}
+    return (
+        Fraction(len(accepted_units), len(units)),
+        Fraction(len(accepted_groups), len(groups)),
+    )
+
+
 def grouping_sensitivity(max_group_size: int = 6) -> dict[str, Any]:
     """Enumerate three positive groups and all feasible accepted-unit counts."""
     configurations = 0
@@ -86,9 +102,8 @@ def grouping_sensitivity(max_group_size: int = 6) -> dict[str, Any]:
                 maximum_unit_minus_group = (unit_minus_group, (sizes, accepted, unit, group))
             if unit == group:
                 equal_examples += 1
-            # Identity check against direct unit/group definitions.
-            direct_unit = Fraction(sum(accepted), sum(sizes))
-            direct_group = Fraction(sum(count > 0 for count in accepted), 3)
+            # Compare the count formulas with a separate unit-record aggregation.
+            direct_unit, direct_group = _coverage_from_units(sizes, accepted)
             if unit != direct_unit or group != direct_group:
                 mismatches += 1
 
