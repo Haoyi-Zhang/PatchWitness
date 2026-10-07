@@ -90,15 +90,28 @@ def _assignments(case: dict[str, Any], count: int, seed: int) -> list[dict[str, 
         key = tuple(sorted(assignment.items()))
         seen.add(key)
         planned.append({"class": class_name, "assignment": assignment})
+    # Only complete assignments inside the random domain count toward exhaustion;
+    # mandatory scenarios may repeat a point or lie outside that domain.
+    domain_values = {name: set(values) for name, values in domains.items()}
+    domain_size = 1
+    for values in domain_values.values():
+        domain_size *= len(values)
+    in_domain_seen = sum(
+        len(key) == len(names) and all(
+            name in domain_values and value in domain_values[name] for name, value in key
+        )
+        for key in seen
+    )
     rng = random.Random(seed)
     attempts = 0
-    while len(planned) < count and attempts < count * 500:
+    while len(planned) < count and attempts < count * 500 and in_domain_seen < domain_size:
         attempts += 1
         assignment = _random_assignment(names, domains, rng)
         key = tuple(sorted(assignment.items()))
         if key in seen:
             continue
         seen.add(key); planned.append({"class": "seeded-random", "assignment": assignment})
+        in_domain_seen += 1
     # If a tiny domain has fewer than count unique assignments, repeat only
     # after all unique points have been used, preserving the mandatory prefix.
     index = 0

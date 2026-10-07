@@ -49,6 +49,15 @@ Add `--c11` on a host with an existing C11 compiler to cross-check the same auth
 
 ## Canonical evidence
 
+The portable sampler regression runs with `python -B -m unittest discover -s tests -p test_assignment_sampling.py -v`.
+It compares the ordered mandatory, seeded, and repeat rows with a test-local
+Cartesian/first-occurrence reference, and checks complete values, traces,
+context results, and independent source-record replay on owned scalar fixtures.
+The sampler stops drawing once its finite random domain is exhausted; it retains
+the seeded proposal order, mandatory duplicates, attempt cap, and output count.
+This is a computation-preserving implementation change, not a new coverage or
+measured speed claim. No C compiler or upstream application is used by this test.
+
 | Object | Retained result | Scope |
 |---|---|---|
 | Finite IR | 25 cases; 3,712 assignments; 424 repair, 242 regression, 2,990 both-defined, 56 both-fault; 13 certificates | Exact small owned models, not public workload breadth |
