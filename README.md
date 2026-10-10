@@ -71,7 +71,7 @@ measured speed claim. No C compiler or upstream application is used by this test
 
 The checked and syntax top-20 sets are identical, making their paired difference exactly zero for every common label completion. For the hint path, at most one label correction admits zero gain. These are fixed-frame results, not population confidence intervals or evidence of temporal generalization. Resampling numbers are retained as conditional algorithmic sensitivity, not deployment uncertainty.
 
-W09 binds the unchanged nonempty check and uses `num_elements=2`. W10 binds the unchanged nonzero check and uses `dim=-1`; its zero-denominator input is an interpreter probe outside the source precondition. W01 proves only that a mathematical value falls outside an assumed signed 32-bit destination range and inside an assumed signed 64-bit range; operand types and runtime faults are not established by that record.
+W09 binds the unchanged nonempty check and uses `num_elements=2`. W10 binds the unchanged nonzero check and uses `dim=-1`; its zero-denominator input is an interpreter probe outside the source precondition. W01 proves only that a mathematical value falls outside an assumed signed 32-bit destination range and inside an assumed signed 64-bit range. Its extractor requires the same conditional `concat_dim < 0 ? -concat_dim : concat_dim` RHS in both destination declarations (optionally `+ 1` in the nonnegative branch), not a plain identity RHS. Operand types and runtime faults are not established by that record.
 
 ## Verification and trust
 

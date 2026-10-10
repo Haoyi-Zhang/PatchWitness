@@ -7,7 +7,9 @@ patterns in added lines of retained, real upstream diff hunks:
 * a rejection guard ``if (bad_predicate)``; and
 * an admission guard ``OP_REQUIRES(ctx, good_predicate, ...)``.
 
-It also recognizes one retained ``int`` to ``int64`` widening.  Its outputs are
+It also recognizes an ``int`` to ``int64`` widening with the same conditional
+``concat_dim < 0 ? -concat_dim : concat_dim`` RHS (optionally ``+ 1`` in the
+nonnegative branch) in both declarations.  Its outputs are
 ``guard-trigger`` or ``source-difference`` records, never finite behavioral
 certificates.  Extraction, parsing, and expression evaluation are distinct
 stages with typed abstentions.
@@ -418,11 +420,18 @@ def _find_assignment(
 
 def _is_widening_record(record: dict[str, Any]) -> bool:
     text = record["diff_context"]
-    return bool(
-        re.search(r"-\s*const\s+int\s+min_rank", text)
-        and re.search(r"\+\s*const\s+int64\s+min_rank", text)
-        and "concat_dim" in text
+    # The mathematical negative-input magnitude model needs this RHS premise;
+    # a destination declaration alone does not imply it, or native evaluation.
+    declaration = (
+        r"\s+min_rank\s*=\s*"
+        r"(concat_dim\s*<\s*0\s*\?\s*-\s*concat_dim\s*:\s*concat_dim"
+        r"(?:\s*\+\s*1)?)\s*;[ \t]*\r?$"
     )
+    old = re.search(r"(?m)^-\s*const\s+int" + declaration, text)
+    new = re.search(r"(?m)^\+\s*const\s+int64" + declaration, text)
+    return bool(old and new and
+                re.sub(r"\s+", "", old.group(1)) ==
+                re.sub(r"\s+", "", new.group(1)))
 
 
 def derive_case(record: dict[str, Any]) -> tuple[dict[str, Any] | None, dict[str, str]]:

@@ -83,7 +83,8 @@ class OwnedRegressions(unittest.TestCase):
 
     def test_owned_range_record_has_no_runtime_claim(self):
         record, _, _ = owned_source_case()
-        record['diff_context'] = '-const int min_rank = concat_dim;\n+const int64 min_rank = concat_dim;'
+        record['diff_context'] = ('-const int min_rank = concat_dim < 0 ? -concat_dim : concat_dim + 1;\n'
+                                  '+const int64 min_rank = concat_dim < 0 ? -concat_dim : concat_dim + 1;')
         case, _ = frontend.derive_case(record)
         case = {'id': 'W97', **case}
         evidence = public.make_source_record(case, record)
