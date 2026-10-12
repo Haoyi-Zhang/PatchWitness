@@ -10,6 +10,14 @@ that IR and finite semantics.  It does not prove whole-patch correctness or
 absence of regression.  The exact mixed family shows an accepted repair witness
 coexisting with regression inputs.
 
+The additional functional bridge lowers only authored single-return Python
+functions with explicit bounded helpers. Its written preservation argument
+composes with finite replay for that profile; direct source execution provides a
+separately implemented outcome reference. Its exhaustive diagnostic distinguishes
+new faults and changed defined outputs, and ties the same-information direct
+execution baseline. This supplies no C/C++, external-patch or security-label
+correspondence. See `functional-source.md`.
+
 ## Public source excerpts
 
 A public `guard-trigger` source record proves only that bound context

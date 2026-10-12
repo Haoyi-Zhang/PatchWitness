@@ -49,6 +49,44 @@ Add `--c11` on a host with an existing C11 compiler to cross-check the same auth
 
 ## Canonical evidence
 
+### Authored functional source bridge
+
+`src/functional_frontend.py` admits only pure single-return Python functions
+with explicit bounded helpers, comparisons and lazy conditionals. It lowers
+them to the existing finite IR and regenerates the expected IR from separately
+supplied source strings before checking a witness. Bare Python arithmetic is
+not silently treated as modular arithmetic. This profile is separate from the
+public excerpt extractor; it establishes no external-patch correspondence.
+`proofs/functional-source.md` gives the grammar, helper semantics and written
+preservation argument.
+
+The separate command executes only reviewed authored programs:
+
+```powershell
+python -B run_functional_diagnostics.py --output results/new-functional-run
+python -B -m pytest tests/test_functional_frontend.py -q -p no:cacheprovider
+```
+
+The diagnostic itself uses only the standard library; the test command uses an
+existing pytest installation. The output must be a new directory below
+`artifact/results`. No shared dependency installation is needed. Direct Python
+execution with separately implemented helpers is the reference and the fair
+simple exhaustive baseline. This is not a general Python sandbox or permission
+to execute unreviewed third-party source.
+
+The retained `results/functional-diagnostics` run covers 14 source pairs and 414
+pair-inputs: 106 repairs, 38 new faults, 209 equal-defined outputs, 44 changed
+defined outputs and 17 both-faults, with eight source-bound witnesses. Source
+outcomes, recursive IR evaluation and iterative replay agree, and all compared
+baseline sets tie. A changed defined output is not a bug label. The test suite
+also checks a wrong strict-guard lowering, source binding, unsupported syntax,
+input types, all original finite counts and stored top-20 arithmetic. The
+retention test reads frozen ranks and labels only; it executes no public source
+analysis. Source strings, per-input results, lowered cases, certificates and
+environment/source digests are retained separately from historical results.
+The historical complete reproduction command above is unchanged; this new
+diagnostic is explicitly invoked as its own bounded check.
+
 The portable sampler regression runs with `python -B -m unittest discover -s tests -p test_assignment_sampling.py -v`.
 It compares the ordered mandatory, seeded, and repeat rows with a test-local
 Cartesian/first-occurrence reference, and checks complete values, traces,

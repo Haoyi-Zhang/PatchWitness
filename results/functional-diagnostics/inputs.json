@@ -1,0 +1,211 @@
+{
+  "scope": "Authored pure functional programs and explicit bounded helpers; no external patches or security labels",
+  "cases": [
+    {
+      "id": "F01",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "saturating increment",
+      "before": "def patch(x):\n    return checked_add(x, 1)\n",
+      "after": "def patch(x):\n    return 7 if x == 7 else checked_add(x, 1)\n"
+    },
+    {
+      "id": "F02",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "identical faulting expressions",
+      "before": "def patch(x):\n    return checked_add(x, 1)\n",
+      "after": "def patch(x):\n    return checked_add(x, 1)\n"
+    },
+    {
+      "id": "F03",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "value-preserving refactor",
+      "before": "def patch(x, y):\n    return wrap_add(x, y)\n",
+      "after": "def patch(x, y):\n    return wrap_add(y, x)\n"
+    },
+    {
+      "id": "F04",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "strict abstract bound guard",
+      "before": "def patch(x, y):\n    return bounded_index(x, y)\n",
+      "after": "def patch(x, y):\n    return bounded_index(x, y) if x < y else 0\n"
+    },
+    {
+      "id": "F05",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "reversed guard introduces faults",
+      "before": "def patch(x, y):\n    return bounded_index(x, y) if x < y else 0\n",
+      "after": "def patch(x, y):\n    return bounded_index(x, y)\n"
+    },
+    {
+      "id": "F06",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "repair and new fault coexist",
+      "before": "def patch(x):\n    return checked_add(x, 1)\n",
+      "after": "def patch(x):\n    return checked_add(wrap_sub(x, 1), 1)\n"
+    },
+    {
+      "id": "F07",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "unvisited faulting branch",
+      "before": "def patch(x):\n    return 0\n",
+      "after": "def patch(x):\n    return checked_add(7, 1) if 0 < 0 else 0\n"
+    },
+    {
+      "id": "F08",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "incomplete guard leaves equality faults",
+      "before": "def patch(x, y):\n    return bounded_index(x, y)\n",
+      "after": "def patch(x, y):\n    return bounded_index(x, y) if x <= y else 0\n"
+    },
+    {
+      "id": "F09",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "defined outputs change without faults",
+      "before": "def patch(x):\n    return wrap_add(x, 1)\n",
+      "after": "def patch(x):\n    return wrap_add(x, 2)\n"
+    },
+    {
+      "id": "F10",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "checked product and nested conditional",
+      "before": "def patch(x, y):\n    return checked_mul(x, y)\n",
+      "after": "def patch(x, y):\n    return 0 if y == 0 else (checked_mul(x, y) if x <= 1 else wrap_mul(x, y))\n"
+    },
+    {
+      "id": "F11",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "purpose": "first fault suppresses later operand fault",
+      "before": "def patch(x):\n    return wrap_add(checked_add(7, 1), checked_mul(7, 7))\n",
+      "after": "def patch(x):\n    return wrap_add(checked_add(7, 1), checked_mul(7, 7))\n"
+    },
+    {
+      "id": "F12",
+      "width": 1,
+      "domain": [
+        [
+          0,
+          1
+        ]
+      ],
+      "purpose": "minimum admitted width",
+      "before": "def patch(x):\n    return checked_add(x, 1)\n",
+      "after": "def patch(x):\n    return 1 if x == 1 else checked_add(x, 1)\n"
+    },
+    {
+      "id": "F13",
+      "width": 5,
+      "domain": [
+        [
+          0,
+          31
+        ]
+      ],
+      "purpose": "maximum admitted width mixed change",
+      "before": "def patch(x):\n    return checked_add(x, 1)\n",
+      "after": "def patch(x):\n    return checked_add(wrap_sub(x, 1), 1)\n"
+    },
+    {
+      "id": "F14",
+      "width": 3,
+      "domain": [
+        [
+          2,
+          5
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "purpose": "restricted rectangular input domain",
+      "before": "def patch(x, y):\n    return checked_mul(x, y)\n",
+      "after": "def patch(x, y):\n    return wrap_mul(x, y)\n"
+    }
+  ]
+}

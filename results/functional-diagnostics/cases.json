@@ -1,0 +1,8304 @@
+[
+  {
+    "id": "F01",
+    "purpose": "saturating increment",
+    "ir": {
+      "id": "F01",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "after": [
+        "if",
+        [
+          "eq",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            7
+          ]
+        ],
+        [
+          "c",
+          7
+        ],
+        [
+          "uadd",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ]
+      ]
+    },
+    "assignments": 8,
+    "counts": {
+      "repair": 1,
+      "new-fault": 0,
+      "defined-equal": 7,
+      "defined-changed": 0,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "defined-equal": {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ]
+      },
+      "repair": {
+        "input": [
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "u",
+          7
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": {
+      "case": {
+        "id": "F01",
+        "width": 3,
+        "domain": [
+          [
+            0,
+            7
+          ]
+        ],
+        "before": [
+          "uadd",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        "after": [
+          "if",
+          [
+            "eq",
+            [
+              "v",
+              0
+            ],
+            [
+              "c",
+              7
+            ]
+          ],
+          [
+            "c",
+            7
+          ],
+          [
+            "uadd",
+            [
+              "v",
+              0
+            ],
+            [
+              "c",
+              1
+            ]
+          ]
+        ]
+      },
+      "input": [
+        7
+      ],
+      "before": [
+        "fault",
+        "add-overflow"
+      ],
+      "after": [
+        "u",
+        7
+      ],
+      "before_trace": [
+        [
+          "0",
+          "u",
+          7
+        ],
+        [
+          "1",
+          "u",
+          1
+        ],
+        [
+          "",
+          "fault",
+          "add-overflow"
+        ]
+      ],
+      "after_trace": [
+        [
+          "00",
+          "u",
+          7
+        ],
+        [
+          "01",
+          "u",
+          7
+        ],
+        [
+          "0",
+          "b",
+          true
+        ],
+        [
+          "1",
+          "u",
+          7
+        ],
+        [
+          "",
+          "u",
+          7
+        ]
+      ]
+    },
+    "witness_search_assignments": 8,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "repair"
+      }
+    ]
+  },
+  {
+    "id": "F02",
+    "purpose": "identical faulting expressions",
+    "ir": {
+      "id": "F02",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "after": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ]
+    },
+    "assignments": 8,
+    "counts": {
+      "repair": 0,
+      "new-fault": 0,
+      "defined-equal": 7,
+      "defined-changed": 0,
+      "both-fault": 1
+    },
+    "first_examples": {
+      "defined-equal": {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ]
+      },
+      "both-fault": {
+        "input": [
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ]
+      }
+    },
+    "source_syntax_changed": false,
+    "certificate": null,
+    "witness_search_assignments": 8,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      }
+    ]
+  },
+  {
+    "id": "F03",
+    "purpose": "value-preserving refactor",
+    "ir": {
+      "id": "F03",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "add",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "after": [
+        "add",
+        [
+          "v",
+          1
+        ],
+        [
+          "v",
+          0
+        ]
+      ]
+    },
+    "assignments": 64,
+    "counts": {
+      "repair": 0,
+      "new-fault": 0,
+      "defined-equal": 64,
+      "defined-changed": 0,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "defined-equal": {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": null,
+    "witness_search_assignments": 64,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          2
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          3
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          4
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          5
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          6
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          7
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          0
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          1
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          2
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          3
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          4
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          5
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          6
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          7
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          0
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          1
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          2
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          3
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          4
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          6
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          7
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          0
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          1
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          2
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          3
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          5
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          6
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          7
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          0
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          1
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          2
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          4
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          5
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          6
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          7
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          0
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          1
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          3
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          4
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          5
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          6
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          7
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          0
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          2
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          3
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          4
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          5
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          6
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          7
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      }
+    ]
+  },
+  {
+    "id": "F04",
+    "purpose": "strict abstract bound guard",
+    "ir": {
+      "id": "F04",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "index",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "after": [
+        "if",
+        [
+          "lt",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "index",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "c",
+          0
+        ]
+      ]
+    },
+    "assignments": 64,
+    "counts": {
+      "repair": 36,
+      "new-fault": 0,
+      "defined-equal": 28,
+      "defined-changed": 0,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "repair": {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      },
+      "defined-equal": {
+        "input": [
+          0,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": {
+      "case": {
+        "id": "F04",
+        "width": 3,
+        "domain": [
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "before": [
+          "index",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        "after": [
+          "if",
+          [
+            "lt",
+            [
+              "v",
+              0
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          [
+            "index",
+            [
+              "v",
+              0
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          [
+            "c",
+            0
+          ]
+        ]
+      },
+      "input": [
+        0,
+        0
+      ],
+      "before": [
+        "fault",
+        "index-outside"
+      ],
+      "after": [
+        "u",
+        0
+      ],
+      "before_trace": [
+        [
+          "0",
+          "u",
+          0
+        ],
+        [
+          "1",
+          "u",
+          0
+        ],
+        [
+          "",
+          "fault",
+          "index-outside"
+        ]
+      ],
+      "after_trace": [
+        [
+          "00",
+          "u",
+          0
+        ],
+        [
+          "01",
+          "u",
+          0
+        ],
+        [
+          "0",
+          "b",
+          false
+        ],
+        [
+          "2",
+          "u",
+          0
+        ],
+        [
+          "",
+          "u",
+          0
+        ]
+      ]
+    },
+    "witness_search_assignments": 1,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          0,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          6
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          7
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          1,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          1,
+          2
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          3
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          4
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          5
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          6
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          7
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          2,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          2,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          2,
+          3
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          4
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          5
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          6
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          7
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          4
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          5
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          6
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          7
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          4
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          5
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          6
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          7
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          4
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          5
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          6
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          7
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          4
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          5
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          6
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          7
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          4
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          5
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          6
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          7
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      }
+    ]
+  },
+  {
+    "id": "F05",
+    "purpose": "reversed guard introduces faults",
+    "ir": {
+      "id": "F05",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "if",
+        [
+          "lt",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "index",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "c",
+          0
+        ]
+      ],
+      "after": [
+        "index",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ]
+    },
+    "assignments": 64,
+    "counts": {
+      "repair": 0,
+      "new-fault": 36,
+      "defined-equal": 28,
+      "defined-changed": 0,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "new-fault": {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ]
+      },
+      "defined-equal": {
+        "input": [
+          0,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": null,
+    "witness_search_assignments": 64,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          0,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          6
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          7
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          1,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          1,
+          2
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          3
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          4
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          5
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          6
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          7
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          2,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          2,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          2,
+          3
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          4
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          5
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          6
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          7
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          3,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          3,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          3,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          3,
+          4
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          5
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          6
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          7
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          4,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          4,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          4,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          4,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          4,
+          5
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          6
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          7
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          5,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          5,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          5,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          5,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          5,
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          5,
+          6
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          7
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          6,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          6,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          6,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          6,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          6,
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          6,
+          6
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          6,
+          7
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          7,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          7,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          7,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          7,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          7,
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          7,
+          6
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          7,
+          7
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "new-fault"
+      }
+    ]
+  },
+  {
+    "id": "F06",
+    "purpose": "repair and new fault coexist",
+    "ir": {
+      "id": "F06",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "after": [
+        "uadd",
+        [
+          "sub",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "c",
+          1
+        ]
+      ]
+    },
+    "assignments": 8,
+    "counts": {
+      "repair": 1,
+      "new-fault": 1,
+      "defined-equal": 0,
+      "defined-changed": 6,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "new-fault": {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ]
+      },
+      "defined-changed": {
+        "input": [
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          1
+        ]
+      },
+      "repair": {
+        "input": [
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "u",
+          7
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": {
+      "case": {
+        "id": "F06",
+        "width": 3,
+        "domain": [
+          [
+            0,
+            7
+          ]
+        ],
+        "before": [
+          "uadd",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        "after": [
+          "uadd",
+          [
+            "sub",
+            [
+              "v",
+              0
+            ],
+            [
+              "c",
+              1
+            ]
+          ],
+          [
+            "c",
+            1
+          ]
+        ]
+      },
+      "input": [
+        7
+      ],
+      "before": [
+        "fault",
+        "add-overflow"
+      ],
+      "after": [
+        "u",
+        7
+      ],
+      "before_trace": [
+        [
+          "0",
+          "u",
+          7
+        ],
+        [
+          "1",
+          "u",
+          1
+        ],
+        [
+          "",
+          "fault",
+          "add-overflow"
+        ]
+      ],
+      "after_trace": [
+        [
+          "00",
+          "u",
+          7
+        ],
+        [
+          "01",
+          "u",
+          1
+        ],
+        [
+          "0",
+          "u",
+          6
+        ],
+        [
+          "1",
+          "u",
+          1
+        ],
+        [
+          "",
+          "u",
+          7
+        ]
+      ]
+    },
+    "witness_search_assignments": 8,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          2
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          3
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          4
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          5
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          6
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "repair"
+      }
+    ]
+  },
+  {
+    "id": "F07",
+    "purpose": "unvisited faulting branch",
+    "ir": {
+      "id": "F07",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "c",
+        0
+      ],
+      "after": [
+        "if",
+        [
+          "lt",
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            0
+          ]
+        ],
+        [
+          "uadd",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "c",
+          0
+        ]
+      ]
+    },
+    "assignments": 8,
+    "counts": {
+      "repair": 0,
+      "new-fault": 0,
+      "defined-equal": 8,
+      "defined-changed": 0,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "defined-equal": {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": null,
+    "witness_search_assignments": 8,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      }
+    ]
+  },
+  {
+    "id": "F08",
+    "purpose": "incomplete guard leaves equality faults",
+    "ir": {
+      "id": "F08",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "index",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "after": [
+        "if",
+        [
+          "le",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "index",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "c",
+          0
+        ]
+      ]
+    },
+    "assignments": 64,
+    "counts": {
+      "repair": 28,
+      "new-fault": 0,
+      "defined-equal": 28,
+      "defined-changed": 0,
+      "both-fault": 8
+    },
+    "first_examples": {
+      "both-fault": {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ]
+      },
+      "defined-equal": {
+        "input": [
+          0,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      },
+      "repair": {
+        "input": [
+          1,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": {
+      "case": {
+        "id": "F08",
+        "width": 3,
+        "domain": [
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "before": [
+          "index",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        "after": [
+          "if",
+          [
+            "le",
+            [
+              "v",
+              0
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          [
+            "index",
+            [
+              "v",
+              0
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          [
+            "c",
+            0
+          ]
+        ]
+      },
+      "input": [
+        1,
+        0
+      ],
+      "before": [
+        "fault",
+        "index-outside"
+      ],
+      "after": [
+        "u",
+        0
+      ],
+      "before_trace": [
+        [
+          "0",
+          "u",
+          1
+        ],
+        [
+          "1",
+          "u",
+          0
+        ],
+        [
+          "",
+          "fault",
+          "index-outside"
+        ]
+      ],
+      "after_trace": [
+        [
+          "00",
+          "u",
+          1
+        ],
+        [
+          "01",
+          "u",
+          0
+        ],
+        [
+          "0",
+          "b",
+          false
+        ],
+        [
+          "2",
+          "u",
+          0
+        ],
+        [
+          "",
+          "u",
+          0
+        ]
+      ]
+    },
+    "witness_search_assignments": 9,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          0,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          6
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          7
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          1,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          1,
+          2
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          3
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          4
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          5
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          6
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          7
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          2,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          2,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          2,
+          3
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          4
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          5
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          6
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          7
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          3,
+          4
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          5
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          6
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          7
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          4
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          4,
+          5
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          6
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          7
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          4
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          5
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          5,
+          6
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          7
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          4
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          5
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          6
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          6,
+          7
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          1
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          2
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          3
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          4
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          5
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          6
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          7
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "kind": "both-fault"
+      }
+    ]
+  },
+  {
+    "id": "F09",
+    "purpose": "defined outputs change without faults",
+    "ir": {
+      "id": "F09",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "add",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "after": [
+        "add",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          2
+        ]
+      ]
+    },
+    "assignments": 8,
+    "counts": {
+      "repair": 0,
+      "new-fault": 0,
+      "defined-equal": 0,
+      "defined-changed": 8,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "defined-changed": {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          2
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": null,
+    "witness_search_assignments": 8,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          2
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          3
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          4
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          5
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          6
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          7
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-changed"
+      }
+    ]
+  },
+  {
+    "id": "F10",
+    "purpose": "checked product and nested conditional",
+    "ir": {
+      "id": "F10",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "umul",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "after": [
+        "if",
+        [
+          "eq",
+          [
+            "v",
+            1
+          ],
+          [
+            "c",
+            0
+          ]
+        ],
+        [
+          "c",
+          0
+        ],
+        [
+          "if",
+          [
+            "le",
+            [
+              "v",
+              0
+            ],
+            [
+              "c",
+              1
+            ]
+          ],
+          [
+            "umul",
+            [
+              "v",
+              0
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          [
+            "mul",
+            [
+              "v",
+              0
+            ],
+            [
+              "v",
+              1
+            ]
+          ]
+        ]
+      ]
+    },
+    "assignments": 64,
+    "counts": {
+      "repair": 33,
+      "new-fault": 0,
+      "defined-equal": 31,
+      "defined-changed": 0,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "defined-equal": {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      },
+      "repair": {
+        "input": [
+          2,
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          0
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": {
+      "case": {
+        "id": "F10",
+        "width": 3,
+        "domain": [
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "before": [
+          "umul",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        "after": [
+          "if",
+          [
+            "eq",
+            [
+              "v",
+              1
+            ],
+            [
+              "c",
+              0
+            ]
+          ],
+          [
+            "c",
+            0
+          ],
+          [
+            "if",
+            [
+              "le",
+              [
+                "v",
+                0
+              ],
+              [
+                "c",
+                1
+              ]
+            ],
+            [
+              "umul",
+              [
+                "v",
+                0
+              ],
+              [
+                "v",
+                1
+              ]
+            ],
+            [
+              "mul",
+              [
+                "v",
+                0
+              ],
+              [
+                "v",
+                1
+              ]
+            ]
+          ]
+        ]
+      },
+      "input": [
+        2,
+        4
+      ],
+      "before": [
+        "fault",
+        "mul-overflow"
+      ],
+      "after": [
+        "u",
+        0
+      ],
+      "before_trace": [
+        [
+          "0",
+          "u",
+          2
+        ],
+        [
+          "1",
+          "u",
+          4
+        ],
+        [
+          "",
+          "fault",
+          "mul-overflow"
+        ]
+      ],
+      "after_trace": [
+        [
+          "00",
+          "u",
+          4
+        ],
+        [
+          "01",
+          "u",
+          0
+        ],
+        [
+          "0",
+          "b",
+          false
+        ],
+        [
+          "200",
+          "u",
+          2
+        ],
+        [
+          "201",
+          "u",
+          1
+        ],
+        [
+          "20",
+          "b",
+          false
+        ],
+        [
+          "220",
+          "u",
+          2
+        ],
+        [
+          "221",
+          "u",
+          4
+        ],
+        [
+          "22",
+          "u",
+          0
+        ],
+        [
+          "2",
+          "u",
+          0
+        ],
+        [
+          "",
+          "u",
+          0
+        ]
+      ]
+    },
+    "witness_search_assignments": 21,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          2
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          3
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          4
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          5
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          6
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          0,
+          7
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1,
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          2
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          3
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          2,
+          5
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          2,
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          2,
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          1
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          2
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          5
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          3,
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          1
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          5
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          1
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          5
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          1
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          6,
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          5
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          6,
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          1
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          7,
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          5
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          7,
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "repair"
+      }
+    ]
+  },
+  {
+    "id": "F11",
+    "purpose": "first fault suppresses later operand fault",
+    "ir": {
+      "id": "F11",
+      "width": 3,
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "before": [
+        "add",
+        [
+          "uadd",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "umul",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            7
+          ]
+        ]
+      ],
+      "after": [
+        "add",
+        [
+          "uadd",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "umul",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            7
+          ]
+        ]
+      ]
+    },
+    "assignments": 8,
+    "counts": {
+      "repair": 0,
+      "new-fault": 0,
+      "defined-equal": 0,
+      "defined-changed": 0,
+      "both-fault": 8
+    },
+    "first_examples": {
+      "both-fault": {
+        "input": [
+          0
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ]
+      }
+    },
+    "source_syntax_changed": false,
+    "certificate": null,
+    "witness_search_assignments": 8,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          1
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          2
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          3
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          4
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          5
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          6
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      },
+      {
+        "input": [
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "both-fault"
+      }
+    ]
+  },
+  {
+    "id": "F12",
+    "purpose": "minimum admitted width",
+    "ir": {
+      "id": "F12",
+      "width": 1,
+      "domain": [
+        [
+          0,
+          1
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "after": [
+        "if",
+        [
+          "eq",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "c",
+          1
+        ],
+        [
+          "uadd",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ]
+      ]
+    },
+    "assignments": 2,
+    "counts": {
+      "repair": 1,
+      "new-fault": 0,
+      "defined-equal": 1,
+      "defined-changed": 0,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "defined-equal": {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ]
+      },
+      "repair": {
+        "input": [
+          1
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "u",
+          1
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": {
+      "case": {
+        "id": "F12",
+        "width": 1,
+        "domain": [
+          [
+            0,
+            1
+          ]
+        ],
+        "before": [
+          "uadd",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        "after": [
+          "if",
+          [
+            "eq",
+            [
+              "v",
+              0
+            ],
+            [
+              "c",
+              1
+            ]
+          ],
+          [
+            "c",
+            1
+          ],
+          [
+            "uadd",
+            [
+              "v",
+              0
+            ],
+            [
+              "c",
+              1
+            ]
+          ]
+        ]
+      },
+      "input": [
+        1
+      ],
+      "before": [
+        "fault",
+        "add-overflow"
+      ],
+      "after": [
+        "u",
+        1
+      ],
+      "before_trace": [
+        [
+          "0",
+          "u",
+          1
+        ],
+        [
+          "1",
+          "u",
+          1
+        ],
+        [
+          "",
+          "fault",
+          "add-overflow"
+        ]
+      ],
+      "after_trace": [
+        [
+          "00",
+          "u",
+          1
+        ],
+        [
+          "01",
+          "u",
+          1
+        ],
+        [
+          "0",
+          "b",
+          true
+        ],
+        [
+          "1",
+          "u",
+          1
+        ],
+        [
+          "",
+          "u",
+          1
+        ]
+      ]
+    },
+    "witness_search_assignments": 2,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          1
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "repair"
+      }
+    ]
+  },
+  {
+    "id": "F13",
+    "purpose": "maximum admitted width mixed change",
+    "ir": {
+      "id": "F13",
+      "width": 5,
+      "domain": [
+        [
+          0,
+          31
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "after": [
+        "uadd",
+        [
+          "sub",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "c",
+          1
+        ]
+      ]
+    },
+    "assignments": 32,
+    "counts": {
+      "repair": 1,
+      "new-fault": 1,
+      "defined-equal": 0,
+      "defined-changed": 30,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "new-fault": {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ]
+      },
+      "defined-changed": {
+        "input": [
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          1
+        ]
+      },
+      "repair": {
+        "input": [
+          31
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "u",
+          31
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": {
+      "case": {
+        "id": "F13",
+        "width": 5,
+        "domain": [
+          [
+            0,
+            31
+          ]
+        ],
+        "before": [
+          "uadd",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        "after": [
+          "uadd",
+          [
+            "sub",
+            [
+              "v",
+              0
+            ],
+            [
+              "c",
+              1
+            ]
+          ],
+          [
+            "c",
+            1
+          ]
+        ]
+      },
+      "input": [
+        31
+      ],
+      "before": [
+        "fault",
+        "add-overflow"
+      ],
+      "after": [
+        "u",
+        31
+      ],
+      "before_trace": [
+        [
+          "0",
+          "u",
+          31
+        ],
+        [
+          "1",
+          "u",
+          1
+        ],
+        [
+          "",
+          "fault",
+          "add-overflow"
+        ]
+      ],
+      "after_trace": [
+        [
+          "00",
+          "u",
+          31
+        ],
+        [
+          "01",
+          "u",
+          1
+        ],
+        [
+          "0",
+          "u",
+          30
+        ],
+        [
+          "1",
+          "u",
+          1
+        ],
+        [
+          "",
+          "u",
+          31
+        ]
+      ]
+    },
+    "witness_search_assignments": 32,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          0
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "kind": "new-fault"
+      },
+      {
+        "input": [
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          2
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          3
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          4
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          5
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          6
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          7
+        ],
+        "before": [
+          "u",
+          8
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          8
+        ],
+        "before": [
+          "u",
+          9
+        ],
+        "after": [
+          "u",
+          8
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          9
+        ],
+        "before": [
+          "u",
+          10
+        ],
+        "after": [
+          "u",
+          9
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          10
+        ],
+        "before": [
+          "u",
+          11
+        ],
+        "after": [
+          "u",
+          10
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          11
+        ],
+        "before": [
+          "u",
+          12
+        ],
+        "after": [
+          "u",
+          11
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          12
+        ],
+        "before": [
+          "u",
+          13
+        ],
+        "after": [
+          "u",
+          12
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          13
+        ],
+        "before": [
+          "u",
+          14
+        ],
+        "after": [
+          "u",
+          13
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          14
+        ],
+        "before": [
+          "u",
+          15
+        ],
+        "after": [
+          "u",
+          14
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          15
+        ],
+        "before": [
+          "u",
+          16
+        ],
+        "after": [
+          "u",
+          15
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          16
+        ],
+        "before": [
+          "u",
+          17
+        ],
+        "after": [
+          "u",
+          16
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          17
+        ],
+        "before": [
+          "u",
+          18
+        ],
+        "after": [
+          "u",
+          17
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          18
+        ],
+        "before": [
+          "u",
+          19
+        ],
+        "after": [
+          "u",
+          18
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          19
+        ],
+        "before": [
+          "u",
+          20
+        ],
+        "after": [
+          "u",
+          19
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          20
+        ],
+        "before": [
+          "u",
+          21
+        ],
+        "after": [
+          "u",
+          20
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          21
+        ],
+        "before": [
+          "u",
+          22
+        ],
+        "after": [
+          "u",
+          21
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          22
+        ],
+        "before": [
+          "u",
+          23
+        ],
+        "after": [
+          "u",
+          22
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          23
+        ],
+        "before": [
+          "u",
+          24
+        ],
+        "after": [
+          "u",
+          23
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          24
+        ],
+        "before": [
+          "u",
+          25
+        ],
+        "after": [
+          "u",
+          24
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          25
+        ],
+        "before": [
+          "u",
+          26
+        ],
+        "after": [
+          "u",
+          25
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          26
+        ],
+        "before": [
+          "u",
+          27
+        ],
+        "after": [
+          "u",
+          26
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          27
+        ],
+        "before": [
+          "u",
+          28
+        ],
+        "after": [
+          "u",
+          27
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          28
+        ],
+        "before": [
+          "u",
+          29
+        ],
+        "after": [
+          "u",
+          28
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          29
+        ],
+        "before": [
+          "u",
+          30
+        ],
+        "after": [
+          "u",
+          29
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          30
+        ],
+        "before": [
+          "u",
+          31
+        ],
+        "after": [
+          "u",
+          30
+        ],
+        "kind": "defined-changed"
+      },
+      {
+        "input": [
+          31
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "after": [
+          "u",
+          31
+        ],
+        "kind": "repair"
+      }
+    ]
+  },
+  {
+    "id": "F14",
+    "purpose": "restricted rectangular input domain",
+    "ir": {
+      "id": "F14",
+      "width": 3,
+      "domain": [
+        [
+          2,
+          5
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "before": [
+        "umul",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "after": [
+        "mul",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ]
+    },
+    "assignments": 12,
+    "counts": {
+      "repair": 5,
+      "new-fault": 0,
+      "defined-equal": 7,
+      "defined-changed": 0,
+      "both-fault": 0
+    },
+    "first_examples": {
+      "defined-equal": {
+        "input": [
+          2,
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ]
+      },
+      "repair": {
+        "input": [
+          3,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          1
+        ]
+      }
+    },
+    "source_syntax_changed": true,
+    "certificate": {
+      "case": {
+        "id": "F14",
+        "width": 3,
+        "domain": [
+          [
+            2,
+            5
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "before": [
+          "umul",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        "after": [
+          "mul",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ]
+      },
+      "input": [
+        3,
+        3
+      ],
+      "before": [
+        "fault",
+        "mul-overflow"
+      ],
+      "after": [
+        "u",
+        1
+      ],
+      "before_trace": [
+        [
+          "0",
+          "u",
+          3
+        ],
+        [
+          "1",
+          "u",
+          3
+        ],
+        [
+          "",
+          "fault",
+          "mul-overflow"
+        ]
+      ],
+      "after_trace": [
+        [
+          "0",
+          "u",
+          3
+        ],
+        [
+          "1",
+          "u",
+          3
+        ],
+        [
+          "",
+          "u",
+          1
+        ]
+      ]
+    },
+    "witness_search_assignments": 6,
+    "simple_baseline_set_agreement": true,
+    "observations": [
+      {
+        "input": [
+          2,
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          2
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          2,
+          3
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          1
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "after": [
+          "u",
+          3
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          2
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "after": [
+          "u",
+          6
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          3,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          1
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          1
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          4,
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          0
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          4,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          4
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          1
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "after": [
+          "u",
+          5
+        ],
+        "kind": "defined-equal"
+      },
+      {
+        "input": [
+          5,
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          2
+        ],
+        "kind": "repair"
+      },
+      {
+        "input": [
+          5,
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "after": [
+          "u",
+          7
+        ],
+        "kind": "repair"
+      }
+    ]
+  }
+]

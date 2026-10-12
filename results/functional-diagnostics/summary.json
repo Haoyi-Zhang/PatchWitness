@@ -1,0 +1,39 @@
+{
+  "scope": "Authored pure functional programs and explicit bounded helpers; no external patches or security labels",
+  "cases": 14,
+  "assignments": 414,
+  "counts": {
+    "repair": 106,
+    "new-fault": 38,
+    "defined-equal": 209,
+    "defined-changed": 44,
+    "both-fault": 17
+  },
+  "accepted_source_bound_witnesses": 8,
+  "mismatches": 0,
+  "simple_baseline_set_mismatches": 0,
+  "simple_baseline_gain": 0,
+  "public_patch_cases_executed": 0,
+  "environment": {
+    "executable": "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.28000-SP0",
+    "workers": 1
+  },
+  "command": [
+    "D:\\CodexProjects\\2026-07-13\\new-chat-4\\completion_workspace\\library_review\\pdf-env\\Scripts\\python.exe",
+    "run_functional_diagnostics.py",
+    "--output",
+    "results/functional-diagnostics"
+  ],
+  "input_and_implementation_sha256": {
+    "data/functional-programs.json": "119aae72ee633083e6e8fafdad51ef2e9b4db8da875516de9404ef029ac58792",
+    "run_functional_diagnostics.py": "054e2371e40018a1b91f2fba9cd2b777a3435e75306e6b86e0a7081d2a4d302f",
+    "src/functional_frontend.py": "0606682cd95e70fa24b314986235b8c811da2e4272b8f3ee19a62a4f9b7d0f53",
+    "src/functional_reference.py": "0ba2fbab707746ac62ae10994147fe138ecfcff8415b55b90af5eb45ccd46ba4",
+    "src/checker.py": "1b632a1c4be0cd0a6b6e94d69ab90e411d3173c1bb417ea7e40aa05c3d7714e0",
+    "src/producer.py": "1fc0f58d63c41330ede3f0d695d732bf7a993fd556488ea96d1558b48b0bb407"
+  },
+  "wall_seconds": 0.050366699999813136,
+  "cpu_seconds": 0.03125
+}
