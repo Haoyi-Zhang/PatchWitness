@@ -245,14 +245,67 @@ def _split_top_level_arguments(content: str) -> list[str]:
     return arguments
 
 
-def _added_source(diff_context: str) -> str:
-    lines: list[str] = []
+def _mask_noncode(text: str) -> str:
+    """Mask comments/literals while preserving line and character positions."""
+    chars=list(text)
+    index=0
+    def mask(start: int, end: int) -> None:
+        for pos in range(start,end):
+            if chars[pos] not in '\r\n':chars[pos]=' '
+    while index<len(text):
+        start=index
+        if text.startswith('//',index):
+            index+=2
+            while index<len(text):
+                if text[index]=='\n' and (index==0 or text[index-1]!='\\'):break
+                index+=1
+            mask(start,index)
+        elif text.startswith('/*',index):
+            end=text.find('*/',index+2)
+            index=len(text) if end<0 else end+2
+            mask(start,index)
+        elif text.startswith('*/',index):
+            raise FrontendError('extract','unmatched-comment-delimiter')
+        elif text.startswith('R"',index):
+            match=re.match(r'R"([^\s()\\]{0,16})\(',text[index:])
+            if match is None:raise FrontendError('extract','unsupported-raw-literal')
+            closing=')'+match.group(1)+'"'
+            end=text.find(closing,index+len(match.group()))
+            if end<0:raise FrontendError('extract','unterminated-literal')
+            index=end+len(closing)
+            mask(start,index)
+        elif text[index] in {'"',"'"}:
+            quote=text[index];index+=1
+            while index<len(text) and text[index]!=quote:
+                if text[index]=='\\':index+=2
+                else:index+=1
+            if index>=len(text):raise FrontendError('extract','unterminated-literal')
+            index+=1;mask(start,index)
+        else:index+=1
+    return ''.join(chars)
+
+
+def _hunk_source(diff_context: str, side: str, added_only: bool=False) -> str:
+    """Carry lexical state through retained context, separately for each hunk."""
+    chunks: list[list[tuple[str,str]]]=[[]]
     for line in diff_context.splitlines():
-        if line.startswith("+++"):
-            continue
-        if line.startswith("+"):
-            lines.append(line[1:])
-    return "\n".join(lines)
+        if line.startswith('@@'):
+            if chunks[-1]:chunks.append([])
+        elif not line.startswith(('+++','---')) and line[:1] in {' ',side}:
+            chunks[-1].append((line[0],line[1:]))
+    output=[]
+    for chunk in chunks:
+        if not chunk:continue
+        masked=_mask_noncode('\n'.join(code for _,code in chunk)).split('\n')
+        for (prefix,_),code in zip(chunk,masked,strict=True):
+            if added_only:
+                if prefix==side:output.append(code)
+            else:output.append(prefix+code)
+    return '\n'.join(output)
+
+
+def _added_source(diff_context: str) -> str:
+    return _hunk_source(diff_context,'+',added_only=True)
 
 
 def _extract_added_if_guards(text: str) -> list[str]:
@@ -263,6 +316,7 @@ def _extract_added_if_guards(text: str) -> list[str]:
     only to initialize helper values, such as W10's datatype-dependent limit.
     Unbalanced conditions still surface as typed extraction failures.
     """
+    text=_mask_noncode(text)
     guards: list[str] = []
     for match in re.finditer(r"\bif\s*\(", text):
         open_index = text.find("(", match.start())
@@ -292,6 +346,7 @@ def _extract_added_if_guards(text: str) -> list[str]:
 
 
 def _extract_requires_guards(text: str) -> list[str]:
+    text=_mask_noncode(text)
     guards: list[str] = []
     for match in re.finditer(r"\bOP_REQUIRES\s*\(", text):
         open_index = text.find("(", match.start())
@@ -421,7 +476,7 @@ def _find_assignment(
 
 
 def _is_widening_record(record: dict[str, Any]) -> bool:
-    text = record["diff_context"]
+    text = _hunk_source(record["diff_context"],'-')+'\n'+_hunk_source(record["diff_context"],'+')
     # The mathematical negative-input magnitude model needs this RHS premise;
     # a destination declaration alone does not imply it, or native evaluation.
     declaration = (
@@ -439,7 +494,11 @@ def _is_widening_record(record: dict[str, Any]) -> bool:
 def derive_case(record: dict[str, Any]) -> tuple[dict[str, Any] | None, dict[str, str]]:
     """Derive one restricted source record or a typed abstention."""
     rid = record.get("id", "")
-    if _is_widening_record(record):
+    try:
+        widening=_is_widening_record(record)
+    except FrontendError as exc:
+        return None, {"record":rid,"status":"abstain","stage":exc.stage,"reason":exc.reason}
+    if widening:
         return ({
             "kind": "source-difference",
             "record": rid,

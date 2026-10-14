@@ -10,8 +10,9 @@ Expected extraction, parse and evaluation limitations become typed per-record ab
 
 ## Guard relation
 
-The rejection-style profile requires the braced body to begin, after whitespace,
-with a direct `return errors::` statement. A block-wide search is not the
+The extractor masks comments and literals while retaining lexical context within
+each supplied hunk. The rejection-style profile requires the first code statement
+in the braced body to be a direct `return errors::` statement. A block-wide search is not the
 extraction rule: nested or deferred returns and return text in a string do not
 establish this premise for an outer guard. A recognized inner guard does not
 automatically acquire enclosing path conditions. The frontend remains a
