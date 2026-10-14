@@ -76,7 +76,8 @@ def expression_checks():
 def owned_tests():
     # All retained tests remain discoverable. Select only authored finite tests;
     # the other modules' public-data tests are deliberately not executed here.
-    names = ['test_core', 'test_closure_checks', 'test_owned_regressions']
+    names = ['test_core', 'test_closure_checks', 'test_owned_regressions',
+             'test_rejection_guard_prefix']
     audit_names = [
         'test_exact_enumeration_detects_a_wrong_bound_formula',
         'test_unknown_intersection_labels_cancel',
