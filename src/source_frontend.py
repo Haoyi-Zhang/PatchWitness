@@ -528,7 +528,8 @@ def derive_case(record: dict[str, Any]) -> tuple[dict[str, Any] | None, dict[str
         guard = _combine(parsed, "and" if rule == "require" else "or")
         raw_context = record["source_asset"].get("context_requirements", [])
         context = [parse_expression(text) for text in raw_context]
-        normalized_hunk = re.sub(r"\s+", " ", record["diff_context"]).strip()
+        code_hunk = _hunk_source(record["diff_context"],'-')+'\n'+_hunk_source(record["diff_context"],'+')
+        normalized_hunk = re.sub(r"\s+", " ", code_hunk).strip()
         for token in raw_context:
             if re.sub(r"\s+", " ", token).strip() not in normalized_hunk:
                 raise FrontendError("extract", "context-requirement-not-in-real-hunk")

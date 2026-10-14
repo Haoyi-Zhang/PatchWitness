@@ -36,6 +36,15 @@ class RejectionGuardPrefixTests(unittest.TestCase):
         self.assertIsNotNone(case)
         self.assertEqual(case['source_tokens'],['x < 0'])
 
+    def test_context_token_requires_code_not_comment_or_literal(self):
+        for line in ('// y != 0','const char* note = "y != 0";'):
+            record={'id':'owned-context','source_asset':{'context_requirements':['y != 0']},
+                    'diff_context':'@@ -1,1 +1,2 @@\n '+line+'\n+if (x < 0) { return errors::owned(); }'}
+            case,diag=derive_case(record)
+            with self.subTest(line=line):
+                self.assertIsNone(case)
+                self.assertEqual(diag['reason'],'context-requirement-not-in-real-hunk')
+
     def test_immediate_error_return_is_selected(self):
         self.assertEqual(_extract_added_if_guards(
             'if (x < 0) { return errors::InvalidArgument("owned"); }'), ['x < 0'])
