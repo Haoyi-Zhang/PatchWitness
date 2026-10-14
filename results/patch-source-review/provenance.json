@@ -1,0 +1,47 @@
+{
+  "C11_validation": "Historical retained report only; native oracle not run by this command",
+  "command": [
+    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "run_patch_source_review.py",
+    "--output",
+    "results/patch-source-review"
+  ],
+  "cpu_seconds": 0.28125,
+  "finite_recheck": {
+    "assignments": 3712,
+    "cases": 25,
+    "certificates_replayed": 13
+  },
+  "native_execution": false,
+  "outcome": "PASS",
+  "platform": "Windows-11-10.0.28000-SP0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "retained_public_packet_recheck": {
+    "source_records_replayed": 10,
+    "syntax_p20": 0.75,
+    "units": 32,
+    "unvalidated_p20": 0.8,
+    "validated_p20": 0.75
+  },
+  "schema": "rbw-bounded-patch-review-provenance-v1",
+  "source_sha256": {
+    "data/functional-programs.json": "119aae72ee633083e6e8fafdad51ef2e9b4db8da875516de9404ef029ac58792",
+    "data/public-study/candidates.json": "b8f240f9d679c5ae0341f3128a07c0b35887f036f09a6fc1f42d0ccc25182ddb",
+    "data/public-study/labels.json": "6a8031c348a2326e6e208b14a3daebd39cfa06d185fd200b7769fa377cd3650d",
+    "data/public-study/protocol.json": "f79b022575501c2d74f36fa199411101f2a9970eae20be27747a60a588467eea",
+    "data/public-study/source-evidence-cases.json": "a0f5dc9277a6e5875d6c350eadaf23f276e74d4f90dff75fcd8b6ec8621afa3d",
+    "run_functional_diagnostics.py": "054e2371e40018a1b91f2fba9cd2b777a3435e75306e6b86e0a7081d2a4d302f",
+    "run_patch_source_review.py": "8a7f5d5e4a626fc28c65e702958a7c470590b9831b837974b2cabb5170eeebe9",
+    "src/checker.py": "1b632a1c4be0cd0a6b6e94d69ab90e411d3173c1bb417ea7e40aa05c3d7714e0",
+    "src/functional_frontend.py": "0606682cd95e70fa24b314986235b8c811da2e4272b8f3ee19a62a4f9b7d0f53",
+    "src/functional_reference.py": "0ba2fbab707746ac62ae10994147fe138ecfcff8415b55b90af5eb45ccd46ba4",
+    "src/producer.py": "1fc0f58d63c41330ede3f0d695d732bf7a993fd556488ea96d1558b48b0bb407",
+    "src/public_study.py": "b9991b1bfe4b0a5a67c10b5f3c270d2681141f562f6e2cec967ff7e23200c281",
+    "src/same_information.py": "1a428d7e79dbe7cf2df11fc2ca4b358a75f6824c3ec996dcf3615db087dcceac",
+    "src/source_frontend.py": "d92e65b5d97966d11419bb1b6b92fd4268c615c9e41b03d2d4f57592e0caac76",
+    "src/source_frontend_reference.py": "69ad8e20dc878dcdb6df63628aa1196a02aa64de14f8799b407992bf1e8e53f6"
+  },
+  "upstream_program_execution": false,
+  "wall_seconds": 0.28099999998812564,
+  "workers": 1
+}

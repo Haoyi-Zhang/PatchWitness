@@ -10,6 +10,13 @@ Expected extraction, parse and evaluation limitations become typed per-record ab
 
 ## Guard relation
 
+The rejection-style profile requires the braced body to begin, after whitespace,
+with a direct `return errors::` statement. A block-wide search is not the
+extraction rule: nested or deferred returns and return text in a string do not
+establish this premise for an outer guard. A recognized inner guard does not
+automatically acquire enclosing path conditions. The frontend remains a
+restricted pattern extractor, not a complete C/C++ lexer or control-flow parser.
+
 For bound record r, extracted guard g, context expressions p_1,...,p_m, integer assignment a and specified trigger t in {false,true}, acceptance requires: the exact candidate/case/record identities and tokens match; a is well typed for every declared variable including unvisited ones; each p_i evaluates to true; g evaluates to t; and the independently recomputed typed outcomes and traces match the record. A trigger does not establish either an old fault or safety of the new program. Local context is not a proof of reachability from an API entry point.
 
 W09 binds the unchanged `key_tensor->NumElements() > 0` precondition. Its accepted assignment is `num_elements=2`, not zero. W10 binds the unchanged `dims(i) != 0` precondition. Its accepted assignment is `dim=-1, prod=1, limit=2147483647`; the new positivity guard rejects the negative local value and short-circuits the right side. The zero assignment in the expression test schedule is outside this common source precondition and is not an accepted public record.
@@ -23,6 +30,16 @@ The retained source changes the destination declaration from `int` to `int64`. U
 The checker computes the range relation with its own integer expressions rather than calling the producer. A changed destination declaration does not by itself establish the operand's type, arithmetic conversions, runtime behavior or whole-program correctness. The range record is not covered by the finite soundness theorem.
 
 ## Independence and validation
+
+A record-free direct control evaluates the same extracted raw predicates,
+contexts, assignments and assumed destination widths via the shunting-yard
+path. It imports no record producer or record checker. On the fixed packet its
+32 relation indicators, scores and entire ranking equal the checked arm, using
+the unchanged bonus 4 and tie rule. P@20 is 0.75 for both, with zero selection
+gain. Sharing extraction does not independently validate source correspondence.
+`results/patch-source-review/` retains this comparison and local hunk accounting:
+all 39 headers across 32 excerpts disagree with retained old/new body counts.
+This is evidence of omitted lines, not a source-tree correspondence proof.
 
 Extraction has one implementation. Pratt and shunting-yard parsing are separately implemented. Recursive Python evaluation and iterative replay are separately implemented, and a C11 program evaluates an encoded expression with short-circuit control segments. Encoding/normalization and the compiler remain trusted; an independently compiled evaluator does not make source extraction independently validated.
 

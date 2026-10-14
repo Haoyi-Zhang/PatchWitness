@@ -284,7 +284,9 @@ def _extract_added_if_guards(text: str) -> list[str]:
         if depth != 0:
             raise FrontendError("extract", "unbalanced-braces")
         body = text[cursor + 1:end]
-        if re.search(r"\breturn\s+errors::", body):
+        # The declared profile requires a direct first non-whitespace return.
+        # A nested/deferred return or text inside a literal is not that premise.
+        if re.match(r"\s*return\s+errors::", body):
             guards.append(content.strip())
     return guards
 

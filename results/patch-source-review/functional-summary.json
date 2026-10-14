@@ -1,0 +1,16 @@
+{
+  "accepted_witnesses": 8,
+  "cases": 14,
+  "counts": {
+    "both-fault": 17,
+    "defined-changed": 44,
+    "defined-equal": 209,
+    "new-fault": 38,
+    "repair": 106
+  },
+  "mismatches": 0,
+  "native_execution": false,
+  "pair_inputs": 414,
+  "same_information_set_gain": 0,
+  "upstream_source_correspondence": false
+}

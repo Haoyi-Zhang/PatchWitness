@@ -1,0 +1,715 @@
+{
+  "hunks": 39,
+  "mismatching_hunks": 39,
+  "schema": "rbw-retained-excerpt-relationship-v1",
+  "scope": "Local retained-line accounting, not upstream acquisition authentication or source-tree reconstruction",
+  "units": [
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "835ac7291dd62277e27d1a66e241608b98790bb3",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/keras/engine/network.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 28,
+          "declared_old_lines": 7,
+          "header": "@@ -1063,7 +1063,28 @@ def save_weights(self, filepath, overwrite=True, save_format=None):",
+          "retained_new_lines": 16,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U001",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W02",
+      "commit": "f68fdab93fb7f4ddb4eb438c8fe052753c9413e8",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/kernels/string_ngrams_op.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 16,
+          "declared_old_lines": 6,
+          "header": "@@ -152,6 +152,16 @@ class StringNGramsOp : public tensorflow::OpKernel {",
+          "retained_new_lines": 7,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U002",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W03",
+      "commit": "e3749a6d5d1e8d11806d4a2e9cc3123d1a90b75e",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/kernels/data/experimental/threadpool_dataset_op.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 22,
+          "declared_old_lines": 6,
+          "header": "@@ -39,6 +39,22 @@ namespace experimental {",
+          "retained_new_lines": 11,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U003",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W08",
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/grappler/costs/op_level_cost_estimator.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 11,
+          "declared_old_lines": 6,
+          "header": "@@ -2190,6 +2190,11 @@ OpLevelCostEstimator::OpDimensionsFromInputs(",
+          "retained_new_lines": 8,
+          "retained_old_lines": 3
+        }
+      ],
+      "id": "U004",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W05",
+      "commit": "002408c3696b173863228223d535f9de72a101a9",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/kernels/fractional_avg_pool_op.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 26,
+          "declared_old_lines": 15,
+          "header": "@@ -311,15 +311,26 @@ class FractionalAvgPoolGradOp : public OpKernel {",
+          "retained_new_lines": 8,
+          "retained_old_lines": 4
+        },
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 11,
+          "declared_old_lines": 6,
+          "header": "@@ -320,6 +331,11 @@ class FractionalAvgPoolGradOp : public OpKernel {",
+          "retained_new_lines": 5,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U005",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "cebfa65df5451af59f88115d509b4a7830d34d26",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/lite/build_def.bzl",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -435,7 +435,7 @@ def generated_test_conversion_modes():",
+          "retained_new_lines": 1,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U006",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/kernel_tests/array_ops/concat_op_test.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 17,
+          "declared_old_lines": 6,
+          "header": "@@ -570,6 +571,17 @@ def testConcatInvalidAxis(self):",
+          "retained_new_lines": 10,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U007",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "002408c3696b173863228223d535f9de72a101a9",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/kernel_tests/nn_ops/fractional_avg_pool_op_test.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 32,
+          "declared_old_lines": 6,
+          "header": "@@ -306,6 +307,32 @@ def testDifferentInputTensorShape(self):",
+          "retained_new_lines": 25,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U008",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/kernel_tests/array_ops/array_ops_test.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 20,
+          "declared_old_lines": 6,
+          "header": "@@ -1580,6 +1580,20 @@ def testUnravelIndexZeroDim(self):",
+          "retained_new_lines": 13,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U009",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W09",
+      "commit": "f57315566d7094f322b784947093406c2aea0d7d",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/kernels/map_stage_op.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 11,
+          "declared_old_lines": 6,
+          "header": "@@ -536,6 +536,11 @@ class MapStageOp : public OpKernel {",
+          "retained_new_lines": 7,
+          "retained_old_lines": 3
+        }
+      ],
+      "id": "U010",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": [
+        {
+          "present": true,
+          "token": "key_tensor->NumElements() > 0"
+        }
+      ]
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "9b1fe8f31ee1788208d8d6b7385382e436c5e1d7",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/debug/lib/debug_data_test.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 8,
+          "header": "@@ -147,8 +147,7 @@ class DebugDumpDirTest(test_util.TensorFlowTestCase):",
+          "retained_new_lines": 1,
+          "retained_old_lines": 2
+        }
+      ],
+      "id": "U011",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/grappler/costs/op_level_cost_estimator.h",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -290,7 +290,7 @@ class OpLevelCostEstimator {",
+          "retained_new_lines": 3,
+          "retained_old_lines": 3
+        }
+      ],
+      "id": "U012",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "898c7319013fede56e08370f6aa9998aaad9df35",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/compat/compat.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -33,7 +33,7 @@",
+          "retained_new_lines": 1,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U013",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "c654965d9336981338e39e5eb1bb9632293b571b",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/compiler/mlir/lite/metrics/BUILD",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 6,
+          "header": "@@ -4,6 +4,7 @@ package(",
+          "retained_new_lines": 4,
+          "retained_old_lines": 3
+        },
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 6,
+          "header": "@@ -20,6 +21,7 @@ cc_library(",
+          "retained_new_lines": 1,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U014",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "3218043d6d3a019756607643cf65574fbfef5d7a",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/grappler/costs/op_level_cost_estimator_test.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 26,
+          "declared_old_lines": 6,
+          "header": "@@ -1383,6 +1417,26 @@ TEST_F(OpLevelCostEstimatorTest, OpDimensionsFromInputs) {",
+          "retained_new_lines": 19,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U015",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "716fea7be71d03ba486dde6c1adba245d18e805f",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/ops/losses/losses_impl.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 8,
+          "declared_old_lines": 8,
+          "header": "@@ -207,8 +207,8 @@ def compute_weighted_loss(",
+          "retained_new_lines": 2,
+          "retained_old_lines": 2
+        }
+      ],
+      "id": "U016",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "547daed2591ff84b4c9d27ae26336ab4b6d5bf06",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/kernels/gather_functor.h",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 8,
+          "declared_old_lines": 8,
+          "header": "@@ -44,8 +44,8 @@ SliceIndex HandleCopies(OpKernelContext* ctx,",
+          "retained_new_lines": 2,
+          "retained_old_lines": 2
+        }
+      ],
+      "id": "U017",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "72aa2aea58513bb00f3d9cf24bc79ebe880258a7",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/compiler/xla/python/tpu_driver/client/tpu_client.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -95,7 +95,7 @@ PyTpuClient::PyTpuClient(std::string platform_name,",
+          "retained_new_lines": 1,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U018",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W04",
+      "commit": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/ops/array_ops.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 12,
+          "declared_old_lines": 6,
+          "header": "@@ -3028,6 +3029,12 @@ REGISTER_OP(\"Dequantize\")",
+          "retained_new_lines": 6,
+          "retained_old_lines": 0
+        },
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 13,
+          "declared_old_lines": 6,
+          "header": "@@ -3035,6 +3042,13 @@ REGISTER_OP(\"Dequantize\")",
+          "retained_new_lines": 4,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U019",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "8f457cef03c03dbd646824739f152d103c4239e8",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/tools/saved_model_aot_compile.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 8,
+          "declared_old_lines": 7,
+          "header": "@@ -321,7 +321,8 @@ def aot_compile_cpu_meta_graph_def(checkpoint_path,",
+          "retained_new_lines": 3,
+          "retained_old_lines": 2
+        }
+      ],
+      "id": "U020",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W10",
+      "commit": "58b34c6c8250983948b5a781b426f6aa01fd47af",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/kernels/unravel_index_op.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 31,
+          "declared_old_lines": 12,
+          "header": "@@ -54,12 +59,31 @@ class UnravelIndexOp : public OpKernel {",
+          "retained_new_lines": 28,
+          "retained_old_lines": 9
+        }
+      ],
+      "id": "U021",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": [
+        {
+          "present": true,
+          "token": "dims(i) != 0"
+        }
+      ]
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "880d16bc8fcf8160037abc05c2585baed6a35cd5",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/compiler/mlir/tensorflow/transforms/guarantee_all_funcs_one_use.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 11,
+          "declared_old_lines": 15,
+          "header": "@@ -67,15 +67,11 @@ class GuaranteeAllFuncsOneUse",
+          "retained_new_lines": 1,
+          "retained_old_lines": 6
+        }
+      ],
+      "id": "U022",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "4475cc8744b1c6b2f61052a5da0810ecc34ee642",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/client/session_test.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 6,
+          "declared_old_lines": 7,
+          "header": "@@ -76,7 +76,6 @@",
+          "retained_new_lines": 1,
+          "retained_old_lines": 2
+        },
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 9,
+          "header": "@@ -1963,9 +1962,7 @@ def __str__(self):",
+          "retained_new_lines": 1,
+          "retained_old_lines": 3
+        }
+      ],
+      "id": "U023",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W01",
+      "commit": "08d7b00c0a5a20926363849f611729f53f3ec022",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/framework/common_shape_fns.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -2005,7 +2005,7 @@ Status ConcatShapeHelper(InferenceContext* c, int start_value_index,",
+          "retained_new_lines": 1,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U024",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "e5379bb6c053c1d1af913cd1c8c14663191e58b3",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/contrib/distribute/python/mirrored_strategy.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -87,7 +87,7 @@ def __init__(self,",
+          "retained_new_lines": 2,
+          "retained_old_lines": 2
+        }
+      ],
+      "id": "U025",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W07",
+      "commit": "23968a8bf65b009120c43b5ebcceaf52dbc9e943",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/kernels/dequantize_op.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 11,
+          "declared_old_lines": 6,
+          "header": "@@ -94,6 +94,11 @@ class DequantizeOp : public OpKernel {",
+          "retained_new_lines": 6,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U026",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "a9f8a9b1c1995dc4a7c0b6d53df8af6082325360",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/c/eager/c_api_remote_test.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -129,7 +129,7 @@",
+          "retained_new_lines": 1,
+          "retained_old_lines": 1
+        },
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -227,7 +285,7 @@ TEST(CAPI, RemoteExecuteSilentCopies) {",
+          "retained_new_lines": 1,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U027",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": "W06",
+      "commit": "37c01fb5e25c3d80213060460196406c43d31995",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/ops/array_ops.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 21,
+          "declared_old_lines": 11,
+          "header": "@@ -1653,11 +1653,21 @@ REGISTER_OP(\"ReverseSequence\")",
+          "retained_new_lines": 11,
+          "retained_old_lines": 6
+        }
+      ],
+      "id": "U028",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "49e59a8cad98ff3cfaa38247108bad2f8d23e70f",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/compiler/xla/executable_run_options.h",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 13,
+          "declared_old_lines": 6,
+          "header": "@@ -127,6 +127,13 @@ class ExecutableRunOptions {",
+          "retained_new_lines": 6,
+          "retained_old_lines": 0
+        },
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 6,
+          "header": "@@ -153,6 +160,7 @@ class ExecutableRunOptions {",
+          "retained_new_lines": 1,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U029",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "b64638ec5ccaa77b7c1eb90958e3d85ce381f91b",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/kernel_tests/array_ops/array_ops_test.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 21,
+          "declared_old_lines": 6,
+          "header": "@@ -1704,6 +1704,21 @@ class QuantizeAndDequantizeTest(test_util.TensorFlowTestCase):",
+          "retained_new_lines": 14,
+          "retained_old_lines": 0
+        }
+      ],
+      "id": "U030",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "2b703011163454ae15ba07ec89dd6bd2d8633a00",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/core/common_runtime/simple_placer.cc",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 11,
+          "declared_old_lines": 9,
+          "header": "@@ -815,9 +815,11 @@ void SimplePlacer::AssignAndLog(const string& assigned_device,",
+          "retained_new_lines": 5,
+          "retained_old_lines": 3
+        }
+      ],
+      "id": "U031",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    },
+    {
+      "all_hunk_counts_match": false,
+      "case": null,
+      "commit": "5c438dfc7a0d47b18f0064c6ad6172df6eee4325",
+      "complete_source_tree_correspondence": false,
+      "file_path": "tensorflow/python/ops/gradient_checker_v2.py",
+      "hunks": [
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 7,
+          "declared_old_lines": 7,
+          "header": "@@ -94,7 +93,7 @@ def _to_numpy(a):",
+          "retained_new_lines": 1,
+          "retained_old_lines": 1
+        },
+        {
+          "counts_match_header": false,
+          "declared_new_lines": 10,
+          "declared_old_lines": 7,
+          "header": "@@ -104,7 +103,10 @@ def _prepare(f, xs_dtypes):",
+          "retained_new_lines": 4,
+          "retained_old_lines": 1
+        }
+      ],
+      "id": "U032",
+      "native_program_execution": false,
+      "represented_context_in_unchanged_lines": []
+    }
+  ],
+  "units_with_mismatching_hunk_counts": 32
+}

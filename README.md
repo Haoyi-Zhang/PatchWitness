@@ -49,6 +49,43 @@ Add `--c11` on a host with an existing C11 compiler to cross-check the same auth
 
 ## Canonical evidence
 
+### Current patch-source and same-information comparison
+
+`python -B run_patch_source_review.py --output results/new-patch-review`
+requires an unused output directory. It rederives the same ten closed-profile
+cases and 22 abstentions, rechecks the retained public packet without executing
+upstream source, and compares checked evidence with record-free direct
+evaluation of the same source/context predicates, saved assignments and range
+assumptions. The bonus 4, control scores, rounding, tie order, candidate frame
+and labels are unchanged. All 32 indicators and scores and the complete ranking
+agree; both P@20 values are 0.75. Checked-minus-direct and checked-minus-syntax
+top-20 gains are exactly zero. This is not a reproduced strongest detector or
+a speed comparison.
+
+`results/patch-source-review/` retains raw label-free selections, same-information
+metrics, all 32 excerpt measurements, and a repeated 14-pair / 414-input owned
+functional diagnostic with unchanged partitions and zero direct-baseline gain.
+All 39 retained hunk headers mismatch their retained old/new body counts; the
+inputs are excerpts, not independently applicable patches or checked source
+trees. W09/W10 common preconditions are present in unchanged lines. The
+rejection-style extractor requires a direct first non-whitespace
+`return errors::` statement. Six owned static-pattern regressions reject
+nested/deferred/quoted return text as an outer rejection premise; a separate
+six-method same-information suite checks record independence, context, input
+types, lazy evaluation, range scope and the full fixed ranking.
+
+The diagnostic uses one process and writes selections before reading labels;
+it does not rerun the original two-process supervisor or erase development-time
+label knowledge. No native C compiler is invoked and no TensorFlow source or
+test literal is executed. The historical C11 evidence remains separate and
+unchanged. All original type, binding, byte/depth, resource and readiness gates,
+licenses and source attribution are retained.
+
+```sh
+python -B -m unittest discover -s tests -p test_rejection_guard_prefix.py -v
+python -B -m unittest discover -s tests -p test_same_information.py -v
+```
+
 ### Authored functional source bridge
 
 `src/functional_frontend.py` admits only pure single-return Python functions

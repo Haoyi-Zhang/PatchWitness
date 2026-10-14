@@ -4,8 +4,10 @@ This repository contains small, static exact minimal unified-diff excerpts and i
 TensorFlow commits solely to reproduce the restricted source-frontend and
 microcohort audit. The TensorFlow project is licensed under the Apache License
 2.0; a copy is retained at `licenses/APACHE-2.0.txt`. TensorFlow source remains
-copyright its contributors. No TensorFlow source tree, binary, model, test
-suite, or vulnerability-triggering input is included or executed.
+copyright its contributors. No complete TensorFlow source tree, binary, model,
+test suite or runnable exploit is included or executed. Static regression-test
+excerpts can quote upstream test literals; the artifact never executes those
+excerpts or applies those literals to an upstream application.
 
 The positive/negative cohort membership and publication order were derived from
 public VFDetector/VulCurator research-release records identified in

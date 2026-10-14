@@ -1,0 +1,398 @@
+{
+  "direct_ranking": [
+    "U021",
+    "U005",
+    "U008",
+    "U009",
+    "U019",
+    "U028",
+    "U026",
+    "U030",
+    "U010",
+    "U024",
+    "U003",
+    "U002",
+    "U007",
+    "U004",
+    "U031",
+    "U015",
+    "U020",
+    "U018",
+    "U017",
+    "U014",
+    "U001",
+    "U022",
+    "U012",
+    "U027",
+    "U032",
+    "U011",
+    "U006",
+    "U029",
+    "U023",
+    "U016",
+    "U013",
+    "U025"
+  ],
+  "retained_rankings": {
+    "syntax": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U030",
+      "U028",
+      "U026",
+      "U010",
+      "U007",
+      "U024",
+      "U003",
+      "U002",
+      "U031",
+      "U004",
+      "U015",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U012",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ],
+    "unvalidated": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U030",
+      "U028",
+      "U026",
+      "U010",
+      "U024",
+      "U003",
+      "U002",
+      "U007",
+      "U004",
+      "U015",
+      "U012",
+      "U031",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ],
+    "validated": [
+      "U021",
+      "U005",
+      "U008",
+      "U009",
+      "U019",
+      "U028",
+      "U026",
+      "U030",
+      "U010",
+      "U024",
+      "U003",
+      "U002",
+      "U007",
+      "U004",
+      "U031",
+      "U015",
+      "U020",
+      "U018",
+      "U017",
+      "U014",
+      "U001",
+      "U022",
+      "U012",
+      "U027",
+      "U032",
+      "U011",
+      "U006",
+      "U029",
+      "U023",
+      "U016",
+      "U013",
+      "U025"
+    ]
+  },
+  "rows": [
+    {
+      "checked_relation": 0,
+      "checked_score": 1.033538316,
+      "direct_relation": 0,
+      "direct_score": 1.033538316,
+      "id": "U001",
+      "syntax_score": 1.033538316
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 9.95976308,
+      "direct_relation": 1,
+      "direct_score": 9.95976308,
+      "id": "U002",
+      "syntax_score": 5.95976308
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 10.193832174,
+      "direct_relation": 1,
+      "direct_score": 10.193832174,
+      "id": "U003",
+      "syntax_score": 6.193832174
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 7.364791228,
+      "direct_relation": 1,
+      "direct_score": 7.364791228,
+      "id": "U004",
+      "syntax_score": 3.364791228
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 33.930740718,
+      "direct_relation": 1,
+      "direct_score": 33.930740718,
+      "id": "U005",
+      "syntax_score": 29.930740718
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.303421279,
+      "direct_relation": 0,
+      "direct_score": 0.303421279,
+      "id": "U006",
+      "syntax_score": 0.303421279
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 8.006778245,
+      "direct_relation": 0,
+      "direct_score": 8.006778245,
+      "id": "U007",
+      "syntax_score": 8.006778245
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 26.863096355,
+      "direct_relation": 0,
+      "direct_score": 26.863096355,
+      "id": "U008",
+      "syntax_score": 26.863096355
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 23.55888233,
+      "direct_relation": 0,
+      "direct_score": 23.55888233,
+      "id": "U009",
+      "syntax_score": 23.55888233
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 15.738251949,
+      "direct_relation": 1,
+      "direct_score": 15.738251949,
+      "id": "U010",
+      "syntax_score": 11.738251949
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.306778245,
+      "direct_relation": 0,
+      "direct_score": 0.306778245,
+      "id": "U011",
+      "syntax_score": 0.306778245
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.53727103,
+      "direct_relation": 0,
+      "direct_score": 0.53727103,
+      "id": "U012",
+      "syntax_score": 0.53727103
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.282095354,
+      "direct_relation": 0,
+      "direct_score": 0.282095354,
+      "id": "U013",
+      "syntax_score": 0.282095354
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 1.699448071,
+      "direct_relation": 0,
+      "direct_score": 1.699448071,
+      "id": "U014",
+      "syntax_score": 1.699448071
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 3.164428623,
+      "direct_relation": 0,
+      "direct_score": 3.164428623,
+      "id": "U015",
+      "syntax_score": 3.164428623
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.293605889,
+      "direct_relation": 0,
+      "direct_score": 0.293605889,
+      "id": "U016",
+      "syntax_score": 0.293605889
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 2.300440659,
+      "direct_relation": 0,
+      "direct_score": 2.300440659,
+      "id": "U017",
+      "syntax_score": 2.300440659
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 3.012032083,
+      "direct_relation": 0,
+      "direct_score": 3.012032083,
+      "id": "U018",
+      "syntax_score": 3.012032083
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 20.724231762,
+      "direct_relation": 1,
+      "direct_score": 20.724231762,
+      "id": "U019",
+      "syntax_score": 16.724231762
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 3.085355513,
+      "direct_relation": 0,
+      "direct_score": 3.085355513,
+      "id": "U020",
+      "syntax_score": 3.085355513
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 39.698889121,
+      "direct_relation": 1,
+      "direct_score": 39.698889121,
+      "id": "U021",
+      "syntax_score": 35.698889121
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.67976308,
+      "direct_relation": 0,
+      "direct_score": 0.67976308,
+      "id": "U022",
+      "syntax_score": 0.67976308
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.302131642,
+      "direct_relation": 0,
+      "direct_score": 0.302131642,
+      "id": "U023",
+      "syntax_score": 0.302131642
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 11.534305202,
+      "direct_relation": 1,
+      "direct_score": 11.534305202,
+      "id": "U024",
+      "syntax_score": 7.534305202
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.266876904,
+      "direct_relation": 0,
+      "direct_score": 0.266876904,
+      "id": "U025",
+      "syntax_score": 0.266876904
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 16.945239662,
+      "direct_relation": 1,
+      "direct_score": 16.945239662,
+      "id": "U026",
+      "syntax_score": 12.945239662
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.337613519,
+      "direct_relation": 0,
+      "direct_score": 0.337613519,
+      "id": "U027",
+      "syntax_score": 0.337613519
+    },
+    {
+      "checked_relation": 1,
+      "checked_score": 18.019090801,
+      "direct_relation": 1,
+      "direct_score": 18.019090801,
+      "id": "U028",
+      "syntax_score": 14.019090801
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.30318926,
+      "direct_relation": 0,
+      "direct_score": 0.30318926,
+      "id": "U029",
+      "syntax_score": 0.30318926
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 16.236251682,
+      "direct_relation": 0,
+      "direct_score": 16.236251682,
+      "id": "U030",
+      "syntax_score": 16.236251682
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 3.559175332,
+      "direct_relation": 0,
+      "direct_score": 3.559175332,
+      "id": "U031",
+      "syntax_score": 3.559175332
+    },
+    {
+      "checked_relation": 0,
+      "checked_score": 0.311524072,
+      "direct_relation": 0,
+      "direct_score": 0.311524072,
+      "id": "U032",
+      "syntax_score": 0.311524072
+    }
+  ]
+}
