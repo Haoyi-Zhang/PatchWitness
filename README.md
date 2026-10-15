@@ -167,3 +167,13 @@ Readiness has three scientific evidence checks: two are live recomputations at e
 
 `results/campaign.json` is inherited accounting. Its totals and incomplete historical run records are not a verified current CPU budget or a count of independent samples. The bounded journal validation is separately measured in reproduction logs; no unlogged historical totals are invented. The manuscript and all diagrams can be rebuilt in the separate complete project, but this repository never requires its `paper/` directory.
 The grouping check compares its count formulas with a separate aggregation of explicit unit records. Its regression tests cover both coverage-order examples and confirm that an incorrect aggregation produces mismatches. The retained scientific totals are unchanged; historical resource measurements describe the runs that produced them.
+
+## Manuscript diagrams
+
+The model and protocol schematics are drawn directly in Python as vector PDFs
+with embedded STIX fonts. They encode the stated relationships, not measured
+performance. To regenerate them with Python 3.9+ and Matplotlib:
+
+```sh
+python -B figures/draw_schematics.py --output figures
+```
