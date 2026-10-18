@@ -1,7 +1,7 @@
 {
   "C11_validation": "Historical retained report only; native oracle not run by this command",
   "command": [
-    "C:\\Users\\Administrator\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "<PYTHON_ROOT>\\python.exe",
     "run_patch_source_review.py",
     "--output",
     "results/patch-source-review"
