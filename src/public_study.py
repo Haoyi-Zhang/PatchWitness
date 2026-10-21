@@ -796,6 +796,10 @@ def evaluate_predictions(candidates: dict[str, Any], label_doc: dict[str, Any], 
     candidate_records = validate_candidates(candidates); validate_protocol(protocol, len(candidate_records)); cases = validate_source_evidence(source_evidence, {r["id"] for r in candidate_records}); validate_study_design(study_design)
     labels = validate_labels(label_doc, {r["id"]: r["group"] for r in candidate_records})
     rows = validate_predictions(predictions, candidates, source_evidence, protocol); outcomes = validate_outcomes(outcomes, rows)
+    # Input hashes and a self-consistent sort do not bind supplied scores to
+    # the scoring rule. Recompute label-free features, scores and tie order.
+    expected_predictions, _, _ = freeze_predictions(candidates, source_evidence, protocol)
+    _require(typed_equal(predictions, expected_predictions), "prediction-reconstruction")
     source_records = source_records or []
     if source_records: validate_source_records(source_records, cases, candidate_records, outcomes)
     _require({r["id"] for r in rows} == set(labels), "prediction-coverage")
