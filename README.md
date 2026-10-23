@@ -1,4 +1,4 @@
-# Replayable bounded behavioral witnesses
+# Replayable bounded behavioral evidence
 
 This standalone artifact supports a journal-formatted research manuscript on checkable evidence contracts and the interpretation of software-engineering evaluations. It contains no external model calls, new public patch campaign, upstream application execution, or exploit reproduction.
 
@@ -48,6 +48,32 @@ The current command selects 44 authored/finite tests, the complete 25-case finit
 Add `--c11` on a host with an existing C11 compiler to cross-check the same authored expressions in the owned C oracle. The prepared `.github/workflows/scientific-checks.yml` in the complete project invokes that route, with no dependency installation or public-dataset execution. That workflow and the C11 extension were not executed in the measured Windows replay.
 
 ## Canonical evidence
+
+### Complete bounded source decisions
+
+`src/bounded_decision.py` consumes a complete outcome record against separately
+supplied authored source/helper programs. It reconstructs the expected finite
+IR, checks every input exactly once, independently replays both sides, and
+recomputes typed outcomes, counts and the bounded-refinement verdict. This
+verdict means at least one repair and preservation of every old defined output,
+not absence of all faults or a security label. Validating a record is distinct
+from its verdict being true. Exhausted fuel never supplies a verdict.
+
+```sh
+python -B -m unittest discover -s tests -p test_bounded_decision.py -v
+python -O -B -m unittest discover -s tests -p test_bounded_decision.py -v
+python -B check_bounded_decisions.py --output /new/decision-check --compare results/bounded-decisions
+```
+
+The consumer rechecks the existing 414 outcomes on fourteen owned pairs.
+Eight pairs have existential repair witnesses, but only six satisfy the
+stronger bounded relation; F06 and F13 retain both a repair and a new fault.
+F08 preserves old defined outputs despite eight remaining old faults.
+`results/bounded-decisions` contains complete records, the derived summary and
+the table consumed by the paper. Comparison checks every output byte.
+Missing/duplicate/reordered inputs, false outcomes/counts, stale source and
+host-type substitutions reject. No upstream source is run, no historical
+measurement is replaced, and no speed or public-detection gain is claimed.
 
 ### Current patch-source and same-information comparison
 

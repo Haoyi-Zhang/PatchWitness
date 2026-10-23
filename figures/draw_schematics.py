@@ -103,7 +103,7 @@ def draw(out):
     d=Drawing((-1.9,-4.2,10.1,1.15))
     for name,x,y,label in [('a',0,0,'Acquisition\nrevision, date,\nlabel provenance'),
                            ('b',4.1,0,'Representation\nsource/IR relation'),
-                           ('c',8.2,0,'Replay\nbounded relation\nfor one input'),
+                           ('c',8.2,0,'Replay\nspecified relation\ntyped outcomes'),
                            ('d',8.2,-3.1,'Ranking\nfrozen rule and budget'),
                            ('e',4.1,-3.1,'Utility\nheld-out precision\nand coverage')]:d.box(name,x,y,3.1,1.8,label)
     d.edge('a','b','e','w');d.edge('b','c','e','w');d.edge('c','d');d.edge('d','e','w','e')
@@ -112,7 +112,7 @@ def draw(out):
     # Labels feed only evaluation. The prediction file precedes label opening.
     d=Drawing((-2.4,-3.5,7.6,1.2))
     d.box('inputs',0,0,4.3,1.8,'1. Label-free inputs\n32 candidates, ten\nsource-evidence cases,\nfrozen protocol',size=8.5)
-    d.box('freeze',5.2,0,4.3,1.8,'2. Freeze predictions\nsyntax, unvalidated hints,\nchecked source records,\nhashes',size=8.5)
+    d.box('freeze',5.2,0,4.3,1.8,'2. Freeze predictions\nsyntax, unvalidated hints,\nchecked source records,\ninput bindings',size=8.5)
     d.box('labels',0,-2.4,4.3,1.8,'3. Separate labels\nopened only after\nprediction file exists',size=8.5)
     d.box('eval',5.2,-2.4,4.3,1.8,'4. Evaluate and gate\nP@20, grouping,\nintervals, ablations,\nreadiness',size=8.5)
     d.edge('inputs','freeze','e','w');d.edge('freeze','eval')

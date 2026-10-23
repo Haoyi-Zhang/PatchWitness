@@ -1,0 +1,217 @@
+{
+  "bounded_refinements": 6,
+  "cases": 14,
+  "counts": {
+    "both-fault": 17,
+    "defined-changed": 44,
+    "defined-equal": 209,
+    "new-fault": 38,
+    "repair": 106
+  },
+  "existential_repairs": 8,
+  "inputs_checked": 414,
+  "repair_with_new_fault": [
+    "F06",
+    "F13"
+  ],
+  "rows": [
+    {
+      "bounded_refinement": true,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 0,
+        "defined-equal": 7,
+        "new-fault": 0,
+        "repair": 1
+      },
+      "existential_repair": true,
+      "id": "F01",
+      "inputs": 8,
+      "inputs_checked": 8
+    },
+    {
+      "bounded_refinement": false,
+      "counts": {
+        "both-fault": 1,
+        "defined-changed": 0,
+        "defined-equal": 7,
+        "new-fault": 0,
+        "repair": 0
+      },
+      "existential_repair": false,
+      "id": "F02",
+      "inputs": 8,
+      "inputs_checked": 8
+    },
+    {
+      "bounded_refinement": false,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 0,
+        "defined-equal": 64,
+        "new-fault": 0,
+        "repair": 0
+      },
+      "existential_repair": false,
+      "id": "F03",
+      "inputs": 64,
+      "inputs_checked": 64
+    },
+    {
+      "bounded_refinement": true,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 0,
+        "defined-equal": 28,
+        "new-fault": 0,
+        "repair": 36
+      },
+      "existential_repair": true,
+      "id": "F04",
+      "inputs": 64,
+      "inputs_checked": 64
+    },
+    {
+      "bounded_refinement": false,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 0,
+        "defined-equal": 28,
+        "new-fault": 36,
+        "repair": 0
+      },
+      "existential_repair": false,
+      "id": "F05",
+      "inputs": 64,
+      "inputs_checked": 64
+    },
+    {
+      "bounded_refinement": false,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 6,
+        "defined-equal": 0,
+        "new-fault": 1,
+        "repair": 1
+      },
+      "existential_repair": true,
+      "id": "F06",
+      "inputs": 8,
+      "inputs_checked": 8
+    },
+    {
+      "bounded_refinement": false,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 0,
+        "defined-equal": 8,
+        "new-fault": 0,
+        "repair": 0
+      },
+      "existential_repair": false,
+      "id": "F07",
+      "inputs": 8,
+      "inputs_checked": 8
+    },
+    {
+      "bounded_refinement": true,
+      "counts": {
+        "both-fault": 8,
+        "defined-changed": 0,
+        "defined-equal": 28,
+        "new-fault": 0,
+        "repair": 28
+      },
+      "existential_repair": true,
+      "id": "F08",
+      "inputs": 64,
+      "inputs_checked": 64
+    },
+    {
+      "bounded_refinement": false,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 8,
+        "defined-equal": 0,
+        "new-fault": 0,
+        "repair": 0
+      },
+      "existential_repair": false,
+      "id": "F09",
+      "inputs": 8,
+      "inputs_checked": 8
+    },
+    {
+      "bounded_refinement": true,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 0,
+        "defined-equal": 31,
+        "new-fault": 0,
+        "repair": 33
+      },
+      "existential_repair": true,
+      "id": "F10",
+      "inputs": 64,
+      "inputs_checked": 64
+    },
+    {
+      "bounded_refinement": false,
+      "counts": {
+        "both-fault": 8,
+        "defined-changed": 0,
+        "defined-equal": 0,
+        "new-fault": 0,
+        "repair": 0
+      },
+      "existential_repair": false,
+      "id": "F11",
+      "inputs": 8,
+      "inputs_checked": 8
+    },
+    {
+      "bounded_refinement": true,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 0,
+        "defined-equal": 1,
+        "new-fault": 0,
+        "repair": 1
+      },
+      "existential_repair": true,
+      "id": "F12",
+      "inputs": 2,
+      "inputs_checked": 2
+    },
+    {
+      "bounded_refinement": false,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 30,
+        "defined-equal": 0,
+        "new-fault": 1,
+        "repair": 1
+      },
+      "existential_repair": true,
+      "id": "F13",
+      "inputs": 32,
+      "inputs_checked": 32
+    },
+    {
+      "bounded_refinement": true,
+      "counts": {
+        "both-fault": 0,
+        "defined-changed": 0,
+        "defined-equal": 7,
+        "new-fault": 0,
+        "repair": 5
+      },
+      "existential_repair": true,
+      "id": "F14",
+      "inputs": 12,
+      "inputs_checked": 12
+    }
+  ],
+  "scope": "Rechecked retained authored pure/helper sources, not public patches",
+  "status": "PASS"
+}

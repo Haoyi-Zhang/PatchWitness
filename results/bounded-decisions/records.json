@@ -1,0 +1,6542 @@
+[
+  {
+    "bounded_refinement": true,
+    "case": {
+      "after": [
+        "if",
+        [
+          "eq",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            7
+          ]
+        ],
+        [
+          "c",
+          7
+        ],
+        [
+          "uadd",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F01",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 7,
+      "new-fault": 0,
+      "repair": 1
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": false,
+    "case": {
+      "after": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F02",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 1,
+      "defined-changed": 0,
+      "defined-equal": 7,
+      "new-fault": 0,
+      "repair": 0
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          6
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": false,
+    "case": {
+      "after": [
+        "add",
+        [
+          "v",
+          1
+        ],
+        [
+          "v",
+          0
+        ]
+      ],
+      "before": [
+        "add",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F03",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 64,
+      "new-fault": 0,
+      "repair": 0
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          0,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          0,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          0,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          0,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          0,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          0,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          0,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          1,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          1,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          1,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          1,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          1,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          1,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          1,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          2,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          2,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          2,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          2,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          2,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          2,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          2,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          3,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          3,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          3,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          3,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          3,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          3,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          3,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          4,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          4,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          4,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          4,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          4,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          4,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          4,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          5,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          5,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          5,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          5,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          5,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          5,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          6,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          6,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          6,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          6,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          6,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          6,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          6,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          7,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          7,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          7,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          7,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          7,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          7,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          7,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": true,
+    "case": {
+      "after": [
+        "if",
+        [
+          "lt",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "index",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "c",
+          0
+        ]
+      ],
+      "before": [
+        "index",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F04",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 28,
+      "new-fault": 0,
+      "repair": 36
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          0,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          1,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          1,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          2,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          2,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          2,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          3,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          3,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          3,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          3,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          6,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": false,
+    "case": {
+      "after": [
+        "index",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "before": [
+        "if",
+        [
+          "lt",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "index",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "c",
+          0
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F05",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 28,
+      "new-fault": 36,
+      "repair": 0
+    },
+    "rows": [
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          7
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          1,
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          1,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          7
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          2,
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          2,
+          1
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          2,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          7
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          3,
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          3,
+          1
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          3,
+          2
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          3,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          7
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          4,
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          4,
+          1
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          4,
+          2
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          4,
+          3
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          4,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          7
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5,
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5,
+          1
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5,
+          2
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5,
+          3
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5,
+          4
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          7
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          1
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          2
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          3
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          4
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          5
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          6,
+          7
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          1
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          2
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          3
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          4
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          5
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          6
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": false,
+    "case": {
+      "after": [
+        "uadd",
+        [
+          "sub",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F06",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 6,
+      "defined-equal": 0,
+      "new-fault": 1,
+      "repair": 1
+    },
+    "rows": [
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": false,
+    "case": {
+      "after": [
+        "if",
+        [
+          "lt",
+          [
+            "c",
+            0
+          ],
+          [
+            "c",
+            0
+          ]
+        ],
+        [
+          "uadd",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "c",
+          0
+        ]
+      ],
+      "before": [
+        "c",
+        0
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F07",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 8,
+      "new-fault": 0,
+      "repair": 0
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": true,
+    "case": {
+      "after": [
+        "if",
+        [
+          "le",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "index",
+          [
+            "v",
+            0
+          ],
+          [
+            "v",
+            1
+          ]
+        ],
+        [
+          "c",
+          0
+        ]
+      ],
+      "before": [
+        "index",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F08",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 8,
+      "defined-changed": 0,
+      "defined-equal": 28,
+      "new-fault": 0,
+      "repair": 28
+    },
+    "rows": [
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          0,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          1,
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          1,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          2,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          2,
+          1
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          2,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          3,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          3,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          3,
+          2
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          3,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          3
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          4,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          4
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          5,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          5
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          6,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          6,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          6
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "index-outside"
+        ],
+        "before": [
+          "fault",
+          "index-outside"
+        ],
+        "input": [
+          7,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": false,
+    "case": {
+      "after": [
+        "add",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          2
+        ]
+      ],
+      "before": [
+        "add",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F09",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 8,
+      "defined-equal": 0,
+      "new-fault": 0,
+      "repair": 0
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": true,
+    "case": {
+      "after": [
+        "if",
+        [
+          "eq",
+          [
+            "v",
+            1
+          ],
+          [
+            "c",
+            0
+          ]
+        ],
+        [
+          "c",
+          0
+        ],
+        [
+          "if",
+          [
+            "le",
+            [
+              "v",
+              0
+            ],
+            [
+              "c",
+              1
+            ]
+          ],
+          [
+            "umul",
+            [
+              "v",
+              0
+            ],
+            [
+              "v",
+              1
+            ]
+          ],
+          [
+            "mul",
+            [
+              "v",
+              0
+            ],
+            [
+              "v",
+              1
+            ]
+          ]
+        ]
+      ],
+      "before": [
+        "umul",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F10",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 31,
+      "new-fault": 0,
+      "repair": 33
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          0,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          1,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          1,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          1,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          1,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          1,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          1,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          1,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          1,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          2,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          2,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          2,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          2,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          2,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          2,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          2,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          3,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          3,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          3,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          3,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          3,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          3,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          3,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          4,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          4,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          4,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          4,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          4,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          4,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          4,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          5,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          5,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          5,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          5,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          5,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          5,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          5,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          6,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          6,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          6,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          6,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          6,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          6,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          6,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          6,
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "u",
+          0
+        ],
+        "input": [
+          7,
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          7,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          7,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          7,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          7,
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          7,
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          7,
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          7,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": false,
+    "case": {
+      "after": [
+        "add",
+        [
+          "uadd",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "umul",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            7
+          ]
+        ]
+      ],
+      "before": [
+        "add",
+        [
+          "uadd",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "umul",
+          [
+            "c",
+            7
+          ],
+          [
+            "c",
+            7
+          ]
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          7
+        ]
+      ],
+      "id": "F11",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 8,
+      "defined-changed": 0,
+      "defined-equal": 0,
+      "new-fault": 0,
+      "repair": 0
+    },
+    "rows": [
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          0
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          1
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          2
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          3
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          4
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          5
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          6
+        ]
+      },
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": true,
+    "case": {
+      "after": [
+        "if",
+        [
+          "eq",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "c",
+          1
+        ],
+        [
+          "uadd",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          1
+        ]
+      ],
+      "id": "F12",
+      "width": 1
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 1,
+      "new-fault": 0,
+      "repair": 1
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": false,
+    "case": {
+      "after": [
+        "uadd",
+        [
+          "sub",
+          [
+            "v",
+            0
+          ],
+          [
+            "c",
+            1
+          ]
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "before": [
+        "uadd",
+        [
+          "v",
+          0
+        ],
+        [
+          "c",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          0,
+          31
+        ]
+      ],
+      "id": "F13",
+      "width": 5
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 30,
+      "defined-equal": 0,
+      "new-fault": 1,
+      "repair": 1
+    },
+    "rows": [
+      {
+        "after": [
+          "fault",
+          "add-overflow"
+        ],
+        "before": [
+          "u",
+          1
+        ],
+        "input": [
+          0
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          4
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          5
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          7
+        ],
+        "input": [
+          6
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "u",
+          8
+        ],
+        "input": [
+          7
+        ]
+      },
+      {
+        "after": [
+          "u",
+          8
+        ],
+        "before": [
+          "u",
+          9
+        ],
+        "input": [
+          8
+        ]
+      },
+      {
+        "after": [
+          "u",
+          9
+        ],
+        "before": [
+          "u",
+          10
+        ],
+        "input": [
+          9
+        ]
+      },
+      {
+        "after": [
+          "u",
+          10
+        ],
+        "before": [
+          "u",
+          11
+        ],
+        "input": [
+          10
+        ]
+      },
+      {
+        "after": [
+          "u",
+          11
+        ],
+        "before": [
+          "u",
+          12
+        ],
+        "input": [
+          11
+        ]
+      },
+      {
+        "after": [
+          "u",
+          12
+        ],
+        "before": [
+          "u",
+          13
+        ],
+        "input": [
+          12
+        ]
+      },
+      {
+        "after": [
+          "u",
+          13
+        ],
+        "before": [
+          "u",
+          14
+        ],
+        "input": [
+          13
+        ]
+      },
+      {
+        "after": [
+          "u",
+          14
+        ],
+        "before": [
+          "u",
+          15
+        ],
+        "input": [
+          14
+        ]
+      },
+      {
+        "after": [
+          "u",
+          15
+        ],
+        "before": [
+          "u",
+          16
+        ],
+        "input": [
+          15
+        ]
+      },
+      {
+        "after": [
+          "u",
+          16
+        ],
+        "before": [
+          "u",
+          17
+        ],
+        "input": [
+          16
+        ]
+      },
+      {
+        "after": [
+          "u",
+          17
+        ],
+        "before": [
+          "u",
+          18
+        ],
+        "input": [
+          17
+        ]
+      },
+      {
+        "after": [
+          "u",
+          18
+        ],
+        "before": [
+          "u",
+          19
+        ],
+        "input": [
+          18
+        ]
+      },
+      {
+        "after": [
+          "u",
+          19
+        ],
+        "before": [
+          "u",
+          20
+        ],
+        "input": [
+          19
+        ]
+      },
+      {
+        "after": [
+          "u",
+          20
+        ],
+        "before": [
+          "u",
+          21
+        ],
+        "input": [
+          20
+        ]
+      },
+      {
+        "after": [
+          "u",
+          21
+        ],
+        "before": [
+          "u",
+          22
+        ],
+        "input": [
+          21
+        ]
+      },
+      {
+        "after": [
+          "u",
+          22
+        ],
+        "before": [
+          "u",
+          23
+        ],
+        "input": [
+          22
+        ]
+      },
+      {
+        "after": [
+          "u",
+          23
+        ],
+        "before": [
+          "u",
+          24
+        ],
+        "input": [
+          23
+        ]
+      },
+      {
+        "after": [
+          "u",
+          24
+        ],
+        "before": [
+          "u",
+          25
+        ],
+        "input": [
+          24
+        ]
+      },
+      {
+        "after": [
+          "u",
+          25
+        ],
+        "before": [
+          "u",
+          26
+        ],
+        "input": [
+          25
+        ]
+      },
+      {
+        "after": [
+          "u",
+          26
+        ],
+        "before": [
+          "u",
+          27
+        ],
+        "input": [
+          26
+        ]
+      },
+      {
+        "after": [
+          "u",
+          27
+        ],
+        "before": [
+          "u",
+          28
+        ],
+        "input": [
+          27
+        ]
+      },
+      {
+        "after": [
+          "u",
+          28
+        ],
+        "before": [
+          "u",
+          29
+        ],
+        "input": [
+          28
+        ]
+      },
+      {
+        "after": [
+          "u",
+          29
+        ],
+        "before": [
+          "u",
+          30
+        ],
+        "input": [
+          29
+        ]
+      },
+      {
+        "after": [
+          "u",
+          30
+        ],
+        "before": [
+          "u",
+          31
+        ],
+        "input": [
+          30
+        ]
+      },
+      {
+        "after": [
+          "u",
+          31
+        ],
+        "before": [
+          "fault",
+          "add-overflow"
+        ],
+        "input": [
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "bounded_refinement": true,
+    "case": {
+      "after": [
+        "mul",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "before": [
+        "umul",
+        [
+          "v",
+          0
+        ],
+        [
+          "v",
+          1
+        ]
+      ],
+      "domain": [
+        [
+          2,
+          5
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "id": "F14",
+      "width": 3
+    },
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 7,
+      "new-fault": 0,
+      "repair": 5
+    },
+    "rows": [
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "u",
+          2
+        ],
+        "input": [
+          2,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          2,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          2,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          3
+        ],
+        "before": [
+          "u",
+          3
+        ],
+        "input": [
+          3,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          6
+        ],
+        "before": [
+          "u",
+          6
+        ],
+        "input": [
+          3,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          1
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          3,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "u",
+          4
+        ],
+        "input": [
+          4,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          0
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          4,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          4
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          4,
+          3
+        ]
+      },
+      {
+        "after": [
+          "u",
+          5
+        ],
+        "before": [
+          "u",
+          5
+        ],
+        "input": [
+          5,
+          1
+        ]
+      },
+      {
+        "after": [
+          "u",
+          2
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          5,
+          2
+        ]
+      },
+      {
+        "after": [
+          "u",
+          7
+        ],
+        "before": [
+          "fault",
+          "mul-overflow"
+        ],
+        "input": [
+          5,
+          3
+        ]
+      }
+    ]
+  }
+]
