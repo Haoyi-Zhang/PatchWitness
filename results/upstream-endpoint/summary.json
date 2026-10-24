@@ -1,0 +1,34 @@
+{
+  "bounded_refinement": true,
+  "counts": {
+    "both-fault": 0,
+    "defined-changed": 0,
+    "defined-equal": 136,
+    "new-fault": 0,
+    "repair": 120
+  },
+  "decision": "accept-local-preservation",
+  "direct_baseline": {
+    "bounded_refinement": true,
+    "counts": {
+      "both-fault": 0,
+      "defined-changed": 0,
+      "defined-equal": 136,
+      "new-fault": 0,
+      "repair": 120
+    },
+    "meaning": "Same decisions without a portable outcome record; no speedup claim",
+    "outcome_evaluations": 512,
+    "paired_inputs": 256
+  },
+  "inputs_checked": 256,
+  "negative_controls": {
+    "false-outcome": "outcome-replay",
+    "false-verdict": "refinement-verdict",
+    "missing-input": "complete-domain",
+    "stale-source": "source-binding"
+  },
+  "record_utf8_bytes": 43799,
+  "replay_node_visits": 3344,
+  "source_kind": "attributed-local-edit-with-owned-normalized-helper-model"
+}

@@ -49,6 +49,34 @@ Add `--c11` on a host with an existing C11 compiler to cross-check the same auth
 
 ## Canonical evidence
 
+### Source-linked endpoint consumer
+
+`data/upstream-foundry-endpoint.json` retains the actual Foundry revision,
+parent, old/new local expressions and common Some/Some/Some context. The
+correspondence is explicit: offset = usize::MAX - deficit, length = n, both
+deficit and n in 0..15, overflow checks enabled, and a defined endpoint encoded
+by its deficit from usize::MAX. The five-bit helper width encodes that small
+deficit, not a reduced machine word. The selected upstream excerpts retain the
+notice in `data/foundry-LICENSE-MIT.txt`.
+
+Run `python -B check_upstream_endpoint.py --output /new/endpoint-result`, then
+`python -B check_upstream_endpoint.py --record /new/endpoint-result/record.json`.
+The latter process obtains its expected model from the separate checked-in
+specification, not from the submitted record. The canonical record and summary
+are under `results/upstream-endpoint/`. All 256 inputs give 120 repairs and
+136 equal-defined outcomes, no new faults or changed-defined outputs, and
+bounded preservation true. Same-information direct mathematical arithmetic
+independently computes the same partition and verdict. Four explicit altered
+records reject. The record is 43,799 UTF-8 bytes; replay visits 3,344 IR nodes.
+Neither count is a runtime speed claim. Four unit tests also check incomplete
+single-witness substitution and an enlarged domain.
+
+This is an owned, manually justified helper model of an actual local edit,
+not an extracted Rust program, independent maintenance sample, whole-patch
+approval or security label. Only owned formulas/IR run; Foundry and its upstream
+tests are not executed. Branch reachability, UI consumers and release-mode
+wrapping behavior remain outside the relation.
+
 ### Complete bounded source decisions
 
 `src/bounded_decision.py` consumes a complete outcome record against separately

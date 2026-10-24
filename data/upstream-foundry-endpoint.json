@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/foundry-rs/foundry",
+  "commit": "b15566c6a83f12a85cd30604c9c46347e9c32578",
+  "parent": "e7804d01234f156967a4eb59e4e051940a5521b4",
+  "path": "crates/debugger/src/tui/draw.rs",
+  "retrieved_utc_date": "2026-10-24",
+  "source_kind": "Selected exact upstream expressions and common context; not an applicable full patch",
+  "common_context": "if let (Some(offset), Some(len), Some(color)) = (offset, len, color) {",
+  "before_source_excerpt": "end = Some(offset + len);",
+  "after_source_excerpt": "let offset_end = offset.saturating_add(len);\nend = Some(offset_end);",
+  "mapping": "On entering the retained Some/Some/Some branch, set H=usize::MAX, offset=H-d and len=n, with 0<=d,n<=15. Assume overflow checking enabled. Encode defined endpoint e by H-e; encode overflow panic as add-overflow. The local endpoint is studied before any UI/range consumers. No claim about reaching the branch from arbitrary application inputs.",
+  "references": [
+    "https://github.com/foundry-rs/foundry/commit/b15566c6a83f12a85cd30604c9c46347e9c32578",
+    "https://doc.rust-lang.org/reference/expressions/operator-expr.html#overflow",
+    "https://doc.rust-lang.org/std/primitive.usize.html#method.saturating_add"
+  ],
+  "spec": {
+    "id": "FoundryEnd",
+    "width": 5,
+    "domain": [[0, 15], [0, 15]],
+    "before": "def patch(d, n):\n    return wrap_sub(d, n) if n <= d else checked_add(31, 1)\n",
+    "after": "def patch(d, n):\n    return wrap_sub(d, n) if n <= d else 0\n"
+  },
+  "boundary": "Owned normalized helper model of one genuine local arithmetic edit, not an extracted Rust AST, whole-source execution, independent sample, or security-patch label. The helper width encodes the small result deficit; it does not shrink usize to five bits."
+}
