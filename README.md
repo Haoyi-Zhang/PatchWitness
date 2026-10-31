@@ -204,6 +204,22 @@ W09 binds the unchanged nonempty check and uses `num_elements=2`. W10 binds the 
 
 ## Verification and trust
 
+For a single transferred complete helper record, run
+`python -B consume_bounded_decision.py --spec EXPECTED.json --record RECORD.json --require-preservation`.
+The expected specification is supplied separately, never extracted from the
+record. Exit 0 requires both record validity and the requested preservation
+policy; exit 3 means a truthful negative verdict; exit 2 means invalid/unavailable
+input; exit 4 means resource abstention with no verdict. Without the policy flag,
+exit 0 means only record validity. The policy does not require removal of every
+old fault and does not approve public-source correspondence or a whole patch.
+
+The endpoint runner also emits `source-packet.json`. Consume it in a separate
+process with `python -B check_upstream_endpoint.py --source-packet PATH`.
+Unlike the legacy helper-only `--record` mode, this binds the entire separately
+supplied upstream description and explicit checked-overflow/mapping premises,
+then challenges all outcomes with direct 32/64-bit arithmetic. It detects
+substitution, not source authenticity, reachability or whole-debugger correctness.
+
 `verify_results.py` re-evaluates all finite assignments, independently replays accepted source records, reconstructs source assignments/coverage, recompiles the C11 oracle, and recomputes scores, complete rankings, top sets, all CSV columns and denominators. Exact nested typing rejects Boolean/integer/float substitutions, including in unvisited assignments. It checks a unique candidate–case–record–accepted-outcome correspondence. The finite-frame runner checks its formulas against explicit completion enumeration.
 
 Readiness has three scientific evidence checks: two are live recomputations at evaluation and one refers to an input-bound retained cross-check report. The full verifier additionally re-executes that report. Bibliographic completeness is a separate editorial check, not a scientific validity condition. Six design conditions remain unsupported: checked source-tree correspondence; label-independent selection; complete repository/time window; pre-development label sealing; an appropriate strongest same-budget baseline; temporal holdout. Design declarations cannot authenticate historical events. The fixed retrospective design rejects Boolean/status promotion and has no automatic prospective-admission path.

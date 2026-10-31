@@ -19,7 +19,42 @@ import producer
 
 
 def source_spec():
-    return json.loads((ROOT / "data/upstream-foundry-endpoint.json").read_text(encoding="utf-8"))["spec"]
+    return source_document()["spec"]
+
+
+def source_document():
+    return json.loads((ROOT / "data/upstream-foundry-endpoint.json").read_text(encoding="utf-8"))
+
+
+PREMISES = dict(overflow_checks=True, usize_bits=[32, 64],
+                input_map="offset=usize::MAX-d;len=n",
+                output_map="defined-endpoint-to-deficit",
+                observation="local-endpoint-before-range-and-overlap-consumers",
+                reachability="assumed-entry-to-Some-Some-Some-branch")
+
+
+def source_packet(document, record):
+    """Bind declared correspondence; no source authentication/reachability proof."""
+    return dict(format="endpoint-correspondence-v1", source=copy.deepcopy(document),
+                premises=copy.deepcopy(PREMISES), record=copy.deepcopy(record))
+
+
+def consume_source_packet(expected_document, packet):
+    checker._fail(type(packet) is dict and set(packet) == {
+        "format", "source", "premises", "record"}, "source-packet-fields")
+    checker._fail(packet["format"] == "endpoint-correspondence-v1", "source-packet-version")
+    checker._fail(checker._typed_equal(packet["source"], expected_document),
+                  "upstream-correspondence-binding")
+    checker._fail(checker._typed_equal(packet["premises"], PREMISES), "endpoint-premises")
+    result = consume(expected_document["spec"], packet["record"])
+    # Challenge normalized helper outcomes with source-level mathematical arithmetic.
+    for row in packet["record"]["rows"]:
+        d, n = row["input"]
+        for bits in PREMISES["usize_bits"]:
+            old, new = direct(d, n, bits)
+            checker._fail(checker._typed_equal([row["before"], row["after"]],
+                                               [old, new]), "source-map-arithmetic")
+    return dict(**result, correspondence="bound-declared-premises-not-discharged")
 
 
 def direct(d, n, bits=64):
@@ -85,8 +120,16 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--output", type=Path)
     p.add_argument("--record", type=Path, help="Consume an existing record against separate checked-in spec")
+    p.add_argument("--source-packet", type=Path,
+                   help="Consume source-bound packet; does not establish branch reachability")
     args = p.parse_args()
     spec = source_spec()
+    if args.source_packet:
+        if args.record or args.output:
+            p.error("--source-packet is a separate consumer mode")
+        print(json.dumps(consume_source_packet(source_document(), checker.read_json(args.source_packet)),
+                         sort_keys=True))
+        return
     if args.record:
         record = checker.read_json(args.record)
         print(json.dumps(consume(spec, record), sort_keys=True))
@@ -118,6 +161,10 @@ def main():
     result["source_kind"] = "attributed-local-edit-with-owned-normalized-helper-model"
     args.output.mkdir(parents=True)
     (args.output / "record.json").write_text(encoded, encoding="utf-8", newline="\n")
+    packet = source_packet(source_document(), record)
+    consume_source_packet(source_document(), packet)
+    (args.output / "source-packet.json").write_text(json.dumps(packet, indent=2, sort_keys=True)+"\n",
+                                                  encoding="utf-8", newline="\n")
     (args.output / "summary.json").write_text(json.dumps(result, indent=2, sort_keys=True)+"\n",
                                            encoding="utf-8", newline="\n")
     print(json.dumps(result, sort_keys=True))
