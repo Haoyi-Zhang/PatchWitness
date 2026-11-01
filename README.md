@@ -4,6 +4,31 @@ This standalone artifact supports a journal-formatted research manuscript on che
 
 ## Evidence objects
 
+### Receiver-selected usage obligations
+
+`src/consumer_policy.py` adds application requirements on top of a complete
+bounded record: preservation of every old defined outcome, no new fault,
+optional total repair, optional existence of a repaired input, and defined
+results for a separately supplied usage set. Inputs must be typed, unique and
+inside the authoritative domain. A valid record is not itself approval for
+every usage policy; invalid/incomplete records and exhaustion yield no decision.
+
+```sh
+python -B -m unittest discover -s tests -p test_consumer_policy.py -v
+python -B check_consumer_policies.py --check results/usage-policies
+python -B check_consumer_policies.py --output /fresh/usage-decisions
+python -B report_consumer_policies.py --output ../paper/consumer-policy-results.tex
+```
+
+The unchanged fourteen source pairs and 414 outcomes supply 42 checked policy
+decisions. Partial repair approves six, total repair five, and full-domain
+usage seven; full usage does not require a newly repaired input. Record-free
+interpretation receives the same source, domain and policy and agrees on all
+42. One partial repair still has eight old faults and fails two stronger usage
+policies. These are two decisions on one pair, not two newly discovered bugs.
+The new interface reuses complete evidence for a caller's actual requirements;
+it does not add an independent patch population or a runtime/effort benefit.
+
 The finite-IR checker accepts one same-input old-fault/new-defined relation against a separately supplied, bounded unsigned IR pair. Its written relative soundness argument does not establish correctness of Python, a source translator, or an entire patch.
 
 The public-source checker has a different contract. It checks a guard trigger under explicit local context, or W01's assumed signed-destination range separation, in one retained static patch excerpt. It does not certify an old runtime fault. The single extractor uses an explicit closed case profile; parser and evaluator comparisons do not validate extraction, hidden context, macros, or whole-source semantics.

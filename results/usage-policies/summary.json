@@ -1,0 +1,21 @@
+{
+  "approved": {
+    "full_usage": 7,
+    "partial_repair": 6,
+    "total_repair": 5
+  },
+  "decisions": 42,
+  "new_independent_programs": 0,
+  "performance_claim": false,
+  "refinement_insufficient_for_policy": 2,
+  "same_information_agreements": 42,
+  "source_bindings": {
+    "data/functional-programs.json": "119aae72ee633083e6e8fafdad51ef2e9b4db8da875516de9404ef029ac58792",
+    "results/functional-diagnostics/cases.json": "ed757cba598484eda066be7935ee0a79628224f062c30dbead4fc7af5518c66e",
+    "src/bounded_decision.py": "d67eb1b27a0f08704dc7e3f94f1570a95e87f50dc97cc62249f917ae94695494",
+    "src/consumer_policy.py": "c2edb497f8450f005f23963f6b48862f16cc1d8943004a1b26bf40a9c8ed5fc0",
+    "src/functional_reference.py": "0ba2fbab707746ac62ae10994147fe138ecfcff8415b55b90af5eb45ccd46ba4"
+  },
+  "source_pairs": 14,
+  "status": "PASS"
+}
