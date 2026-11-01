@@ -40,8 +40,13 @@ def run(out):
 def check_saved(path):
     registration=json.loads((path/'registration.json').read_text())
     rows=json.loads((path/'records.json').read_text());summary=json.loads((path/'summary.json').read_text())
+    changed=[]
     for rel,digest in registration['source_bindings'].items():
-        if hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()!=digest:raise ValueError('saved input identity')
+        if hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()!=digest:
+            captured=path/'source-preimage'/rel
+            if not captured.is_file() or hashlib.sha256(captured.read_bytes()).hexdigest()!=digest:
+                raise ValueError('saved input preimage missing or differs')
+            changed.append(rel)
     specs={s['id']:s for s in json.loads((ROOT/'data/functional-programs.json').read_text())['cases']}
     retained={s['id']:s for s in json.loads((ROOT/'results/functional-diagnostics/cases.json').read_text())}
     seen=set();approved={name:0 for name in registration['policies']}
@@ -54,7 +59,8 @@ def check_saved(path):
         if row['policy']!=policy or decide(spec,record,policy)!=row['checked'] or direct(spec,policy)!=row['direct']:raise ValueError('policy decision differs')
         approved[key[1]]+=row['checked']['approved']
     if len(seen)!=42 or approved!=summary['approved']:raise ValueError('summary differs')
-    print(json.dumps(dict(status='PASS',decisions=len(seen),approved=approved)))
+    print(json.dumps(dict(status='PASS',decisions=len(seen),approved=approved,
+        measured_sources_differ_from_current=changed,current_direct_policy_recalculated=True)))
 if __name__=='__main__':
     p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--output',type=Path);g.add_argument('--check',type=Path)
     a=p.parse_args();check_saved(a.check) if a.check else run(a.output)

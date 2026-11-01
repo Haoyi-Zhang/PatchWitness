@@ -40,12 +40,28 @@ def decide(spec,record,policy,budget=None):
     return interpret(spec,record['rows'],validated['counts'],policy)
 
 def direct(spec,policy):
-    """Same source, domain and policy; no supplied record or producer interpreter."""
+    """Direct policy predicates, without the record classifier or interpreter.
+
+    Only input-schema admission is shared with the checked path. This remains
+    an implementation cross-check under the same authored mathematical policy.
+    """
     from functional_reference import build_reference
-    policy_inputs(spec,policy)
+    required=policy_inputs(spec,policy)
     before=build_reference(spec['before'],spec['width']);after=build_reference(spec['after'],spec['width'])
     counts=dict.fromkeys(KINDS,0);rows=[]
     for values in itertools.product(*(range(lo,hi+1) for lo,hi in spec['domain'])):
-        old,new=before(list(values)),after(list(values));counts[classify(old,new)]+=1
+        old,new=before(list(values)),after(list(values))
+        if old[0]=='fault':kind='both-fault' if new[0]=='fault' else 'repair'
+        elif new[0]=='fault':kind='new-fault'
+        else:kind='defined-equal' if old[1]==new[1] else 'defined-changed'
+        counts[kind]+=1
         rows.append(dict(input=list(values),before=old,after=new))
-    return interpret(spec,rows,counts,policy)
+    # Evaluate the mathematical obligations directly over source outcomes.
+    reasons=[]
+    if policy['require_repair'] and not any(r['before'][0]=='fault' and r['after'][0]=='u' for r in rows):reasons.append('no-repaired-input')
+    if any(r['before'][0]=='u' and r['after'][0]=='fault' for r in rows):reasons.append('new-fault')
+    if any(r['before'][0]==r['after'][0]=='u' and r['before'][1]!=r['after'][1] for r in rows):reasons.append('old-defined-output-changed')
+    if not policy['allow_old_faults'] and any(r['before'][0]==r['after'][0]=='fault' for r in rows):reasons.append('remaining-old-fault')
+    missing=[r['input'] for r in rows if tuple(r['input']) in required and r['after'][0]!='u']
+    if missing:reasons.append('required-usage-still-faults')
+    return dict(approved=not reasons,reasons=reasons,required_faulting_inputs=missing,counts=counts)

@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
 from bounded_decision import pack_retained,Budget
 from consumer_policy import decide,direct
@@ -37,4 +38,12 @@ class ConsumerPolicyTests(unittest.TestCase):
     def test_complete_record_replay_precedes_policy_interpretation(self):
         spec=self.specs['F08'];bad=copy.deepcopy(self.records['F08']);bad['rows'].pop()
         with self.assertRaises(Invalid):decide(spec,bad,dict(require_repair=False,allow_old_faults=True,required_inputs=[]))
+    def test_direct_policy_does_not_share_the_checked_policy_interpreter(self):
+        spec=self.specs['F08'];record=self.records['F08']
+        policy=dict(require_repair=True,allow_old_faults=False,required_inputs=[])
+        expected=direct(spec,policy)
+        self.assertFalse(expected['approved'])
+        with patch('consumer_policy.interpret',return_value={'approved':True}):
+            self.assertTrue(decide(spec,record,policy)['approved'])
+            self.assertEqual(direct(spec,policy),expected)
 if __name__=='__main__':unittest.main()

@@ -40,7 +40,7 @@ def collect():
 
 def table(rows):
     text = [r'\begin{tabular}{lrrrrrr}', r'\toprule',
-            r'Pair & Inputs & Repair & New fault & Changed & Both fault & Refines \\',
+            r'Pair & Inputs & Repair & New fault & Changed & Both fault & $Q_C$ \\',
             r'\midrule']
     for r in rows:
         text.append(' & '.join([r['id'], str(r['inputs']), str(r['counts']['repair']),

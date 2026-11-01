@@ -43,6 +43,11 @@ def read_csv(path:Path)->tuple[list[str],list[dict[str,str]]]:
 def _strip_runtime(value:dict[str,Any])->dict[str,Any]: return {k:v for k,v in value.items() if k not in RUNTIME_KEYS}
 
 def verified_reference_count(path:Path)->int:
+    """Original retained-study registration classes, not the active bibliography.
+
+    Later body-passages additions do not retroactively enter that cohort.
+    The complete active inventory is checked separately by verify_references.
+    """
     fields,rows=read_csv(path)
     require(fields==['citation_key','authoritative_url','persistent_id','metadata_status','content_check','checked_on','notes'],'reference-verification-schema')
     require(len({r['citation_key'] for r in rows})==len(rows),'reference-verification-duplicate')

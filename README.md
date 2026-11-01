@@ -20,11 +20,14 @@ python -B check_consumer_policies.py --output /fresh/usage-decisions
 python -B report_consumer_policies.py --output ../paper/consumer-policy-results.tex
 ```
 
-The unchanged fourteen source pairs and 414 outcomes supply 42 checked policy
+The retained fourteen source pairs and 414 outcomes supply 42 checked policy
 decisions. Partial repair approves six, total repair five, and full-domain
 usage seven; full usage does not require a newly repaired input. Record-free
-interpretation receives the same source, domain and policy and agrees on all
-42. One partial repair still has eight old faults and fails two stronger usage
+interpretation receives the same source, domain and policy. The current
+data-only consumer recomputes all 42 with a separately implemented policy
+interpreter; the earlier saved cohort used the shared interpretation routine.
+This is a current decision check, not a new timing or patch-population study.
+One partial repair still has eight old faults and fails two stronger usage
 policies. These are two decisions on one pair, not two newly discovered bugs.
 The new interface reuses complete evidence for a caller's actual requirements;
 it does not add an independent patch population or a runtime/effort benefit.
@@ -257,7 +260,7 @@ Readiness has three scientific evidence checks: two are live recomputations at e
 - `data/public-study/`: retained original messages, full paths, minimal real hunks, source/context provenance, annotations excluded from scoring, labels and protocol.
 - `results/finite-check/`, `results/source-frontend/`, `results/closure-checks/`, `results/finite-frame-audit/`, `results/public-study/`: canonical scientific results.
 - `results/clean-replay/`: a measured replay record and logs, not an independent external replication.
-- `reference-verification.csv`, `literature-screening.csv`: 67 aligned reference records. `literature-calibration.csv` retains 22 inherited targeted full-paper records; the present preparation does not claim to have freshly read all 67 papers.
+- `reference-verification.csv`, `literature-screening.csv`: 69 aligned reference records. Two correctness-witness sources have claim-specific body readings; `literature-calibration.csv` retains the original 22 targeted full-paper records. These scopes are distinct from the historical 67-source registration and do not assert a fresh full reading of every paper.
 - `THIRD-PARTY-NOTICES.md`: source attribution and redistribution caveats.
 
 `results/campaign.json` is inherited accounting. Its totals and incomplete historical run records are not a verified current CPU budget or a count of independent samples. The bounded journal validation is separately measured in reproduction logs; no unlogged historical totals are invented. The manuscript and all diagrams can be rebuilt in the separate complete project, but this repository never requires its `paper/` directory.

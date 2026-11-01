@@ -9,6 +9,7 @@ from public_study import evaluate_predictions,load_json,load_json_value  # noqa:
 
 def dump(path:Path,value:object)->None: path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n',encoding='utf-8')
 def verified_reference_count(path:Path)->int:
+    """Retained-study registration classes; later body-passages records excluded."""
     with path.open(newline='',encoding='utf-8') as h:
       r=csv.DictReader(h); required={'citation_key','authoritative_url','persistent_id','metadata_status','content_check','checked_on','notes'}
       if r.fieldnames is None or set(r.fieldnames)!=required: raise ValueError('reference-verification-schema')
