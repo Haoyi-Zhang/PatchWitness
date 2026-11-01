@@ -2,6 +2,10 @@
 
 This standalone artifact supports a journal-formatted research manuscript on checkable evidence contracts and the interpretation of software-engineering evaluations. It contains no external model calls, new public patch campaign, upstream application execution, or exploit reproduction.
 
+## Authors
+
+Huaijin Ran and Haoyi Zhang contributed equally to this work, followed by Yuqiang Sun and Jiongchi Yu.
+
 ## Evidence objects
 
 ### Receiver-selected usage obligations
