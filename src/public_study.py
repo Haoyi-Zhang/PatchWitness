@@ -487,6 +487,16 @@ def make_source_record(case: dict[str, Any], record: dict[str, Any]) -> dict[str
 
 
 def check_source_record(case: dict[str, Any], record: dict[str, Any], evidence: dict[str, Any]) -> tuple[bool, str]:
+    """Re-extract from the separate expected source before trusting case semantics."""
+    from source_frontend import FrontendError, derive_case
+    try:
+        derived, _ = derive_case(record)
+        if (type(case) is not dict or type(case.get("id")) is not str
+                or not re.fullmatch(r"W\d{2,3}", case["id"]) or derived is None
+                or not typed_equal(case, {"id": case["id"], **derived})):
+            return False, "source-case-binding"
+    except (FrontendError, KeyError, TypeError):
+        return False, "source-case-binding"
     if type(evidence) is not dict or evidence.get("schema") != "rbw-source-record-v2" or evidence.get("kind") != case["kind"]:
         return False, "source-record-schema"
     common = {"schema", "kind", "case", "record", "record_binding", "assignment", "source_tokens", "context_tokens"}
@@ -576,6 +586,12 @@ def freeze_predictions(candidates: dict[str, Any], source_evidence: dict[str, An
     records = validate_candidates(candidates); validate_protocol(protocol, len(records))
     by_id = {r["id"]: r for r in records}
     cases = validate_source_evidence(source_evidence, set(by_id))
+    from source_frontend import FrontendError, derive_evidence_document
+    try:
+        derived = derive_evidence_document(candidates)
+    except FrontendError as exc:
+        raise Invalid("source-evidence-extraction-binding") from exc
+    _require(typed_equal(derived, source_evidence), "source-evidence-extraction-binding")
     case_by_record = {c["record"]: c for c in cases}
     diagnostic_by_record = {d["record"]: d for d in source_evidence["diagnostics"]}
     accepted: set[str] = set(); source_records: list[dict[str, Any]] = []

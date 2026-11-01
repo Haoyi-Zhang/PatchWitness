@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import sys
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -18,6 +19,33 @@ from run_functional_diagnostics import analyze
 
 
 class FunctionalFrontendTests(unittest.TestCase):
+    def test_compiler_invalid_functions_are_unsupported_before_any_verdict(self):
+        import ast
+        from bounded_decision import validate
+        sources = [
+            'def patch(__debug__):\n    return checked_add(__debug__, 1)\n',
+            'def patch(x, x):\n    return x\n',
+        ]
+        valid = 'def patch(x):\n    return x\n'
+        for source in sources:
+            ast.parse(source)  # AST-only admission used to accept these sources.
+            for before, after in ((source, valid), (valid, source)):
+                with self.subTest(before=before, after=after):
+                    with self.assertRaisesRegex(Unsupported, 'source-syntax'):
+                        lower(source, 3)
+                    with self.assertRaisesRegex(Unsupported, 'source-syntax'):
+                        check_source_witness('CompilerGate', 3, [[0, 7]],
+                                             before, after, {}, Fuel())
+                    with self.assertRaisesRegex(Unsupported, 'source-syntax'):
+                        validate(dict(id='CompilerGate', width=3, domain=[[0, 7]],
+                                      before=before, after=after), {})
+
+    def test_compiler_validity_check_does_not_execute_source(self):
+        source = 'def patch(x):\n    return checked_add(x, 1)\n'
+        with mock.patch('builtins.exec', side_effect=AssertionError('source execution')):
+            self.assertEqual(lower(source, 3),
+                             (['x'], ['uadd', ['v', 0], ['c', 1]]))
+
     def test_all_authored_pairs_and_same_information_baseline(self):
         specs = json.loads((ROOT / "data/functional-programs.json").read_text(encoding="utf-8"))["cases"]
         reports = {spec["id"]: analyze(spec) for spec in specs}

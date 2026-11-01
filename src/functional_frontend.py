@@ -30,6 +30,9 @@ def lower(source: str, width: int):
         raise Unsupported("width")
     try:
         module = ast.parse(source, mode="exec")
+        # AST-only parsing skips some compiler checks (e.g. __debug__ parameters).
+        # Compile for validity only: never execute the resulting code object.
+        compile(module, "<functional-profile>", "exec", dont_inherit=True, optimize=0)
     except (SyntaxError, RecursionError, ValueError) as exc:
         raise Unsupported("source-syntax") from exc
     if sum(1 for _ in ast.walk(module)) > 256:

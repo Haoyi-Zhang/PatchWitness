@@ -14,7 +14,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 import run_frontend_validation as sampling
 from public_study import check_source_record, make_source_record, producer_eval, replay, typed_equal
-from source_frontend import assignment_domain, evaluate, parse_expression
+from source_frontend import assignment_domain, derive_case, evaluate, parse_expression
 from source_frontend_reference import evaluate as reference_evaluate
 
 
@@ -99,9 +99,18 @@ class AssignmentSamplingTests(unittest.TestCase):
                     self.assertTrue(typed_equal(sampling._assignments(case, count, seed), expected))
 
     def test_complete_values_traces_contexts_and_independent_checker(self):
-        record = dict(id="owned", commit="owned", file_path="owned/scalar", commit_message="owned",
-                      diff_context="owned scalar fixture")
         for case in owned_cases():
+            raw = case['source_tokens'][0]
+            context_lines = [f' OP_REQUIRES(ctx, {token}, errors::owned());'
+                             for token in case['context_tokens']]
+            guard_line = (f'+OP_REQUIRES(ctx, {raw}, errors::owned());'
+                          if case['frontend_rule'] == 'require' else
+                          f'+if ({raw}) {{ return errors::owned(); }}')
+            record = dict(id="owned", commit="owned", file_path="owned/scalar",
+                          commit_message="owned", diff_context='\n'.join(context_lines + [guard_line]),
+                          source_asset={'context_requirements': case['context_tokens']})
+            derived, _ = derive_case(record)
+            self.assertTrue(typed_equal(case, {'id': case['id'], **derived}))
             for row in sampling._assignments(case, 100, sampling.SEED):
                 assignment = row["assignment"]
                 raw = reference_evaluate(case["source_tokens"][0], assignment)
@@ -117,10 +126,16 @@ class AssignmentSamplingTests(unittest.TestCase):
                 for expr, result, steps in zip(case["context_preconditions"], evidence["context_results"],
                                                evidence["context_traces"], strict=True):
                     self.assertTrue(typed_equal((result, steps), replay(expr, assignment)))
+                # Arbitrary schedule points test expression semantics, not the
+                # source contract's exact extracted assignment. Only the saved
+                # case is a source record; rehashed alternate cases must reject.
+                bound = typed_equal(selected, {'id': case['id'], **derived})
                 self.assertEqual(check_source_record(selected, record, evidence),
-                                 (False, "source-record-context-false") if not context else
-                                 ((True, "accepted-guard-trigger") if raw is case["trigger_value"] else
-                                  (False, "source-record-not-triggered")))
+                                 (True, "accepted-guard-trigger") if bound else
+                                 (False, "source-case-binding"))
+                if bound:
+                    self.assertTrue(context)
+                    self.assertIs(raw, case['trigger_value'])
                 bad = copy.deepcopy(evidence)
                 bad["guard_result"]["payload"] = int(raw)
                 self.assertFalse(check_source_record(selected, record, bad)[0])

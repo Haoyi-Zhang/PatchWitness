@@ -11,6 +11,54 @@ class RejectionGuardPrefixTests(unittest.TestCase):
     def derive(self,diff):
         return derive_case({'id':'owned-lexical','source_asset':{'context_requirements':[]},'diff_context':diff})
 
+    def test_unchanged_statement_still_makes_return_deferred(self):
+        case, diag = self.derive('@@ -1,1 +1,4 @@\n+if (x < 0) {\n note = 1;\n+return errors::owned();\n+}')
+        self.assertIsNone(case)
+        self.assertEqual(diag['reason'], 'no-supported-added-source-pattern')
+
+    def test_unchanged_nested_guard_is_not_an_added_rejection(self):
+        case, diag = self.derive('@@ -1,2 +1,5 @@\n+if (x < 0) {\n if (y < 0) {\n+return errors::owned();\n }\n+}')
+        self.assertIsNone(case)
+        self.assertEqual(diag['status'], 'abstain')
+
+    def test_added_guard_can_have_a_direct_return_in_retained_context(self):
+        case, diag = self.derive('@@ -1,1 +1,3 @@\n+if (x < 0) {\n return errors::owned();\n+}')
+        self.assertEqual(case['source_tokens'], ['x < 0'])
+        self.assertEqual(diag['status'], 'supported')
+
+    def test_unchanged_guard_with_added_return_is_not_selected(self):
+        case, diag = self.derive('@@ -1,2 +1,3 @@\n if (x < 0) {\n+return errors::owned();\n }')
+        self.assertIsNone(case)
+        self.assertEqual(diag['status'], 'abstain')
+
+    def test_hunks_cannot_complete_each_others_conditions_or_bodies(self):
+        diffs = [
+            '@@ -1,0 +1,1 @@\n+if (x < 0) {\n@@ -100,0 +101,2 @@\n+return errors::owned();\n+}',
+            '@@ -1,0 +1,1 @@\n+if (x <\n@@ -100,0 +101,1 @@\n+0) { return errors::owned(); }',
+            '@@ -1,0 +1,1 @@\n+OP_REQUIRES(ctx,\n@@ -100,0 +101,1 @@\n+x > 0, errors::owned());',
+        ]
+        for diff in diffs:
+            with self.subTest(diff=diff):
+                case, diag = self.derive(diff)
+                self.assertIsNone(case)
+                self.assertEqual((diag['status'], diag['stage']), ('abstain', 'extract'))
+
+    def test_complete_guards_in_separate_hunks_remain_separate_observations(self):
+        case, diag = self.derive('@@ -1,0 +1,1 @@\n+if (x < 0) { return errors::owned(); }\n@@ -100,0 +101,1 @@\n+if (y < 0) { return errors::owned(); }')
+        self.assertEqual(case['source_tokens'], ['x < 0', 'y < 0'])
+        self.assertEqual(diag['status'], 'supported')
+
+    def test_admission_predicate_can_span_unchanged_context_in_one_hunk(self):
+        case, diag = self.derive('@@ -1,1 +1,3 @@\n+OP_REQUIRES(ctx,\n x > 0,\n+errors::owned());')
+        self.assertEqual(case['source_tokens'], ['x > 0'])
+        self.assertEqual(diag['status'], 'supported')
+
+    def test_widening_declarations_must_belong_to_the_same_hunk(self):
+        rhs = 'concat_dim < 0 ? -concat_dim : concat_dim + 1'
+        case, diag = self.derive(f'@@ -1,1 +1,0 @@\n-const int min_rank = {rhs};\n@@ -100,0 +100,1 @@\n+const int64 min_rank = {rhs};')
+        self.assertIsNone(case)
+        self.assertEqual(diag['status'], 'abstain')
+
     def test_comments_and_literals_do_not_supply_guards(self):
         snippets=[
             '// if (x < 0) { return errors::owned(); }',

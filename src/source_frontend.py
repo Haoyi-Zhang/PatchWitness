@@ -285,30 +285,28 @@ def _mask_noncode(text: str) -> str:
     return ''.join(chars)
 
 
-def _hunk_source(diff_context: str, side: str, added_only: bool=False) -> str:
-    """Carry lexical state through retained context, separately for each hunk."""
+def _diff_hunks(diff_context: str) -> list[list[tuple[str, str]]]:
+    """Keep hunk boundaries and line provenance, including unchanged code."""
     chunks: list[list[tuple[str,str]]]=[[]]
     for line in diff_context.splitlines():
         if line.startswith('@@'):
             if chunks[-1]:chunks.append([])
-        elif not line.startswith(('+++','---')) and line[:1] in {' ',side}:
+        elif not line.startswith(('+++','---')) and line[:1] in {' ', '+', '-'}:
             chunks[-1].append((line[0],line[1:]))
-    output=[]
-    for chunk in chunks:
-        if not chunk:continue
-        masked=_mask_noncode('\n'.join(code for _,code in chunk)).split('\n')
-        for (prefix,_),code in zip(chunk,masked,strict=True):
-            if added_only:
-                if prefix==side:output.append(code)
-            else:output.append(prefix+code)
-    return '\n'.join(output)
+    return [chunk for chunk in chunks if chunk]
 
 
-def _added_source(diff_context: str) -> str:
-    return _hunk_source(diff_context,'+',added_only=True)
+def _source_hunk(chunk: list[tuple[str, str]], side: str) -> tuple[str, set[int]]:
+    lines = [(prefix, code) for prefix, code in chunk if prefix in {' ', side}]
+    text = _mask_noncode('\n'.join(code for _, code in lines))
+    return text, {index for index, (prefix, _) in enumerate(lines) if prefix == side}
 
 
-def _extract_added_if_guards(text: str) -> list[str]:
+def _selected_line(text: str, position: int, added_lines: set[int] | None) -> bool:
+    return added_lines is None or text.count('\n', 0, position) in added_lines
+
+
+def _extract_added_if_guards(text: str, added_lines: set[int] | None = None) -> list[str]:
     """Extract only added rejection guards, not every C/C++ ``if``.
 
     A supported rejection guard must have a braced body whose first bounded
@@ -319,6 +317,8 @@ def _extract_added_if_guards(text: str) -> list[str]:
     text=_mask_noncode(text)
     guards: list[str] = []
     for match in re.finditer(r"\bif\s*\(", text):
+        if not _selected_line(text, match.start(), added_lines):
+            continue
         open_index = text.find("(", match.start())
         content, after_condition = _balanced_content(text, open_index)
         cursor = after_condition
@@ -345,10 +345,12 @@ def _extract_added_if_guards(text: str) -> list[str]:
     return guards
 
 
-def _extract_requires_guards(text: str) -> list[str]:
+def _extract_requires_guards(text: str, added_lines: set[int] | None = None) -> list[str]:
     text=_mask_noncode(text)
     guards: list[str] = []
     for match in re.finditer(r"\bOP_REQUIRES\s*\(", text):
+        if not _selected_line(text, match.start(), added_lines):
+            continue
         open_index = text.find("(", match.start())
         content, _ = _balanced_content(text, open_index)
         arguments = _split_top_level_arguments(content)
@@ -476,7 +478,6 @@ def _find_assignment(
 
 
 def _is_widening_record(record: dict[str, Any]) -> bool:
-    text = _hunk_source(record["diff_context"],'-')+'\n'+_hunk_source(record["diff_context"],'+')
     # The mathematical negative-input magnitude model needs this RHS premise;
     # a destination declaration alone does not imply it, or native evaluation.
     declaration = (
@@ -484,11 +485,18 @@ def _is_widening_record(record: dict[str, Any]) -> bool:
         r"(concat_dim\s*<\s*0\s*\?\s*-\s*concat_dim\s*:\s*concat_dim"
         r"(?:\s*\+\s*1)?)\s*;[ \t]*\r?$"
     )
-    old = re.search(r"(?m)^-\s*const\s+int" + declaration, text)
-    new = re.search(r"(?m)^\+\s*const\s+int64" + declaration, text)
-    return bool(old and new and
-                re.sub(r"\s+", "", old.group(1)) ==
-                re.sub(r"\s+", "", new.group(1)))
+    for chunk in _diff_hunks(record["diff_context"]):
+        sides = []
+        for side in ('-', '+'):
+            text, changed = _source_hunk(chunk, side)
+            sides.append('\n'.join(side + line if i in changed else ' ' + line
+                                   for i, line in enumerate(text.split('\n'))))
+        old = re.search(r"(?m)^-\s*const\s+int" + declaration, sides[0])
+        new = re.search(r"(?m)^\+\s*const\s+int64" + declaration, sides[1])
+        if (old and new and re.sub(r"\s+", "", old.group(1)) ==
+                re.sub(r"\s+", "", new.group(1))):
+            return True
+    return False
 
 
 def derive_case(record: dict[str, Any]) -> tuple[dict[str, Any] | None, dict[str, str]]:
@@ -510,9 +518,11 @@ def derive_case(record: dict[str, Any]) -> tuple[dict[str, Any] | None, dict[str
         }, {"record": rid, "status": "supported", "stage": "extract", "reason": "recognized-widening"})
 
     try:
-        added = _added_source(record["diff_context"])
-        requires = _extract_requires_guards(added)
-        added_ifs = _extract_added_if_guards(added)
+        requires, added_ifs = [], []
+        for chunk in _diff_hunks(record["diff_context"]):
+            text, added_lines = _source_hunk(chunk, '+')
+            requires.extend(_extract_requires_guards(text, added_lines))
+            added_ifs.extend(_extract_added_if_guards(text, added_lines))
     except FrontendError as exc:
         return None, {"record": rid, "status": "abstain", "stage": exc.stage, "reason": exc.reason}
 
@@ -528,10 +538,12 @@ def derive_case(record: dict[str, Any]) -> tuple[dict[str, Any] | None, dict[str
         guard = _combine(parsed, "and" if rule == "require" else "or")
         raw_context = record["source_asset"].get("context_requirements", [])
         context = [parse_expression(text) for text in raw_context]
-        code_hunk = _hunk_source(record["diff_context"],'-')+'\n'+_hunk_source(record["diff_context"],'+')
-        normalized_hunk = re.sub(r"\s+", " ", code_hunk).strip()
+        normalized_hunks = [re.sub(r"\s+", " ", _source_hunk(chunk, side)[0]).strip()
+                            for chunk in _diff_hunks(record["diff_context"])
+                            for side in ('-', '+')]
         for token in raw_context:
-            if re.sub(r"\s+", " ", token).strip() not in normalized_hunk:
+            if not any(re.sub(r"\s+", " ", token).strip() in text
+                       for text in normalized_hunks):
                 raise FrontendError("extract", "context-requirement-not-in-real-hunk")
         trigger = rule == "reject-if"
         assignment = _find_assignment(guard, trigger, context)

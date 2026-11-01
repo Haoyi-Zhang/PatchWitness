@@ -29,6 +29,16 @@ jobs:
           python -B -m unittest discover -s tests -p test_consumer_policy.py -v
           python -O -B -m unittest discover -s tests -p test_consumer_policy.py -v
           python -B check_consumer_policies.py --check results/usage-policies
+      - name: Check source compilation, hunk boundaries and case binding
+        run: |
+          python -B -m unittest discover -s tests -p test_functional_frontend.py -v
+          python -O -B -m unittest discover -s tests -p test_functional_frontend.py -v
+          python -B -m unittest discover -s tests -p test_rejection_guard_prefix.py -v
+          python -O -B -m unittest discover -s tests -p test_rejection_guard_prefix.py -v
+          python -B -m unittest discover -s tests -p test_assignment_sampling.py -v
+          python -O -B -m unittest discover -s tests -p test_assignment_sampling.py -v
+          python -B -m unittest discover -s tests -p test_source_binding.py -v
+          python -O -B -m unittest discover -s tests -p test_source_binding.py -v
       - name: Execute owned campaign and C11 scalar oracle
         run: timeout --signal=TERM --kill-after=10s 180s python -B run_owned_campaign.py --output scientific-results --c11
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
