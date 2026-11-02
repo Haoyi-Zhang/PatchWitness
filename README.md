@@ -264,7 +264,7 @@ Readiness has three scientific evidence checks: two are live recomputations at e
 - `data/public-study/`: retained original messages, full paths, minimal real hunks, source/context provenance, annotations excluded from scoring, labels and protocol.
 - `results/finite-check/`, `results/source-frontend/`, `results/closure-checks/`, `results/finite-frame-audit/`, `results/public-study/`: canonical scientific results.
 - `results/clean-replay/`: a measured replay record and logs, not an independent external replication.
-- `reference-verification.csv`, `literature-screening.csv`: 69 aligned reference records. Two correctness-witness sources have claim-specific body readings; `literature-calibration.csv` retains the original 22 targeted full-paper records. These scopes are distinct from the historical 67-source registration and do not assert a fresh full reading of every paper.
+- `reference-verification.csv`, `literature-screening.csv`: 71 aligned reference records. Two correctness-witness sources have claim-specific body readings; `literature-calibration.csv` retains the original 22 targeted full-paper records. These scopes are distinct from the historical 67-source registration and do not assert a fresh full reading of every paper.
 - `THIRD-PARTY-NOTICES.md`: source attribution and redistribution caveats.
 
 `results/campaign.json` is inherited accounting. Its totals and incomplete historical run records are not a verified current CPU budget or a count of independent samples. The bounded journal validation is separately measured in reproduction logs; no unlogged historical totals are invented. The manuscript and all diagrams can be rebuilt in the separate complete project, but this repository never requires its `paper/` directory.
