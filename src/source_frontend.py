@@ -25,6 +25,10 @@ INT32_MIN = -(2**31)
 INT32_MAX = 2**31 - 1
 INT64_MIN = -(2**63)
 INT64_MAX = 2**63 - 1
+MAX_PARSE_DEPTH = 32
+MAX_PARSE_TOKENS = 384
+MAX_EXPR_NODES = 96
+MAX_EXPR_DEPTH = 16
 
 
 class FrontendError(ValueError):
@@ -103,6 +107,8 @@ def normalize_expression(text: str) -> str:
 
 
 def tokenize(text: str) -> list[Token]:
+    if type(text) is not str or len(text) > 32_768:
+        raise FrontendError("parse", "expression-text-limit")
     normalized = normalize_expression(text)
     tokens: list[Token] = []
     pos = 0
@@ -113,6 +119,8 @@ def tokenize(text: str) -> list[Token]:
         kind = match.lastgroup
         assert kind is not None
         tokens.append(Token(kind, match.group(kind)))
+        if len(tokens) > MAX_PARSE_TOKENS:
+            raise FrontendError("parse", "expression-token-limit")
         pos = match.end()
     if not tokens:
         raise FrontendError("parse", "empty-expression")
@@ -140,8 +148,10 @@ class _PrattParser:
             raise FrontendError("parse", f"trailing-token:{self.peek().text}")
         return expression
 
-    def parse_expression(self, min_precedence: int) -> list[Any]:
-        left = self.parse_prefix()
+    def parse_expression(self, min_precedence: int, depth: int = 0) -> list[Any]:
+        if depth > MAX_PARSE_DEPTH:
+            raise FrontendError("parse", "expression-syntax-depth")
+        left = self.parse_prefix(depth)
         while True:
             token = self.peek()
             if token is None or token.kind != "op" or token.text not in _BINARY_PRECEDENCE:
@@ -150,14 +160,14 @@ class _PrattParser:
             if precedence < min_precedence:
                 break
             operator = self.take().text
-            right = self.parse_expression(precedence + 1)
+            right = self.parse_expression(precedence + 1, depth + 1)
             left = [_AST_OP[operator], left, right]
         return left
 
-    def parse_prefix(self) -> list[Any]:
+    def parse_prefix(self, depth: int) -> list[Any]:
         token = self.take()
         if token.kind == "op" and token.text == "!":
-            return ["not", self.parse_expression(5)]
+            return ["not", self.parse_expression(5, depth + 1)]
         if token.kind == "op" and token.text == "-":
             operand = self.take()
             if operand.kind not in {"int", "hex"}:
@@ -167,7 +177,7 @@ class _PrattParser:
                 raise FrontendError("parse", "integer-range")
             return ["const", value]
         if token.kind == "op" and token.text == "(":
-            expression = self.parse_expression(0)
+            expression = self.parse_expression(0, depth + 1)
             close = self.take()
             if close.kind != "op" or close.text != ")":
                 raise FrontendError("parse", "missing-close-parenthesis")
@@ -184,8 +194,22 @@ class _PrattParser:
         raise FrontendError("parse", f"unexpected-token:{token.text}")
 
 
+def _limit_expression(expression: list[Any]) -> list[Any]:
+    """Bound constructed trees iteratively, before variable search/evaluation."""
+    pending = [(expression, 0)]
+    nodes = 0
+    while pending:
+        node, depth = pending.pop()
+        nodes += 1
+        if nodes > MAX_EXPR_NODES or depth > MAX_EXPR_DEPTH:
+            raise FrontendError("parse", "expression-limit")
+        if node[0] not in {"var", "const"}:
+            pending.extend((child, depth + 1) for child in node[1:])
+    return expression
+
+
 def parse_expression(text: str) -> list[Any]:
-    return _PrattParser(tokenize(text)).parse()
+    return _limit_expression(_PrattParser(tokenize(text)).parse())
 
 
 def _balanced_content(text: str, open_index: int) -> tuple[str, int]:
@@ -365,7 +389,7 @@ def _combine(expressions: list[list[Any]], operator: str) -> list[Any]:
         raise FrontendError("parse", "no-expressions")
     result = expressions[0]
     for expression in expressions[1:]:
-        result = [operator, result, expression]
+        result = _limit_expression([operator, result, expression])
     return result
 
 

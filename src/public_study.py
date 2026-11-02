@@ -357,6 +357,43 @@ def validate_labels(document: dict[str, Any], candidate_groups: dict[str, str]) 
     return labels
 
 
+def validate_source_case(case: Any) -> None:
+    """Admit the complete expected case, including every unvisited subtree."""
+    _require(type(case) is dict, "case-fields")
+    kind = case.get("kind")
+    _require(type(kind) is str and kind in {"guard-trigger", "source-difference"}, "case-fields")
+    common = {"id", "kind", "record", "assignment", "source_tokens", "context_tokens", "context_preconditions", "frontend_rule"}
+    expected = common | ({"guard", "trigger_value"} if kind == "guard-trigger" else set())
+    _require(set(case) == expected, "case-fields")
+    _require(type(case["id"]) is str and bool(re.fullmatch(r"W\d{2,3}", case["id"])), "case-id")
+    _require_text(case["record"], "case-record")
+    assignment = case["assignment"]
+    _require(type(assignment) is dict and 1 <= len(assignment) <= 16, "case-assignment")
+    for name, value in assignment.items():
+        _require(type(name) is str and bool(re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,63}", name)), "case-variable")
+        _require_int(value)
+    for key in ("source_tokens", "context_tokens"):
+        _require(type(case[key]) is list and len(case[key]) <= MAX_SOURCE_TOKENS, "source-tokens")
+        for token in case[key]:
+            _require_text(token, "source-tokens")
+    _require(type(case["context_preconditions"]) is list and len(case["context_preconditions"]) == len(case["context_tokens"]), "context-preconditions")
+    for expr in case["context_preconditions"]:
+        _require(validate_expr(expr, set(assignment)) == "bool", "context-root-type")
+    if kind == "guard-trigger":
+        _require(type(case["frontend_rule"]) is str and case["frontend_rule"] in {"require", "reject-if"}
+                 and type(case["trigger_value"]) is bool, "guard-rule")
+        _require(case["trigger_value"] is (case["frontend_rule"] == "reject-if"), "guard-trigger-binding")
+        _require(validate_expr(case["guard"], set(assignment)) == "bool", "guard-root-type")
+        from source_frontend import variables
+        used = variables(case["guard"])
+        for expr in case["context_preconditions"]:
+            used.update(variables(expr))
+        _require(set(assignment) == used, "assignment-variable-set")
+    else:
+        _require(case["frontend_rule"] == "signed-negation-widening"
+                 and typed_equal(assignment, {"concat_dim": INT32_MIN}), "widening-case")
+
+
 def validate_source_evidence(document: dict[str, Any], candidate_ids: set[str]) -> list[dict[str, Any]]:
     _require(set(document) == {"schema", "construction", "cases", "diagnostics"}, "evidence-top-schema")
     _require(document.get("schema") == "rbw-public-source-evidence-v1", "evidence-schema")
@@ -376,32 +413,10 @@ def validate_source_evidence(document: dict[str, Any], candidate_ids: set[str]) 
     _require(type(cases) is list and 1 <= len(cases) <= len(candidate_ids), "case-count")
     seen_case: set[str] = set(); seen_record: set[str] = set()
     for case in cases:
-        common = {"id", "kind", "record", "assignment", "source_tokens", "context_tokens", "context_preconditions", "frontend_rule"}
-        expected = common | ({"guard", "trigger_value"} if case.get("kind") == "guard-trigger" else set())
-        _require(type(case) is dict and set(case) == expected and case.get("kind") in {"guard-trigger", "source-difference"}, "case-fields")
-        _require(bool(re.fullmatch(r"W\d{2,3}", case["id"])) and case["id"] not in seen_case, "case-id")
+        validate_source_case(case)
+        _require(case["id"] not in seen_case, "case-id")
         rid = case["record"]
         _require(rid in candidate_ids and rid not in seen_record and diag_by_id[rid]["status"] == "supported", "case-record")
-        assignment = case["assignment"]
-        _require(type(assignment) is dict and 1 <= len(assignment) <= 16, "case-assignment")
-        for name, value in assignment.items():
-            _require(bool(re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,63}", name)), "case-variable"); _require_int(value)
-        for key in ("source_tokens", "context_tokens"):
-            _require(type(case[key]) is list and len(case[key]) <= MAX_SOURCE_TOKENS and all(type(x) is str and x for x in case[key]), "source-tokens")
-        _require(type(case["context_preconditions"]) is list and len(case["context_preconditions"]) == len(case["context_tokens"]), "context-preconditions")
-        for expr in case["context_preconditions"]:
-            _require(validate_expr(expr, set(assignment)) == "bool", "context-root-type")
-        if case["kind"] == "guard-trigger":
-            _require(case["frontend_rule"] in {"require", "reject-if"} and type(case["trigger_value"]) is bool, "guard-rule")
-            _require(case["trigger_value"] is (case["frontend_rule"] == "reject-if"), "guard-trigger-binding")
-            _require(validate_expr(case["guard"], set(assignment)) == "bool", "guard-root-type")
-            from source_frontend import variables
-            used = variables(case["guard"])
-            for expr in case["context_preconditions"]:
-                used.update(variables(expr))
-            _require(set(assignment) == used, "assignment-variable-set")
-        else:
-            _require(case["frontend_rule"] == "signed-negation-widening" and assignment == {"concat_dim": INT32_MIN}, "widening-case")
         seen_case.add(case["id"]); seen_record.add(rid)
     _require(sum(row["status"] == "supported" for row in diagnostics) == len(cases), "diagnostic-case-binding")
     return cases
@@ -490,12 +505,13 @@ def check_source_record(case: dict[str, Any], record: dict[str, Any], evidence: 
     """Re-extract from the separate expected source before trusting case semantics."""
     from source_frontend import FrontendError, derive_case
     try:
+        validate_source_case(case)
         derived, _ = derive_case(record)
         if (type(case) is not dict or type(case.get("id")) is not str
                 or not re.fullmatch(r"W\d{2,3}", case["id"]) or derived is None
                 or not typed_equal(case, {"id": case["id"], **derived})):
             return False, "source-case-binding"
-    except (FrontendError, KeyError, TypeError):
+    except (Invalid, FrontendError, KeyError, TypeError):
         return False, "source-case-binding"
     if type(evidence) is not dict or evidence.get("schema") != "rbw-source-record-v2" or evidence.get("kind") != case["kind"]:
         return False, "source-record-schema"
@@ -814,8 +830,9 @@ def evaluate_predictions(candidates: dict[str, Any], label_doc: dict[str, Any], 
     rows = validate_predictions(predictions, candidates, source_evidence, protocol); outcomes = validate_outcomes(outcomes, rows)
     # Input hashes and a self-consistent sort do not bind supplied scores to
     # the scoring rule. Recompute label-free features, scores and tie order.
-    expected_predictions, _, _ = freeze_predictions(candidates, source_evidence, protocol)
+    expected_predictions, expected_outcomes, _ = freeze_predictions(candidates, source_evidence, protocol)
     _require(typed_equal(predictions, expected_predictions), "prediction-reconstruction")
+    _require(typed_equal(outcomes, expected_outcomes), "outcome-reconstruction")
     source_records = source_records or []
     if source_records: validate_source_records(source_records, cases, candidate_records, outcomes)
     _require({r["id"] for r in rows} == set(labels), "prediction-coverage")

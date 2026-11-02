@@ -9,6 +9,8 @@ jobs:
     env:
       README_ENTRY: 'README.md'
       MIN_EXPECTED_PYTHON_SOURCES: '23'
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -18,3 +20,7 @@ jobs:
           python-version: '3.12'
       - name: Validate supplied materials and source/configuration syntax
         run: python .github/scripts/check_repository.py
+      - name: Fail-closed consumer admission (bounded; no bootstrap or native execution)
+        run: |
+          python -B -m unittest discover -s tests -p test_consumer_admission.py -v
+          python -O -B -m unittest discover -s tests -p test_consumer_admission.py -v
