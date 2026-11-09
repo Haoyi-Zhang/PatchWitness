@@ -1,0 +1,5 @@
+category,label,fraction,annotation
+1,Positive files,0.625,10/16
+2,Positive commits,1,10/10
+3,All files,0.3125,10/32
+4,All commits,0.384615384615,10/26

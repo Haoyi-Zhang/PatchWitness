@@ -1,0 +1,31 @@
+[
+  {
+    "id": "checked-endpoint-grid",
+    "kind": "endpoint"
+  },
+  {
+    "id": "guard-context-branches",
+    "kind": "fork",
+    "source": [
+      "Common context|Nonzero dimension",
+      "gate"
+    ],
+    "outcomes": [
+      [
+        [
+          "Source trigger|Negative dimension",
+          "accept"
+        ],
+        "dim = -1"
+      ],
+      [
+        [
+          "Expression test|Not a source trigger",
+          "reject",
+          "risk"
+        ],
+        "dim = 0"
+      ]
+    ]
+  }
+]

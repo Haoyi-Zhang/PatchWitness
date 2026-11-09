@@ -1,0 +1,5 @@
+row,label,lower,upper,observed
+1,Checked: h=1,0,0,0
+2,Hints: h=1,0,0.05,0.05
+3,Checked: labels hidden,0,0,0
+4,Hints: labels hidden,-0.05,0.05,0.05

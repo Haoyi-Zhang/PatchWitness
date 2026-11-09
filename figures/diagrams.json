@@ -1,0 +1,76 @@
+{
+  "project": "PatchWitness_TOSEM",
+  "figures": [
+    {
+      "asset": "evidence-ladder",
+      "media": [
+        428.0,
+        102.0
+      ],
+      "width": 411.3,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "artifact/figures/illustrations/evidence-ladder.pdf",
+        "artifact/figures/evidence-ladder.pdf"
+      ]
+    },
+    {
+      "asset": "trust-boundary",
+      "media": [
+        428.0,
+        149.0
+      ],
+      "width": 428.0,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "artifact/figures/illustrations/trust-boundary.pdf",
+        "artifact/figures/trust-boundary.pdf"
+      ]
+    },
+    {
+      "asset": "guard-context-branches",
+      "media": [
+        426.0,
+        112.0
+      ],
+      "width": 428.4,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "artifact/figures/guard-context-branches.pdf"
+      ]
+    },
+    {
+      "asset": "study-pipeline",
+      "media": [
+        428.0,
+        147.0
+      ],
+      "width": 428.0,
+      "trim": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "targets": [
+        "artifact/figures/illustrations/study-pipeline.pdf",
+        "artifact/figures/study-pipeline.pdf"
+      ]
+    }
+  ]
+}
