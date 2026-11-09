@@ -2,9 +2,18 @@
 
 This standalone artifact supports a journal-formatted research manuscript on checkable evidence contracts and the interpretation of software-engineering evaluations. It contains no external model calls, new public patch campaign, upstream application execution, or exploit reproduction.
 
-## Authors
+## Retained artifact credit
 
-Huaijin Ran and Haoyi Zhang contributed equally to this work, followed by Yuqiang Sun and Jiongchi Yu.
+The original artifact credits list Huaijin Ran, Haoyi Zhang, Yuqiang Sun, and
+Jiongchi Yu. The collaboration manuscript has its own byline.
+
+## Rebuilding the explanatory diagrams
+
+Create an output directory, then run `python -B figures/rebuild_diagrams.py --output /path/to/figures`
+from the artifact root. This regenerates the explanatory vector PDFs without
+running an experiment or requiring the manuscript. In the collaboration bundle,
+the same command without `--output` updates the diagram targets consumed by the
+sibling `paper/` directory. Other plots have their own generators and inputs.
 
 ## Evidence objects
 
